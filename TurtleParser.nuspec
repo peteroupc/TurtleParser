@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>PeterO.TurtleParser</id>
+    <version>0.1.0</version>
+    <title>Turtle Parser</title>
+    <authors>Peter Occil</authors>
+    <owners>Peter Occil</owners>
+    <licenseUrl>http://creativecommons.org/publicdomain/zero/1.0/</licenseUrl>
+    <projectUrl>https://github.com/peteroupc/TurtleParser</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+A Turtle RDF parser for C# and Java.
+    </description>
+    <tags>rdf turtle</tags>
+    <releaseNotes>
+    Version 0.1.0: First release
+    </releaseNotes>
+    <copyright>Written by Peter O. in 2015.  Any copyright is released to the Public Domain.</copyright>
+    <dependencies>
+      <group targetFramework="dotnet">
+        <dependency id="System.Collections" version="4.0.0" />
+        <dependency id="System.IO" version="4.0.0" />
+        <dependency id="System.Runtime" version="4.0.0" />
+        <dependency id="System.Runtime.Extensions" version="4.0.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/Encoding.dll" target="lib/portable-net45+dnxcore50+netcore45+win+wpa81+wp80" />
+    <file src="bin/Release/Encoding.xml" target="lib/portable-net45+dnxcore50+netcore45+win+wpa81+wp80" />
+    <file src="Encoding-Net4/bin/Release/Encoding.dll" target="lib/portable-net40+sl50+win+wpa81+wp80" />
+    <file src="Encoding-Net4/bin/Release/Encoding.xml" target="lib/portable-net40+sl50+win+wpa81+wp80" />
+  </files>
+</package>
