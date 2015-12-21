@@ -54,30 +54,26 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="PeterO\BitReader.cs" />
-    <Compile Include="PeterO\ConditionalBufferInputStream.cs" />
     <Compile Include="PeterO\IMarkableCharacterInput.cs" />
-    <Compile Include="PeterO\rdf\IRDFParser.cs" />
-    <Compile Include="PeterO\rdf\NTriplesParser.cs" />
-    <Compile Include="PeterO\rdf\ParserException.cs" />
-    <Compile Include="PeterO\rdf\RDFInternal.cs" />
-    <Compile Include="PeterO\rdf\RDFTerm.cs" />
-    <Compile Include="PeterO\rdf\RDFTriple.cs" />
-    <Compile Include="PeterO\rdf\TurtleParser.cs" />
+    <Compile Include="PeterO\Rdf\IRDFParser.cs" />
+    <Compile Include="PeterO\Rdf\NTriplesParser.cs" />
+    <Compile Include="PeterO\Rdf\ParserException.cs" />
+    <Compile Include="PeterO\Rdf\RDFInternal.cs" />
+    <Compile Include="PeterO\Rdf\RDFTerm.cs" />
+    <Compile Include="PeterO\Rdf\RDFTriple.cs" />
+    <Compile Include="PeterO\Rdf\TurtleParser.cs" />
+    <Compile Include="PeterO\Rdf\URIUtility.cs" />
     <Compile Include="PeterO\StackableCharacterInput.cs" />
-    <Compile Include="PeterO\StreamUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Encoding, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\PeterO.Encoding.0.10.0\lib\portable-net40+sl50+win+wpa81+wp80\Encoding.dll</HintPath>
+    <Reference Include="Encoding, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PeterO.Encoding.0.1.0\lib\portable-net40+sl50+win+wpa81+wp80\Encoding.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\StyleCop\v4.7\StyleCop.targets" />

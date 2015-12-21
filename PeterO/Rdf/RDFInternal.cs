@@ -11,17 +11,16 @@ using System;
 using System.Globalization;
 using System.Collections.Generic;
 
-sealed class RDFInternal {
-  /*
-   *  Replaces certain blank nodes with blank nodes whose
-   *  names meet the N-Triples requirements
-   * @param triples A set of RDF triples
-   * @param bnodeLabels A mapping of blank node names
-   * already allocated.  This method will modify this
-   * _object as needed to allocate new blank nodes.
-   */
-  //
-  internal static void replaceBlankNodes(ISet<RDFTriple> triples,
+internal sealed class RDFInternal {
+    /// <summary>Replaces certain blank nodes with blank nodes whose names
+    /// meet the N-Triples requirements @param triples A set of RDF triples
+    /// @param bnodeLabels A mapping of blank node names already allocated.
+    /// This method will modify this _object as needed to allocate new
+    /// blank nodes.</summary>
+    /// <param name='triples'>Not documented yet.</param>
+    /// <param name='bnodeLabels'>Not documented yet.</param>
+  internal static void replaceBlankNodes(
+ISet<RDFTriple> triples,
       IDictionary<string, RDFTerm> bnodeLabels) {
     if (bnodeLabels.Count == 0) {
  return;
@@ -30,7 +29,7 @@ sealed class RDFInternal {
       Dictionary<string, RDFTerm>();
     IList<RDFTriple[]> changedTriples = new List<RDFTriple[]>();
     var nodeindex = new int[] { 0 };
-    foreach(var triple in triples) {
+     foreach (var triple in triples) {
       var changed = false;
       RDFTerm subj = triple.getSubject();
       if (subj.getKind() == RDFTerm.BLANK) {
@@ -69,7 +68,7 @@ sealed class RDFInternal {
         changedTriples.Add(newTriple);
       }
     }
-    foreach(var triple in changedTriples) {
+     foreach (var triple in changedTriples) {
       triples.Remove(triple[0]);
       triples.Add(triple[1]);
     }
@@ -77,17 +76,17 @@ sealed class RDFInternal {
 
   private static string suggestBlankNodeName(
       string node, int[] nodeindex, IDictionary<string, RDFTerm> bnodeLabels) {
-    bool validnode=(node.Length>0);
+    bool validnode = node.Length > 0;
     // Check if the blank node label is valid
     // under N-Triples
-    for (int i = 0;i<node.Length; ++i) {
+    for (int i = 0; i < node.Length; ++i) {
       int c = node[i];
-      if (i==0 && !((c>= 'A' && c<= 'Z') || (c>= 'a' && c<= 'z'))) {
+      if (i == 0 && !((c >= 'A' && c<= 'Z') || (c>= 'a' && c<= 'z'))) {
         validnode = false;
         break;
       }
-      if (i>= 0 && !((c>= 'A' && c<= 'Z') || (c>= '0' && c<= '9') ||
-          (c>= 'a' && c<= 'z'))) {
+      if (i >= 0 && !((c >= 'A' && c<= 'Z') || (c>= '0' && c<= '9') ||
+          (c >= 'a' && c <= 'z'))) {
         validnode = false;
         break;
       }
@@ -98,13 +97,15 @@ sealed class RDFInternal {
     while (true) {
       // Generate a new blank node label,
       // and ensure it's unique
-      node="b"+Convert.ToString(nodeindex[0],CultureInfo.InvariantCulture);
+      node = "b" + Convert.ToString(nodeindex[0],CultureInfo.InvariantCulture);
       if (!bnodeLabels.ContainsKey(node)) {
  return node;
 }
       ++nodeindex[0];
     }
   }
-  private RDFInternal() {}
+
+  private RDFInternal() {
+}
 }
 }

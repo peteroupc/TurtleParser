@@ -10,6 +10,7 @@ namespace PeterO.Rdf {
 using System;
 using System.IO;
 
+    /// <summary>Not documented yet.</summary>
 public class ParserException : IOException {
 }
 }
