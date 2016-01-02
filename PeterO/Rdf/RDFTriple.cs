@@ -9,26 +9,21 @@ at: http://upokecenter.dreamhosters.com/articles/donate-now-2/
 namespace PeterO.Rdf {
   using System;
 
-    /// <summary>Not documented yet.</summary>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.RDFTriple"]/*'/>
   public sealed class RDFTriple {
     private RDFTerm subject, predicate, _object;
 
-    /// <summary>Initializes a new instance of the RDFTriple
-    /// class.</summary>
-    /// <param name='subject'>A RDFTerm object.</param>
-    /// <param name='predicate'>Another RDFTerm object.</param>
-    /// <param name='_object'>A RDFTerm object. (3).</param>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)"]/*'/>
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm _object) {
       this.setSubject(subject);
       this.setPredicate(predicate);
       this.setObject(_object);
     }
 
-    /// <summary>Initializes a new instance of the RDFTriple
-    /// class.</summary>
-    /// <param name='triple'>A RDFTriple object.</param>
-    /// <exception cref='ArgumentNullException'>The parameter <paramref
-    /// name='triple'/> is null.</exception>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)"]/*'/>
     public RDFTriple(RDFTriple triple) {
       if (triple == null) {
         throw new ArgumentNullException("triple");
@@ -38,8 +33,8 @@ namespace PeterO.Rdf {
       this.setObject(triple._object);
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>Not documented yet.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)"]/*'/>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -72,26 +67,26 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>A RDFTerm object.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getObject"]/*'/>
     public RDFTerm getObject() {
       return this._object;
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>A RDFTerm object.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getPredicate"]/*'/>
     public RDFTerm getPredicate() {
       return this.predicate;
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>A RDFTerm object.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getSubject"]/*'/>
     public RDFTerm getSubject() {
       return this.subject;
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>Not documented yet.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetHashCode"]/*'/>
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -99,7 +94,7 @@ namespace PeterO.Rdf {
              this._object.GetHashCode());
         result = (prime * result) +
             ((this.predicate == null) ? 0 : this.predicate.GetHashCode());
-        result = prime * result + ((this.subject = = null) ? 0 :
+        result = prime * result + ((this.subject == null) ? 0 :
           this.subject.GetHashCode());
         return result;
       }
@@ -135,8 +130,8 @@ namespace PeterO.Rdf {
       this.subject = subject;
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>Not documented yet.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.ToString"]/*'/>
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
             this._object.ToString() + " .";

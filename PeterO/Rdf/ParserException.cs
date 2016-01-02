@@ -10,7 +10,8 @@ namespace PeterO.Rdf {
 using System;
 using System.IO;
 
-    /// <summary>Not documented yet.</summary>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.ParserException"]/*'/>
 public class ParserException : IOException {
 }
 }

@@ -14,7 +14,8 @@ namespace PeterO.Rdf {
   using PeterO;
   using PeterO.Text;
 
-    /// <summary>Not documented yet.</summary>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.TurtleParser"]/*'/>
   public class TurtleParser : IRDFParser {
     private class TurtleObject {
       public const int SIMPLE = 0;
@@ -115,19 +116,14 @@ namespace PeterO.Rdf {
     private StackableCharacterInput input;
     private int curBlankNode = 0;
 
-    /// <summary>Initializes a new instance of the TurtleParser
-    /// class.</summary>
-    /// <param name='stream'>A PeterO.IByteReader object.</param>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader)"]/*'/>
     public TurtleParser(PeterO.IByteReader stream) :
       this(stream, "about:blank") {
     }
 
-    /// <summary>Initializes a new instance of the TurtleParser
-    /// class.</summary>
-    /// <param name='stream'>A PeterO.IByteReader object.</param>
-    /// <param name='baseURI'>A string object.</param>
-    /// <exception cref='ArgumentNullException'>The parameter <paramref
-    /// name='stream'/> or <paramref name='baseURI'/> is null.</exception>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)"]/*'/>
     public TurtleParser(PeterO.IByteReader stream, string baseURI) {
       if (stream == null) {
         throw new ArgumentNullException("stream");
@@ -145,18 +141,13 @@ namespace PeterO.Rdf {
       this.namespaces = new Dictionary<string, string>();
     }
 
-    /// <summary>Initializes a new instance of the TurtleParser
-    /// class.</summary>
-    /// <param name='str'>A string object.</param>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(System.String)"]/*'/>
     public TurtleParser(string str) : this(str, "about:blank") {
     }
 
-    /// <summary>Initializes a new instance of the TurtleParser
-    /// class.</summary>
-    /// <param name='str'>A string object.</param>
-    /// <param name='baseURI'>Another string object.</param>
-    /// <exception cref='ArgumentNullException'>The parameter <paramref
-    /// name='str'/> or <paramref name='baseURI'/> is null.</exception>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)"]/*'/>
     public TurtleParser(string str, string baseURI) {
       if (str == null) {
         throw new ArgumentNullException("str");
@@ -345,8 +336,8 @@ scope + this.readOptionalLocalName());
           (ch >= 0xfdf0 && ch <= 0xfffd) || (ch >= 0x10000 && ch <= 0xeffff);
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>An ISet(RDFTriple) object.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.Parse"]/*'/>
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> triples = new HashSet<RDFTriple>();
       while (true) {

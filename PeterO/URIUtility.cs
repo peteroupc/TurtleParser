@@ -5,34 +5,34 @@ http://creativecommons.org/publicdomain/zero/1.0/
 If you like this, you should donate to Peter O.
 at: http://upokecenter.dreamhosters.com/articles/donate-now-2/
  */
-namespace PeterO.Rdf {
+namespace PeterO.Cbor {
   using System;
   using System.Text;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.URIUtility"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Cbor.URIUtility"]/*'/>
   internal static class URIUtility {
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.URIUtility.ParseMode"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Cbor.URIUtility.ParseMode"]/*'/>
     internal enum ParseMode {
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.URIUtility.ParseMode.IRIStrict"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Cbor.URIUtility.ParseMode.IRIStrict"]/*'/>
       IRIStrict,
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.URIUtility.ParseMode.URIStrict"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Cbor.URIUtility.ParseMode.URIStrict"]/*'/>
       URIStrict,
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.URIUtility.ParseMode.IRILenient"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Cbor.URIUtility.ParseMode.IRILenient"]/*'/>
       IRILenient,
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.URIUtility.ParseMode.URILenient"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Cbor.URIUtility.ParseMode.URILenient"]/*'/>
       URILenient,
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.URIUtility.ParseMode.IRISurrogateLenient"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Cbor.URIUtility.ParseMode.IRISurrogateLenient"]/*'/>
       IRISurrogateLenient
     }
 
@@ -112,7 +112,7 @@ segments[1] - segments[0]));
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.escapeURI(System.String,System.Int32)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.escapeURI(System.String,System.Int32)"]/*'/>
     public static string escapeURI(string s, int mode) {
       if (s == null) {
         return null;
@@ -225,7 +225,7 @@ ParseMode.IRISurrogateLenient);
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.hasScheme(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.hasScheme(System.String)"]/*'/>
     public static bool hasScheme(string refValue) {
       int[] segments = (refValue == null) ? null : splitIRI(
         refValue,
@@ -236,7 +236,7 @@ ParseMode.IRISurrogateLenient);
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.hasSchemeForURI(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.hasSchemeForURI(System.String)"]/*'/>
     public static bool hasSchemeForURI(string refValue) {
       int[] segments = (refValue == null) ? null : splitIRI(
         refValue,
@@ -302,7 +302,7 @@ ParseMode.IRISurrogateLenient);
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.isValidCurieReference(System.String,System.Int32,System.Int32)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.isValidCurieReference(System.String,System.Int32,System.Int32)"]/*'/>
     public static bool isValidCurieReference(string s, int offset, int length) {
       if (s == null) {
         return false;
@@ -782,13 +782,13 @@ int endIndex) {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.relativeResolve(System.String,System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.relativeResolve(System.String,System.String)"]/*'/>
     public static string relativeResolve(string refValue, string baseURI) {
       return relativeResolve(refValue, baseURI, ParseMode.IRIStrict);
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.relativeResolve(System.String,System.String,PeterO.Rdf.URIUtility.ParseMode)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.relativeResolve(System.String,System.String,PeterO.Cbor.URIUtility.ParseMode)"]/*'/>
     public static string relativeResolve(
 string refValue,
 string baseURI,
@@ -861,13 +861,13 @@ segmentsBase[5]));
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.splitIRI(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.splitIRI(System.String)"]/*'/>
     public static int[] splitIRI(string s) {
       return (s == null) ? null : splitIRI(s, 0, s.Length, ParseMode.IRIStrict);
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.splitIRI(System.String,System.Int32,System.Int32,PeterO.Rdf.URIUtility.ParseMode)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.splitIRI(System.String,System.Int32,System.Int32,PeterO.Cbor.URIUtility.ParseMode)"]/*'/>
     public static int[] splitIRI(
 string s,
 int offset,
@@ -876,9 +876,29 @@ ParseMode parseMode) {
       if (s == null) {
         return null;
       }
-      if (offset < 0 || length < 0 || offset + length > s.Length) {
-        throw new ArgumentOutOfRangeException();
-      }
+      if (s == null) {
+  throw new ArgumentNullException("s");
+}
+if (offset < 0) {
+  throw new ArgumentException("offset (" + offset +
+    ") is less than " + 0);
+}
+if (offset > s.Length) {
+  throw new ArgumentException("offset (" + offset +
+    ") is more than " + s.Length);
+}
+if (length < 0) {
+  throw new ArgumentException("length (" + length +
+    ") is less than " + 0);
+}
+if (length > s.Length) {
+  throw new ArgumentException("length (" + length +
+    ") is more than " + s.Length);
+}
+if (s.Length - offset < length) {
+  throw new ArgumentException("s's length minus " + offset + " (" +
+    (s.Length - offset) + ") is less than " + length);
+}
       int[] retval = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
       if (length == 0) {
         retval[4] = 0;
@@ -1101,7 +1121,7 @@ ParseMode parseMode) {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.splitIRI(System.String,PeterO.Rdf.URIUtility.ParseMode)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Cbor.URIUtility.splitIRI(System.String,PeterO.Cbor.URIUtility.ParseMode)"]/*'/>
     public static int[] splitIRI(string s, ParseMode parseMode) {
       return (s == null) ? null : splitIRI(s, 0, s.Length, parseMode);
     }

@@ -11,10 +11,11 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
-    /// <summary>Not documented yet.</summary>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.IRDFParser"]/*'/>
 public interface IRDFParser {
-    /// <summary>Not documented yet.</summary>
-    /// <returns>Not documented yet.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.IRDFParser.Parse"]/*'/>
    ISet<RDFTriple> Parse();
 }
 }

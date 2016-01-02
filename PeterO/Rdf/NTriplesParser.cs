@@ -15,12 +15,11 @@ namespace PeterO.Rdf {
   using PeterO;
   using PeterO.Text;
 
-    /// <summary>Not documented yet.</summary>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.NTriplesParser"]/*'/>
   public sealed class NTriplesParser : IRDFParser {
-    /// <summary>Not documented yet.</summary>
-    /// <param name='c'>Not documented yet.</param>
-    /// <param name='asciiChars'>Not documented yet.</param>
-    /// <returns>A Boolean object.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)"]/*'/>
     public static bool isAsciiChar(int c, string asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.IndexOf((char)c) >= 0;
     }
@@ -29,11 +28,8 @@ namespace PeterO.Rdf {
 
     private StackableCharacterInput input;
 
-    /// <summary>Initializes a new instance of the NTriplesParser
-    /// class.</summary>
-    /// <param name='stream'>A PeterO.IByteReader object.</param>
-    /// <exception cref='ArgumentNullException'>The parameter <paramref
-    /// name='stream'/> is null.</exception>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)"]/*'/>
     public NTriplesParser(PeterO.IByteReader stream) {
       if (stream == null) {
         throw new ArgumentNullException("stream");
@@ -45,11 +41,8 @@ stream));
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
-    /// <summary>Initializes a new instance of the NTriplesParser
-    /// class.</summary>
-    /// <param name='str'>A string object.</param>
-    /// <exception cref='ArgumentNullException'>The parameter "stream" is
-    /// null.</exception>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)"]/*'/>
     public NTriplesParser(string str) {
       if (str == null) {
         throw new ArgumentNullException("stream");
@@ -90,8 +83,8 @@ stream));
       }
     }
 
-    /// <summary>Not documented yet.</summary>
-    /// <returns>An ISet(RDFTriple) object.</returns>
+    /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.Parse"]/*'/>
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {

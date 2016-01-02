@@ -1,0 +1,470 @@
+<docs>
+<doc name="T:PeterO.IMarkableCharacterInput">
+<summary>Not documented yet.</summary>
+</doc>
+<doc name="M:PeterO.IMarkableCharacterInput.getMarkPosition">
+<summary>Gets the zero-based character position in the stream from
+            the last-set mark.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)">
+<summary>Moves the stream position back the given number of
+            characters. No mark was set, or the position is too close to the
+            currently set mark.</summary>
+</doc>
+<doc name="M:PeterO.IMarkableCharacterInput.setHardMark">
+<summary>Sets a mark on the stream's current position. @return
+            Always 0.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="M:PeterO.IMarkableCharacterInput.setMarkPosition(System.Int32)">
+<summary>Sets the stream's position from the last set mark. @param
+            pos Zero-based character offset from the last set mark. @ No mark
+            was set, or the position is less than 1, or the position reaches
+            the end of the stream.</summary>
+</doc>
+<doc name="M:PeterO.IMarkableCharacterInput.setSoftMark">
+<summary>If no mark is set, sets a mark on the stream, and
+            characters read before the currently set mark are no longer
+            available, while characters read after will be available if
+            moveBack is called. Otherwise, behaves like
+            getMarkPosition.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="T:PeterO.Rdf.IRDFParser">
+<summary>Not documented yet.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.IRDFParser.Parse">
+<summary>Not documented yet.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="T:PeterO.Rdf.NTriplesParser">
+<summary>Not documented yet.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)">
+<summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+            <param name='stream'>A PeterO.IByteReader object.</param>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='stream'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)">
+<summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+            <param name='str'>A text string.</param>
+            <exception cref='T:System.ArgumentNullException'>The parameter "stream" is
+            null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.NTriplesParser.Parse">
+<summary>Not documented yet.</summary>
+            <returns>An ISet(RDFTriple) object.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)">
+<summary>Not documented yet.</summary>
+            <param name='c'>The parameter <paramref name='c'/> is not documented yet.</param>
+            <param name='asciiChars'>The parameter <paramref name='asciiChars'/> is not documented yet.</param>
+            <returns>A Boolean object.</returns>
+</doc>
+<doc name="T:PeterO.Rdf.ParserException">
+<summary>Not documented yet.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})">
+<summary>Replaces certain blank nodes with blank nodes whose names
+            meet the N-Triples requirements.</summary>
+            <param name='triples'>A set of RDF triples</param>
+            <param name='bnodeLabels'>A mapping of blank node names already allocated.
+            This method will modify this _object as needed to allocate new
+            blank nodes.</param>
+</doc>
+<doc name="T:PeterO.Rdf.RDFTerm">
+<summary>Not documented yet.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.A">
+<summary>Predicate for RDF types.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.BLANK">
+<summary>Type value for a blank node.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)">
+<summary>Not documented yet.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.FALSE">
+<summary>Object for false.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.FIRST">
+<summary>Predicate for the first object in a list.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.GetHashCode">
+<summary>Not documented yet.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.IRI">
+<summary>Type value for an IRI (Internationalized Resource
+            Identifier.).</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.LANGSTRING">
+<summary>Type value for a string with a language tag.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.NIL">
+<summary>Object for nil, the end of a list, or an empty
+            list.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.REST">
+<summary>Predicate for the remaining objects in a list.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.TRUE">
+<summary>Object for true.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.RDFTerm.TYPEDSTRING">
+<summary>Type value for a piece of data serialized to a
+            _string.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.ToString">
+<summary>* Gets a _string representation of this RDF term in
+            N-Triples format. The _string will not end in a line
+            break.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)">
+<summary>Not documented yet.</summary>
+            <param name='name'>The parameter <paramref name='name'/> is not documented yet.</param>
+            <returns>A RDFTerm object.</returns>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='name'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.fromIRI(System.String)">
+<summary>Not documented yet.</summary>
+            <param name='iri'>The parameter <paramref name='iri'/> is not documented yet.</param>
+            <returns>A RDFTerm object.</returns>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='iri'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.fromLangString(System.String,System.String)">
+<summary>Not documented yet.</summary>
+            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
+            <param name='languageTag'>The parameter <paramref name='languageTag'/> is not documented yet.</param>
+            <returns>A RDFTerm object.</returns>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='str'/> or <paramref name='languageTag'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String)">
+<summary>Not documented yet.</summary>
+            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
+            <returns>A RDFTerm object.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String,System.String)">
+<summary>Not documented yet.</summary>
+            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
+            <param name='iri'>The parameter <paramref name='iri'/> is not documented yet.</param>
+            <returns>A RDFTerm object.</returns>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='str'/> or <paramref name='iri'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.getKind">
+<summary>Not documented yet.</summary>
+            <returns>A 32-bit signed integer.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.getTypeOrLanguage">
+<summary>Gets the language tag or data type for this RDF
+            literal.</summary>
+            <returns>A text string.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.getValue">
+<summary>Gets the IRI, blank node identifier, or lexical form of an
+            RDF literal.</summary>
+            <returns>A text string.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.isBlank">
+<summary>Not documented yet.</summary>
+            <returns>A Boolean object.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.isIRI(System.String)">
+<summary>Not documented yet.</summary>
+            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
+            <returns>A Boolean object.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTerm.isOrdinaryString">
+<summary>Not documented yet.</summary>
+            <returns>A Boolean object.</returns>
+</doc>
+<doc name="T:PeterO.Rdf.RDFTriple">
+<summary>Not documented yet.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)">
+<summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+            <param name='subject'>A RDFTerm object.</param>
+            <param name='predicate'>Another RDFTerm object.</param>
+            <param name='_object'>A RDFTerm object. (3).</param>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)">
+<summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+            <param name='triple'>A RDFTriple object.</param>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='triple'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)">
+<summary>Not documented yet.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.GetHashCode">
+<summary>Not documented yet.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.ToString">
+<summary>Not documented yet.</summary>
+            <returns>Not documented yet.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.getObject">
+<summary>Not documented yet.</summary>
+            <returns>A RDFTerm object.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.getPredicate">
+<summary>Not documented yet.</summary>
+            <returns>A RDFTerm object.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.RDFTriple.getSubject">
+<summary>Not documented yet.</summary>
+            <returns>A RDFTerm object.</returns>
+</doc>
+<doc name="T:PeterO.Rdf.TurtleParser">
+<summary>Not documented yet.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader)">
+<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+            <param name='stream'>A PeterO.IByteReader object.</param>
+</doc>
+<doc name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)">
+<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+            <param name='stream'>A PeterO.IByteReader object.</param>
+            <param name='baseURI'>A text string.</param>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='stream'/> or <paramref name='baseURI'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.TurtleParser.#ctor(System.String)">
+<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+            <param name='str'>A text string.</param>
+</doc>
+<doc name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)">
+<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+            <param name='str'>A text string.</param>
+            <param name='baseURI'>Another string object.</param>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='str'/> or <paramref name='baseURI'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.TurtleParser.Parse">
+<summary>Not documented yet.</summary>
+            <returns>An ISet(RDFTriple) object.</returns>
+</doc>
+<doc name="T:PeterO.Rdf.URIUtility">
+<summary>Contains utility methods for processing Uniform Resource
+            Identifiers (URIs) and Internationalized Resource Identifiers
+            (IRIs) under RFC3986 and RFC3987, respectively. In the following
+            documentation, URIs and IRIs include URI references and IRI
+            references, for convenience.</summary>
+</doc>
+<doc name="T:PeterO.Rdf.URIUtility.ParseMode">
+<summary>Specifies whether certain characters are allowed when
+            parsing IRIs and URIs.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.URIUtility.ParseMode.IRILenient">
+<summary>The rules only check for the appropriate delimiters when
+            splitting the path, without checking if all the characters in each
+            component are valid. Even with this mode, strings with unpaired
+            surrogate code points are considered invalid.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.URIUtility.ParseMode.IRIStrict">
+<summary>The rules follow the syntax for parsing IRIs. In
+            particular, many code points outside the Basic Latin range (U+0000 to U+007F) are allowed. Strings with unpaired surrogate code
+            points are considered invalid.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.URIUtility.ParseMode.IRISurrogateLenient">
+<summary>The rules only check for the appropriate delimiters when
+            splitting the path, without checking if all the characters in each
+            component are valid. Unpaired surrogate code points are treated as
+            though they were replacement characters instead for the purposes of
+            these rules, so that strings with those code points are not
+            considered invalid strings.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.URIUtility.ParseMode.URILenient">
+<summary>The rules only check for the appropriate delimiters when
+            splitting the path, without checking if all the characters in each
+            component are valid. Code points outside the Basic Latin range (U+0000 to U+007F) are not allowed.</summary>
+</doc>
+<doc name="F:PeterO.Rdf.URIUtility.ParseMode.URIStrict">
+<summary>The rules follow the syntax for parsing IRIs, except that
+            code points outside the Basic Latin range (U+0000 to U+007F)
+            are not allowed.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.escapeURI(System.String,System.Int32)">
+<return>a string possibly containing escaped characters, or null if
+            s is null.</return>
+            <summary>Escapes characters that cannot appear in URIs or IRIs. The
+            function is idempotent; that is, calling the function again on the
+            result with the same mode doesn't change the result.</summary>
+            <param name='s'>A string to escape.</param>
+            <param name='mode'>A 32-bit signed integer.</param>
+            <returns>A text string.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.hasScheme(System.String)">
+<summary>
+            Determines whether the string is a valid IRI with a
+            scheme component. This can be used to check for
+            relative IRI references.
+            <para>The following cases return true:</para>
+            <code> xx-x:mm example:/ww </code>
+             The following cases return false:
+            <code> x@y:/z /x/y/z example.xyz </code>
+            </summary>
+            <param name='refValue'>A string representing an IRI to
+            check.</param>
+            <returns>True if the string is a valid IRI with a scheme component;
+            otherwise, false.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.hasSchemeForURI(System.String)">
+<summary>
+            Determines whether the string is a valid URI with a
+            scheme component. This can be used to check for
+            relative URI references. The following cases return
+            true:
+            <code> http://example/z xx-x:mm example:/ww </code>
+             The following cases return false:
+            <code> x@y:/z /x/y/z example.xyz </code>
+            </summary>
+            <param name='refValue'>A string representing an IRI to
+            check.</param>
+            <returns>True if the string is a valid URI with a scheme component;
+            otherwise, false.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.isValidCurieReference(System.String,System.Int32,System.Int32)">
+<summary>Determines whether the substring is a valid CURIE
+            reference under RDFA 1.1. (The CURIE reference is the part after
+            the colon.).</summary>
+            <param name='s'>A string containing a CURIE reference. Can be
+            null.</param>
+            <param name='offset'>A zero-based index showing where the desired
+            portion of "s" begins.</param>
+            <param name='length'>The number of elements in the desired portion
+            of "s" (but not more than "s" 's length).</param>
+            <returns>True if the substring is a valid CURIE reference under
+            RDFA 1; otherwise, false. Returns false if <paramref name='s'/> is
+            null.</returns>
+            <exception cref='T:System.ArgumentException'>Either <paramref name='offset'/> or <paramref name='length'/> is less than 0 or
+            greater than <paramref name='s'/> 's length, or <paramref name='s'/> 's length minus <paramref name='offset'/> is less than
+            <paramref name='length'/>.</exception>
+            <exception cref='T:System.ArgumentNullException'>--.</exception>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.relativeResolve(System.String,System.String)">
+<summary>Resolves a URI or IRI relative to another URI or
+            IRI.</summary>
+            <param name='refValue'>A string representing a URI or IRI
+            reference. Example: <c>dir/file.txt</c>.</param>
+            <param name='baseURI'>A string representing an absolute URI
+            reference. Example: <c>http://example.com/my/path/</c>.</param>
+            <returns>The resolved IRI, or null if <paramref name='refValue'/>
+            is null or is not a valid IRI. If base is null or is not a valid
+            IRI, returns refValue. Example:
+            http://example.com/my/path/dir/file.txt.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.relativeResolve(System.String,System.String,PeterO.Rdf.URIUtility.ParseMode)">
+<summary>Resolves a URI or IRI relative to another URI or
+            IRI.</summary>
+            <param name='refValue'>A string representing a URI or IRI
+            reference. Example: <c>dir/file.txt</c>.</param>
+            <param name='baseURI'>A string representing an absolute URI
+            reference. Example: <c>http://example.com/my/path/</c>.</param>
+            <param name='parseMode'>Parse mode that specifies whether certain
+            characters are allowed when parsing IRIs and URIs.</param>
+            <returns>The resolved IRI, or null if <paramref name='refValue'/>
+            is null or is not a valid IRI. If base is null or is not a valid
+            IRI, returns refValue.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.splitIRI(System.String)">
+<summary>Parses an Internationalized Resource Identifier (IRI)
+            reference under RFC3987. If the IRI reference is syntactically
+            valid, splits the string into its components and returns an array
+            containing the indices into the components.
+            <returns>If the string is a valid IRI reference, returns an array
+            of 10 integers. Each of the five pairs corresponds to the start and
+            end index of the IRI's scheme, authority, path, query, or fragment
+            component, respectively. If a component is absent, both indices in
+            that pair will be -1. If the string is null or is not a valid IRI,
+            returns null.</returns></summary>
+            <param name='s'>A string that contains an IRI.</param>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.splitIRI(System.String,PeterO.Rdf.URIUtility.ParseMode)">
+<summary>Parses an Internationalized Resource Identifier (IRI)
+            reference under RFC3987. If the IRI is syntactically valid, splits
+            the string into its components and returns an array containing the
+            indices into the components.</summary>
+            <param name='s'>A string representing an IRI. Can be null.</param>
+            <param name='parseMode'>A ParseMode object.</param>
+            <returns>If the string is a valid IRI reference, returns an array
+            of 10 integers. Each of the five pairs corresponds to the start and
+            end index of the IRI's scheme, authority, path, query, or fragment
+            component, respectively. If a component is absent, both indices in
+            that pair will be -1. If the string is null or is not a valid IRI,
+            returns null.</returns>
+</doc>
+<doc name="M:PeterO.Rdf.URIUtility.splitIRI(System.String,System.Int32,System.Int32,PeterO.Rdf.URIUtility.ParseMode)">
+<summary>Parses a substring that represents an Internationalized
+            Resource Identifier (IRI) under RFC3987. If the IRI is
+            syntactically valid, splits the string into its components and
+            returns an array containing the indices into the
+            components.</summary>
+            <param name='s'>A string that contains an IRI.</param>
+            <param name='offset'>A zero-based index showing where the desired
+            portion of "s" begins.</param>
+            <param name='length'>The length of the desired portion of "s" (but
+            not more than "s" 's length).</param>
+            <param name='parseMode'>Parse mode that specifies whether certain
+            characters are allowed when parsing IRIs and URIs.</param>
+            <returns>If the string is a valid IRI, returns an array of 10
+            integers. Each of the five pairs corresponds to the start and end
+            index of the IRI's scheme, authority, path, query, or fragment
+            component, respectively. If a component is absent, both indices in
+            that pair will be -1 (an index won't be less than 0 in any other
+            case). If the string is null or is not a valid IRI, returns
+            null.</returns>
+            <exception cref='T:System.ArgumentException'>Either <paramref name='offset'/> or <paramref name='length'/> is less than 0 or
+            greater than <paramref name='s'/> 's length, or <paramref name='s'/> 's length minus <paramref name='offset'/> is less than
+            <paramref name='length'/>.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='s'/> is null.</exception>
+</doc>
+<doc name="T:PeterO.StackableCharacterInput">
+<summary>A character input stream where additional inputs can be
+            stacked on top of it. It supports advanced marking
+            capabilities.</summary>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.#ctor(PeterO.Text.ICharacterInput)">
+<summary>Initializes a new instance of the <see cref='StackableCharacterInput'/> class.</summary>
+            <param name='source'>An ICharacterInput object.</param>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)">
+<summary>Not documented yet.</summary>
+            <param name='buf'>The parameter <paramref name='buf'/> is not documented yet.</param>
+            <param name='offset'>The parameter <paramref name='offset'/> is not documented yet.</param>
+            <param name='unitCount'>The parameter <paramref name='unitCount'/> is not documented yet.</param>
+            <returns>A 32-bit signed integer.</returns>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='buf'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.ReadChar">
+<summary>Not documented yet.</summary>
+            <returns>A 32-bit signed integer.</returns>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.getMarkPosition">
+<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
+            <returns>A 32-bit signed integer.</returns>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.moveBack(System.Int32)">
+<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
+            <param name='count'>The parameter <paramref name='count'/> is not documented yet.</param>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.pushInput(PeterO.Text.ICharacterInput)">
+<summary>Not documented yet.</summary>
+            <param name='input'>The parameter <paramref name='input'/> is not documented yet.</param>
+            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='input'/> is null.</exception>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.setHardMark">
+<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
+            <returns>A 32-bit signed integer.</returns>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.setMarkPosition(System.Int32)">
+<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
+            <param name='pos'>The parameter <paramref name='pos'/> is not documented yet.</param>
+</doc>
+<doc name="M:PeterO.StackableCharacterInput.setSoftMark">
+<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
+            <returns>A 32-bit signed integer.</returns>
+</doc>
+</docs>
