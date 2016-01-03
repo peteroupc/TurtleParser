@@ -16,10 +16,10 @@ namespace PeterO.Rdf {
   using PeterO.Text;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.NTriplesParser"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Rdf.NTriplesParser"]/*'/>
   public sealed class NTriplesParser : IRDFParser {
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)"]/*'/>
     public static bool isAsciiChar(int c, string asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.IndexOf((char)c) >= 0;
     }
@@ -29,7 +29,7 @@ namespace PeterO.Rdf {
     private StackableCharacterInput input;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)"]/*'/>
     public NTriplesParser(PeterO.IByteReader stream) {
       if (stream == null) {
         throw new ArgumentNullException("stream");
@@ -42,7 +42,7 @@ stream));
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)"]/*'/>
     public NTriplesParser(string str) {
       if (str == null) {
         throw new ArgumentNullException("stream");
@@ -84,7 +84,7 @@ stream));
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.Parse"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.Parse"]/*'/>
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {

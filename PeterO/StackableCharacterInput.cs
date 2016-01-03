@@ -14,7 +14,7 @@ namespace PeterO {
   using PeterO.Text;
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.StackableCharacterInput"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.StackableCharacterInput"]/*'/>
   public sealed class StackableCharacterInput : IMarkableCharacterInput {
     private class InputAndBuffer : ICharacterInput {
       private int[] buffer;
@@ -106,19 +106,19 @@ int length) {
     private IList<ICharacterInput> stack = new List<ICharacterInput>();
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.#ctor(PeterO.Text.ICharacterInput)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.#ctor(PeterO.Text.ICharacterInput)"]/*'/>
     public StackableCharacterInput(ICharacterInput source) {
       this.stack.Add(source);
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.getMarkPosition"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.getMarkPosition"]/*'/>
     public int getMarkPosition() {
       return this.pos;
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.moveBack(System.Int32)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.moveBack(System.Int32)"]/*'/>
     public void moveBack(int count) {
       if (count < 0) {
         throw new ArgumentException("count less than 0 (" +
@@ -132,7 +132,7 @@ int length) {
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.pushInput(PeterO.Text.ICharacterInput)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.pushInput(PeterO.Text.ICharacterInput)"]/*'/>
     public void pushInput(ICharacterInput input) {
       if (input == null) {
         throw new ArgumentNullException("input");
@@ -140,14 +140,16 @@ int length) {
       // Move unread characters in buffer, since this new
       // input sits on top of the existing input
       this.stack.Add(
-new InputAndBuffer(input, this.buffer,
- this.pos,
-        this.endpos - this.pos));
+new InputAndBuffer(
+input,
+this.buffer,
+this.pos,
+this.endpos - this.pos));
       this.endpos = this.pos;
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.ReadChar"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.ReadChar"]/*'/>
     public int ReadChar() {
       if (this.haveMark) {
         // Read from buffer
@@ -191,7 +193,7 @@ this.buffer.Length - this.endpos);
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)"]/*'/>
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {
         throw new ArgumentNullException("buf");
@@ -322,7 +324,7 @@ this.endpos - this.pos);
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setHardMark"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setHardMark"]/*'/>
     public int setHardMark() {
       if (this.buffer == null) {
         this.buffer = new int[16];
@@ -350,7 +352,7 @@ this.endpos - this.pos);
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setMarkPosition(System.Int32)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setMarkPosition(System.Int32)"]/*'/>
     public void setMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {
         throw new InvalidOperationException();
@@ -359,7 +361,7 @@ this.endpos - this.pos);
     }
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setSoftMark"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setSoftMark"]/*'/>
     public int setSoftMark() {
       if (!this.haveMark) {
         this.setHardMark();

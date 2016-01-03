@@ -11,26 +11,26 @@ using System;
 using PeterO.Text;
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.IMarkableCharacterInput"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.IMarkableCharacterInput"]/*'/>
 public interface IMarkableCharacterInput : ICharacterInput {
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.getMarkPosition"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.getMarkPosition"]/*'/>
    int getMarkPosition();
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)"]/*'/>
    void moveBack(int count);
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setHardMark"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setHardMark"]/*'/>
    int setHardMark();
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setMarkPosition(System.Int32)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setMarkPosition(System.Int32)"]/*'/>
    void setMarkPosition(int pos);
 
     /// <include file='../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setSoftMark"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setSoftMark"]/*'/>
     int setSoftMark();
 }
 }

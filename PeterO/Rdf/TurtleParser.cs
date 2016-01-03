@@ -15,7 +15,7 @@ namespace PeterO.Rdf {
   using PeterO.Text;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.TurtleParser"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Rdf.TurtleParser"]/*'/>
   public class TurtleParser : IRDFParser {
     private class TurtleObject {
       public const int SIMPLE = 0;
@@ -117,13 +117,13 @@ namespace PeterO.Rdf {
     private int curBlankNode = 0;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader)"]/*'/>
     public TurtleParser(PeterO.IByteReader stream) :
       this(stream, "about:blank") {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)"]/*'/>
     public TurtleParser(PeterO.IByteReader stream, string baseURI) {
       if (stream == null) {
         throw new ArgumentNullException("stream");
@@ -142,12 +142,12 @@ namespace PeterO.Rdf {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(System.String)"]/*'/>
     public TurtleParser(string str) : this(str, "about:blank") {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)"]/*'/>
     public TurtleParser(string str, string baseURI) {
       if (str == null) {
         throw new ArgumentNullException("str");
@@ -337,7 +337,7 @@ scope + this.readOptionalLocalName());
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.Parse"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.Parse"]/*'/>
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> triples = new HashSet<RDFTriple>();
       while (true) {

@@ -11,22 +11,22 @@ using System;
 using System.Text;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.RDFTerm"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Rdf.RDFTerm"]/*'/>
 public sealed class RDFTerm {
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.BLANK"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.BLANK"]/*'/>
   public const int BLANK = 0;  // type is blank node name, literal is blank
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.IRI"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.IRI"]/*'/>
   public const int IRI = 1;  // type is IRI, literal is blank
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.LANGSTRING"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.LANGSTRING"]/*'/>
   public const int LANGSTRING = 2;  // literal is given
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.TYPEDSTRING"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.TYPEDSTRING"]/*'/>
   public const int TYPEDSTRING = 3;  // type is IRI, literal is given
 
   private static void escapeBlankNode(string str, StringBuilder builder) {
@@ -34,13 +34,13 @@ public sealed class RDFTerm {
     string hex = "0123456789ABCDEF";
     for (int i = 0; i < length; ++i) {
       int c = str[i];
-      if ((c >= 'A' && c <= 'Z') || (c>= 'a' && c<= 'z') ||
-          (c > 0 && c >= '0' && c<= '9')) {
+      if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c<= 'z') ||
+          (c > 0 && c >= '0' && c <= '9')) {
         builder.Append((char)c);
   } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
           str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
         // Get the Unicode code point for the surrogate pair
-        c = 0x10000 + (c - 0xd800)*0x400+(str[i + 1]-0xdc00);
+        c = 0x10000 + (c - 0xd800)* 0x400+(str[i + 1]-0xdc00);
         builder.Append("U00");
         builder.Append(hex[(c >> 20) & 15]);
         builder.Append(hex[(c >> 16) & 15]);
@@ -73,7 +73,7 @@ public sealed class RDFTerm {
       } else if (c == '-') {
         builder.Append((char)c);
         hyphen = true;
-        if (i + 1 < length && str[i+1]=='-') {
+        if (i + 1 < length && str[i + 1]=='-') {
           builder.Append('x');
         }
       } else {
@@ -107,7 +107,7 @@ bool uri) {
   } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
           str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
         // Get the Unicode code point for the surrogate pair
-        c = 0x10000 + (c - 0xd800)*0x400+(str[i + 1]-0xdc00);
+        c = 0x10000 + (c - 0xd800)* 0x400+(str[i + 1]-0xdc00);
         builder.Append("\\U00");
         builder.Append(hex[(c >> 20) & 15]);
         builder.Append(hex[(c >> 16) & 15]);
@@ -131,39 +131,39 @@ bool uri) {
   private int kind;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.A"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.A"]/*'/>
   public static readonly RDFTerm A =
       fromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.FIRST"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.FIRST"]/*'/>
   public static readonly RDFTerm FIRST = fromIRI(
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#first");
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.NIL"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.NIL"]/*'/>
   public static readonly RDFTerm NIL = fromIRI(
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil");
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.REST"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.REST"]/*'/>
   public static readonly RDFTerm REST = fromIRI(
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.FALSE"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.FALSE"]/*'/>
   public static readonly RDFTerm FALSE = fromTypedString(
       "false",
       "http://www.w3.org/2001/XMLSchema#bool");
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.TRUE"]/*'/>
+    /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.TRUE"]/*'/>
   public static readonly RDFTerm TRUE = fromTypedString(
       "true",
       "http://www.w3.org/2001/XMLSchema#bool");
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)"]/*'/>
   public static RDFTerm fromBlankNode(string name) {
     if (name == null) {
  throw new ArgumentNullException("name");
@@ -179,7 +179,7 @@ bool uri) {
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromIRI(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromIRI(System.String)"]/*'/>
   public static RDFTerm fromIRI(string iri) {
     if (iri == null) {
  throw new ArgumentNullException("iri");
@@ -192,7 +192,7 @@ bool uri) {
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromLangString(System.String,System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromLangString(System.String,System.String)"]/*'/>
   public static RDFTerm fromLangString(string str, string languageTag) {
     if (str == null) {
  throw new ArgumentNullException("str");
@@ -211,13 +211,13 @@ bool uri) {
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String)"]/*'/>
   public static RDFTerm fromTypedString(string str) {
     return fromTypedString(str, "http://www.w3.org/2001/XMLSchema#string");
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String,System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String,System.String)"]/*'/>
   public static RDFTerm fromTypedString(string str, string iri) {
     if (str == null) {
  throw new ArgumentNullException("str");
@@ -236,7 +236,7 @@ bool uri) {
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)"]/*'/>
   public override sealed bool Equals(object obj) {
     if (this == obj) {
  return true;
@@ -266,56 +266,56 @@ bool uri) {
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.getKind"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.getKind"]/*'/>
   public int getKind() {
     return this.kind;
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.getTypeOrLanguage"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.getTypeOrLanguage"]/*'/>
   public string getTypeOrLanguage() {
     return this.typeOrLanguage;
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.getValue"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.getValue"]/*'/>
   public string getValue() {
     return this.value;
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetHashCode"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetHashCode"]/*'/>
   public override sealed int GetHashCode() {unchecked {
      var prime = 31;
     int result = prime + this.kind;
     result = (prime * result) + ((this.typeOrLanguage == null) ? 0 :
             this.typeOrLanguage.GetHashCode());
-    result = prime * result + ((this.value == null) ? 0 :
+    result = prime * result + ((this.value = = null) ? 0 :
       this.value.GetHashCode());
     return result;
   }}
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.isBlank"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.isBlank"]/*'/>
   public bool isBlank() {
     return this.kind == BLANK;
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.isIRI(System.String)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.isIRI(System.String)"]/*'/>
   public bool isIRI(string str) {
     return this.kind == IRI && str != null && str.Equals(this.value);
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.isOrdinaryString"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.isOrdinaryString"]/*'/>
   public bool isOrdinaryString() {
     return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#string"
       .Equals(this.typeOrLanguage);
   }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.ToString"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.ToString"]/*'/>
   public override sealed string ToString() {
     StringBuilder builder = null;
     if (this.kind == BLANK) {

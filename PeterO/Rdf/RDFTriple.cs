@@ -10,12 +10,12 @@ namespace PeterO.Rdf {
   using System;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.RDFTriple"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Rdf.RDFTriple"]/*'/>
   public sealed class RDFTriple {
     private RDFTerm subject, predicate, _object;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)"]/*'/>
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm _object) {
       this.setSubject(subject);
       this.setPredicate(predicate);
@@ -23,7 +23,7 @@ namespace PeterO.Rdf {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)"]/*'/>
     public RDFTriple(RDFTriple triple) {
       if (triple == null) {
         throw new ArgumentNullException("triple");
@@ -34,7 +34,7 @@ namespace PeterO.Rdf {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)"]/*'/>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -68,25 +68,25 @@ namespace PeterO.Rdf {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getObject"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getObject"]/*'/>
     public RDFTerm getObject() {
       return this._object;
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getPredicate"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getPredicate"]/*'/>
     public RDFTerm getPredicate() {
       return this.predicate;
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getSubject"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getSubject"]/*'/>
     public RDFTerm getSubject() {
       return this.subject;
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetHashCode"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetHashCode"]/*'/>
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -94,7 +94,7 @@ namespace PeterO.Rdf {
              this._object.GetHashCode());
         result = (prime * result) +
             ((this.predicate == null) ? 0 : this.predicate.GetHashCode());
-        result = prime * result + ((this.subject == null) ? 0 :
+        result = prime * result + ((this.subject = = null) ? 0 :
           this.subject.GetHashCode());
         return result;
       }
@@ -131,7 +131,7 @@ namespace PeterO.Rdf {
     }
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.ToString"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.ToString"]/*'/>
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
             this._object.ToString() + " .";

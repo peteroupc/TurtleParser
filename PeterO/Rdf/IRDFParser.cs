@@ -12,10 +12,10 @@ using System.IO;
 using System.Collections.Generic;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.IRDFParser"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Rdf.IRDFParser"]/*'/>
 public interface IRDFParser {
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="M:PeterO.Rdf.IRDFParser.Parse"]/*'/>
+    /// path='docs/doc[@name="M:PeterO.Rdf.IRDFParser.Parse"]/*'/>
    ISet<RDFTriple> Parse();
 }
 }

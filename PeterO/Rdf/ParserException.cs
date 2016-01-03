@@ -11,7 +11,7 @@ using System;
 using System.IO;
 
     /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.ParserException"]/*'/>
+    /// path='docs/doc[@name="T:PeterO.Rdf.ParserException"]/*'/>
 public class ParserException : IOException {
 }
 }
