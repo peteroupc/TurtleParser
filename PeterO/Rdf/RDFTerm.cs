@@ -34,13 +34,13 @@ public sealed class RDFTerm {
     string hex = "0123456789ABCDEF";
     for (int i = 0; i < length; ++i) {
       int c = str[i];
-      if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c<= 'z') ||
+      if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
           (c > 0 && c >= '0' && c <= '9')) {
         builder.Append((char)c);
   } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
           str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
         // Get the Unicode code point for the surrogate pair
-        c = 0x10000 + (c - 0xd800)* 0x400+(str[i + 1]-0xdc00);
+        c = 0x10000 + (c - 0xd800) * 0x400+(str[i + 1]-0xdc00);
         builder.Append("U00");
         builder.Append(hex[(c >> 20) & 15]);
         builder.Append(hex[(c >> 16) & 15]);
@@ -73,7 +73,7 @@ public sealed class RDFTerm {
       } else if (c == '-') {
         builder.Append((char)c);
         hyphen = true;
-        if (i + 1 < length && str[i + 1]=='-') {
+        if (i + 1 < length && str[i + 1] == '-') {
           builder.Append('x');
         }
       } else {
@@ -107,7 +107,7 @@ bool uri) {
   } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
           str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
         // Get the Unicode code point for the surrogate pair
-        c = 0x10000 + (c - 0xd800)* 0x400+(str[i + 1]-0xdc00);
+        c = 0x10000 + (c - 0xd800) * 0x400+(str[i + 1]-0xdc00);
         builder.Append("\\U00");
         builder.Append(hex[(c >> 20) & 15]);
         builder.Append(hex[(c >> 16) & 15]);
@@ -290,8 +290,8 @@ bool uri) {
     int result = prime + this.kind;
     result = (prime * result) + ((this.typeOrLanguage == null) ? 0 :
             this.typeOrLanguage.GetHashCode());
-    result = prime * result + ((this.value = = null) ? 0 :
-      this.value.GetHashCode());
+        bool isnull = this.value == null;
+        result = prime * result + (isnull ? 0 : this.value.GetHashCode());
     return result;
   }}
 

@@ -94,7 +94,8 @@ namespace PeterO.Rdf {
              this._object.GetHashCode());
         result = (prime * result) +
             ((this.predicate == null) ? 0 : this.predicate.GetHashCode());
-        result = prime * result + ((this.subject = = null) ? 0 :
+        bool subjnull = this.subject == null;
+        result = prime * result + (subjnull ? 0 :
           this.subject.GetHashCode());
         return result;
       }

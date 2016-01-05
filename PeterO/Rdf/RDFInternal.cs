@@ -78,11 +78,11 @@ ISet<RDFTriple> triples,
     // under N-Triples
     for (int i = 0; i < node.Length; ++i) {
       int c = node[i];
-      if (i == 0 && !((c >= 'A' && c <= 'Z') || (c>= 'a' && c<= 'z'))) {
+      if (i == 0 && !((c >= 'A' && c <= 'Z') || (c >= 'a' && c<= 'z'))) {
         validnode = false;
         break;
       }
-      if (i >= 0 && !((c >= 'A' && c <= 'Z') || (c>= '0' && c<= '9') ||
+      if (i >= 0 && !((c >= 'A' && c <= 'Z') || (c >= '0' && c<= '9') ||
           (c >= 'a' && c <= 'z'))) {
         validnode = false;
         break;
