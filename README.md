@@ -9,7 +9,15 @@ If you like this, consider donating to me to help pay my loans and other costs:
 
 [http://www.upokecenter.com/d](http://www.upokecenter.com/d)
 
---------------------------------------------
+Documentation
+------------
+
+**See the [Java API documentation](https://peteroupc.github.io/TurtleParser/api/).**
+
+**See the [C# (.NET) API documentation](https://peteroupc.github.io/TurtleParser/docs/).**
+
+About
+----------
 
 Written in 2013 by Peter Occil (www.upokecenter.com)
 

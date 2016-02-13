@@ -40,7 +40,7 @@ public sealed class RDFTerm {
   } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
           str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
         // Get the Unicode code point for the surrogate pair
-        c = 0x10000 + (c - 0xd800) * 0x400+(str[i + 1]-0xdc00);
+        c = 0x10000 + ((c - 0xd800) << 10) + (str[i + 1] - 0xdc00);
         builder.Append("U00");
         builder.Append(hex[(c >> 20) & 15]);
         builder.Append(hex[(c >> 16) & 15]);
@@ -107,7 +107,7 @@ bool uri) {
   } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
           str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
         // Get the Unicode code point for the surrogate pair
-        c = 0x10000 + (c - 0xd800) * 0x400+(str[i + 1]-0xdc00);
+        c = 0x10000 + ((c - 0xd800) << 10) + (str[i + 1] - 0xdc00);
         builder.Append("\\U00");
         builder.Append(hex[(c >> 20) & 15]);
         builder.Append(hex[(c >> 16) & 15]);

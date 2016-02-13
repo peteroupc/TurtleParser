@@ -42,36 +42,35 @@
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)">
-<summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
             <param name='stream'>A PeterO.IByteReader object.</param>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='stream'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='stream'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)">
-<summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
             <param name='str'>A text string.</param>
-            <exception cref='T:System.ArgumentNullException'>The parameter "stream" is
-            null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            "stream" is null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.NTriplesParser.Parse">
 <summary>Not documented yet.</summary>
             <returns>An ISet(RDFTriple) object.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)">
-<summary>Not documented yet.</summary>
-            <param name='c'>The parameter <paramref name='c'/> is not documented yet.</param>
-            <param name='asciiChars'>The parameter <paramref name='asciiChars'/> is not documented yet.</param>
-            <returns>A Boolean object.</returns>
+
+            <summary>Not documented yet.</summary><param name='c'>The parameter <paramref name='c'/> is not
+            documented yet.</param><param name='asciiChars'>The parameter <paramref name='asciiChars'/> is not documented yet.</param><returns>A Boolean object.</returns>
+        
 </doc>
 <doc name="T:PeterO.Rdf.ParserException">
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})">
-<summary>Replaces certain blank nodes with blank nodes whose names
-            meet the N-Triples requirements.</summary>
-            <param name='triples'>A set of RDF triples</param>
-            <param name='bnodeLabels'>A mapping of blank node names already allocated.
-            This method will modify this _object as needed to allocate new
-            blank nodes.</param>
+
+            <summary>Not documented yet.</summary><param name='triples'>The parameter <paramref name='triples'/> is
+            not documented yet.</param><param name='bnodeLabels'>The parameter <paramref name='bnodeLabels'/> is not documented yet.</param>
+        
 </doc>
 <doc name="T:PeterO.Rdf.RDFTerm">
 <summary>Not documented yet.</summary>
@@ -125,34 +124,44 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)">
 <summary>Not documented yet.</summary>
-            <param name='name'>The parameter <paramref name='name'/> is not documented yet.</param>
+            <param name='name'>The parameter <paramref name='name'/> is not
+            documented yet.</param>
             <returns>A RDFTerm object.</returns>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='name'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='name'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromIRI(System.String)">
 <summary>Not documented yet.</summary>
-            <param name='iri'>The parameter <paramref name='iri'/> is not documented yet.</param>
+            <param name='iri'>The parameter <paramref name='iri'/> is not
+            documented yet.</param>
             <returns>A RDFTerm object.</returns>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='iri'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='iri'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromLangString(System.String,System.String)">
-<summary>Not documented yet.</summary>
-            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
-            <param name='languageTag'>The parameter <paramref name='languageTag'/> is not documented yet.</param>
-            <returns>A RDFTerm object.</returns>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='str'/> or <paramref name='languageTag'/> is null.</exception>
+
+            <summary>Not documented yet.</summary><param name='str'>The parameter <paramref name='str'/> is not
+            documented yet.</param><param name='languageTag'>The parameter <paramref name='languageTag'/> is not documented yet.</param><returns>A RDFTerm object.</returns><exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='str'/> or <paramref name='languageTag'/> is
+            null.</exception>
+        
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String)">
 <summary>Not documented yet.</summary>
-            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
+            <param name='str'>The parameter <paramref name='str'/> is not
+            documented yet.</param>
             <returns>A RDFTerm object.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String,System.String)">
 <summary>Not documented yet.</summary>
-            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
-            <param name='iri'>The parameter <paramref name='iri'/> is not documented yet.</param>
+            <param name='str'>The parameter <paramref name='str'/> is not
+            documented yet.</param>
+            <param name='iri'>The parameter <paramref name='iri'/> is not
+            documented yet.</param>
             <returns>A RDFTerm object.</returns>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='str'/> or <paramref name='iri'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='str'/> or <paramref name='iri'/> is
+            null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.getKind">
 <summary>Not documented yet.</summary>
@@ -174,7 +183,8 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.isIRI(System.String)">
 <summary>Not documented yet.</summary>
-            <param name='str'>The parameter <paramref name='str'/> is not documented yet.</param>
+            <param name='str'>The parameter <paramref name='str'/> is not
+            documented yet.</param>
             <returns>A Boolean object.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.isOrdinaryString">
@@ -185,15 +195,16 @@
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)">
-<summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
             <param name='subject'>A RDFTerm object.</param>
             <param name='predicate'>Another RDFTerm object.</param>
             <param name='_object'>A RDFTerm object. (3).</param>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)">
-<summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
             <param name='triple'>A RDFTriple object.</param>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='triple'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='triple'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)">
 <summary>Not documented yet.</summary>
@@ -223,24 +234,28 @@
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader)">
-<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
             <param name='stream'>A PeterO.IByteReader object.</param>
 </doc>
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)">
-<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
             <param name='stream'>A PeterO.IByteReader object.</param>
             <param name='baseURI'>A text string.</param>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='stream'/> or <paramref name='baseURI'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='stream'/> or <paramref name='baseURI'/> is
+            null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(System.String)">
-<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
             <param name='str'>A text string.</param>
 </doc>
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)">
-<summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
             <param name='str'>A text string.</param>
             <param name='baseURI'>Another string object.</param>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='str'/> or <paramref name='baseURI'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='str'/> or <paramref name='baseURI'/> is
+            null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.TurtleParser.Parse">
 <summary>Not documented yet.</summary>
@@ -302,14 +317,18 @@
             scheme component. This can be used to check for
             relative IRI references.
             <para>The following cases return true:</para>
-            <code> xx-x:mm example:/ww </code>
+            <code>
+            xx-x:mm example:/ww
+            </code>
              The following cases return false:
-            <code> x@y:/z /x/y/z example.xyz </code>
+            <code>
+            x@y:/z /x/y/z example.xyz
+            </code>
             </summary>
             <param name='refValue'>A string representing an IRI to
             check.</param>
-            <returns>True if the string is a valid IRI with a scheme component;
-            otherwise, false.</returns>
+            <returns><c>true</c> if the string is a valid IRI with a scheme component;
+            otherwise, false .</returns>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.hasSchemeForURI(System.String)">
 <summary>
@@ -317,14 +336,18 @@
             scheme component. This can be used to check for
             relative URI references. The following cases return
             true:
-            <code> http://example/z xx-x:mm example:/ww </code>
+            <code>
+            http://example/z xx-x:mm example:/ww
+            </code>
              The following cases return false:
-            <code> x@y:/z /x/y/z example.xyz </code>
+            <code>
+            x@y:/z /x/y/z example.xyz
+            </code>
             </summary>
             <param name='refValue'>A string representing an IRI to
             check.</param>
-            <returns>True if the string is a valid URI with a scheme component;
-            otherwise, false.</returns>
+            <returns><c>true</c> if the string is a valid URI with a scheme component;
+            otherwise, false .</returns>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.isValidCurieReference(System.String,System.Int32,System.Int32)">
 <summary>Determines whether the substring is a valid CURIE
@@ -336,8 +359,8 @@
             portion of "s" begins.</param>
             <param name='length'>The number of elements in the desired portion
             of "s" (but not more than "s" 's length).</param>
-            <returns>True if the substring is a valid CURIE reference under
-            RDFA 1; otherwise, false. Returns false if <paramref name='s'/> is
+            <returns><c>true</c> if the substring is a valid CURIE reference under
+            RDFA 1; otherwise, false . Returns false if <paramref name='s'/> is
             null.</returns>
             <exception cref='T:System.ArgumentException'>Either <paramref name='offset'/> or <paramref name='length'/> is less than 0 or
             greater than <paramref name='s'/> 's length, or <paramref name='s'/> 's length minus <paramref name='offset'/> is less than
@@ -419,7 +442,8 @@
             <exception cref='T:System.ArgumentException'>Either <paramref name='offset'/> or <paramref name='length'/> is less than 0 or
             greater than <paramref name='s'/> 's length, or <paramref name='s'/> 's length minus <paramref name='offset'/> is less than
             <paramref name='length'/>.</exception>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='s'/> is null.</exception>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='s'/> is null.</exception>
 </doc>
 <doc name="T:PeterO.StackableCharacterInput">
 <summary>A character input stream where additional inputs can be
@@ -427,16 +451,17 @@
             capabilities.</summary>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.#ctor(PeterO.Text.ICharacterInput)">
-<summary>Initializes a new instance of the <see cref='StackableCharacterInput'/> class.</summary>
+<summary>Initializes a new instance of the <see cref='T:PeterO.StackableCharacterInput'/> class.</summary>
             <param name='source'>An ICharacterInput object.</param>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)">
-<summary>Not documented yet.</summary>
-            <param name='buf'>The parameter <paramref name='buf'/> is not documented yet.</param>
-            <param name='offset'>The parameter <paramref name='offset'/> is not documented yet.</param>
-            <param name='unitCount'>The parameter <paramref name='unitCount'/> is not documented yet.</param>
-            <returns>A 32-bit signed integer.</returns>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='buf'/> is null.</exception>
+
+            <summary>Not documented yet.</summary><param name='buf'>The parameter <paramref name='buf'/> is not
+            documented yet.</param><param name='offset'>The parameter <paramref name='offset'/> is not
+            documented yet.</param><param name='unitCount'>The parameter <paramref name='unitCount'/>
+            is not documented yet.</param><returns>A 32-bit signed integer.</returns><exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='buf'/> is null.</exception>
+        
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.ReadChar">
 <summary>Not documented yet.</summary>
@@ -448,12 +473,15 @@
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.moveBack(System.Int32)">
 <summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
-            <param name='count'>The parameter <paramref name='count'/> is not documented yet.</param>
+            <param name='count'>The parameter <paramref name='count'/> is not
+            documented yet.</param>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.pushInput(PeterO.Text.ICharacterInput)">
 <summary>Not documented yet.</summary>
-            <param name='input'>The parameter <paramref name='input'/> is not documented yet.</param>
-            <exception cref='T:System.ArgumentNullException'>The parameter <paramref name='input'/> is null.</exception>
+            <param name='input'>The parameter <paramref name='input'/> is not
+            documented yet.</param>
+            <exception cref='T:System.ArgumentNullException'>The parameter
+            <paramref name='input'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setHardMark">
 <summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
@@ -461,7 +489,8 @@
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setMarkPosition(System.Int32)">
 <summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
-            <param name='pos'>The parameter <paramref name='pos'/> is not documented yet.</param>
+            <param name='pos'>The parameter <paramref name='pos'/> is not
+            documented yet.</param>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setSoftMark">
 <summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
