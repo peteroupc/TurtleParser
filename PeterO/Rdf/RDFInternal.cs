@@ -8,10 +8,10 @@ at: http://upokecenter.dreamhosters.com/articles/donate-now-2/
 */
 namespace PeterO.Rdf {
 using System;
-using System.Globalization;
 using System.Collections.Generic;
+  using System.Globalization;
 
-internal sealed class RDFInternal {
+  internal sealed class RDFInternal {
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})"]/*'/>
   internal static void replaceBlankNodes(

@@ -8,12 +8,12 @@ at: http://upokecenter.dreamhosters.com/articles/donate-now-2/
 */
 namespace PeterO.Rdf {
 using System;
-using System.IO;
 using System.Collections.Generic;
+  using System.IO;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.IRDFParser"]/*'/>
-public interface IRDFParser {
+  public interface IRDFParser {
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.IRDFParser.Parse"]/*'/>
    ISet<RDFTriple> Parse();

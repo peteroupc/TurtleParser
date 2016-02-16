@@ -3,40 +3,40 @@
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.getMarkPosition">
-<summary>Gets the zero-based character position in the stream from
-            the last-set mark.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Gets the zero-based character position in the stream from
+            the last-set mark.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)">
 <summary>Moves the stream position back the given number of
-            characters. No mark was set, or the position is too close to the
-            currently set mark.</summary>
+            characters.</summary>
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.setHardMark">
-<summary>Sets a mark on the stream's current position. @return
-            Always 0.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Sets a mark on the stream's current position.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.setMarkPosition(System.Int32)">
-<summary>Sets the stream's position from the last set mark. @param
-            pos Zero-based character offset from the last set mark. @ No mark
-            was set, or the position is less than 1, or the position reaches
-            the end of the stream.</summary>
+<summary>Sets the stream's position from the last set mark.
+            <param name='pos'>Zero-based character offset from the last set mark.</param></summary>
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.setSoftMark">
-<summary>If no mark is set, sets a mark on the stream, and
+
+            <summary>If no mark is set, sets a mark on the stream, and
             characters read before the currently set mark are no longer
             available, while characters read after will be available if
             moveBack is called. Otherwise, behaves like
-            getMarkPosition.</summary>
-            <returns>Not documented yet.</returns>
+            getMarkPosition.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="T:PeterO.Rdf.IRDFParser">
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.IRDFParser.Parse">
-<summary>Not documented yet.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="T:PeterO.Rdf.NTriplesParser">
 <summary>Not documented yet.</summary>
@@ -82,8 +82,9 @@
 <summary>Type value for a blank node.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)">
-<summary>Not documented yet.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="F:PeterO.Rdf.RDFTerm.FALSE">
 <summary>Object for false.</summary>
@@ -92,8 +93,9 @@
 <summary>Predicate for the first object in a list.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.GetHashCode">
-<summary>Not documented yet.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="F:PeterO.Rdf.RDFTerm.IRI">
 <summary>Type value for an IRI (Internationalized Resource
@@ -114,13 +116,14 @@
 </doc>
 <doc name="F:PeterO.Rdf.RDFTerm.TYPEDSTRING">
 <summary>Type value for a piece of data serialized to a
-            _string.</summary>
+            string.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.ToString">
-<summary>* Gets a _string representation of this RDF term in
-            N-Triples format. The _string will not end in a line
-            break.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Gets a string representation of this RDF term in
+            N-Triples format. The string will not end in a line
+            break.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)">
 <summary>Not documented yet.</summary>
@@ -198,7 +201,7 @@
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
             <param name='subject'>A RDFTerm object.</param>
             <param name='predicate'>Another RDFTerm object.</param>
-            <param name='_object'>A RDFTerm object. (3).</param>
+            <param name='objectRdf'>A RDFTerm object. (3).</param>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
@@ -207,16 +210,19 @@
             <paramref name='triple'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)">
-<summary>Not documented yet.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.GetHashCode">
-<summary>Not documented yet.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.ToString">
-<summary>Not documented yet.</summary>
-            <returns>Not documented yet.</returns>
+
+            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+        
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.getObject">
 <summary>Not documented yet.</summary>
@@ -302,14 +308,13 @@
             are not allowed.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.escapeURI(System.String,System.Int32)">
-<return>a string possibly containing escaped characters, or null if
-            s is null.</return>
+<returns>A string possibly containing escaped characters, or null if
+            s is null.</returns>
             <summary>Escapes characters that cannot appear in URIs or IRIs. The
             function is idempotent; that is, calling the function again on the
             result with the same mode doesn't change the result.</summary>
             <param name='s'>A string to escape.</param>
             <param name='mode'>A 32-bit signed integer.</param>
-            <returns>A text string.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.hasScheme(System.String)">
 <summary>
@@ -320,7 +325,7 @@
             <code>
             xx-x:mm example:/ww
             </code>
-             The following cases return false:
+            The following cases return false:
             <code>
             x@y:/z /x/y/z example.xyz
             </code>
@@ -328,7 +333,7 @@
             <param name='refValue'>A string representing an IRI to
             check.</param>
             <returns><c>true</c> if the string is a valid IRI with a scheme component;
-            otherwise, false .</returns>
+            otherwise,alse .</returns>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.hasSchemeForURI(System.String)">
 <summary>
@@ -339,7 +344,7 @@
             <code>
             http://example/z xx-x:mm example:/ww
             </code>
-             The following cases return false:
+            The following cases return false:
             <code>
             x@y:/z /x/y/z example.xyz
             </code>
@@ -347,7 +352,7 @@
             <param name='refValue'>A string representing an IRI to
             check.</param>
             <returns><c>true</c> if the string is a valid URI with a scheme component;
-            otherwise, false .</returns>
+            otherwise,alse .</returns>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.isValidCurieReference(System.String,System.Int32,System.Int32)">
 <summary>Determines whether the substring is a valid CURIE
@@ -360,7 +365,7 @@
             <param name='length'>The number of elements in the desired portion
             of "s" (but not more than "s" 's length).</param>
             <returns><c>true</c> if the substring is a valid CURIE reference under
-            RDFA 1; otherwise, false . Returns false if <paramref name='s'/> is
+            RDFA 1; otherwise,alse . Returns false if <paramref name='s'/> is
             null.</returns>
             <exception cref='T:System.ArgumentException'>Either <paramref name='offset'/> or <paramref name='length'/> is less than 0 or
             greater than <paramref name='s'/> 's length, or <paramref name='s'/> 's length minus <paramref name='offset'/> is less than
@@ -468,12 +473,10 @@
             <returns>A 32-bit signed integer.</returns>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.getMarkPosition">
-<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
-            <returns>A 32-bit signed integer.</returns>
+<returns>A 32-bit signed integer.</returns>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.moveBack(System.Int32)">
-<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
-            <param name='count'>The parameter <paramref name='count'/> is not
+<param name='count'>The parameter <paramref name='count'/> is not
             documented yet.</param>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.pushInput(PeterO.Text.ICharacterInput)">
@@ -484,16 +487,13 @@
             <paramref name='input'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setHardMark">
-<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
-            <returns>A 32-bit signed integer.</returns>
+<returns>A 32-bit signed integer.</returns>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setMarkPosition(System.Int32)">
-<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
-            <param name='pos'>The parameter <paramref name='pos'/> is not
+<param name='pos'>The parameter <paramref name='pos'/> is not
             documented yet.</param>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setSoftMark">
-<summary>@inheritDoc PeterO.IMarkableCharacterInput.</summary>
-            <returns>A 32-bit signed integer.</returns>
+<returns>A 32-bit signed integer.</returns>
 </doc>
 </docs>

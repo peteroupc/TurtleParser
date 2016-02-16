@@ -8,8 +8,8 @@ at: http://upokecenter.dreamhosters.com/articles/donate-now-2/
 */
 namespace PeterO {
   using System;
-  using System.Globalization;
   using System.Collections.Generic;
+  using System.Globalization;
   using PeterO;
   using PeterO.Text;
 
@@ -99,10 +99,10 @@ int length) {
       }
     }
 
-    private int pos = 0;
-    private int endpos = 0;
-    private bool haveMark = false;
-    private int[] buffer = null;
+    private int pos;
+    private int endpos;
+    private bool haveMark;
+    private int[] buffer;
     private IList<ICharacterInput> stack = new List<ICharacterInput>();
 
     /// <include file='../docs.xml'
@@ -113,12 +113,14 @@ int length) {
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.getMarkPosition"]/*'/>
+    /// <summary>Not documented yet.</summary>
     public int getMarkPosition() {
       return this.pos;
     }
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.moveBack(System.Int32)"]/*'/>
+    /// <summary>Not documented yet.</summary>
     public void moveBack(int count) {
       if (count < 0) {
         throw new ArgumentException("count less than 0 (" +
@@ -325,6 +327,7 @@ this.endpos - this.pos);
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setHardMark"]/*'/>
+    /// <summary>Not documented yet.</summary>
     public int setHardMark() {
       if (this.buffer == null) {
         this.buffer = new int[16];
@@ -353,6 +356,7 @@ this.endpos - this.pos);
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setMarkPosition(System.Int32)"]/*'/>
+    /// <summary>Not documented yet.</summary>
     public void setMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {
         throw new InvalidOperationException();
@@ -362,6 +366,7 @@ this.endpos - this.pos);
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.setSoftMark"]/*'/>
+    /// <summary>Not documented yet.</summary>
     public int setSoftMark() {
       if (!this.haveMark) {
         this.setHardMark();

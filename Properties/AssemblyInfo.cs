@@ -17,10 +17,10 @@ using System.Reflection;
 [assembly: CLSCompliant(true)]
 [assembly: AssemblyCompany("Peter Occil")]
 [assembly:
-
   AssemblyCopyright(
-  "Written by Peter O. in 2015. Any copyright is released to the Public Domain. <http://creativecommons.org/publicdomain/zero/1.0/>"
-)]
+  "Written by Peter O. in 2015. Any copyright " +
+  "is released to the Public Domain. " +
+  "<http://creativecommons.org/publicdomain/zero/1.0/>")]
 [assembly: AssemblyProduct("TurtleParser")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -8,9 +8,9 @@ at: http://upokecenter.dreamhosters.com/articles/donate-now-2/
 */
 namespace PeterO.Rdf {
   using System;
-  using System.Text;
-  using System.Globalization;
   using System.Collections.Generic;
+  using System.Globalization;
+  using System.Text;
   using PeterO;
   using PeterO.Text;
 
@@ -165,7 +165,7 @@ namespace PeterO.Rdf {
       this.namespaces = new Dictionary<string, string>();
     }
 
-    private RDFTerm allocateBlankNode() {
+    private RDFTerm AllocateBlankNode() {
       ++this.curBlankNode;
       // A period is included so as not to conflict
       // with user-defined blank node labels (this is allowed
@@ -197,9 +197,9 @@ ISet<RDFTriple> triples) {
       } else if (obj.Kind == TurtleObject.PROPERTIES) {
         IList<TurtleProperty> props = obj.getProperties();
         if (props.Count == 0) {
-          this.emitRDFTriple(subj, pred, this.allocateBlankNode(), triples);
+          this.emitRDFTriple(subj, pred, this.AllocateBlankNode(), triples);
         } else {
-          RDFTerm blank = this.allocateBlankNode();
+          RDFTerm blank = this.AllocateBlankNode();
           this.emitRDFTriple(subj, pred, blank, triples);
           for (int i = 0; i < props.Count; ++i) {
             this.emitRDFTriple(blank, props[i].Pred, props[i].Obj, triples);
@@ -210,14 +210,14 @@ ISet<RDFTriple> triples) {
         if (objs.Count == 0) {
           this.emitRDFTriple(subj, pred, RDFTerm.NIL, triples);
         } else {
-          RDFTerm curBlank = this.allocateBlankNode();
+          RDFTerm curBlank = this.AllocateBlankNode();
           RDFTerm firstBlank = curBlank;
           this.emitRDFTriple(curBlank, RDFTerm.FIRST, objs[0], triples);
           for (int i = 1; i <= objs.Count; ++i) {
             if (i == objs.Count) {
               this.emitRDFTriple(curBlank, RDFTerm.REST, RDFTerm.NIL, triples);
             } else {
-              RDFTerm nextBlank = this.allocateBlankNode();
+              RDFTerm nextBlank = this.AllocateBlankNode();
               this.emitRDFTriple(curBlank, RDFTerm.REST, nextBlank, triples);
               this.emitRDFTriple(nextBlank, RDFTerm.FIRST, objs[i], triples);
               curBlank = nextBlank;
@@ -238,9 +238,9 @@ ISet<RDFTriple> triples) {
       } else if (subj.Kind == TurtleObject.PROPERTIES) {
         IList<TurtleProperty> props = subj.getProperties();
         if (props.Count == 0) {
-          this.emitRDFTriple(this.allocateBlankNode(), pred, obj, triples);
+          this.emitRDFTriple(this.AllocateBlankNode(), pred, obj, triples);
         } else {
-          RDFTerm blank = this.allocateBlankNode();
+          RDFTerm blank = this.AllocateBlankNode();
           this.emitRDFTriple(blank, pred, obj, triples);
           for (int i = 0; i < props.Count; ++i) {
             this.emitRDFTriple(blank, props[i].Pred, props[i].Obj, triples);
@@ -251,14 +251,14 @@ ISet<RDFTriple> triples) {
         if (objs.Count == 0) {
           this.emitRDFTriple(RDFTerm.NIL, pred, obj, triples);
         } else {
-          RDFTerm curBlank = this.allocateBlankNode();
+          RDFTerm curBlank = this.AllocateBlankNode();
           RDFTerm firstBlank = curBlank;
           this.emitRDFTriple(curBlank, RDFTerm.FIRST, objs[0], triples);
           for (int i = 1; i <= objs.Count; ++i) {
             if (i == objs.Count) {
               this.emitRDFTriple(curBlank, RDFTerm.REST, RDFTerm.NIL, triples);
             } else {
-              RDFTerm nextBlank = this.allocateBlankNode();
+              RDFTerm nextBlank = this.AllocateBlankNode();
               this.emitRDFTriple(curBlank, RDFTerm.REST, nextBlank, triples);
               this.emitRDFTriple(nextBlank, RDFTerm.FIRST, objs[i], triples);
               curBlank = nextBlank;
@@ -283,18 +283,18 @@ ISet<RDFTriple> triples) {
           if (scope == null) {
             throw new ParserException();
           }
-     return RDFTerm.fromTypedString(
-str,
-scope + this.readOptionalLocalName());
+          return RDFTerm.fromTypedString(
+     str,
+     scope + this.readOptionalLocalName());
         } else if (this.isNameStartChar(ch)) {  // prefix
           string prefix = this.readPrefix(ch);
           string scope = this.namespaces[prefix];
           if (scope == null) {
             throw new ParserException();
           }
-     return RDFTerm.fromTypedString(
-str,
-scope + this.readOptionalLocalName());
+          return RDFTerm.fromTypedString(
+     str,
+     scope + this.readOptionalLocalName());
         } else {
           throw new ParserException();
         }
@@ -327,13 +327,13 @@ scope + this.readOptionalLocalName());
     }
 
     private bool isNameStartCharU(int ch) {
-    return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch ==
-        '_' || (ch >= 0xc0 && ch <= 0xd6) || (ch >= 0xd8 && ch <= 0xf6) ||
-          (ch >= 0xf8 && ch <= 0x2ff) || (ch >= 0x370 && ch <= 0x37d) ||
-          (ch >= 0x37f && ch <= 0x1fff) || (ch >= 0x200c && ch <= 0x200d) ||
-          (ch >= 0x2070 && ch <= 0x218f) || (ch >= 0x2c00 && ch <= 0x2fef) ||
-          (ch >= 0x3001 && ch <= 0xd7ff) || (ch >= 0xf900 && ch <= 0xfdcf) ||
-          (ch >= 0xfdf0 && ch <= 0xfffd) || (ch >= 0x10000 && ch <= 0xeffff);
+      return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch ==
+          '_' || (ch >= 0xc0 && ch <= 0xd6) || (ch >= 0xd8 && ch <= 0xf6) ||
+            (ch >= 0xf8 && ch <= 0x2ff) || (ch >= 0x370 && ch <= 0x37d) ||
+            (ch >= 0x37f && ch <= 0x1fff) || (ch >= 0x200c && ch <= 0x200d) ||
+            (ch >= 0x2070 && ch <= 0x218f) || (ch >= 0x2c00 && ch <= 0x2fef) ||
+            (ch >= 0x3001 && ch <= 0xd7ff) || (ch >= 0xf900 && ch <= 0xfdcf) ||
+            (ch >= 0xfdf0 && ch <= 0xfffd) || (ch >= 0x10000 && ch <= 0xeffff);
     }
 
     /// <include file='../../docs.xml'
@@ -356,8 +356,8 @@ scope + this.readOptionalLocalName());
               this.input.ReadChar() == 'x' && this.skipWhitespace()) {
             this.readPrefixStatement(false);
             continue;
-  } else if (ch == 'b' && this.input.ReadChar() == 'a' &&
-    this.input.ReadChar() == 's' &&
+          } else if (ch == 'b' && this.input.ReadChar() == 'a' &&
+            this.input.ReadChar() == 's' &&
                     this.input.ReadChar() == 'e' && this.skipWhitespace()) {
             this.readBase(false);
             continue;
@@ -413,8 +413,8 @@ scope + this.readOptionalLocalName());
     private string readBlankNodeLabel() {
       var ilist = new StringBuilder();
       int startChar = this.input.ReadChar();
-   if (!this.isNameStartCharU(startChar) && (startChar < '0' || startChar > '9'
-)) {
+      if (!this.isNameStartCharU(startChar) &&
+           (startChar < '0' || startChar > '9')) {
         throw new ParserException();
       }
       if (startChar <= 0xffff) {
@@ -545,8 +545,10 @@ scope + this.readOptionalLocalName());
         } else if (ch == '\\') {
           ch = this.readUnicodeEscape(false);
         }
- if (ch <= 0x20 || ((ch & 0x7F) == ch && "><\\\"{}|^`" .IndexOf((char)ch) >=
-          0)) throw new ParserException();
+        if (ch <= 0x20 || ((ch & 0x7f) == ch &&
+                "><\\\"{}|^`".IndexOf((char)ch) >= 0)) {
+          throw new ParserException();
+        }
         if (ch <= 0xffff) {
           {
             ilist.Append((char)ch);
@@ -683,8 +685,8 @@ scope + this.readOptionalLocalName());
                   ilist.Append((char)ch1);
                 }
               } else if (ch1 <= 0x10ffff) {
-              ilist.Append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) +
-                  0xd800));
+                ilist.Append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) +
+                    0xd800));
                 ilist.Append((char)(((ch1 - 0x10000) & 0x3ff) + 0xdc00));
               }
             } else {
@@ -720,10 +722,11 @@ ilist.ToString(),
             if (!haveDigits) {
               throw new ParserException();
             }
+            string ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
+                "http://www.w3.org/2001/XMLSchema#integer";
             return RDFTerm.fromTypedString(
 ilist.ToString(),
-                haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
-                "http://www.w3.org/2001/XMLSchema#integer");
+ns);
           } else {
             this.input.moveBack(1);
           }
@@ -742,10 +745,11 @@ ilist.ToString(),
           if (!haveDigits) {
             throw new ParserException();
           }
+          string ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
+              "http://www.w3.org/2001/XMLSchema#integer";
           return RDFTerm.fromTypedString(
 ilist.ToString(),
-              haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
-              "http://www.w3.org/2001/XMLSchema#integer");
+ns);
         }
       }
     }
@@ -755,10 +759,11 @@ ilist.ToString(),
       int mark = this.input.setSoftMark();
       if (ch < 0) {
         throw new ParserException();
-      } else if (ch == '<') return TurtleObject.fromTerm(
+      } else if (ch == '<') {
+        return TurtleObject.fromTerm(
 RDFTerm.fromIRI(this.readIriReference()));
-else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' || (ch >= '0' &&
-        ch <= '9'))) {
+      } else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
+        (ch >= '0' && ch <= '9'))) {
         return TurtleObject.fromTerm(this.readNumberLiteral(ch));
       } else if (acceptLiteral && (ch == '\'' || ch == '\"')) {
         // start of quote literal
@@ -777,8 +782,9 @@ else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' || (ch >= '0' &&
         return TurtleObject.fromTerm(term);
       } else if (ch == '[') {
         return this.readBlankNodePropertyList();
-      } else if (ch == '(') return this.readCollection();
-      else if (ch == ':') { // prefixed name with current prefix
+      } else if (ch == '(') {
+        return this.readCollection();
+      } else if (ch == ':') { // prefixed name with current prefix
         string scope = this.namespaces[String.Empty];
         if (scope == null) {
           throw new ParserException();
@@ -792,8 +798,8 @@ else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' || (ch >= '0' &&
             this.input.ReadChar() == 'u' &&
               this.input.ReadChar() == 'e' && this.skipWhitespace()) {
             return TurtleObject.fromTerm(RDFTerm.TRUE);
-  } else if (ch == 'f' && this.input.ReadChar() == 'a' &&
-    this.input.ReadChar() == 'l' &&
+          } else if (ch == 'f' && this.input.ReadChar() == 'a' &&
+            this.input.ReadChar() == 'l' &&
                 this.input.ReadChar() == 's' && this.input.ReadChar() == 'e' &&
                 this.skipWhitespace()) {
             return TurtleObject.fromTerm(RDFTerm.FALSE);
@@ -933,8 +939,8 @@ else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' || (ch >= '0' &&
           continue;
         } else if (ch == '\\') {
           ch = this.input.ReadChar();
-    if (((ch & 0x7F) == ch && "_~.-!$&'()*+,;=/?#@%" .IndexOf((char)ch) >=
-            0)) {
+          if ((ch & 0x7f) == ch &&
+                  "_~.-!$&'()*+,;=/?#@%".IndexOf((char)ch) >= 0) {
             if (ch <= 0xffff) {
               {
                 ilist.Append((char)ch);
@@ -951,8 +957,8 @@ else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' || (ch >= '0' &&
           continue;
         }
         if (first) {
-       if (!this.isNameStartCharU(ch) && ch != ':' && (ch < '0' || ch > '9'
-)) {
+          if (!this.isNameStartCharU(ch) && ch != ':' &&
+               (ch < '0' || ch > '9')) {
             this.input.moveBack(1);
             return ilist.ToString();
           }
@@ -1091,8 +1097,8 @@ else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' || (ch >= '0' &&
             ilist.Append((char)startChar);
           }
         } else if (startChar <= 0x10ffff) {
-        ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) +
-            0xd800));
+          ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) +
+              0xd800));
           ilist.Append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
         }
         first = false;
@@ -1264,7 +1270,7 @@ else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' || (ch >= '0' &&
         if (ch == '.') {
           // just a blank node property list;
           // generate a blank node as the subject
-          RDFTerm blankNode = this.allocateBlankNode();
+          RDFTerm blankNode = this.AllocateBlankNode();
           foreach (var prop in subject.getProperties()) {
             this.emitRDFTriple(blankNode, prop.Pred, prop.Obj, triples);
           }

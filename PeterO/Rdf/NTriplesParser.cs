@@ -8,10 +8,8 @@ at: http://upokecenter.dreamhosters.com/articles/donate-now-2/
 */
 namespace PeterO.Rdf {
   using System;
-  using System.Text;
-  using System.Globalization;
-  using System.IO;
   using System.Collections.Generic;
+  using System.Text;
   using PeterO;
   using PeterO.Text;
 
@@ -157,11 +155,14 @@ stream));
       while (true) {
         int c2 = this.input.ReadChar();
         if ((c2 <= 0x20 || c2 > 0x7e) || ((c2 & 0x7F) == c2 && "<\"{}|^`"
-                .IndexOf((char)c2) >= 0)) throw new ParserException();
-        else if (c2 == '\\') {
+                .IndexOf((char)c2) >= 0)) {
+          throw new ParserException();
+        } else if (c2 == '\\') {
           c2 = this.readUnicodeEscape(true);
           if (c2 <= 0x20 || (c2 >= 0x7f && c2 <= 0x9f) || ((c2 & 0x7f) == c2 &&
-            "<\"{}|\\^`".IndexOf((char)c2) >= 0)) throw new ParserException();
+            "<\"{}|\\^`".IndexOf((char)c2) >= 0)) {
+            throw new ParserException();
+          }
           if (c2 == ':') {
             colon = true;
           }
@@ -179,10 +180,10 @@ stream));
             throw new ParserException();
           }
           return ilist.ToString();
-        } else if (c2 == '\"')
+        } else if (c2 == '\"') {
           // Should have been escaped
           throw new ParserException();
-        else {
+        } else {
           if (c2 == ':') {
             colon = true;
           }

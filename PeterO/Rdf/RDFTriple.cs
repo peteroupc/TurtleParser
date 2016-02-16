@@ -12,14 +12,14 @@ namespace PeterO.Rdf {
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.RDFTriple"]/*'/>
   public sealed class RDFTriple {
-    private RDFTerm subject, predicate, _object;
+    private RDFTerm subject, predicate, objectRdf;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)"]/*'/>
-    public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm _object) {
+    public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       this.setSubject(subject);
       this.setPredicate(predicate);
-      this.setObject(_object);
+      this.setObject(objectRdf);
     }
 
     /// <include file='../../docs.xml'
@@ -30,7 +30,7 @@ namespace PeterO.Rdf {
       }
       this.setSubject(triple.subject);
       this.setPredicate(triple.predicate);
-      this.setObject(triple._object);
+      this.setObject(triple.objectRdf);
     }
 
     /// <include file='../../docs.xml'
@@ -46,11 +46,11 @@ namespace PeterO.Rdf {
         return false;
       }
       var other = (RDFTriple)obj;
-      if (this._object == null) {
-        if (other._object != null) {
+      if (this.objectRdf == null) {
+        if (other.objectRdf != null) {
           return false;
         }
-      } else if (!this._object.Equals(other._object)) {
+      } else if (!this.objectRdf.Equals(other.objectRdf)) {
         return false;
       }
       if (this.predicate == null) {
@@ -70,7 +70,7 @@ namespace PeterO.Rdf {
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getObject"]/*'/>
     public RDFTerm getObject() {
-      return this._object;
+      return this.objectRdf;
     }
 
     /// <include file='../../docs.xml'
@@ -90,22 +90,22 @@ namespace PeterO.Rdf {
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
-        int result = prime + ((this._object == null) ? 0 :
-             this._object.GetHashCode());
+        int result = prime + ((this.objectRdf == null) ? 0 :
+             this.objectRdf.GetHashCode());
         result = (prime * result) +
             ((this.predicate == null) ? 0 : this.predicate.GetHashCode());
         bool subjnull = this.subject == null;
-        result = prime * result + (subjnull ? 0 :
+        result = (prime * result) + (subjnull ? 0 :
           this.subject.GetHashCode());
         return result;
       }
     }
 
-    private void setObject(RDFTerm _object) {
-      if (_object == null) {
+    private void setObject(RDFTerm objectRdf) {
+      if (objectRdf == null) {
         throw new ArgumentNullException("object");
       }
-      this._object = _object;
+      this.objectRdf = objectRdf;
     }
 
     private void setPredicate(RDFTerm predicate) {
@@ -135,7 +135,7 @@ namespace PeterO.Rdf {
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.ToString"]/*'/>
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
-            this._object.ToString() + " .";
+            this.objectRdf.ToString() + " .";
     }
   }
 }
