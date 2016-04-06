@@ -15,7 +15,7 @@ using System.Collections.Generic;
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})"]/*'/>
   internal static void replaceBlankNodes(
-ISet<RDFTriple> triples,
+  ISet<RDFTriple> triples,
       IDictionary<string, RDFTerm> bnodeLabels) {
     if (bnodeLabels.Count == 0) {
  return;

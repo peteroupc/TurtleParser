@@ -34,8 +34,8 @@ namespace PeterO.Rdf {
       }
       this.input = new StackableCharacterInput(
           Encodings.GetDecoderInput(
-Encodings.GetEncoding("us-ascii", true),
-stream));
+  Encodings.GetEncoding("us-ascii", true),
+  stream));
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 

@@ -179,19 +179,19 @@ namespace PeterO.Rdf {
     }
 
     private void emitRDFTriple(
-RDFTerm subj,
-RDFTerm pred,
-RDFTerm obj,
-ISet<RDFTriple> triples) {
+  RDFTerm subj,
+  RDFTerm pred,
+  RDFTerm obj,
+  ISet<RDFTriple> triples) {
       var triple = new RDFTriple(subj, pred, obj);
       triples.Add(triple);
     }
 
     private void emitRDFTriple(
-RDFTerm subj,
-RDFTerm pred,
-TurtleObject obj,
-ISet<RDFTriple> triples) {
+  RDFTerm subj,
+  RDFTerm pred,
+  TurtleObject obj,
+  ISet<RDFTriple> triples) {
       if (obj.Kind == TurtleObject.SIMPLE) {
         this.emitRDFTriple(subj, pred, obj.Term, triples);
       } else if (obj.Kind == TurtleObject.PROPERTIES) {
@@ -229,10 +229,10 @@ ISet<RDFTriple> triples) {
     }
 
     private void emitRDFTriple(
-TurtleObject subj,
-RDFTerm pred,
-TurtleObject obj,
-ISet<RDFTriple> triples) {
+  TurtleObject subj,
+  RDFTerm pred,
+  TurtleObject obj,
+  ISet<RDFTriple> triples) {
       if (subj.Kind == TurtleObject.SIMPLE) {
         this.emitRDFTriple(subj.Term, pred, obj, triples);
       } else if (subj.Kind == TurtleObject.PROPERTIES) {
@@ -697,8 +697,8 @@ ISet<RDFTriple> triples) {
                 throw new ParserException();
               }
               return RDFTerm.fromTypedString(
-ilist.ToString(),
-"http://www.w3.org/2001/XMLSchema#double");
+  ilist.ToString(),
+  "http://www.w3.org/2001/XMLSchema#double");
             }
           }
         } else if (ch1 >= '0' && ch1 <= '9') {
@@ -725,8 +725,8 @@ ilist.ToString(),
             string ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
                 "http://www.w3.org/2001/XMLSchema#integer";
             return RDFTerm.fromTypedString(
-ilist.ToString(),
-ns);
+  ilist.ToString(),
+  ns);
           } else {
             this.input.moveBack(1);
           }
@@ -748,8 +748,8 @@ ns);
           string ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
               "http://www.w3.org/2001/XMLSchema#integer";
           return RDFTerm.fromTypedString(
-ilist.ToString(),
-ns);
+  ilist.ToString(),
+  ns);
         }
       }
     }
@@ -761,7 +761,7 @@ ns);
         throw new ParserException();
       } else if (ch == '<') {
         return TurtleObject.fromTerm(
-RDFTerm.fromIRI(this.readIriReference()));
+  RDFTerm.fromIRI(this.readIriReference()));
       } else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
         (ch >= '0' && ch <= '9'))) {
         return TurtleObject.fromTerm(this.readNumberLiteral(ch));

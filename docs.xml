@@ -332,8 +332,7 @@
             </summary>
             <param name='refValue'>A string representing an IRI to
             check.</param>
-            <returns><c>true</c> if the string is a valid IRI with a scheme component;
-            otherwise,alse .</returns>
+            <returns><c>true</c> if the string is a valid IRI with a scheme component; otherwise, <c>false</c>.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.hasSchemeForURI(System.String)">
 <summary>
@@ -351,8 +350,7 @@
             </summary>
             <param name='refValue'>A string representing an IRI to
             check.</param>
-            <returns><c>true</c> if the string is a valid URI with a scheme component;
-            otherwise,alse .</returns>
+            <returns><c>true</c> if the string is a valid URI with a scheme component; otherwise, <c>false</c>.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.isValidCurieReference(System.String,System.Int32,System.Int32)">
 <summary>Determines whether the substring is a valid CURIE
@@ -365,7 +363,7 @@
             <param name='length'>The number of elements in the desired portion
             of "s" (but not more than "s" 's length).</param>
             <returns><c>true</c> if the substring is a valid CURIE reference under
-            RDFA 1; otherwise,alse . Returns false if <paramref name='s'/> is
+            RDFA 1; otherwise, <c>false</c>. Returns false if <paramref name='s'/> is
             null.</returns>
             <exception cref='T:System.ArgumentException'>Either <paramref name='offset'/> or <paramref name='length'/> is less than 0 or
             greater than <paramref name='s'/> 's length, or <paramref name='s'/> 's length minus <paramref name='offset'/> is less than

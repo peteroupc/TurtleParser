@@ -27,9 +27,9 @@ A Turtle RDF parser for C# and Java.
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/Release/Encoding.dll" target="lib/portable-net45+dnxcore50+netcore45+win+wpa81+wp80" />
-    <file src="bin/Release/Encoding.xml" target="lib/portable-net45+dnxcore50+netcore45+win+wpa81+wp80" />
-    <file src="Encoding-Net4/bin/Release/Encoding.dll" target="lib/portable-net40+sl50+win+wpa81+wp80" />
-    <file src="Encoding-Net4/bin/Release/Encoding.xml" target="lib/portable-net40+sl50+win+wpa81+wp80" />
+    <file src="bin/Release/Encoding.dll" target="lib/portable-net45+dnxcore50+netcore45+win+wpa81+wp8" />
+    <file src="bin/Release/Encoding.xml" target="lib/portable-net45+dnxcore50+netcore45+win+wpa81+wp8" />
+    <file src="Encoding-Net4/bin/Release/Encoding.dll" target="lib/portable-net40+sl5+win+wpa81+wp8" />
+    <file src="Encoding-Net4/bin/Release/Encoding.xml" target="lib/portable-net40+sl5+win+wpa81+wp8" />
   </files>
 </package>

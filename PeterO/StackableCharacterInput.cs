@@ -22,10 +22,10 @@ namespace PeterO {
       private int pos = 0;
 
       public InputAndBuffer(
-ICharacterInput charInput,
-int[] buffer,
-int offset,
-int length) {
+  ICharacterInput charInput,
+  int[] buffer,
+  int offset,
+  int length) {
         this.charInput = charInput;
         if (length > 0) {
           this.buffer = new int[length];
@@ -142,11 +142,11 @@ int length) {
       // Move unread characters in buffer, since this new
       // input sits on top of the existing input
       this.stack.Add(
-new InputAndBuffer(
-input,
-this.buffer,
-this.pos,
-this.endpos - this.pos));
+  new InputAndBuffer(
+  input,
+  this.buffer,
+  this.pos,
+  this.endpos - this.pos));
       this.endpos = this.pos;
     }
 
@@ -163,9 +163,9 @@ this.endpos - this.pos));
         // entire buffer if possible
         if (this.endpos < this.buffer.Length) {
           int count = this.readInternal(
-this.buffer,
-this.endpos,
-this.buffer.Length - this.endpos);
+  this.buffer,
+  this.endpos,
+  this.buffer.Length - this.endpos);
           if (count > 0) {
             this.endpos += count;
           }
@@ -235,9 +235,9 @@ this.buffer.Length - this.endpos);
         var count = 0;
         if (this.endpos < this.buffer.Length) {
           count = this.readInternal(
-this.buffer,
-this.endpos,
-this.buffer.Length - this.endpos);
+  this.buffer,
+  this.endpos,
+  this.buffer.Length - this.endpos);
           // Console.WriteLine("%s",this);
           if (count > 0) {
             this.endpos += count;
@@ -257,9 +257,9 @@ this.buffer.Length - this.endpos);
           this.buffer = newBuffer;
         }
         count = this.readInternal(
-this.buffer,
-this.endpos,
-Math.Min(unitCount, this.buffer.Length - this.endpos));
+  this.buffer,
+  this.endpos,
+  Math.Min(unitCount, this.buffer.Length - this.endpos));
         if (count > 0) {
           this.endpos += count;
         }
@@ -270,11 +270,11 @@ Math.Min(unitCount, this.buffer.Length - this.endpos));
           total += unitCount;
         } else if (this.endpos > this.pos) {
         Array.Copy(
-this.buffer,
-this.pos,
-buf,
-offset,
-this.endpos - this.pos);
+  this.buffer,
+  this.pos,
+  buf,
+  offset,
+  this.endpos - this.pos);
           total += this.endpos - this.pos;
           this.pos = this.endpos;
         }
@@ -338,11 +338,11 @@ this.endpos - this.pos);
         // Already have a mark; shift buffer to the new mark
         if (this.pos > 0 && this.pos < this.endpos) {
      Array.Copy(
-this.buffer,
-this.pos,
-this.buffer,
-0,
-this.endpos - this.pos);
+  this.buffer,
+  this.pos,
+  this.buffer,
+  0,
+  this.endpos - this.pos);
         }
         this.endpos -= this.pos;
         this.pos = 0;
