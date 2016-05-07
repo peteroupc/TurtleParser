@@ -202,7 +202,7 @@ namespace PeterO {
       }
       if (offset < 0) {
         throw new ArgumentException("offset (" + offset +
-          ") is less than " + 0);
+          ") is less than 0");
       }
       if (offset > buf.Length) {
         throw new ArgumentException("offset (" + offset +
@@ -210,7 +210,7 @@ namespace PeterO {
       }
       if (unitCount < 0) {
         throw new ArgumentException("unitCount (" + unitCount +
-          ") is less than " + 0);
+          ") is less than 0");
       }
       if (unitCount > buf.Length) {
         throw new ArgumentException("unitCount (" + unitCount +

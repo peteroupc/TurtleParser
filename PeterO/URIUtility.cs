@@ -881,7 +881,7 @@ namespace PeterO.Cbor {
 }
 if (offset < 0) {
   throw new ArgumentException("offset (" + offset +
-    ") is less than " + 0);
+    ") is less than 0");
 }
 if (offset > s.Length) {
   throw new ArgumentException("offset (" + offset +
@@ -889,7 +889,7 @@ if (offset > s.Length) {
 }
 if (length < 0) {
   throw new ArgumentException("length (" + length +
-    ") is less than " + 0);
+    ") is less than 0");
 }
 if (length > s.Length) {
   throw new ArgumentException("length (" + length +
