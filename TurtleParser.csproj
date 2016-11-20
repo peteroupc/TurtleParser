@@ -12,11 +12,13 @@
     <AssemblyName>TurtleParser</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <NoWin32Manifest>False</NoWin32Manifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <CodeAnalysisRuleSet>PeterO.ruleset</CodeAnalysisRuleSet>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile344</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -81,7 +83,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Encoding, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Encoding">
+      <HintPath>packages\PeterO.Encoding.0.1.0\lib\portable-net40+sl50+win+wpa81+wp80\Encoding.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

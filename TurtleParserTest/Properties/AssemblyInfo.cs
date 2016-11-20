@@ -10,7 +10,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("EncodingTest")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Any copyright " +
+
+  "is released to the Public Domain. <http://creativecommons.org/publicdomain/zero/1.0/>")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

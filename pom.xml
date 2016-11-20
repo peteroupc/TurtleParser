@@ -1,88 +1,88 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
   <groupId>com.upokecenter</groupId>
   <artifactId>turtleparser</artifactId>
   <packaging>jar</packaging>
   <version>0.1.0-SNAPSHOT</version>
-  <name>Encoding</name>
+  <name>TurtleParser</name>
   <description>A Java library for parsing the Turtle format.</description>
-	<url>https://github.com/peteroupc/Encoding</url>
-	<profiles>
-		<profile>
-			<id>release</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.5</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.9.1</version>
+  <url>https://github.com/peteroupc/TurtleParser</url>
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9.1</version>
             <configuration>
-              <bottom>MailLib for Java documentation, generated in {currentYear}.</bottom>
+              <bottom>TurtleParser for Java documentation, generated in {currentYear}.</bottom>
               <!-- Exclude certain packages whose classes are only public for convenience -->
               <excludePackageNames>com.upokecenter.text.encoders,com.upokecenter.mail.transforms</excludePackageNames>
             </configuration>
-						<executions>
-							<execution>
-								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-						<version>2.2.1</version>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<goals>
-									<goal>jar-no-fork</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-	<scm>
-		<connection>scm:git:https://github.com/peteroupc/Encoding</connection>
-		<developerConnection>scm:git:https://github.com/peteroupc/Encoding.git</developerConnection>
-		<url>https://github.com/peteroupc/Encoding</url>
-	</scm>
-	<developers>
-		<developer>
-			<name>Peter Occil</name>
-			<email>poccil14@gmail.com</email>
-		</developer>
-	</developers>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-	<licenses>
-		<license>
-			<name>CC0 Universal</name>
-			<distribution>repo</distribution>
-			<url>http://www.creativecommons.org/publicdomain/zero/1.0/</url>
-		</license>
-	</licenses>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.2.1</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  <scm>
+    <connection>scm:git:https://github.com/peteroupc/TurtleParser</connection>
+    <developerConnection>scm:git:https://github.com/peteroupc/TurtleParser.git</developerConnection>
+    <url>https://github.com/peteroupc/TurtleParser</url>
+  </scm>
+  <developers>
+    <developer>
+      <name>Peter Occil</name>
+      <email>poccil14@gmail.com</email>
+    </developer>
+  </developers>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <licenses>
+    <license>
+      <name>CC0 Universal</name>
+      <distribution>repo</distribution>
+      <url>http://www.creativecommons.org/publicdomain/zero/1.0/</url>
+    </license>
+  </licenses>
   <build>
    <plugins>
     <plugin>
@@ -95,26 +95,26 @@
         <autoReleaseAfterClose>true</autoReleaseAfterClose>
         <nexusUrl>https://oss.sonatype.org/</nexusUrl>
       </configuration>
-		</plugin>
+    </plugin>
    </plugins>
   </build>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
-	<dependencies>
-		<dependency>
-			<groupId>com.github.peteroupc</groupId>
-			<artifactId>encoding</artifactId>
-			<version>0.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.github.peteroupc</groupId>
+      <artifactId>encoding</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>
