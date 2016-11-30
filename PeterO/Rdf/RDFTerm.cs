@@ -347,7 +347,7 @@ namespace PeterO.Rdf {
         escapeString(this.value, builder, true);
         builder.Append(">");
       } else {
-        return "<about:blank>";
+        return "<>";
       }
       return builder.ToString();
     }

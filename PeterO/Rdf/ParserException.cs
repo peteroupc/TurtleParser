@@ -13,5 +13,15 @@ using System.IO;
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.ParserException"]/*'/>
 public class ParserException : IOException {
+    /// <summary>Initializes a new instance of the ParserException
+    /// class.</summary>
+        public ParserException() : base() {
+        }
+
+    /// <summary>Initializes a new instance of the ParserException
+    /// class.</summary>
+    /// <param name='str'>A string object.</param>
+        public ParserException(string str) : base(str) {
+    }
 }
 }

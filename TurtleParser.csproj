@@ -17,8 +17,8 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <CodeAnalysisRuleSet>PeterO.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile344</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -81,10 +81,11 @@
     <Compile Include="PeterO\Rdf\URIUtility.cs" />
     <Compile Include="PeterO\StackableCharacterInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PeterO\DebugUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Encoding">
-      <HintPath>packages\PeterO.Encoding.0.1.0\lib\portable-net40+sl50+win+wpa81+wp80\Encoding.dll</HintPath>
+      <HintPath>packages\PeterO.Encoding.0.2.0\lib\portable-net40+sl5+win+wpa81+wp80\Encoding.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

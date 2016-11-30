@@ -31,7 +31,8 @@ using System.Collections.Generic;
         string oldname = subj.getValue();
         string newname = suggestBlankNodeName(oldname, nodeindex, bnodeLabels);
         if (!newname.Equals(oldname)) {
-          RDFTerm newNode = newBlankNodes[oldname];
+            RDFTerm newNode = newBlankNodes.ContainsKey(oldname) ?
+                    newBlankNodes[oldname] : null;
           if (newNode == null) {
             newNode = RDFTerm.fromBlankNode(newname);
             bnodeLabels.Add(newname, newNode);
@@ -46,7 +47,8 @@ using System.Collections.Generic;
         string oldname = obj.getValue();
         string newname = suggestBlankNodeName(oldname, nodeindex, bnodeLabels);
         if (!newname.Equals(oldname)) {
-          RDFTerm newNode = newBlankNodes[oldname];
+                    RDFTerm newNode = newBlankNodes.ContainsKey(oldname) ?
+                    newBlankNodes[oldname] : null;
           if (newNode == null) {
             newNode = RDFTerm.fromBlankNode(newname);
             bnodeLabels.Add(newname, newNode);

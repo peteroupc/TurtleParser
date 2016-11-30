@@ -156,7 +156,9 @@ namespace PeterO {
       if (this.haveMark) {
         // Read from buffer
         if (this.pos < this.endpos) {
-          return this.buffer[this.pos++];
+          int ch = this.buffer[this.pos++];
+         // DebugUtility.Log ("buffer: [" + ch + "],["+(char)ch+"]");
+          return ch;
         }
         // Console.WriteLine(this);
         // End pos is smaller than buffer size, fill
@@ -172,13 +174,15 @@ namespace PeterO {
         }
         // Try reading from buffer again
         if (this.pos < this.endpos) {
-          return this.buffer[this.pos++];
+          int ch = this.buffer[this.pos++];
+           // DebugUtility.Log ("buffer2: [" + ch + "],[" + charch + "]");
+                    return ch;
         }
         // Console.WriteLine(this);
         // No room, read next character and put it in buffer
         int c = this.readInternal();
         if (c < 0) {
-          return c;
+                    return c;
         }
         if (this.pos >= this.buffer.Length) {
           var newBuffer = new int[this.buffer.Length * 2];
@@ -186,11 +190,14 @@ namespace PeterO {
           this.buffer = newBuffer;
         }
         // Console.WriteLine(this);
-        this.buffer[this.pos++] = (byte)(c & 0xff);
+        this.buffer[this.pos++] = c;
         ++this.endpos;
-        return c;
+        // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+                return c;
       } else {
-        return this.readInternal();
+        int c = this.readInternal();
+          // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+                return c;
       }
     }
 

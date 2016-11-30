@@ -181,7 +181,7 @@
             <returns>A text string.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.isBlank">
-<summary>Not documented yet.</summary>
+<summary>Gets whether this term is a blank node.</summary>
             <returns>A Boolean object.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.isIRI(System.String)">
@@ -485,6 +485,7 @@
             <paramref name='input'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setHardMark">
+<summary>Not documented yet.</summary>
 <returns>A 32-bit signed integer.</returns>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.setMarkPosition(System.Int32)">

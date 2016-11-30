@@ -774,7 +774,8 @@ namespace PeterO.Rdf {
           throw new ParserException();
         }
         string label = this.readBlankNodeLabel();
-        RDFTerm term = this.bnodeLabels[label];
+        RDFTerm term = this.bnodeLabels.ContainsKey(label) ?
+                    this.bnodeLabels[label] : null;
         if (term == null) {
           term = RDFTerm.fromBlankNode(label);
           this.bnodeLabels.Add(label, term);
@@ -796,19 +797,19 @@ namespace PeterO.Rdf {
           mark = this.input.setHardMark();
           if (ch == 't' && this.input.ReadChar() == 'r' &&
             this.input.ReadChar() == 'u' &&
-              this.input.ReadChar() == 'e' && this.skipWhitespace()) {
+              this.input.ReadChar() == 'e' && this.isBooleanLiteralEnd()) {
             return TurtleObject.fromTerm(RDFTerm.TRUE);
           } else if (ch == 'f' && this.input.ReadChar() == 'a' &&
-            this.input.ReadChar() == 'l' &&
-                this.input.ReadChar() == 's' && this.input.ReadChar() == 'e' &&
-                this.skipWhitespace()) {
+            this.input.ReadChar() == 'l' && this.input.ReadChar() == 's' &&
+                this.input.ReadChar() == 'e' && this.isBooleanLiteralEnd()) {
             return TurtleObject.fromTerm(RDFTerm.FALSE);
           } else {
             this.input.setMarkPosition(mark);
           }
         }
         string prefix = this.readPrefix(ch);
-        string scope = this.namespaces[prefix];
+        string scope = this.namespaces.ContainsKey(prefix) ?
+                    this.namespaces[prefix] : null;
         if (scope == null) {
           throw new ParserException();
         }
@@ -835,7 +836,7 @@ namespace PeterO.Rdf {
           }
           this.skipWhitespace();
         }
-        // Read _object
+        // Read object
         TurtleObject obj = this.readObject(true);
         if (obj == null) {
           if (!haveObject) {
@@ -871,7 +872,7 @@ namespace PeterO.Rdf {
           }
           this.skipWhitespace();
         }
-        // Read _object
+        // Read object
         TurtleObject obj = this.readObject(true);
         if (obj == null) {
           if (!haveObject) {
@@ -1085,6 +1086,19 @@ namespace PeterO.Rdf {
         throw new ParserException();
       }
       return;
+    }
+
+    private bool isBooleanLiteralEnd() {
+      if (this.skipWhitespace()) {
+        return true;
+      }
+      this.input.setSoftMark();
+      int ch = this.input.ReadChar();
+      if (ch < 0) {
+        return true;
+      }
+      this.input.moveBack(1);
+       return (this.isNameChar(ch));
     }
 
     private string readPrefix(int startChar) {
