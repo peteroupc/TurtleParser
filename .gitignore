@@ -24,6 +24,7 @@ TestResults/
 bin/
 cache/
 coverage.xml
+encoding/
 js/*.ht*
 js/DecTest.*
 obj/
