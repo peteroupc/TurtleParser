@@ -1,17 +1,26 @@
 # API Documentation
 
-* [com.upokecenter.util.IByteReader](wiki/com.upokecenter.util.IByteReader) -
-A generic interface for reading data one byte at a time.
+* [com.upokecenter.util.IMarkableCharacterInput](wiki/com.upokecenter.util.IMarkableCharacterInput) -
+Not documented yet.
 
-* [com.upokecenter.util.IByteWriter](wiki/com.upokecenter.util.IByteWriter) -
-A generic interface for writing bytes of data.
+* [com.upokecenter.util.IRDFParser](wiki/com.upokecenter.util.IRDFParser) -
+Not documented yet.
 
-* [com.upokecenter.util.IWriter](wiki/com.upokecenter.util.IWriter) -
-A generic interface for writing bytes of data.
+* [com.upokecenter.util.NTriplesParser](wiki/com.upokecenter.util.NTriplesParser) -
+Not documented yet.
 
-* [com.upokecenter.util.ArrayWriter](wiki/com.upokecenter.util.ArrayWriter) -
-A growable array of bytes.
+* [com.upokecenter.util.RDFTerm](wiki/com.upokecenter.util.RDFTerm) -
+Not documented yet.
 
-* [com.upokecenter.util.DataIO](wiki/com.upokecenter.util.DataIO) -
-Convenience class that contains static methods for wrapping byte arrays and
- streams into byte readers and byte writers.
+* [com.upokecenter.util.RDFTriple](wiki/com.upokecenter.util.RDFTriple) -
+Not documented yet.
+
+* [com.upokecenter.util.StackableCharacterInput](wiki/com.upokecenter.util.StackableCharacterInput) -
+A character input stream where additional inputs can be stacked on top of
+ it.
+
+* [com.upokecenter.util.TurtleParser](wiki/com.upokecenter.util.TurtleParser) -
+Not documented yet.
+
+* [com.upokecenter.util.ParserException](wiki/com.upokecenter.util.ParserException) -
+Not documented yet.
