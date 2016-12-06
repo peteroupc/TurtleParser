@@ -16,15 +16,15 @@ import java.io.*;
 public class ParserException extends IOException {
 private static final long serialVersionUID = 1L;
     /**
-     * Initializes a new instance of the ParserException class.
+     * Initializes a new instance of the <see cref='ParserException'/> class.
      */
         public ParserException() {
  super();
         }
 
     /**
-     * Initializes a new instance of the ParserException class.
-     * @param str A string object.
+     * Initializes a new instance of the <see cref='ParserException'/> class.
+     * @param str A text string.
      */
         public ParserException(String str) {
  super(str);

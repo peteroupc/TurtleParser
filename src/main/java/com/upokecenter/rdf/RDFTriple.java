@@ -50,13 +50,10 @@ at: http://peteroupc.github.io/
       if (this == obj) {
         return true;
       }
-      if (obj == null) {
+      RDFTriple other = ((obj instanceof RDFTriple) ? (RDFTriple)obj : null);
+      if (other == null) {
         return false;
       }
-      if (GetType() != obj.getClass()) {
-        return false;
-      }
-      RDFTriple other = (RDFTriple)obj;
       if (this.objectRdf == null) {
         if (other.objectRdf != null) {
           return false;

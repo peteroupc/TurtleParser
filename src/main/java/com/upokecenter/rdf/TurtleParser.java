@@ -17,7 +17,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      */
   public class TurtleParser implements IRDFParser {
-    private static class TurtleObject {
+    private static final class TurtleObject {
       public static final int SIMPLE = 0;
       public static final int COLLECTION = 1;
       public static final int PROPERTIES = 2;
@@ -50,17 +50,17 @@ at: http://peteroupc.github.io/
 
       private List<TurtleProperty> properties;
 
-      final RDFTerm getTerm() {
+      public final RDFTerm getTerm() {
           return this.term;
         }
-final void setTerm(RDFTerm value) {
+public final void setTerm(RDFTerm value) {
           this.term = value;
         }
 
-      final int getKind() {
+      public final int getKind() {
           return this.kind;
         }
-final void setKind(int value) {
+public final void setKind(int value) {
           this.kind = value;
         }
 
@@ -73,22 +73,22 @@ final void setKind(int value) {
       }
     }
 
-    private static class TurtleProperty {
-      private RDFTerm pred;
-      private TurtleObject obj;
+    private static final class TurtleProperty {
+      private RDFTerm _pred;
+      private TurtleObject _obj;
 
-      final RDFTerm getPred() {
-          return this.pred;
+      public final RDFTerm getPred() {
+          return this._pred;
         }
-final void setPred(RDFTerm value) {
-          this.pred = value;
+public final void setPred(RDFTerm value) {
+          this._pred = value;
         }
 
-      final TurtleObject getObj() {
-          return this.obj;
+      public final TurtleObject getObj() {
+          return this._obj;
         }
-final void setObj(TurtleObject value) {
-          this.obj = value;
+public final void setObj(TurtleObject value) {
+          this._obj = value;
         }
     }
 
@@ -105,23 +105,16 @@ final void setObj(TurtleObject value) {
     private int curBlankNode = 0;
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
-     * class.
-     * @param stream A PeterO.IByteReader object.
+     *
      */
-    public TurtleParser(PeterO.IByteReader stream) {
+    public TurtleParser(com.upokecenter.util.IByteReader stream) {
  this(stream,"about:blank");
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
-     * class.
-     * @param stream A PeterO.IByteReader object.
-     * @param baseURI A text string.
-     * @throws java.lang.NullPointerException The parameter {@code stream} or {@code
-     * baseURI} is null.
+     *
      */
-    public TurtleParser(PeterO.IByteReader stream, String baseURI) {
+    public TurtleParser(com.upokecenter.util.IByteReader stream, String baseURI) {
       if (stream == null) {
         throw new NullPointerException("stream");
       }
@@ -189,7 +182,7 @@ final void setObj(TurtleObject value) {
   RDFTerm subj,
   RDFTerm pred,
   RDFTerm obj,
-  ISet<RDFTriple> triples) {
+  Set<RDFTriple> triples) {
       RDFTriple triple = new RDFTriple(subj, pred, obj);
       triples.Add(triple);
     }
@@ -198,7 +191,7 @@ final void setObj(TurtleObject value) {
   RDFTerm subj,
   RDFTerm pred,
   TurtleObject obj,
-  ISet<RDFTriple> triples) {
+  Set<RDFTriple> triples) {
       if (obj.getKind() == TurtleObject.SIMPLE) {
         this.emitRDFTriple(subj, pred, obj.getTerm(), triples);
       } else if (obj.getKind() == TurtleObject.PROPERTIES) {
@@ -239,7 +232,7 @@ final void setObj(TurtleObject value) {
   TurtleObject subj,
   RDFTerm pred,
   TurtleObject obj,
-  ISet<RDFTriple> triples) {
+  Set<RDFTriple> triples) {
       if (subj.getKind() == TurtleObject.SIMPLE) {
         this.emitRDFTriple(subj.getTerm(), pred, obj, triples);
       } else if (subj.getKind() == TurtleObject.PROPERTIES) {
@@ -347,8 +340,8 @@ final void setObj(TurtleObject value) {
      * Not documented yet.
      * @return An ISet(RDFTriple) object.
      */
-    public ISet<RDFTriple> Parse() {
-      ISet<RDFTriple> triples = new HashSet<RDFTriple>();
+    public Set<RDFTriple> Parse() {
+      Set<RDFTriple> triples = new HashSet<RDFTriple>();
       while (true) {
         this.skipWhitespace();
         int mark = this.input.setHardMark();
@@ -589,25 +582,11 @@ final void setObj(TurtleObject value) {
           haveString = true;
           hyphen = false;
         } else if (c2 >= 'a' && c2 <= 'z') {
-          if (c2 <= 0xffff) {
-            {
               ilist.append((char)c2);
-            }
-          } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
-          }
           haveString = true;
           hyphen = false;
         } else if (haveHyphen && (c2 >= '0' && c2 <= '9')) {
-          if (c2 <= 0xffff) {
-            {
               ilist.append((char)c2);
-            }
-          } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
-          }
           haveString = true;
           hyphen = false;
         } else if (c2 == '-') {
@@ -830,7 +809,7 @@ final void setObj(TurtleObject value) {
       }
     }
 
-    private void readObjectList(ISet<RDFTriple> triples) {
+    private void readObjectList(Set<RDFTriple> triples) {
       boolean haveObject = false;
       while (true) {
         this.input.setSoftMark();
@@ -1053,7 +1032,7 @@ final void setObj(TurtleObject value) {
       }
     }
 
-    private void readPredicateObjectList(ISet<RDFTriple> triples) {
+    private void readPredicateObjectList(Set<RDFTriple> triples) {
       boolean havePredObject = false;
       while (true) {
         int ch;
@@ -1107,7 +1086,7 @@ final void setObj(TurtleObject value) {
         return true;
       }
       this.input.moveBack(1);
-       return (this.isNameChar(ch));
+       return this.isNameChar(ch);
     }
 
     private String readPrefix(int startChar) {
@@ -1270,7 +1249,7 @@ final void setObj(TurtleObject value) {
       }
     }
 
-    private void readTriples(ISet<RDFTriple> triples) {
+    private void readTriples(Set<RDFTriple> triples) {
       int mark = this.input.setHardMark();
       int ch = this.input.ReadChar();
       if (ch < 0) {

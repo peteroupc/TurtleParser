@@ -129,9 +129,15 @@ at: http://peteroupc.github.io/
       }
     }
 
-    private String typeOrLanguage = null;
-    private String value = null;
-    private int kind;
+    private final String typeOrLanguage = null;
+    private final String value = null;
+    private final int kind;
+
+    private RDFTerm(int kind, String typeOrLanguage, String value) {
+      this.kind = kind;
+      this.typeOrLanguage = typeOrLanguage;
+      this.value = value;
+    }
 
     /**
      * Predicate for RDF types.
@@ -184,11 +190,7 @@ at: http://peteroupc.github.io/
       if (name.length() == 0) {
         throw new IllegalArgumentException("name is empty.");
       }
-      RDFTerm ret = new RDFTerm();
-      ret.kind = BLANK;
-      ret.typeOrLanguage = null;
-      ret.value = name;
-      return ret;
+      return new RDFTerm(BLANK, null, name);
     }
 
     /**
@@ -201,11 +203,7 @@ at: http://peteroupc.github.io/
       if (iri == null) {
         throw new NullPointerException("iri");
       }
-      RDFTerm ret = new RDFTerm();
-      ret.kind = IRI;
-      ret.typeOrLanguage = null;
-      ret.value = iri;
-      return ret;
+      return new RDFTerm(IRI, null, iri);
     }
 
     /**
@@ -226,11 +224,7 @@ at: http://peteroupc.github.io/
       if (languageTag.length() == 0) {
         throw new IllegalArgumentException("languageTag is empty.");
       }
-      RDFTerm ret = new RDFTerm();
-      ret.kind = LANGSTRING;
-      ret.typeOrLanguage = languageTag;
-      ret.value = str;
-      return ret;
+      return new RDFTerm(LANGSTRING, languageTag, str);
     }
 
     /**
@@ -260,11 +254,7 @@ at: http://peteroupc.github.io/
       if (iri.length() == 0) {
         throw new IllegalArgumentException("iri is empty.");
       }
-      RDFTerm ret = new RDFTerm();
-      ret.kind = TYPEDSTRING;
-      ret.typeOrLanguage = iri;
-      ret.value = str;
-      return ret;
+      return new RDFTerm(TYPEDSTRING, iri, str);
     }
 
     /**
@@ -275,13 +265,10 @@ at: http://peteroupc.github.io/
       if (this == obj) {
         return true;
       }
-      if (obj == null) {
+      RDFTerm other = ((obj instanceof RDFTerm) ? (RDFTerm)obj : null);
+      if (other == null) {
         return false;
       }
-      if (GetType() != obj.getClass()) {
-        return false;
-      }
-      RDFTerm other = (RDFTerm)obj;
       if (this.kind != other.kind) {
         return false;
       }

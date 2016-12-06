@@ -17,7 +17,7 @@ namespace PeterO.Rdf {
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.TurtleParser"]/*'/>
   public class TurtleParser : IRDFParser {
-    private class TurtleObject {
+    private sealed class TurtleObject {
       public const int SIMPLE = 0;
       public const int COLLECTION = 1;
       public const int PROPERTIES = 2;
@@ -50,7 +50,7 @@ namespace PeterO.Rdf {
 
       private IList<TurtleProperty> properties;
 
-      internal RDFTerm Term {
+      public RDFTerm Term {
         get {
           return this.term;
         }
@@ -60,7 +60,7 @@ namespace PeterO.Rdf {
         }
       }
 
-      internal int Kind {
+      public int Kind {
         get {
           return this.kind;
         }
@@ -79,27 +79,27 @@ namespace PeterO.Rdf {
       }
     }
 
-    private class TurtleProperty {
-      private RDFTerm pred;
-      private TurtleObject obj;
+    private sealed class TurtleProperty {
+      private RDFTerm _pred;
+      private TurtleObject _obj;
 
-      internal RDFTerm Pred {
+      public RDFTerm Pred {
         get {
-          return this.pred;
+          return this._pred;
         }
 
         set {
-          this.pred = value;
+          this._pred = value;
         }
       }
 
-      internal TurtleObject Obj {
+      public TurtleObject Obj {
         get {
-          return this.obj;
+          return this._obj;
         }
 
         set {
-          this.obj = value;
+          this._obj = value;
         }
       }
     }
@@ -580,25 +580,11 @@ namespace PeterO.Rdf {
           haveString = true;
           hyphen = false;
         } else if (c2 >= 'a' && c2 <= 'z') {
-          if (c2 <= 0xffff) {
-            {
               ilist.Append((char)c2);
-            }
-          } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
-          }
           haveString = true;
           hyphen = false;
         } else if (haveHyphen && (c2 >= '0' && c2 <= '9')) {
-          if (c2 <= 0xffff) {
-            {
               ilist.Append((char)c2);
-            }
-          } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
-          }
           haveString = true;
           hyphen = false;
         } else if (c2 == '-') {
@@ -1098,7 +1084,7 @@ namespace PeterO.Rdf {
         return true;
       }
       this.input.moveBack(1);
-       return (this.isNameChar(ch));
+       return this.isNameChar(ch);
     }
 
     private string readPrefix(int startChar) {

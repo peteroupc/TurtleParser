@@ -4,9 +4,9 @@
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.getMarkPosition">
 
-            <summary>Gets the zero-based character position in the stream from
+             <summary>Gets the zero-based character position in the stream from
             the last-set mark.</summary><returns>The return value is not documented yet.</returns>
-
+            
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)">
 <summary>Moves the stream position back the given number of
@@ -14,8 +14,8 @@
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.setHardMark">
 
-            <summary>Sets a mark on the stream's current position.</summary><returns>The return value is not documented yet.</returns>
-
+             <summary>Sets a mark on the stream's current position.</summary><returns>The return value is not documented yet.</returns>
+            
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.setMarkPosition(System.Int32)">
 <summary>Sets the stream's position from the last set mark.
@@ -23,20 +23,20 @@
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.setSoftMark">
 
-            <summary>If no mark is set, sets a mark on the stream, and
+             <summary>If no mark is set, sets a mark on the stream, and
             characters read before the currently set mark are no longer
             available, while characters read after will be available if
             moveBack is called. Otherwise, behaves like
             getMarkPosition.</summary><returns>The return value is not documented yet.</returns>
-
+            
 </doc>
 <doc name="T:PeterO.Rdf.IRDFParser">
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.IRDFParser.Parse">
 
-            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
-
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+            
 </doc>
 <doc name="T:PeterO.Rdf.NTriplesParser">
 <summary>Not documented yet.</summary>
@@ -59,18 +59,25 @@
 </doc>
 <doc name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)">
 
-            <summary>Not documented yet.</summary><param name='c'>The parameter <paramref name='c'/> is not
+             <summary>Not documented yet.</summary><param name='c'>The parameter <paramref name='c'/> is not
             documented yet.</param><param name='asciiChars'>The parameter <paramref name='asciiChars'/> is not documented yet.</param><returns>A Boolean object.</returns>
-
+            
 </doc>
 <doc name="T:PeterO.Rdf.ParserException">
 <summary>Not documented yet.</summary>
 </doc>
+<doc name="M:PeterO.Rdf.ParserException.#ctor">
+<summary>Initializes a new instance of the <see cref="ParserException" /> class.</summary>
+</doc>
+<doc name="M:PeterO.Rdf.ParserException.#ctor(System.String)">
+<summary>Initializes a new instance of the <see cref="ParserException" /> class.</summary>
+             <param name='str'>A text string.</param>
+</doc>
 <doc name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})">
 
-            <summary>Not documented yet.</summary><param name='triples'>The parameter <paramref name='triples'/> is
+             <summary>Not documented yet.</summary><param name='triples'>The parameter <paramref name='triples'/> is
             not documented yet.</param><param name='bnodeLabels'>The parameter <paramref name='bnodeLabels'/> is not documented yet.</param>
-
+            
 </doc>
 <doc name="T:PeterO.Rdf.RDFTerm">
 <summary>Not documented yet.</summary>
@@ -83,8 +90,8 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)">
 
-            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
-
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+            
 </doc>
 <doc name="F:PeterO.Rdf.RDFTerm.FALSE">
 <summary>Object for false.</summary>
@@ -94,8 +101,8 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.GetHashCode">
 
-            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
-
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+            
 </doc>
 <doc name="F:PeterO.Rdf.RDFTerm.IRI">
 <summary>Type value for an IRI (Internationalized Resource
@@ -120,10 +127,10 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.ToString">
 
-            <summary>Gets a string representation of this RDF term in
+             <summary>Gets a string representation of this RDF term in
             N-Triples format. The string will not end in a line
             break.</summary><returns>The return value is not documented yet.</returns>
-
+            
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)">
 <summary>Not documented yet.</summary>
@@ -143,11 +150,11 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromLangString(System.String,System.String)">
 
-            <summary>Not documented yet.</summary><param name='str'>The parameter <paramref name='str'/> is not
+             <summary>Not documented yet.</summary><param name='str'>The parameter <paramref name='str'/> is not
             documented yet.</param><param name='languageTag'>The parameter <paramref name='languageTag'/> is not documented yet.</param><returns>A RDFTerm object.</returns><exception cref='T:System.ArgumentNullException'>The parameter
             <paramref name='str'/> or <paramref name='languageTag'/> is
             null.</exception>
-
+            
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String)">
 <summary>Not documented yet.</summary>
@@ -211,18 +218,18 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)">
 
-            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
-
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+            
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.GetHashCode">
 
-            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
-
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+            
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.ToString">
 
-            <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
-
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+            
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.getObject">
 <summary>Not documented yet.</summary>
@@ -459,12 +466,12 @@
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)">
 
-            <summary>Not documented yet.</summary><param name='buf'>The parameter <paramref name='buf'/> is not
+             <summary>Not documented yet.</summary><param name='buf'>The parameter <paramref name='buf'/> is not
             documented yet.</param><param name='offset'>The parameter <paramref name='offset'/> is not
             documented yet.</param><param name='unitCount'>The parameter <paramref name='unitCount'/>
             is not documented yet.</param><returns>A 32-bit signed integer.</returns><exception cref='T:System.ArgumentNullException'>The parameter
             <paramref name='buf'/> is null.</exception>
-
+            
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.ReadChar">
 <summary>Not documented yet.</summary>

@@ -27,10 +27,6 @@ Not documented yet.
 * `static int TYPEDSTRING`<br>
  Type value for a piece of data serialized to a string.
 
-## Constructors
-
-* `RDFTerm()`<br>
-
 ## Methods
 
 * `boolean equals(Object obj)`<br>

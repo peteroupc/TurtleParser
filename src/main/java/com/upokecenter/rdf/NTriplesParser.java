@@ -37,7 +37,7 @@ at: http://peteroupc.github.io/
      * @param stream A PeterO.IByteReader object.
      * @throws java.lang.NullPointerException The parameter {@code stream} is null.
      */
-    public NTriplesParser(PeterO.IByteReader stream) {
+    public NTriplesParser(IByteReader stream) {
       if (stream == null) {
         throw new NullPointerException("stream");
       }
@@ -98,8 +98,8 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return An ISet(RDFTriple) object.
      */
-    public ISet<RDFTriple> Parse() {
-      ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
+    public Set<RDFTriple> Parse() {
+      Set<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {
         this.skipWhitespace();
         this.input.setHardMark();

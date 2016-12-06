@@ -28,7 +28,7 @@ namespace PeterO.Rdf {
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)"]/*'/>
-    public NTriplesParser(PeterO.IByteReader stream) {
+    public NTriplesParser(IByteReader stream) {
       if (stream == null) {
         throw new ArgumentNullException("stream");
       }

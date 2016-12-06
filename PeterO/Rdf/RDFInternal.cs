@@ -24,7 +24,7 @@ using System.Collections.Generic;
       Dictionary<string, RDFTerm>();
     IList<RDFTriple[]> changedTriples = new List<RDFTriple[]>();
     var nodeindex = new int[] { 0 };
-     foreach (var triple in triples) {
+     foreach (RDFTriple triple in triples) {
       var changed = false;
       RDFTerm subj = triple.getSubject();
       if (subj.getKind() == RDFTerm.BLANK) {
@@ -65,7 +65,7 @@ using System.Collections.Generic;
         changedTriples.Add(newTriple);
       }
     }
-     foreach (var triple in changedTriples) {
+     foreach (RDFTriple[] triple in changedTriples) {
       triples.Remove(triple[0]);
       triples.Add(triple[1]);
     }

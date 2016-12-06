@@ -15,7 +15,7 @@ import java.util.*;
      *
      */
   static void replaceBlankNodes(
-  ISet<RDFTriple> triples,
+  Set<RDFTriple> triples,
       Map<String, RDFTerm> bnodeLabels) {
     if (bnodeLabels.size() == 0) {
  return;
@@ -24,7 +24,7 @@ import java.util.*;
       HashMap<String, RDFTerm>();
     List<RDFTriple[]> changedTriples = new ArrayList<RDFTriple[]>();
     int[] nodeindex = new int[] { 0 };
-     for (Object triple : triples) {
+     for (RDFTriple triple : triples) {
       boolean changed = false;
       RDFTerm subj = triple.getSubject();
       if (subj.getKind() == RDFTerm.BLANK) {
@@ -65,9 +65,9 @@ import java.util.*;
         changedTriples.add(newTriple);
       }
     }
-     for (Object triple : changedTriples) {
-      triples.Remove(triple.get(0));
-      triples.Add(triple.get(1));
+     for (RDFTriple[] triple : changedTriples) {
+      triples.Remove(triple[0]);
+      triples.Add(triple[1]);
     }
   }
 

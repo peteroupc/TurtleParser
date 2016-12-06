@@ -6,13 +6,13 @@ Not documented yet.
 
 ## Methods
 
-* `<any> Parse()`<br>
+* `Set<RDFTriple> Parse()`<br>
  Not documented yet.
 
 ## Method Details
 
 ### Parse
-    <any> Parse()
+    Set<RDFTriple> Parse()
 Not documented yet.
 
 **Returns:**
@@ -20,7 +20,7 @@ Not documented yet.
 * The return value is not documented yet.
 
 ### Parse
-    <any> Parse()
+    Set<RDFTriple> Parse()
 Not documented yet.
 
 **Returns:**

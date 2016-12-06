@@ -19,5 +19,5 @@ import java.util.*;
      * Not documented yet.
      * @return The return value is not documented yet.
      */
-   ISet<RDFTriple> Parse();
+   Set<RDFTriple> Parse();
 }

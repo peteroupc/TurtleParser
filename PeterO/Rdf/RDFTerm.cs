@@ -126,9 +126,15 @@ namespace PeterO.Rdf {
       }
     }
 
-    private string typeOrLanguage = null;
-    private string value = null;
-    private int kind;
+    private readonly string typeOrLanguage = null;
+    private readonly string value = null;
+    private readonly int kind;
+
+    private RDFTerm(int kind, string typeOrLanguage, string value) {
+      this.kind = kind;
+      this.typeOrLanguage = typeOrLanguage;
+      this.value = value;
+    }
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="F:PeterO.Rdf.RDFTerm.A"]/*'/>
@@ -171,11 +177,7 @@ namespace PeterO.Rdf {
       if (name.Length == 0) {
         throw new ArgumentException("name is empty.");
       }
-      var ret = new RDFTerm();
-      ret.kind = BLANK;
-      ret.typeOrLanguage = null;
-      ret.value = name;
-      return ret;
+      return new RDFTerm(BLANK, null, name);
     }
 
     /// <include file='../../docs.xml'
@@ -184,11 +186,7 @@ namespace PeterO.Rdf {
       if (iri == null) {
         throw new ArgumentNullException("iri");
       }
-      var ret = new RDFTerm();
-      ret.kind = IRI;
-      ret.typeOrLanguage = null;
-      ret.value = iri;
-      return ret;
+      return new RDFTerm(IRI, null, iri);
     }
 
     /// <include file='../../docs.xml'
@@ -203,11 +201,7 @@ namespace PeterO.Rdf {
       if (languageTag.Length == 0) {
         throw new ArgumentException("languageTag is empty.");
       }
-      var ret = new RDFTerm();
-      ret.kind = LANGSTRING;
-      ret.typeOrLanguage = languageTag;
-      ret.value = str;
-      return ret;
+      return new RDFTerm(LANGSTRING, languageTag, str);
     }
 
     /// <include file='../../docs.xml'
@@ -228,11 +222,7 @@ namespace PeterO.Rdf {
       if (iri.Length == 0) {
         throw new ArgumentException("iri is empty.");
       }
-      var ret = new RDFTerm();
-      ret.kind = TYPEDSTRING;
-      ret.typeOrLanguage = iri;
-      ret.value = str;
-      return ret;
+      return new RDFTerm(TYPEDSTRING, iri, str);
     }
 
     /// <include file='../../docs.xml'
@@ -241,13 +231,10 @@ namespace PeterO.Rdf {
       if (this == obj) {
         return true;
       }
-      if (obj == null) {
+      var other = obj as RDFTerm;
+      if (other == null) {
         return false;
       }
-      if (GetType() != obj.GetType()) {
-        return false;
-      }
-      var other = (RDFTerm)obj;
       if (this.kind != other.kind) {
         return false;
       }

@@ -13,14 +13,13 @@ using System.IO;
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.ParserException"]/*'/>
 public class ParserException : IOException {
-    /// <summary>Initializes a new instance of the ParserException
-    /// class.</summary>
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.ParserException.#ctor"]/*'/>
         public ParserException() : base() {
         }
 
-    /// <summary>Initializes a new instance of the ParserException
-    /// class.</summary>
-    /// <param name='str'>A string object.</param>
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.ParserException.#ctor(System.String)"]/*'/>
         public ParserException(string str) : base(str) {
     }
 }

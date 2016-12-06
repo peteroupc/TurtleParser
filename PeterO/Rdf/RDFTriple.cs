@@ -39,13 +39,10 @@ namespace PeterO.Rdf {
       if (this == obj) {
         return true;
       }
-      if (obj == null) {
+      var other = obj as RDFTriple;
+      if (other == null) {
         return false;
       }
-      if (GetType() != obj.GetType()) {
-        return false;
-      }
-      var other = (RDFTriple)obj;
       if (this.objectRdf == null) {
         if (other.objectRdf != null) {
           return false;
