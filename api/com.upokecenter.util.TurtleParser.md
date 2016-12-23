@@ -6,9 +6,13 @@ Not documented yet.
 
 ## Methods
 
-* `TurtleParser(com.upokecenter.util.IByteReader stream)`<br>
+* `TurtleParser(com.upokecenter.util.IByteReader stream) com.upokecenter.Rdf.getTurtleParser()`<br>
+ Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+ class.
 * `TurtleParser(com.upokecenter.util.IByteReader stream,
-            String baseURI)`<br>
+            String baseURI) com.upokecenter.Rdf.getTurtleParser()`<br>
+ Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+ class.
 * `TurtleParser(String str) com.upokecenter.Rdf.getTurtleParser()`<br>
  Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
  class.
@@ -21,9 +25,13 @@ Not documented yet.
 
 ## Constructors
 
-* `TurtleParser(com.upokecenter.util.IByteReader stream)`<br>
+* `TurtleParser(com.upokecenter.util.IByteReader stream) com.upokecenter.Rdf.getTurtleParser()`<br>
+ Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+ class.
 * `TurtleParser(com.upokecenter.util.IByteReader stream,
-            String baseURI)`<br>
+            String baseURI) com.upokecenter.Rdf.getTurtleParser()`<br>
+ Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+ class.
 * `TurtleParser(String str) com.upokecenter.Rdf.getTurtleParser()`<br>
  Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
  class.
@@ -36,8 +44,28 @@ Not documented yet.
 
 ### TurtleParser
     public TurtleParser(com.upokecenter.util.IByteReader stream)
+Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</code>
+ class.
+
+**Parameters:**
+
+* <code>stream</code> - A PeterO.IByteReader object.
+
 ### TurtleParser
     public TurtleParser(com.upokecenter.util.IByteReader stream, String baseURI)
+Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</code>
+ class.
+
+**Parameters:**
+
+* <code>stream</code> - A PeterO.IByteReader object.
+
+* <code>baseURI</code> - A text string.
+
+**Throws:**
+
+* <code>NullPointerException</code> - The parameter <code>stream</code> or <code>baseURI</code> is null.
+
 ### TurtleParser
     public TurtleParser(String str)
 Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</code>

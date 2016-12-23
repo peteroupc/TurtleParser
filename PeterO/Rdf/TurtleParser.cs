@@ -118,13 +118,12 @@ namespace PeterO.Rdf {
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader)"]/*'/>
-    public TurtleParser(PeterO.IByteReader stream) :
-      this(stream, "about:blank") {
+    public TurtleParser(IByteReader stream) : this(stream, "about:blank") {
     }
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)"]/*'/>
-    public TurtleParser(PeterO.IByteReader stream, string baseURI) {
+    public TurtleParser(IByteReader stream, string baseURI) {
       if (stream == null) {
         throw new ArgumentNullException("stream");
       }

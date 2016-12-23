@@ -105,16 +105,23 @@ public final void setObj(TurtleObject value) {
     private int curBlankNode = 0;
 
     /**
-     *
+     * Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
+     * class.
+     * @param stream A PeterO.IByteReader object.
      */
-    public TurtleParser(com.upokecenter.util.IByteReader stream) {
+    public TurtleParser(IByteReader stream) {
  this(stream,"about:blank");
     }
 
     /**
-     *
+     * Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
+     * class.
+     * @param stream A PeterO.IByteReader object.
+     * @param baseURI A text string.
+     * @throws java.lang.NullPointerException The parameter {@code stream} or {@code
+     * baseURI} is null.
      */
-    public TurtleParser(com.upokecenter.util.IByteReader stream, String baseURI) {
+    public TurtleParser(IByteReader stream, String baseURI) {
       if (stream == null) {
         throw new NullPointerException("stream");
       }
