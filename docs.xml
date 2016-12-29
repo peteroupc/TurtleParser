@@ -67,10 +67,10 @@
 <summary>Not documented yet.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.ParserException.#ctor">
-<summary>Initializes a new instance of the <see cref="ParserException" /> class.</summary>
+<summary>Initializes a new instance of the <see cref='ParserException'/> class.</summary>
 </doc>
 <doc name="M:PeterO.Rdf.ParserException.#ctor(System.String)">
-<summary>Initializes a new instance of the <see cref="ParserException" /> class.</summary>
+<summary>Initializes a new instance of the <see cref='ParserException'/> class.</summary>
              <param name='str'>A text string.</param>
 </doc>
 <doc name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})">
@@ -206,9 +206,9 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
-            <param name='subject'>A RDFTerm object.</param>
-            <param name='predicate'>Another RDFTerm object.</param>
-            <param name='objectRdf'>A RDFTerm object. (3).</param>
+            <param name='subject'>The subject term.</param>
+            <param name='predicate'>The predicate term.</param>
+            <param name='objectRdf'>The object term.</param>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
@@ -375,7 +375,6 @@
             <exception cref='T:System.ArgumentException'>Either <paramref name='offset'/> or <paramref name='length'/> is less than 0 or
             greater than <paramref name='s'/> 's length, or <paramref name='s'/> 's length minus <paramref name='offset'/> is less than
             <paramref name='length'/>.</exception>
-            <exception cref='T:System.ArgumentNullException'>--.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.relativeResolve(System.String,System.String)">
 <summary>Resolves a URI or IRI relative to another URI or

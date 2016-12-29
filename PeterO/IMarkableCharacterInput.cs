@@ -19,6 +19,8 @@ public interface IMarkableCharacterInput : ICharacterInput {
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)"]/*'/>
+    /// <param name='count'>The parameter <paramref name='count'/> is not
+    /// documented yet.</param>
    void moveBack(int count);
 
     /// <include file='../docs.xml'
@@ -27,6 +29,8 @@ public interface IMarkableCharacterInput : ICharacterInput {
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setMarkPosition(System.Int32)"]/*'/>
+    /// <param name='pos'>The parameter <paramref name='pos'/> is not
+    /// documented yet.</param>
    void setMarkPosition(int pos);
 
     /// <include file='../docs.xml'

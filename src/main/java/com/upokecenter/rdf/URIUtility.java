@@ -945,7 +945,7 @@ private URIUtility() {
      * component is absent, both indices in that pair will be -1. If the
      * string is null or is not a valid IRI, returns null.</returns>
      * @param s A string that contains an IRI.
-     * @return Not documented yet.
+     * @return The return value is not documented yet.
      */
     public static int[] splitIRI(String s) {
       return (s == null) ? null : splitIRI(s, 0, s.length(), ParseMode.IRIStrict);

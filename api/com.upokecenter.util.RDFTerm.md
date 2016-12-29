@@ -182,6 +182,10 @@ Not documented yet.
 
 * <code>equals</code>&nbsp;in class&nbsp;<code>Object</code>
 
+**Parameters:**
+
+* <code>obj</code> - The parameter <code>obj</code> is not documented yet.
+
 **Returns:**
 
 * The return value is not documented yet.

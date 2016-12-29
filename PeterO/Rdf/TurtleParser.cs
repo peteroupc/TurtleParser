@@ -8,11 +8,11 @@ at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
   using System;
-  using System.Collections.Generic;
-  using System.Globalization;
-  using System.Text;
-  using PeterO;
-  using PeterO.Text;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+using PeterO;
+using PeterO.Text;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.TurtleParser"]/*'/>
@@ -80,26 +80,26 @@ namespace PeterO.Rdf {
     }
 
     private sealed class TurtleProperty {
-      private RDFTerm _pred;
-      private TurtleObject _obj;
+      private RDFTerm predValue;
+      private TurtleObject objValue;
 
       public RDFTerm Pred {
         get {
-          return this._pred;
+          return this.predValue;
         }
 
         set {
-          this._pred = value;
+          this.predValue = value;
         }
       }
 
       public TurtleObject Obj {
         get {
-          return this._obj;
+          return this.objValue;
         }
 
         set {
-          this._obj = value;
+          this.objValue = value;
         }
       }
     }

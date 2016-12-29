@@ -22,6 +22,7 @@ public interface IMarkableCharacterInput extends ICharacterInput {
 
     /**
      * Moves the stream position back the given number of characters.
+     * @param count The parameter {@code count} is not documented yet.
      */
    void moveBack(int count);
 
@@ -35,6 +36,7 @@ public interface IMarkableCharacterInput extends ICharacterInput {
      * Sets the stream's position from the last set mark. <param
      * name='pos'>Zero-based character offset from the last set
      * mark.</param>
+     * @param pos The parameter {@code pos} is not documented yet.
      * @param pos Zero-based character offset from the last set mark.
      */
    void setMarkPosition(int pos);

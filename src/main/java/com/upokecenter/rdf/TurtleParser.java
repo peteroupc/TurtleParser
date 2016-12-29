@@ -8,10 +8,10 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-  import java.util.*;
+import java.util.*;
 
-  import com.upokecenter.util.*;
-  import com.upokecenter.text.*;
+import com.upokecenter.util.*;
+import com.upokecenter.text.*;
 
     /**
      * Not documented yet.
@@ -74,21 +74,21 @@ public final void setKind(int value) {
     }
 
     private static final class TurtleProperty {
-      private RDFTerm _pred;
-      private TurtleObject _obj;
+      private RDFTerm predValue;
+      private TurtleObject objValue;
 
       public final RDFTerm getPred() {
-          return this._pred;
+          return this.predValue;
         }
 public final void setPred(RDFTerm value) {
-          this._pred = value;
+          this.predValue = value;
         }
 
       public final TurtleObject getObj() {
-          return this._obj;
+          return this.objValue;
         }
 public final void setObj(TurtleObject value) {
-          this._obj = value;
+          this.objValue = value;
         }
     }
 

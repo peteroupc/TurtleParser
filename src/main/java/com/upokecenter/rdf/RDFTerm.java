@@ -259,6 +259,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
+     * @param obj The parameter {@code obj} is not documented yet.
      * @return The return value is not documented yet.
      */
     @Override public final boolean equals(Object obj) {

@@ -8,7 +8,7 @@ at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
   using System;
-  using System.Text;
+using System.Text;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.RDFTerm"]/*'/>
@@ -227,6 +227,8 @@ namespace PeterO.Rdf {
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)"]/*'/>
+    /// <param name='obj'>The parameter <paramref name='obj'/> is not
+    /// documented yet.</param>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;

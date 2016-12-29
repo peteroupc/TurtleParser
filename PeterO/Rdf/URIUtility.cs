@@ -7,7 +7,7 @@ at: http://peteroupc.github.io/
  */
 namespace PeterO.Rdf {
   using System;
-  using System.Text;
+using System.Text;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.URIUtility"]/*'/>
@@ -860,7 +860,7 @@ namespace PeterO.Rdf {
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.URIUtility.splitIRI(System.String)"]/*'/>
-    /// <returns>Not documented yet.</returns>
+    /// <returns>The return value is not documented yet.</returns>
     public static int[] splitIRI(string s) {
       return (s == null) ? null : splitIRI(s, 0, s.Length, ParseMode.IRIStrict);
     }

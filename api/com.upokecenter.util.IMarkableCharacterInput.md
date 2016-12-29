@@ -32,6 +32,11 @@ Gets the zero-based character position in the stream from the last-set mark.
 ### moveBack
     void moveBack(int count)
 Moves the stream position back the given number of characters.
+
+**Parameters:**
+
+* <code>count</code> - The parameter <code>count</code> is not documented yet.
+
 ### setHardMark
     int setHardMark()
 Sets a mark on the stream's current position.
@@ -46,6 +51,8 @@ Sets the stream's position from the last set mark. <param name='pos'>Zero-based 
  mark.</param>
 
 **Parameters:**
+
+* <code>pos</code> - The parameter <code>pos</code> is not documented yet.
 
 * <code>pos</code> - Zero-based character offset from the last set mark.
 

@@ -35,6 +35,8 @@ namespace PeterO.Rdf {
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)"]/*'/>
+    /// <param name='obj'>The parameter <paramref name='obj'/> is not
+    /// documented yet.</param>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
