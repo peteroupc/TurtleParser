@@ -9,7 +9,7 @@ at: http://peteroupc.github.io/
 namespace PeterO.Rdf {
 using System;
 using System.Collections.Generic;
-  using System.IO;
+using System.IO;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.IRDFParser"]/*'/>

@@ -285,7 +285,7 @@ public final void setObj(TurtleObject value) {
         ch = this.input.ReadChar();
         if (ch == '<') {
           return RDFTerm.fromTypedString(str, this.readIriReference());
-        } else if (ch == ':') { // prefixed name with current prefix
+        } else if (ch == ':') {  // prefixed name with current prefix
           String scope = this.namespaces.get("");
           if (scope == null) {
             throw new ParserException();
@@ -764,7 +764,7 @@ public final void setObj(TurtleObject value) {
         // start of quote literal
         String str = this.readStringLiteral(ch);
         return TurtleObject.fromTerm(this.finishStringLiteral(str));
-      } else if (ch == '_') { // Blank Node Label
+      } else if (ch == '_') {  // Blank Node Label
         if (this.input.ReadChar() != ':') {
           throw new ParserException();
         }
@@ -780,7 +780,7 @@ public final void setObj(TurtleObject value) {
         return this.readBlankNodePropertyList();
       } else if (ch == '(') {
         return this.readCollection();
-      } else if (ch == ':') { // prefixed name with current prefix
+      } else if (ch == ':') {  // prefixed name with current prefix
         String scope = this.namespaces.get("");
         if (scope == null) {
           throw new ParserException();
@@ -1016,7 +1016,7 @@ public final void setObj(TurtleObject value) {
         predicate = RDFTerm.fromIRI(this.readIriReference());
         this.skipWhitespace();
         return predicate;
-      } else if (ch == ':') { // prefixed name with current prefix
+      } else if (ch == ':') {  // prefixed name with current prefix
         String scope = this.namespaces.get("");
         if (scope == null) {
           throw new ParserException();

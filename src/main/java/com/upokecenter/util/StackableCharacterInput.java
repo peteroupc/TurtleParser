@@ -8,10 +8,10 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-  import java.util.*;
+import java.util.*;
 
-  import com.upokecenter.util.*;
-  import com.upokecenter.text.*;
+import com.upokecenter.util.*;
+import com.upokecenter.text.*;
 
     /**
      * A character input stream where additional inputs can be stacked on top of

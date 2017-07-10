@@ -8,10 +8,10 @@ at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
   using System;
-  using System.Collections.Generic;
-  using System.Text;
-  using PeterO;
-  using PeterO.Text;
+using System.Collections.Generic;
+using System.Text;
+using PeterO;
+using PeterO.Text;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.NTriplesParser"]/*'/>
@@ -263,10 +263,10 @@ namespace PeterO.Rdf {
         throw new ParserException();
       } else if (ch == '<') {
         return RDFTerm.fromIRI(this.readIriReference());
-      } else if (acceptLiteral && (ch == '\"')) { // start of quote literal
+      } else if (acceptLiteral && (ch == '\"')) {  // start of quote literal
         string str = this.readStringLiteral(ch);
         return this.finishStringLiteral(str);
-      } else if (ch == '_') { // Blank Node Label
+      } else if (ch == '_') {  // Blank Node Label
         if (this.input.ReadChar() != ':') {
           throw new ParserException();
         }

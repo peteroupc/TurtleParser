@@ -49,7 +49,7 @@
 </doc>
 <doc name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
-            <param name='str'>A text string.</param>
+            <param name='str'>The parameter <paramref name='str'/> is a text string.</param>
             <exception cref='T:System.ArgumentNullException'>The parameter
             "stream" is null.</exception>
 </doc>
@@ -71,7 +71,7 @@
 </doc>
 <doc name="M:PeterO.Rdf.ParserException.#ctor(System.String)">
 <summary>Initializes a new instance of the <see cref='ParserException'/> class.</summary>
-             <param name='str'>A text string.</param>
+             <param name='str'>The parameter <paramref name='str'/> is a text string.</param>
 </doc>
 <doc name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})">
 
@@ -90,7 +90,8 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)">
 
-             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns><param name='obj'>The parameter <paramref name='obj'/> is not
+             documented yet.</param>
 
 </doc>
 <doc name="F:PeterO.Rdf.RDFTerm.FALSE">
@@ -212,13 +213,14 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
-            <param name='triple'>A RDFTriple object.</param>
+            <param name='triple'>The parameter <paramref name='triple'/> is a RDFTriple object.</param>
             <exception cref='T:System.ArgumentNullException'>The parameter
             <paramref name='triple'/> is null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)">
 
-             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns>
+             <summary>Not documented yet.</summary><returns>The return value is not documented yet.</returns><param name='obj'>The parameter <paramref name='obj'/> is not
+             documented yet.</param>
 
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.GetHashCode">
@@ -253,19 +255,19 @@
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
             <param name='stream'>A PeterO.IByteReader object.</param>
-            <param name='baseURI'>A text string.</param>
+            <param name='baseURI'>The parameter <paramref name='baseURI'/> is a text string.</param>
             <exception cref='T:System.ArgumentNullException'>The parameter
             <paramref name='stream'/> or <paramref name='baseURI'/> is
             null.</exception>
 </doc>
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(System.String)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
-            <param name='str'>A text string.</param>
+            <param name='str'>The parameter <paramref name='str'/> is a text string.</param>
 </doc>
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
-            <param name='str'>A text string.</param>
-            <param name='baseURI'>Another string object.</param>
+            <param name='str'>The parameter <paramref name='str'/> is a text string.</param>
+            <param name='baseURI'>The parameter <paramref name='baseURI'/> is a string object.</param>
             <exception cref='T:System.ArgumentNullException'>The parameter
             <paramref name='str'/> or <paramref name='baseURI'/> is
             null.</exception>
@@ -321,7 +323,7 @@
             function is idempotent; that is, calling the function again on the
             result with the same mode doesn't change the result.</summary>
             <param name='s'>A string to escape.</param>
-            <param name='mode'>A 32-bit signed integer.</param>
+            <param name='mode'>The parameter <paramref name='mode'/> is a 32-bit signed integer.</param>
 </doc>
 <doc name="M:PeterO.Rdf.URIUtility.hasScheme(System.String)">
 <summary>
@@ -420,7 +422,7 @@
             the string into its components and returns an array containing the
             indices into the components.</summary>
             <param name='s'>A string representing an IRI. Can be null.</param>
-            <param name='parseMode'>A ParseMode object.</param>
+            <param name='parseMode'>The parameter <paramref name='parseMode'/> is a ParseMode object.</param>
             <returns>If the string is a valid IRI reference, returns an array
             of 10 integers. Each of the five pairs corresponds to the start and
             end index of the IRI's scheme, authority, path, query, or fragment
@@ -461,7 +463,7 @@
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.#ctor(PeterO.Text.ICharacterInput)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.StackableCharacterInput'/> class.</summary>
-            <param name='source'>An ICharacterInput object.</param>
+            <param name='source'>The parameter <paramref name='source'/> is an ICharacterInput object.</param>
 </doc>
 <doc name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)">
 

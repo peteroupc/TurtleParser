@@ -47,11 +47,11 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getRDFTriple()</code
 
 **Parameters:**
 
-* <code>subject</code> - A RDFTerm object.
+* <code>subject</code> - The subject term.
 
-* <code>predicate</code> - Another RDFTerm object.
+* <code>predicate</code> - The predicate term.
 
-* <code>objectRdf</code> - A RDFTerm object. (3).
+* <code>objectRdf</code> - The object term.
 
 ### RDFTriple
     public RDFTriple(RDFTriple triple)

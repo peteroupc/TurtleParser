@@ -8,10 +8,10 @@ at: http://peteroupc.github.io/
 */
 namespace PeterO {
   using System;
-  using System.Collections.Generic;
-  using System.Globalization;
-  using PeterO;
-  using PeterO.Text;
+using System.Collections.Generic;
+using System.Globalization;
+using PeterO;
+using PeterO.Text;
 
     /// <include file='../docs.xml'
     /// path='docs/doc[@name="T:PeterO.StackableCharacterInput"]/*'/>

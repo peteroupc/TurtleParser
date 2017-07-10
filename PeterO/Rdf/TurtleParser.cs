@@ -277,7 +277,7 @@ using PeterO.Text;
         ch = this.input.ReadChar();
         if (ch == '<') {
           return RDFTerm.fromTypedString(str, this.readIriReference());
-        } else if (ch == ':') { // prefixed name with current prefix
+        } else if (ch == ':') {  // prefixed name with current prefix
           string scope = this.namespaces[String.Empty];
           if (scope == null) {
             throw new ParserException();
@@ -754,7 +754,7 @@ using PeterO.Text;
         // start of quote literal
         string str = this.readStringLiteral(ch);
         return TurtleObject.fromTerm(this.finishStringLiteral(str));
-      } else if (ch == '_') { // Blank Node Label
+      } else if (ch == '_') {  // Blank Node Label
         if (this.input.ReadChar() != ':') {
           throw new ParserException();
         }
@@ -770,7 +770,7 @@ using PeterO.Text;
         return this.readBlankNodePropertyList();
       } else if (ch == '(') {
         return this.readCollection();
-      } else if (ch == ':') { // prefixed name with current prefix
+      } else if (ch == ':') {  // prefixed name with current prefix
         string scope = this.namespaces[String.Empty];
         if (scope == null) {
           throw new ParserException();
@@ -1006,7 +1006,7 @@ using PeterO.Text;
         predicate = RDFTerm.fromIRI(this.readIriReference());
         this.skipWhitespace();
         return predicate;
-      } else if (ch == ':') { // prefixed name with current prefix
+      } else if (ch == ':') {  // prefixed name with current prefix
         string scope = this.namespaces[String.Empty];
         if (scope == null) {
           throw new ParserException();

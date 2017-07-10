@@ -8,10 +8,10 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-  import java.util.*;
+import java.util.*;
 
-  import com.upokecenter.util.*;
-  import com.upokecenter.text.*;
+import com.upokecenter.util.*;
+import com.upokecenter.text.*;
 
     /**
      * Not documented yet.
@@ -278,10 +278,10 @@ at: http://peteroupc.github.io/
         throw new ParserException();
       } else if (ch == '<') {
         return RDFTerm.fromIRI(this.readIriReference());
-      } else if (acceptLiteral && (ch == '\"')) { // start of quote literal
+      } else if (acceptLiteral && (ch == '\"')) {  // start of quote literal
         String str = this.readStringLiteral(ch);
         return this.finishStringLiteral(str);
-      } else if (ch == '_') { // Blank Node Label
+      } else if (ch == '_') {  // Blank Node Label
         if (this.input.ReadChar() != ':') {
           throw new ParserException();
         }

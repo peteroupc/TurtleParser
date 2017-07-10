@@ -9,7 +9,7 @@ at: http://peteroupc.github.io/
 namespace PeterO.Rdf {
 using System;
 using System.Collections.Generic;
-  using System.Globalization;
+using System.Globalization;
 
   internal sealed class RDFInternal {
     /// <include file='../../docs.xml'

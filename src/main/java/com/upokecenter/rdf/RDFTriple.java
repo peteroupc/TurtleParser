@@ -17,9 +17,9 @@ at: http://peteroupc.github.io/
     /**
      * Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
      * class.
-     * @param subject A RDFTerm object.
-     * @param predicate Another RDFTerm object.
-     * @param objectRdf A RDFTerm object. (3).
+     * @param subject The subject term.
+     * @param predicate The predicate term.
+     * @param objectRdf The object term.
      */
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       this.setSubject(subject);
