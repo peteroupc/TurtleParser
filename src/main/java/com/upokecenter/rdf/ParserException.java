@@ -24,7 +24,7 @@ private static final long serialVersionUID = 1L;
 
     /**
      * Initializes a new instance of the {@link ParserException} class.
-     * @param str A text string.
+     * @param str The parameter {@code str} is a text string.
      */
         public ParserException(String str) {
  super(str);

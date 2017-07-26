@@ -60,7 +60,7 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getRDFTriple()</code
 
 **Parameters:**
 
-* <code>triple</code> - A RDFTriple object.
+* <code>triple</code> - The parameter <code>triple</code> is a RDFTriple object.
 
 **Throws:**
 
@@ -75,6 +75,8 @@ Not documented yet.
 * <code>equals</code>&nbsp;in class&nbsp;<code>Object</code>
 
 **Parameters:**
+
+* <code>obj</code> - The parameter <code>obj</code> is not documented yet.
 
 * <code>obj</code> - The parameter <code>obj</code> is not documented yet.
 

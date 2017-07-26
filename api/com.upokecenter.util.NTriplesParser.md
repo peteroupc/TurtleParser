@@ -49,7 +49,7 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getNTriplesParser()<
 
 **Parameters:**
 
-* <code>str</code> - A text string.
+* <code>str</code> - The parameter <code>str</code> is a text string.
 
 **Throws:**
 
@@ -67,7 +67,7 @@ Not documented yet.
 
 **Returns:**
 
-* A Boolean object.
+* either <code>true</code> or <code>false</code>.
 
 ### Parse
     public Set<RDFTriple> Parse()

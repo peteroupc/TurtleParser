@@ -30,7 +30,7 @@ at: http://peteroupc.github.io/
     /**
      * Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
      * class.
-     * @param triple A RDFTriple object.
+     * @param triple The parameter {@code triple} is a RDFTriple object.
      * @throws java.lang.NullPointerException The parameter {@code triple} is null.
      */
     public RDFTriple(RDFTriple triple) {
@@ -44,6 +44,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
+     * @param obj The parameter {@code obj} is not documented yet.
      * @param obj The parameter {@code obj} is not documented yet.
      * @return The return value is not documented yet.
      */

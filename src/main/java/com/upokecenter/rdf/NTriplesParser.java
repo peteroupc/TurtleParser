@@ -21,7 +21,7 @@ import com.upokecenter.text.*;
      * Not documented yet.
      * @param c The parameter {@code c} is not documented yet.
      * @param asciiChars The parameter {@code asciiChars} is not documented yet.
-     * @return A Boolean object.
+     * @return either {@code true} or {@code false}.
      */
     public static boolean isAsciiChar(int c, String asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.indexOf((char)c) >= 0;
@@ -51,7 +51,7 @@ import com.upokecenter.text.*;
     /**
      * Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
      * class.
-     * @param str A text string.
+     * @param str The parameter {@code str} is a text string.
      * @throws java.lang.NullPointerException The parameter "stream" is null.
      */
     public NTriplesParser(String str) {

@@ -41,7 +41,7 @@ Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput<
 
 **Parameters:**
 
-* <code>source</code> - An ICharacterInput object.
+* <code>source</code> - The parameter <code>source</code> is an ICharacterInput object.
 
 ### StackableCharacterInput
     public StackableCharacterInput(com.upokecenter.text.ICharacterInput source)
@@ -49,7 +49,7 @@ Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput<
 
 **Parameters:**
 
-* <code>source</code> - An ICharacterInput object.
+* <code>source</code> - The parameter <code>source</code> is an ICharacterInput object.
 
 ### getMarkPosition
     public int getMarkPosition()

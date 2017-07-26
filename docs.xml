@@ -60,7 +60,7 @@
 <doc name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)">
 
              <summary>Not documented yet.</summary><param name='c'>The parameter <paramref name='c'/> is not
-            documented yet.</param><param name='asciiChars'>The parameter <paramref name='asciiChars'/> is not documented yet.</param><returns>A Boolean object.</returns>
+            documented yet.</param><param name='asciiChars'>The parameter <paramref name='asciiChars'/> is not documented yet.</param><returns>Either <c>true</c> or <c>false</c>.</returns>
 
 </doc>
 <doc name="T:PeterO.Rdf.ParserException">
@@ -190,17 +190,17 @@
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.isBlank">
 <summary>Gets whether this term is a blank node.</summary>
-            <returns>A Boolean object.</returns>
+            <returns>Either <c>true</c> or <c>false</c>.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.isIRI(System.String)">
 <summary>Not documented yet.</summary>
             <param name='str'>The parameter <paramref name='str'/> is not
             documented yet.</param>
-            <returns>A Boolean object.</returns>
+            <returns>Either <c>true</c> or <c>false</c>.</returns>
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.isOrdinaryString">
 <summary>Not documented yet.</summary>
-            <returns>A Boolean object.</returns>
+            <returns>Either <c>true</c> or <c>false</c>.</returns>
 </doc>
 <doc name="T:PeterO.Rdf.RDFTriple">
 <summary>Not documented yet.</summary>
@@ -267,7 +267,7 @@
 <doc name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)">
 <summary>Initializes a new instance of the <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
             <param name='str'>The parameter <paramref name='str'/> is a text string.</param>
-            <param name='baseURI'>The parameter <paramref name='baseURI'/> is a string object.</param>
+            <param name='baseURI'>The parameter <paramref name='baseURI'/> is a text string.</param>
             <exception cref='T:System.ArgumentNullException'>The parameter
             <paramref name='str'/> or <paramref name='baseURI'/> is
             null.</exception>

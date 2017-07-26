@@ -60,7 +60,7 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</c
 
 * <code>stream</code> - A PeterO.IByteReader object.
 
-* <code>baseURI</code> - A text string.
+* <code>baseURI</code> - The parameter <code>baseURI</code> is a text string.
 
 **Throws:**
 
@@ -73,7 +73,7 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</c
 
 **Parameters:**
 
-* <code>str</code> - A text string.
+* <code>str</code> - The parameter <code>str</code> is a text string.
 
 ### TurtleParser
     public TurtleParser(String str, String baseURI)
@@ -82,9 +82,9 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</c
 
 **Parameters:**
 
-* <code>str</code> - A text string.
+* <code>str</code> - The parameter <code>str</code> is a text string.
 
-* <code>baseURI</code> - Another string object.
+* <code>baseURI</code> - The parameter <code>baseURI</code> is a text string.
 
 **Throws:**
 

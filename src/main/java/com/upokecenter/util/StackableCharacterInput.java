@@ -105,7 +105,7 @@ import com.upokecenter.text.*;
     /**
      * Initializes a new instance of the {@link
      * com.upokecenter.StackableCharacterInput} class.
-     * @param source An ICharacterInput object.
+     * @param source The parameter {@code source} is an ICharacterInput object.
      */
     public StackableCharacterInput(ICharacterInput source) {
       this.stack.add(source);

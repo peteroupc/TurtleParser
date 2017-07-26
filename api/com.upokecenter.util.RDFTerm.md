@@ -186,6 +186,8 @@ Not documented yet.
 
 * <code>obj</code> - The parameter <code>obj</code> is not documented yet.
 
+* <code>obj</code> - The parameter <code>obj</code> is not documented yet.
+
 **Returns:**
 
 * The return value is not documented yet.
@@ -232,7 +234,7 @@ Gets whether this term is a blank node.
 
 **Returns:**
 
-* A Boolean object.
+* either <code>true</code> or <code>false</code>.
 
 ### isIRI
     public boolean isIRI(String str)
@@ -244,7 +246,7 @@ Not documented yet.
 
 **Returns:**
 
-* A Boolean object.
+* either <code>true</code> or <code>false</code>.
 
 ### isOrdinaryString
     public boolean isOrdinaryString()
@@ -252,7 +254,7 @@ Not documented yet.
 
 **Returns:**
 
-* A Boolean object.
+* either <code>true</code> or <code>false</code>.
 
 ### toString
     public final String toString()
