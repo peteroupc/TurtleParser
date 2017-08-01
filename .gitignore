@@ -25,6 +25,7 @@ bin/
 cache/
 coverage.xml
 encoding/
+encodingfldr/
 js/*.ht*
 js/DecTest.*
 obj/
