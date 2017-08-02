@@ -7,7 +7,8 @@
     <ProjectGuid>{8C720F8C-E0D2-45E6-B463-40FB128DE87E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TurtleParserTest</RootNamespace>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+<RootNamespace>TurtleParserTest</RootNamespace>
     <AssemblyName>TurtleParserTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -8,7 +8,8 @@
     <ProjectGuid>{49EE222D-6E5D-4677-9E4D-1286B30E8BAA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PeterO</RootNamespace>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+<RootNamespace>PeterO</RootNamespace>
     <AssemblyName>TurtleParser</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
