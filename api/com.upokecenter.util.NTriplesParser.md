@@ -67,7 +67,7 @@ Not documented yet.
 
 **Returns:**
 
-* either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code>.
 
 ### Parse
     public Set<RDFTriple> Parse()

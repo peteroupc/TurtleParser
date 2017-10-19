@@ -21,7 +21,7 @@ import com.upokecenter.text.*;
      * Not documented yet.
      * @param c The parameter {@code c} is not documented yet.
      * @param asciiChars The parameter {@code asciiChars} is not documented yet.
-     * @return either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false}.
      */
     public static boolean isAsciiChar(int c, String asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.indexOf((char)c) >= 0;

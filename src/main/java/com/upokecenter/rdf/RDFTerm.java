@@ -330,7 +330,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Gets whether this term is a blank node.
-     * @return either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false}.
      */
     public boolean isBlank() {
       return this.kind == BLANK;
@@ -339,7 +339,7 @@ at: http://peteroupc.github.io/
     /**
      * Not documented yet.
      * @param str The parameter {@code str} is not documented yet.
-     * @return either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false}.
      */
     public boolean isIRI(String str) {
       return this.kind == IRI && str != null && str.equals(this.value);
@@ -347,7 +347,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @return either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false}.
      */
     public boolean isOrdinaryString() {
    return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#String"

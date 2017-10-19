@@ -234,7 +234,7 @@ Gets whether this term is a blank node.
 
 **Returns:**
 
-* either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code>.
 
 ### isIRI
     public boolean isIRI(String str)
@@ -246,7 +246,7 @@ Not documented yet.
 
 **Returns:**
 
-* either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code>.
 
 ### isOrdinaryString
     public boolean isOrdinaryString()
@@ -254,7 +254,7 @@ Not documented yet.
 
 **Returns:**
 
-* either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code>.
 
 ### toString
     public final String toString()
