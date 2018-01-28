@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurtleParser", "TurtleParser.csproj", "{49EE222D-6E5D-4677-9E4D-1286B30E8BAA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurtleParserTest", "TurtleParserTest\TurtleParserTest.csproj", "{8C720F8C-E0D2-45E6-B463-40FB128DE87E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurtleParser", "TurtleParser\TurtleParser.csproj", "{A140CB91-6733-4633-9955-FC0292914A52}"
 EndProject
 Global
   GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,18 +13,18 @@ Global
     ReleaseNet40|Any CPU = ReleaseNet40|Any CPU
   EndGlobalSection
   GlobalSection(ProjectConfigurationPlatforms) = postSolution
-    {49EE222D-6E5D-4677-9E4D-1286B30E8BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-    {49EE222D-6E5D-4677-9E4D-1286B30E8BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-    {49EE222D-6E5D-4677-9E4D-1286B30E8BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-    {49EE222D-6E5D-4677-9E4D-1286B30E8BAA}.Release|Any CPU.Build.0 = Release|Any CPU
-    {49EE222D-6E5D-4677-9E4D-1286B30E8BAA}.ReleaseNet40|Any CPU.ActiveCfg = ReleaseNet40|Any CPU
-    {49EE222D-6E5D-4677-9E4D-1286B30E8BAA}.ReleaseNet40|Any CPU.Build.0 = ReleaseNet40|Any CPU
     {8C720F8C-E0D2-45E6-B463-40FB128DE87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
     {8C720F8C-E0D2-45E6-B463-40FB128DE87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
     {8C720F8C-E0D2-45E6-B463-40FB128DE87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
     {8C720F8C-E0D2-45E6-B463-40FB128DE87E}.Release|Any CPU.Build.0 = Release|Any CPU
     {8C720F8C-E0D2-45E6-B463-40FB128DE87E}.ReleaseNet40|Any CPU.ActiveCfg = Release|Any CPU
     {8C720F8C-E0D2-45E6-B463-40FB128DE87E}.ReleaseNet40|Any CPU.Build.0 = Release|Any CPU
+    {A140CB91-6733-4633-9955-FC0292914A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {A140CB91-6733-4633-9955-FC0292914A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {A140CB91-6733-4633-9955-FC0292914A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {A140CB91-6733-4633-9955-FC0292914A52}.Release|Any CPU.Build.0 = Release|Any CPU
+    {A140CB91-6733-4633-9955-FC0292914A52}.ReleaseNet40|Any CPU.ActiveCfg = Release|Any CPU
+    {A140CB91-6733-4633-9955-FC0292914A52}.ReleaseNet40|Any CPU.Build.0 = Release|Any CPU
   EndGlobalSection
   GlobalSection(SolutionProperties) = preSolution
     HideSolutionNode = FALSE
