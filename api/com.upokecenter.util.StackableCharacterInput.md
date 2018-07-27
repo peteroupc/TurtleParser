@@ -7,15 +7,15 @@ A character input stream where additional inputs can be stacked on top of
 
 ## Methods
 
-* `StackableCharacterInput(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
+* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
  Initializes a new instance of the com.upokecenter.StackableCharacterInput class.
 * `int getMarkPosition()`<br>
  Not documented yet.
-* `void moveBack(int count)`<br>
+* `void moveBack​(int count)`<br>
  Not documented yet.
-* `void pushInput(com.upokecenter.text.ICharacterInput input)`<br>
+* `void pushInput​(com.upokecenter.text.ICharacterInput input)`<br>
  Not documented yet.
-* `int Read(int[] buf,
+* `int Read​(int[] buf,
     int offset,
     int unitCount)`<br>
  Not documented yet.
@@ -23,20 +23,20 @@ A character input stream where additional inputs can be stacked on top of
  Not documented yet.
 * `int setHardMark()`<br>
  Not documented yet.
-* `void setMarkPosition(int pos)`<br>
+* `void setMarkPosition​(int pos)`<br>
  Not documented yet.
 * `int setSoftMark()`<br>
  Not documented yet.
 
 ## Constructors
 
-* `StackableCharacterInput(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
+* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
  Initializes a new instance of the com.upokecenter.StackableCharacterInput class.
 
 ## Method Details
 
 ### StackableCharacterInput
-    public StackableCharacterInput(com.upokecenter.text.ICharacterInput source)
+    public StackableCharacterInput​(com.upokecenter.text.ICharacterInput source)
 Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput</code> class.
 
 **Parameters:**
@@ -44,7 +44,7 @@ Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput<
 * <code>source</code> - The parameter <code>source</code> is an ICharacterInput object.
 
 ### StackableCharacterInput
-    public StackableCharacterInput(com.upokecenter.text.ICharacterInput source)
+    public StackableCharacterInput​(com.upokecenter.text.ICharacterInput source)
 Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput</code> class.
 
 **Parameters:**
@@ -64,7 +64,7 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### moveBack
-    public void moveBack(int count)
+    public void moveBack​(int count)
 Not documented yet.
 
 **Specified by:**
@@ -76,7 +76,7 @@ Not documented yet.
 * <code>count</code> - The parameter <code>count</code> is not documented yet.
 
 ### pushInput
-    public void pushInput(com.upokecenter.text.ICharacterInput input)
+    public void pushInput​(com.upokecenter.text.ICharacterInput input)
 Not documented yet.
 
 **Parameters:**
@@ -100,7 +100,7 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### Read
-    public int Read(int[] buf, int offset, int unitCount)
+    public int Read​(int[] buf, int offset, int unitCount)
 Not documented yet.
 
 **Specified by:**
@@ -136,7 +136,7 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### setMarkPosition
-    public void setMarkPosition(int pos)
+    public void setMarkPosition​(int pos)
 Not documented yet.
 
 **Specified by:**

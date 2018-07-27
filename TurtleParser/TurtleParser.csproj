@@ -13,7 +13,6 @@
     <Folder Include="PeterO\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="PeterO.Encoding" Version="0.3.2" />
-    <PackageReference Include="NuGet.Build.Packaging" Version="0.1.248" />
+    <PackageReference Include="PeterO.Encoding" Version="0.4.0" />
   </ItemGroup>
 </Project>

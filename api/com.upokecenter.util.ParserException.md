@@ -8,12 +8,12 @@ Not documented yet.
 
 * `ParserException() ParserException`<br>
  Initializes a new instance of the ParserException class.
-* `ParserException(String str) ParserException`<br>
+* `ParserException​(String str) ParserException`<br>
  Initializes a new instance of the ParserException class.
 
 ## Constructors
 
 * `ParserException() ParserException`<br>
  Initializes a new instance of the ParserException class.
-* `ParserException(String str) ParserException`<br>
+* `ParserException​(String str) ParserException`<br>
  Initializes a new instance of the ParserException class.

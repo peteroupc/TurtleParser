@@ -56,7 +56,7 @@ import com.upokecenter.text.*;
      */
     public NTriplesParser(String str) {
       if (str == null) {
-        throw new NullPointerException("stream");
+        throw new NullPointerException("str");
       }
       this.input = new StackableCharacterInput(
           Encodings.StringToInput(str));

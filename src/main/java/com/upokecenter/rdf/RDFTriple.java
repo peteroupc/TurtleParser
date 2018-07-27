@@ -12,7 +12,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      */
   public final class RDFTriple {
-    private RDFTerm subject, predicate, objectRdf;
+    private volatile RDFTerm subject, predicate, objectRdf;
 
     /**
      * Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
@@ -119,11 +119,11 @@ at: http://peteroupc.github.io/
       }
     }
 
-    private void setObject(RDFTerm objectRdf) {
-      if (objectRdf == null) {
-        throw new NullPointerException("Object");
+    private void setObject(RDFTerm rdfObject) {
+      if (rdfObject == null) {
+        throw new NullPointerException("rdfObject");
       }
-      this.objectRdf = objectRdf;
+      this.objectRdf = rdfObject;
     }
 
     private void setPredicate(RDFTerm predicate) {

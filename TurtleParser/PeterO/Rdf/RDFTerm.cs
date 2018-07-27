@@ -172,7 +172,7 @@ using System.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)"]/*'/>
     public static RDFTerm fromBlankNode(string name) {
       if (name == null) {
-        throw new ArgumentNullException("name");
+        throw new ArgumentNullException(nameof(name));
       }
       if (name.Length == 0) {
         throw new ArgumentException("name is empty.");
@@ -184,7 +184,7 @@ using System.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromIRI(System.String)"]/*'/>
     public static RDFTerm fromIRI(string iri) {
       if (iri == null) {
-        throw new ArgumentNullException("iri");
+        throw new ArgumentNullException(nameof(iri));
       }
       return new RDFTerm(IRI, null, iri);
     }
@@ -193,10 +193,10 @@ using System.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromLangString(System.String,System.String)"]/*'/>
     public static RDFTerm fromLangString(string str, string languageTag) {
       if (str == null) {
-        throw new ArgumentNullException("str");
+        throw new ArgumentNullException(nameof(str));
       }
       if (languageTag == null) {
-        throw new ArgumentNullException("languageTag");
+        throw new ArgumentNullException(nameof(languageTag));
       }
       if (languageTag.Length == 0) {
         throw new ArgumentException("languageTag is empty.");
@@ -214,10 +214,10 @@ using System.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.fromTypedString(System.String,System.String)"]/*'/>
     public static RDFTerm fromTypedString(string str, string iri) {
       if (str == null) {
-        throw new ArgumentNullException("str");
+        throw new ArgumentNullException(nameof(str));
       }
       if (iri == null) {
-        throw new ArgumentNullException("iri");
+        throw new ArgumentNullException(nameof(iri));
       }
       if (iri.Length == 0) {
         throw new ArgumentException("iri is empty.");

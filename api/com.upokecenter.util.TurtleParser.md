@@ -6,45 +6,45 @@ Not documented yet.
 
 ## Methods
 
-* `TurtleParser(com.upokecenter.util.IByteReader stream) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(com.upokecenter.util.IByteReader stream)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser(com.upokecenter.util.IByteReader stream,
-            String baseURI) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(com.upokecenter.util.IByteReader stream,
+            String baseURI)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser(String str) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(String str)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser(String str,
-            String baseURI) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(String str,
+            String baseURI)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 * `Set<RDFTriple> Parse()`<br>
  Not documented yet.
 
 ## Constructors
 
-* `TurtleParser(com.upokecenter.util.IByteReader stream) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(com.upokecenter.util.IByteReader stream)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser(com.upokecenter.util.IByteReader stream,
-            String baseURI) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(com.upokecenter.util.IByteReader stream,
+            String baseURI)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser(String str) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(String str)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser(String str,
-            String baseURI) com.upokecenter.Rdf.getTurtleParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getTurtleParser()
+* `TurtleParser​(String str,
+            String baseURI)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
 ## Method Details
 
 ### TurtleParser
-    public TurtleParser(com.upokecenter.util.IByteReader stream)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</code>
+    public TurtleParser​(com.upokecenter.util.IByteReader stream)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
 **Parameters:**
@@ -52,8 +52,8 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</c
 * <code>stream</code> - A PeterO.IByteReader object.
 
 ### TurtleParser
-    public TurtleParser(com.upokecenter.util.IByteReader stream, String baseURI)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</code>
+    public TurtleParser​(com.upokecenter.util.IByteReader stream, String baseURI)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
 **Parameters:**
@@ -64,11 +64,12 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</c
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>stream</code> or <code>baseURI</code> is null.
+* <code>NullPointerException</code> - The parameter <code>stream</code> or <code>
+ baseURI</code> is null.
 
 ### TurtleParser
-    public TurtleParser(String str)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</code>
+    public TurtleParser​(String str)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
 **Parameters:**
@@ -76,8 +77,8 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</c
 * <code>str</code> - The parameter <code>str</code> is a text string.
 
 ### TurtleParser
-    public TurtleParser(String str, String baseURI)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</code>
+    public TurtleParser​(String str, String baseURI)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
 **Parameters:**
@@ -88,7 +89,8 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getTurtleParser()</c
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>str</code> or <code>baseURI</code> is null.
+* <code>NullPointerException</code> - The parameter <code>str</code> or <code>
+ baseURI</code> is null.
 
 ### Parse
     public Set<RDFTriple> Parse()

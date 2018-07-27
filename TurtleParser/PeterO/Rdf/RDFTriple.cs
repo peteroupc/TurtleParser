@@ -12,7 +12,7 @@ namespace PeterO.Rdf {
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="T:PeterO.Rdf.RDFTriple"]/*'/>
   public sealed class RDFTriple {
-    private RDFTerm subject, predicate, objectRdf;
+    private volatile RDFTerm subject, predicate, objectRdf;
 
     /// <include file='../../docs.xml'
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)"]/*'/>
@@ -26,7 +26,7 @@ namespace PeterO.Rdf {
     /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)"]/*'/>
     public RDFTriple(RDFTriple triple) {
       if (triple == null) {
-        throw new ArgumentNullException("triple");
+        throw new ArgumentNullException(nameof(triple));
       }
       this.setSubject(triple.subject);
       this.setPredicate(triple.predicate);
@@ -100,16 +100,16 @@ namespace PeterO.Rdf {
       }
     }
 
-    private void setObject(RDFTerm objectRdf) {
-      if (objectRdf == null) {
-        throw new ArgumentNullException("object");
+    private void setObject(RDFTerm rdfObject) {
+      if (rdfObject == null) {
+        throw new ArgumentNullException(nameof(rdfObject));
       }
-      this.objectRdf = objectRdf;
+      this.objectRdf = rdfObject;
     }
 
     private void setPredicate(RDFTerm predicate) {
       if (predicate == null) {
-        throw new ArgumentNullException("predicate");
+        throw new ArgumentNullException(nameof(predicate));
       }
       if (!(predicate.getKind() == RDFTerm.IRI)) {
     throw new ArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
@@ -119,7 +119,7 @@ namespace PeterO.Rdf {
 
     private void setSubject(RDFTerm subject) {
       if (subject == null) {
-        throw new ArgumentNullException("subject");
+        throw new ArgumentNullException(nameof(subject));
       }
       if (!(subject.getKind() == RDFTerm.IRI ||
           subject.getKind() == RDFTerm.BLANK)) {

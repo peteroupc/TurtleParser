@@ -6,15 +6,15 @@ Not documented yet.
 
 ## Methods
 
-* `RDFTriple(RDFTerm subject,
+* `RDFTriple​(RDFTerm subject,
          RDFTerm predicate,
-         RDFTerm objectRdf) com.upokecenter.Rdf.getRDFTriple()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getRDFTriple()
+         RDFTerm objectRdf)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
-* `RDFTriple(RDFTriple triple) com.upokecenter.Rdf.getRDFTriple()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getRDFTriple()
+* `RDFTriple​(RDFTriple triple)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
-* `boolean equals(Object obj)`<br>
+* `boolean equals​(Object obj)`<br>
  Not documented yet.
 * `RDFTerm getObject()`<br>
  Not documented yet.
@@ -29,20 +29,20 @@ Not documented yet.
 
 ## Constructors
 
-* `RDFTriple(RDFTerm subject,
+* `RDFTriple​(RDFTerm subject,
          RDFTerm predicate,
-         RDFTerm objectRdf) com.upokecenter.Rdf.getRDFTriple()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getRDFTriple()
+         RDFTerm objectRdf)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
-* `RDFTriple(RDFTriple triple) com.upokecenter.Rdf.getRDFTriple()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getRDFTriple()
+* `RDFTriple​(RDFTriple triple)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
 
 ## Method Details
 
 ### RDFTriple
-    public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getRDFTriple()</code>
+    public RDFTriple​(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
 
 **Parameters:**
@@ -54,8 +54,8 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getRDFTriple()</code
 * <code>objectRdf</code> - The object term.
 
 ### RDFTriple
-    public RDFTriple(RDFTriple triple)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getRDFTriple()</code>
+    public RDFTriple​(RDFTriple triple)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
 
 **Parameters:**
@@ -67,7 +67,7 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getRDFTriple()</code
 * <code>NullPointerException</code> - The parameter <code>triple</code> is null.
 
 ### equals
-    public final boolean equals(Object obj)
+    public final boolean equals​(Object obj)
 Not documented yet.
 
 **Overrides:**

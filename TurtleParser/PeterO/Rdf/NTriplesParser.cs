@@ -30,7 +30,7 @@ using PeterO.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)"]/*'/>
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
-        throw new ArgumentNullException("stream");
+        throw new ArgumentNullException(nameof(stream));
       }
       this.input = new StackableCharacterInput(
           Encodings.GetDecoderInput(
@@ -43,7 +43,7 @@ using PeterO.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)"]/*'/>
     public NTriplesParser(string str) {
       if (str == null) {
-        throw new ArgumentNullException("stream");
+        throw new ArgumentNullException(nameof(str));
       }
       this.input = new StackableCharacterInput(
           Encodings.StringToInput(str));

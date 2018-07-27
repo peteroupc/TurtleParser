@@ -125,10 +125,10 @@ using PeterO.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)"]/*'/>
     public TurtleParser(IByteReader stream, string baseURI) {
       if (stream == null) {
-        throw new ArgumentNullException("stream");
+        throw new ArgumentNullException(nameof(stream));
       }
       if (baseURI == null) {
-        throw new ArgumentNullException("baseURI");
+        throw new ArgumentNullException(nameof(baseURI));
       }
       if (!URIUtility.hasScheme(baseURI)) {
         throw new ArgumentException("baseURI");
@@ -149,10 +149,10 @@ using PeterO.Text;
     /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)"]/*'/>
     public TurtleParser(string str, string baseURI) {
       if (str == null) {
-        throw new ArgumentNullException("str");
+        throw new ArgumentNullException(nameof(str));
       }
       if (baseURI == null) {
-        throw new ArgumentNullException("baseURI");
+        throw new ArgumentNullException(nameof(baseURI));
       }
       if (!URIUtility.hasScheme(baseURI)) {
         throw new ArgumentException("baseURI");

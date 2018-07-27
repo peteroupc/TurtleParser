@@ -6,13 +6,13 @@ Not documented yet.
 
 ## Methods
 
-* `NTriplesParser(com.upokecenter.util.IByteReader stream) com.upokecenter.Rdf.getNTriplesParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getNTriplesParser()
+* `NTriplesParser​(com.upokecenter.util.IByteReader stream)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
-* `NTriplesParser(String str) com.upokecenter.Rdf.getNTriplesParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getNTriplesParser()
+* `NTriplesParser​(String str)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
-* `static boolean isAsciiChar(int c,
+* `static boolean isAsciiChar​(int c,
            String asciiChars)`<br>
  Not documented yet.
 * `Set<RDFTriple> Parse()`<br>
@@ -20,18 +20,18 @@ Not documented yet.
 
 ## Constructors
 
-* `NTriplesParser(com.upokecenter.util.IByteReader stream) com.upokecenter.Rdf.getNTriplesParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getNTriplesParser()
+* `NTriplesParser​(com.upokecenter.util.IByteReader stream)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
-* `NTriplesParser(String str) com.upokecenter.Rdf.getNTriplesParser()`<br>
- Initializes a new instance of the com.upokecenter.Rdf.getNTriplesParser()
+* `NTriplesParser​(String str)`<br>
+ Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
 
 ## Method Details
 
 ### NTriplesParser
-    public NTriplesParser(com.upokecenter.util.IByteReader stream)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getNTriplesParser()</code>
+    public NTriplesParser​(com.upokecenter.util.IByteReader stream)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
 
 **Parameters:**
@@ -43,8 +43,8 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getNTriplesParser()<
 * <code>NullPointerException</code> - The parameter <code>stream</code> is null.
 
 ### NTriplesParser
-    public NTriplesParser(String str)
-Initializes a new instance of the <code>com.upokecenter.Rdf.getNTriplesParser()</code>
+    public NTriplesParser​(String str)
+Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
 
 **Parameters:**
@@ -56,7 +56,7 @@ Initializes a new instance of the <code>com.upokecenter.Rdf.getNTriplesParser()<
 * <code>NullPointerException</code> - The parameter "stream" is null.
 
 ### isAsciiChar
-    public static boolean isAsciiChar(int c, String asciiChars)
+    public static boolean isAsciiChar​(int c, String asciiChars)
 Not documented yet.
 
 **Parameters:**

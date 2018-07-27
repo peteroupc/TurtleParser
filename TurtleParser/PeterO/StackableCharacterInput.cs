@@ -54,7 +54,7 @@ using PeterO.Text;
 
       public int Read(int[] buf, int offset, int unitCount) {
         if (buf == null) {
-          throw new ArgumentNullException("buf");
+          throw new ArgumentNullException(nameof(buf));
         }
         if (offset < 0) {
           throw new ArgumentException("offset less than 0 (" +
@@ -137,7 +137,7 @@ using PeterO.Text;
     /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.pushInput(PeterO.Text.ICharacterInput)"]/*'/>
     public void pushInput(ICharacterInput input) {
       if (input == null) {
-        throw new ArgumentNullException("input");
+        throw new ArgumentNullException(nameof(input));
       }
       // Move unread characters in buffer, since this new
       // input sits on top of the existing input
@@ -205,7 +205,7 @@ using PeterO.Text;
     /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)"]/*'/>
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {
-        throw new ArgumentNullException("buf");
+        throw new ArgumentNullException(nameof(buf));
       }
       if (offset < 0) {
         throw new ArgumentException("offset (" + offset +

@@ -8,11 +8,11 @@ Not documented yet.
 
 * `int getMarkPosition()`<br>
  Gets the zero-based character position in the stream from the last-set mark.
-* `void moveBack(int count)`<br>
+* `void moveBack​(int count)`<br>
  Moves the stream position back the given number of characters.
 * `int setHardMark()`<br>
  Sets a mark on the stream's current position.
-* `void setMarkPosition(int pos)`<br>
+* `void setMarkPosition​(int pos)`<br>
  Sets the stream's position from the last set mark.
 * `int setSoftMark()`<br>
  If no mark is set, sets a mark on the stream, and characters read before the
@@ -30,7 +30,7 @@ Gets the zero-based character position in the stream from the last-set mark.
 * The return value is not documented yet.
 
 ### moveBack
-    void moveBack(int count)
+    void moveBack​(int count)
 Moves the stream position back the given number of characters.
 
 **Parameters:**
@@ -46,7 +46,7 @@ Sets a mark on the stream's current position.
 * The return value is not documented yet.
 
 ### setMarkPosition
-    void setMarkPosition(int pos)
+    void setMarkPosition​(int pos)
 Sets the stream's position from the last set mark. <param name='pos'>Zero-based character offset from the last set
  mark.</param>
 

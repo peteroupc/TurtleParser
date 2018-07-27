@@ -29,18 +29,18 @@ Not documented yet.
 
 ## Methods
 
-* `boolean equals(Object obj)`<br>
+* `boolean equals​(Object obj)`<br>
  Not documented yet.
-* `static RDFTerm fromBlankNode(String name)`<br>
+* `static RDFTerm fromBlankNode​(String name)`<br>
  Not documented yet.
-* `static RDFTerm fromIRI(String iri)`<br>
+* `static RDFTerm fromIRI​(String iri)`<br>
  Not documented yet.
-* `static RDFTerm fromLangString(String str,
+* `static RDFTerm fromLangString​(String str,
               String languageTag)`<br>
  Not documented yet.
-* `static RDFTerm fromTypedString(String str)`<br>
+* `static RDFTerm fromTypedString​(String str)`<br>
  Not documented yet.
-* `static RDFTerm fromTypedString(String str,
+* `static RDFTerm fromTypedString​(String str,
                String iri)`<br>
  Not documented yet.
 * `int getKind()`<br>
@@ -53,7 +53,7 @@ Not documented yet.
  Not documented yet.
 * `boolean isBlank()`<br>
  Gets whether this term is a blank node.
-* `boolean isIRI(String str)`<br>
+* `boolean isIRI​(String str)`<br>
  Not documented yet.
 * `boolean isOrdinaryString()`<br>
  Not documented yet.
@@ -95,7 +95,7 @@ Object for true.
 ## Method Details
 
 ### fromBlankNode
-    public static RDFTerm fromBlankNode(String name)
+    public static RDFTerm fromBlankNode​(String name)
 Not documented yet.
 
 **Parameters:**
@@ -111,7 +111,7 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>name</code> is null.
 
 ### fromIRI
-    public static RDFTerm fromIRI(String iri)
+    public static RDFTerm fromIRI​(String iri)
 Not documented yet.
 
 **Parameters:**
@@ -127,7 +127,7 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>iri</code> is null.
 
 ### fromLangString
-    public static RDFTerm fromLangString(String str, String languageTag)
+    public static RDFTerm fromLangString​(String str, String languageTag)
 Not documented yet.
 
 **Parameters:**
@@ -142,10 +142,11 @@ Not documented yet.
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>str</code> or <code>languageTag</code> is null.
+* <code>NullPointerException</code> - The parameter <code>str</code> or <code>
+ languageTag</code> is null.
 
 ### fromTypedString
-    public static RDFTerm fromTypedString(String str)
+    public static RDFTerm fromTypedString​(String str)
 Not documented yet.
 
 **Parameters:**
@@ -157,7 +158,7 @@ Not documented yet.
 * A RDFTerm object.
 
 ### fromTypedString
-    public static RDFTerm fromTypedString(String str, String iri)
+    public static RDFTerm fromTypedString​(String str, String iri)
 Not documented yet.
 
 **Parameters:**
@@ -172,10 +173,11 @@ Not documented yet.
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>str</code> or <code>iri</code> is null.
+* <code>NullPointerException</code> - The parameter <code>str</code> or <code>
+ iri</code> is null.
 
 ### equals
-    public final boolean equals(Object obj)
+    public final boolean equals​(Object obj)
 Not documented yet.
 
 **Overrides:**
@@ -237,7 +239,7 @@ Gets whether this term is a blank node.
 * Either <code>true</code> or <code>false</code>.
 
 ### isIRI
-    public boolean isIRI(String str)
+    public boolean isIRI​(String str)
 Not documented yet.
 
 **Parameters:**
