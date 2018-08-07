@@ -5,6 +5,7 @@
 *.jar
 *.log
 *.map
+*.nupkg
 *.pyc
 *.sdsettings
 *.shf*
@@ -16,6 +17,7 @@
 .pmd
 .project
 .settings/
+.vs/
 /target
 CBORTest/bin/
 CBORTest/obj/
