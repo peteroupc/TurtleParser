@@ -357,7 +357,7 @@ at: http://peteroupc.github.io/
     /**
      * Gets a string representation of this RDF term in N-Triples format. The
      * string will not end in a line break.
-     * @return The return value is not documented yet.
+     * @return A string representation of this object.
      */
     @Override public final String toString() {
       StringBuilder builder = null;

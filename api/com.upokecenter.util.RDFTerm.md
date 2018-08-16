@@ -269,4 +269,4 @@ Gets a string representation of this RDF term in N-Triples format. The
 
 **Returns:**
 
-* The return value is not documented yet.
+* A string representation of this object.

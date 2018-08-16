@@ -130,7 +130,7 @@
 
             <summary>Gets a string representation of this RDF term in
             N-Triples format. The string will not end in a line
-            break.</summary><returns>The return value is not documented yet.</returns>
+            break.</summary><returns>A string representation of this object.</returns>
 
 </doc>
 <doc name="M:PeterO.Rdf.RDFTerm.fromBlankNode(System.String)">

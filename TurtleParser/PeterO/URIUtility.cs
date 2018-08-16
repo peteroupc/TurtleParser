@@ -360,8 +360,8 @@ using System.Text;
                 bytesNeeded = 0;
                 // append the Unicode character
                 if (ret <= 0xffff) {
-  { retString.Append((char)ret);
-} } else {
+  retString.Append((char)ret);
+ } else {
               retString.Append((char)((((ret - 0x10000) >> 10) &
                     0x3ff) + 0xd800));
                   retString.Append((char)(((ret - 0x10000) & 0x3ff) + 0xdc00));
@@ -394,6 +394,38 @@ retString.Append((char)(((c - 0x10000) & 0x3ff) + 0xdc00));
       }
       return retString.ToString();
       }
+
+// <summary></summary>
+    public static string EncodeStringForURI(string s) {
+      if ((s) == null) {
+  throw new ArgumentNullException(nameof(s));
+}
+int index = 0;
+var builder = new StringBuilder();
+      while (index < s.Length) {
+        int c = s[index];
+        if ((c & 0xfc00) == 0xd800 && index + 1 < s.Length &&
+            s[index + 1] >= 0xdc00 && s[index + 1] <= 0xdfff) {
+          // Get the Unicode code point for the surrogate pair
+          c = 0x10000 + ((c - 0xd800) << 10) + (s[index + 1] - 0xdc00);
+        } else if ((c & 0xf800) == 0xd800) {
+          c = 0xfffd;
+        }
+        if (c >= 0x10000) {
+ ++index;
+}
+    if ((c & 0x7F) == c && ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'
+) ||
+            (c >= '0' && c <= '9') || ("-_.~").IndexOf((char)c) >= 0)) {
+          builder.Append((char)c);
+          ++index;
+        } else {
+          percentEncodeUtf8(builder, c);
+          ++index;
+        }
+      }
+return builder.ToString();
+    }
 
     private static bool isIfragmentChar(int c) {
       // '%' omitted
@@ -535,6 +567,84 @@ retString.Append((char)(((c - 0x10000) & 0x3ff) + 0xdc00));
       return true;
     }
 
+public static string BuildIRI(
+  string schemeAndAuthority,
+  string path,
+  string query,
+  string fragment) {
+  var builder = new StringBuilder();
+  if (!String.IsNullOrEmpty(schemeAndAuthority)) {
+    int[] irisplit = splitIRI(schemeAndAuthority);
+     // NOTE: Path component is always present in URIs;
+     // we check here whether path component is empty
+    if (irisplit == null || (irisplit[0] < 0 && irisplit[2] < 0) ||
+      irisplit[4] != irisplit[5] || irisplit[6] >= 0 || irisplit[8] >= 0) {
+ throw new ArgumentException("invalid schemeAndAuthority");
+}
+  }
+  if (String.IsNullOrEmpty(path)) {
+ path = String.Empty;
+}
+  for (var phase = 0; phase < 3; ++phase) {
+    string s = path;
+    if (phase == 1) {
+      s = query;
+      if (query == null) {
+ continue;
+}
+      builder.Append('?');
+    } else if (phase == 2) {
+      s = fragment;
+      if (fragment == null) {
+ continue;
+}
+      builder.Append('#');
+    }
+      var index = 0;
+      while (index < s.Length) {
+        int c = s[index];
+        if ((c & 0xfc00) == 0xd800 && index + 1 < s.Length &&
+            s[index + 1] >= 0xdc00 && s[index + 1] <= 0xdfff) {
+          // Get the Unicode code point for the surrogate pair
+          c = 0x10000 + ((c - 0xd800) << 10) + (s[index + 1] - 0xdc00);
+        } else if ((c & 0xf800) == 0xd800) {
+          c = 0xfffd;
+        }
+        if (c >= 0x10000) {
+ ++index;
+}
+        if (c == '%') {
+          if (index + 2 < s.Length && isHexChar(s[index + 1]) &&
+            isHexChar(s[index + 2])) {
+            builder.Append('%');
+            builder.Append(s[index + 1]);
+            builder.Append(s[index + 2]);
+            index += 3;
+          } else {
+            builder.Append("%25");
+            ++index;
+          }
+        } else if ((c & 0x7f) == c &&
+   ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
+            (c >= '0' && c <= '9') ||
+            "-_.~/(=):!$&'*+,;@".IndexOf((char)c) >= 0)) {
+          // NOTE: Question mark will be percent encoded even though
+          // it can appear in query and fragment strings
+          builder.Append((char)c);
+          ++index;
+        } else {
+          percentEncodeUtf8(builder, c);
+          ++index;
+        }
+      }
+  }
+  string ret = builder.ToString();
+  if (splitIRI(ret) == null) {
+ throw new ArgumentException();
+}
+  return ret;
+}
+
     public static bool isValidIRI(string s) {
       return ((s == null) ?
   null : splitIRI(
@@ -643,38 +753,6 @@ retString.Append((char)(((c - 0x10000) & 0x3ff) + 0xdc00));
       return builder.ToString();
     }
 
-    private static int parseDecOctet(
-  string s,
-  int index,
-  int endOffset,
-  int c,
-  int delim) {
-      if (c >= '1' && c <= '9' && index + 2 < endOffset &&
-          s[index + 1] >= '0' && s[index + 1] <= '9' &&
-          s[index + 2] == delim) {
-        return ((c - '0') * 10) + (s[index + 1] - '0');
-      }
-      if (c == '2' && index + 3 < endOffset &&
-       (s[index + 1] == '5') && (s[index + 2] >= '0' && s[index + 2] <= '5') &&
-          s[index + 3] == delim) {
-        return 250 + (s[index + 2] - '0');
-      }
-      if (c == '2' && index + 3 < endOffset &&
-          s[index + 1] >= '0' && s[index + 1] <= '4' &&
-          s[index + 2] >= '0' && s[index + 2] <= '9' &&
-          s[index + 3] == delim) {
-        return 200 + ((s[index + 1] - '0') * 10) + (s[index + 2] - '0');
-      }
-      if (c == '1' && index + 3 < endOffset &&
-          s[index + 1] >= '0' && s[index + 1] <= '9' &&
-          s[index + 2] >= '0' && s[index + 2] <= '9' &&
-          s[index + 3] == delim) {
-        return 100 + ((s[index + 1] - '0') * 10) + (s[index + 2] - '0');
-      }
-      return (c >= '0' && c <= '9' && index + 1 < endOffset &&
-              s[index + 1] == delim) ? (c - '0') : (-1);
-    }
-
     private static int parseIPLiteral(string s, int offset, int endOffset) {
       int index = offset;
       if (offset == endOffset) {
@@ -725,131 +803,138 @@ retString.Append((char)(((c - 0x10000) & 0x3ff) + 0xdc00));
       }
       if (s[index] == ':' ||
           isHexChar(s[index])) {
-        // IPv6 Address
-        var phase1 = 0;
-        var phase2 = 0;
-        var phased = false;
-        var expectHex = false;
-        var expectColon = false;
-        while (index < endOffset) {
-          char c = s[index];
-          if (c == ':' && !expectHex) {
-            if ((phase1 + (phased ? 1 : 0) + phase2) >= 8) {
-              return -1;
-            }
-            ++index;
-            if (index < endOffset && s[index] == ':') {
-              if (phased) {
-                return -1;
-              }
-              phased = true;
-              ++index;
-            }
-            expectHex = true;
-            expectColon = false;
-            continue;
-          }
-          if ((c >= '0' && c <= '9') && !expectColon &&
-              (phased || (phase1 + (phased ? 1 : 0) + phase2) == 6)) {
-            // Check for IPv4 address
-            int decOctet = parseDecOctet(s, index, endOffset, c, '.');
-            if (decOctet >= 0) {
-              if ((phase1 + (phased ? 1 : 0) + phase2) > 6) {
-                // IPv4 address illegal at this point
-                return -1;
-              } else {
-                // Parse the rest of the IPv4 address
-                phase2 += 2;
-                if (decOctet >= 100) {
-                  index += 4;
-                } else if (decOctet >= 10) {
-                  index += 3;
-                } else {
-                  index += 2;
-                }
-                char tmpc = (index < endOffset) ? s[index] : '\0';
-                decOctet = parseDecOctet(
-  s,
-  index,
-  endOffset,
-  tmpc,
-  '.');
-                if (decOctet >= 100) {
-                  index += 4;
-                } else if (decOctet >= 10) {
-                  index += 3;
-                } else if (decOctet >= 0) {
-                  index += 2;
-                } else {
-                  return -1;
-                }
-                tmpc = (index < endOffset) ? s[index] : '\0';
-                decOctet = parseDecOctet(s, index, endOffset, tmpc, '.');
-                if (decOctet >= 100) {
-                  index += 4;
-                } else if (decOctet >= 10) {
-                  index += 3;
-                } else if (decOctet >= 0) {
-                  index += 2;
-                } else {
-                  return -1;
-                }
-                tmpc = (index < endOffset) ? s[index] : '\0';
-                decOctet = parseDecOctet(s, index, endOffset, tmpc, ']');
-                if (decOctet < 0) {
-                  tmpc = (index < endOffset) ? s[index] : '\0';
-                  decOctet = parseDecOctet(s, index, endOffset, tmpc, '%');
-                }
-                if (decOctet >= 100) {
-                  index += 3;
-                } else if (decOctet >= 10) {
-                  index += 2;
-                } else if (decOctet >= 0) {
-                  ++index;
-                } else {
-                  return -1;
-                }
-                break;
-              }
-            }
-          }
-          if (isHexChar(c) && !expectColon) {
-            if (phased) {
-              ++phase2;
-            } else {
-              ++phase1;
-            }
-            ++index;
-            for (var i = 0; i < 3; ++i) {
-              if (index < endOffset && isHexChar(s[index])) {
-                ++index;
-              } else {
-                break;
-              }
-            }
-            expectHex = false;
-            expectColon = true;
-          } else {
-            break;
-          }
-        }
-        if ((phase1 + phase2) != 8 && !phased) {
-          return -1;
-        }
-        if (phase1 + 1 + phase2 > 8 && phased) {
-          return -1;
-        }
-        if (index >= endOffset) {
-          return -1;
-        }
-        if (s[index] != ']' && s[index] != '%') {
-          return -1;
-        }
+     var startIndex = index;
+while (index < endOffset && ((s[index] >= 65 && s[index] <= 70) ||
+  (s[index] >= 97 && s[index] <= 102) || (s[index] >= 48 && s[index]
+  <= 58) || (s[index] == 46))) {
+ ++index;
+}
+if (index >= endOffset || (s[index] != ']' && s[index] != '%')) {
+ return -1;
+}
+// NOTE: Array is initialized to zeros
+int[] addressParts = new int[8];
+var ipEndIndex = index;
+var doubleColon = false;
+var doubleColonPos = 0;
+var totalParts = 0;
+var ipv4part = false;
+index = startIndex;
+// DebugUtility.Log(s.Substring(startIndex, ipEndIndex-startIndex));
+for (var part = 0; part < 8; ++part) {
+ if (!doubleColon && ipEndIndex - index > 1 && s[index] == ':' && s[index +
+   1] == ':') {
+  doubleColon = true;
+  doubleColonPos = part;
+  index += 2;
+            if (index == ipEndIndex) {
+ break;
+}
+ }
+ var hex = 0;
+ var haveHex = false;
+ int curindex = index;
+ for (var i = 0; i < 4; ++i) {
+if (isHexChar(s[index])) {
+ hex = (hex << 4) | ToHex(s[index]);
+ haveHex = true;
+ ++index;
+} else {
+ break;
+}
+ }
+ if (!haveHex) {
+ return -1;
+}
+ if (index < ipEndIndex && s[index] == '.' && part < 7) {
+  ipv4part = true;
+  index = curindex;
+  break;
+ }
+ addressParts[part] = hex;
+ ++totalParts;
+ if (index < ipEndIndex && s[index] != ':') {
+ return -1;
+}
+ if (index == ipEndIndex && doubleColon) {
+ break;
+}
+  // Skip single colon, but not double colon
+ if (index < ipEndIndex &&
+   (index + 1 >= ipEndIndex || s[index + 1] != ':')) {
+ ++index;
+}
+}
+if (index != ipEndIndex && !ipv4part) {
+ return -1;
+}
+if (doubleColon || ipv4part) {
+ if (ipv4part) {
+  var ipparts = new int[4];
+  for (var part = 0; part < 4; ++part) {
+    if (part > 0) {
+if (index < ipEndIndex && s[index] == '.') {
+ ++index;
+} else {
+ return -1;
+}
+    }
+if (index + 1 < ipEndIndex && s[index] == '0' &&
+ (s[index + 1] >= '0' && s[index + 1] <= '9')) {
+ return -1;
+}
+ var dec = 0;
+ var haveDec = false;
+ int curindex = index;
+ for (var i = 0; i < 4; ++i) {
+if (s[index] >= '0' && s[index] <= '9') {
+ dec = (dec * 10) + ((int)s[index] - '0');
+ haveDec = true;
+ ++index;
+} else {
+ break;
+}
+ }
+ if (!haveDec || dec > 255) {
+ return -1;
+}
+ipparts[part] = dec;
+  }
+  if (index != ipEndIndex) {
+ return -1;
+}
+  addressParts[totalParts] = (ipparts[0] << 8) | ipparts[1];
+  addressParts[totalParts + 1] = (ipparts[2] << 8) | ipparts[3];
+totalParts += 2;
+  if (!doubleColon && totalParts != 8) {
+ return -1;
+}
+ }
+ if (doubleColon) {
+  int resid = 8 - totalParts;
+  var newAddressParts = new int[8];
+  Array.Copy(addressParts, newAddressParts, doubleColonPos);
+  Array.Copy(
+  addressParts,
+  doubleColonPos,
+  newAddressParts,
+  doubleColonPos + resid,
+  totalParts - doubleColonPos);
+  Array.Copy(newAddressParts, addressParts, 8);
+ }
+} else if (totalParts != 8) {
+ return -1;
+}
+// DebugUtility.Log("{0:X4}:{0:X4}:{0:X4}:{0:X4}:{0:X4}:{0:X4}:{0:X4}:{0:X4}",
+  // addressParts[0], addressParts[1], addressParts[2],
+  // addressParts[3], addressParts[4], addressParts[5],
+  // addressParts[6], addressParts[7]);
         if (s[index] == '%') {
           if (index + 2 < endOffset && s[index + 1] == '2' &&
-              s[index + 2] == '5') {
+              s[index + 2] == '5' && (addressParts[0] & 0xFFC0) == 0xFE80) {
             // Zone identifier in an IPv6 address
             // (see RFC6874)
+            // NOTE: Allowed only if address has prefix fe80::/10
             index += 3;
             var haveChar = false;
             while (index < endOffset) {
