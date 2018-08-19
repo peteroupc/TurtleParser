@@ -408,7 +408,7 @@ retString.append((char)(((c - 0x10000) & 0x3ff) + 0xdc00));
 
 // <summary></summary>
     public static String EncodeStringForURI(String s) {
-      if ((s) == null) {
+      if (s == null) {
   throw new NullPointerException("s");
 }
 int index = 0;
@@ -427,7 +427,7 @@ StringBuilder builder = new StringBuilder();
 }
     if ((c & 0x7F) == c && ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'
 ) ||
-            (c >= '0' && c <= '9') || ("-_.~").indexOf((char)c) >= 0)) {
+            (c >= '0' && c <= '9') || "-_.~".indexOf((char)c) >= 0)) {
           builder.append((char)c);
           ++index;
         } else {
