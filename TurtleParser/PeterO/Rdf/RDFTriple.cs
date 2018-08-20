@@ -10,8 +10,6 @@ namespace PeterO.Rdf {
   using System;
 
     /// <summary>Not documented yet.</summary>
-  ///
-  ///
   public sealed class RDFTriple {
     private volatile RDFTerm subject, predicate, objectRdf;
 
@@ -20,8 +18,6 @@ namespace PeterO.Rdf {
     /// <param name='subject'>The subject term.</param>
     /// <param name='predicate'>The predicate term.</param>
     /// <param name='objectRdf'>The object term.</param>
-  ///
-  ///
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       this.setSubject(subject);
       this.setPredicate(predicate);
@@ -34,8 +30,6 @@ namespace PeterO.Rdf {
     /// RDFTriple object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='triple'/> is null.</exception>
-  ///
-  ///
     public RDFTriple(RDFTriple triple) {
       if (triple == null) {
         throw new ArgumentNullException(nameof(triple));
@@ -51,8 +45,6 @@ namespace PeterO.Rdf {
     /// <param name='obj'>The parameter <paramref name='obj'/> is not
     /// documented yet.</param>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -84,32 +76,24 @@ namespace PeterO.Rdf {
 
     /// <summary>Not documented yet.</summary>
     /// <returns>A RDFTerm object.</returns>
-  ///
-  ///
     public RDFTerm getObject() {
       return this.objectRdf;
     }
 
     /// <summary>Not documented yet.</summary>
     /// <returns>A RDFTerm object.</returns>
-  ///
-  ///
     public RDFTerm getPredicate() {
       return this.predicate;
     }
 
     /// <summary>Not documented yet.</summary>
     /// <returns>A RDFTerm object.</returns>
-  ///
-  ///
     public RDFTerm getSubject() {
       return this.subject;
     }
 
     /// <summary>Not documented yet.</summary>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -156,8 +140,6 @@ namespace PeterO.Rdf {
 
     /// <summary>Not documented yet.</summary>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
             this.objectRdf.ToString() + " .";

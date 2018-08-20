@@ -120,7 +120,7 @@ public final void setObj(TurtleObject value) {
      * @param baseURI The parameter {@code baseURI} is a text string.
      * @throws java.lang.NullPointerException The parameter {@code stream} or {@code
      * baseURI} is null.
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException BaseURI.
      */
     public TurtleParser(IByteReader stream, String baseURI) {
       if (stream == null) {
@@ -155,7 +155,7 @@ public final void setObj(TurtleObject value) {
      * @param baseURI The parameter {@code baseURI} is a text string.
      * @throws java.lang.NullPointerException The parameter {@code str} or {@code
      * baseURI} is null.
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException BaseURI.
      */
     public TurtleParser(String str, String baseURI) {
       if (str == null) {

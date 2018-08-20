@@ -16,8 +16,6 @@ using PeterO.Text;
     /// <summary>A character input stream where additional inputs can be
     /// stacked on top of it. It supports advanced marking
     /// capabilities.</summary>
-  ///
-  ///
   public sealed class StackableCharacterInput : IMarkableCharacterInput {
     private class InputAndBuffer : ICharacterInput {
       private int[] buffer;
@@ -112,16 +110,12 @@ using PeterO.Text;
     /// <see cref='T:PeterO.StackableCharacterInput'/> class.</summary>
     /// <param name='source'>The parameter <paramref name='source'/> is an
     /// ICharacterInput object.</param>
-  ///
-  ///
     public StackableCharacterInput(ICharacterInput source) {
       this.stack.Add(source);
     }
 
     /// <summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
-  ///
-  ///
     public int getMarkPosition() {
       return this.pos;
     }
@@ -129,9 +123,6 @@ using PeterO.Text;
     /// <summary>Not documented yet.</summary>
     /// <param name='count'>The parameter <paramref name='count'/> is not
     /// documented yet.</param>
-    /// <exception cref='ArgumentException'/>
-  ///
-  ///
     public void moveBack(int count) {
       if (count < 0) {
         throw new ArgumentException("count less than 0 (" +
@@ -149,8 +140,6 @@ using PeterO.Text;
     /// documented yet.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='input'/> is null.</exception>
-  ///
-  ///
     public void pushInput(ICharacterInput input) {
       if (input == null) {
         throw new ArgumentNullException(nameof(input));
@@ -168,8 +157,6 @@ using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
-  ///
-  ///
     public int ReadChar() {
       if (this.haveMark) {
         // Read from buffer
@@ -229,9 +216,6 @@ using PeterO.Text;
     /// <returns>A 32-bit signed integer.</returns>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='buf'/> is null.</exception>
-    /// <exception cref='ArgumentException'/>
-  ///
-  ///
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {
         throw new ArgumentNullException(nameof(buf));
@@ -363,8 +347,6 @@ using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
-  ///
-  ///
     public int setHardMark() {
       if (this.buffer == null) {
         this.buffer = new int[16];
@@ -394,8 +376,6 @@ using PeterO.Text;
     /// <summary>Not documented yet.</summary>
     /// <param name='pos'>The parameter <paramref name='pos'/> is not
     /// documented yet.</param>
-  ///
-  ///
     public void setMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {
         throw new InvalidOperationException();
@@ -405,8 +385,6 @@ using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
-  ///
-  ///
     public int setSoftMark() {
       if (!this.haveMark) {
         this.setHardMark();

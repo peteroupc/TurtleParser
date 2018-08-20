@@ -182,7 +182,7 @@ at: http://peteroupc.github.io/
      * @param name The parameter {@code name} is not documented yet.
      * @return A RDFTerm object.
      * @throws java.lang.NullPointerException The parameter {@code name} is null.
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException Name is empty.
      */
     public static RDFTerm fromBlankNode(String name) {
       if (name == null) {
@@ -214,7 +214,7 @@ at: http://peteroupc.github.io/
      * @return A RDFTerm object.
      * @throws java.lang.NullPointerException The parameter {@code str} or {@code
      * languageTag} is null.
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException LanguageTag is empty.
      */
     public static RDFTerm fromLangString(String str, String languageTag) {
       if (str == null) {
@@ -245,7 +245,7 @@ at: http://peteroupc.github.io/
      * @return A RDFTerm object.
      * @throws java.lang.NullPointerException The parameter {@code str} or {@code
      * iri} is null.
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException Iri is empty.
      */
     public static RDFTerm fromTypedString(String str, String iri) {
       if (str == null) {

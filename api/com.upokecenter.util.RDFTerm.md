@@ -110,7 +110,7 @@ Not documented yet.
 
 * <code>NullPointerException</code> - The parameter <code>name</code> is null.
 
-* <code>IllegalArgumentException</code>
+* <code>IllegalArgumentException</code> - Name is empty.
 
 ### fromIRI
     public static RDFTerm fromIRI​(String iri)
@@ -147,7 +147,7 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>str</code> or <code>
  languageTag</code> is null.
 
-* <code>IllegalArgumentException</code>
+* <code>IllegalArgumentException</code> - LanguageTag is empty.
 
 ### fromTypedString
     public static RDFTerm fromTypedString​(String str)
@@ -180,7 +180,7 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>str</code> or <code>
  iri</code> is null.
 
-* <code>IllegalArgumentException</code>
+* <code>IllegalArgumentException</code> - Iri is empty.
 
 ### equals
     public final boolean equals​(Object obj)

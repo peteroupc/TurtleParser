@@ -67,7 +67,7 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
 * <code>NullPointerException</code> - The parameter <code>stream</code> or <code>
  baseURI</code> is null.
 
-* <code>IllegalArgumentException</code>
+* <code>IllegalArgumentException</code> - BaseURI.
 
 ### TurtleParser
     public TurtleParser​(String str)
@@ -94,7 +94,7 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
 * <code>NullPointerException</code> - The parameter <code>str</code> or <code>
  baseURI</code> is null.
 
-* <code>IllegalArgumentException</code>
+* <code>IllegalArgumentException</code> - BaseURI.
 
 ### Parse
     public Set<RDFTriple> Parse()

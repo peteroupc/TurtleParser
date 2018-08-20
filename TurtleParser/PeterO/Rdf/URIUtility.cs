@@ -14,43 +14,31 @@ using System.Text;
     /// (IRIs) under RFC3986 and RFC3987, respectively. In the following
     /// documentation, URIs and IRIs include URI references and IRI
     /// references, for convenience.</summary>
-  ///
-  ///
   internal static class URIUtility {
     /// <summary>Specifies whether certain characters are allowed when
     /// parsing IRIs and URIs.</summary>
-  ///
-  ///
     internal enum ParseMode {
     /// <summary>The rules follow the syntax for parsing IRIs. In
     /// particular, many code points outside the Basic Latin range (U +
     /// 0000 to U + 007F) are allowed. Strings with unpaired surrogate code
     /// points are considered invalid.</summary>
-  ///
-  ///
       IRIStrict,
 
     /// <summary>The rules follow the syntax for parsing IRIs, except that
     /// code points outside the Basic Latin range (U + 0000 to U + 007F)
     /// are not allowed.</summary>
-  ///
-  ///
       URIStrict,
 
     /// <summary>The rules only check for the appropriate delimiters when
     /// splitting the path, without checking if all the characters in each
     /// component are valid. Even with this mode, strings with unpaired
     /// surrogate code points are considered invalid.</summary>
-  ///
-  ///
       IRILenient,
 
     /// <summary>The rules only check for the appropriate delimiters when
     /// splitting the path, without checking if all the characters in each
     /// component are valid. Code points outside the Basic Latin range (U +
     /// 0000 to U + 007F) are not allowed.</summary>
-  ///
-  ///
       URILenient,
 
     /// <summary>The rules only check for the appropriate delimiters when
@@ -59,8 +47,6 @@ using System.Text;
     /// though they were replacement characters instead for the purposes of
     /// these rules, so that strings with those code points are not
     /// considered invalid strings.</summary>
-  ///
-  ///
       IRISurrogateLenient
     }
 
@@ -147,8 +133,6 @@ using System.Text;
     /// 32-bit signed integer.</param>
     /// <returns>A string possibly containing escaped characters, or null
     /// if s is null.</returns>
-  ///
-  ///
     public static string escapeURI(string s, int mode) {
       if (s == null) {
         return null;
@@ -279,8 +263,6 @@ using System.Text;
     ///  if the string is a valid IRI with a scheme
     /// component; otherwise, <c>false</c>
     ///  .</returns>
-  ///
-  ///
     public static bool hasScheme(string refValue) {
       int[] segments = (refValue == null) ? null : splitIRI(
         refValue,
@@ -309,8 +291,6 @@ using System.Text;
     ///  if the string is a valid URI with a scheme
     /// component; otherwise, <c>false</c>
     ///  .</returns>
-  ///
-  ///
     public static bool hasSchemeForURI(string refValue) {
       int[] segments = (refValue == null) ? null : splitIRI(
         refValue,
@@ -394,8 +374,6 @@ using System.Text;
     /// <paramref name='length'/>.</exception>
     /// <exception cref='ArgumentNullException'>The parameter <paramref
     /// name='s'/> is null.</exception>
-  ///
-  ///
     public static bool isValidCurieReference(string s, int offset, int length) {
       if (s == null) {
         return false;
@@ -882,8 +860,6 @@ using System.Text;
     /// is null or is not a valid IRI. If base is null or is not a valid
     /// IRI, returns refValue. Example:
     /// http://example.com/my/path/dir/file.txt.</returns>
-  ///
-  ///
     public static string relativeResolve(string refValue, string baseURI) {
       return relativeResolve(refValue, baseURI, ParseMode.IRIStrict);
     }
@@ -899,8 +875,6 @@ using System.Text;
     /// <returns>The resolved IRI, or null if <paramref name='refValue'/>
     /// is null or is not a valid IRI. If base is null or is not a valid
     /// IRI, returns refValue.</returns>
-  ///
-  ///
     public static string relativeResolve(
   string refValue,
   string baseURI,
@@ -978,8 +952,6 @@ using System.Text;
     /// containing the indices into the components.</summary>
     /// <param name='s'>A string that contains an IRI.</param>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
     public static int[] splitIRI(string s) {
       return (s == null) ? null : splitIRI(s, 0, s.Length, ParseMode.IRIStrict);
     }
@@ -1010,8 +982,6 @@ using System.Text;
     /// <paramref name='length'/>.</exception>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='s'/> is null.</exception>
-  ///
-  ///
     public static int[] splitIRI(
   string s,
   int offset,
@@ -1257,8 +1227,6 @@ using System.Text;
     /// component, respectively. If a component is absent, both indices in
     /// that pair will be -1. If the string is null or is not a valid IRI,
     /// returns null.</returns>
-  ///
-  ///
     public static int[] splitIRI(string s, ParseMode parseMode) {
       return (s == null) ? null : splitIRI(s, 0, s.Length, parseMode);
     }

@@ -75,10 +75,6 @@ Not documented yet.
 
 * <code>count</code> - The parameter <code>count</code> is not documented yet.
 
-**Throws:**
-
-* <code>IllegalArgumentException</code>
-
 ### pushInput
     public void pushInput​(com.upokecenter.text.ICharacterInput input)
 Not documented yet.
@@ -126,8 +122,6 @@ Not documented yet.
 **Throws:**
 
 * <code>NullPointerException</code> - The parameter <code>buf</code> is null.
-
-* <code>IllegalArgumentException</code>
 
 ### setHardMark
     public int setHardMark()

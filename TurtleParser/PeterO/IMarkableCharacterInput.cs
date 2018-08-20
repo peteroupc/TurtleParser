@@ -11,28 +11,20 @@ using System;
 using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
-  ///
-  ///
 public interface IMarkableCharacterInput : ICharacterInput {
     /// <summary>Gets the zero-based character position in the stream from
     /// the last-set mark.</summary>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
    int getMarkPosition();
 
     /// <summary>Moves the stream position back the given number of
     /// characters.</summary>
     /// <param name='count'>The parameter <paramref name='count'/> is not
     /// documented yet.</param>
-  ///
-  ///
    void moveBack(int count);
 
     /// <summary>Sets a mark on the stream's current position.</summary>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
    int setHardMark();
 
     /// <summary>Sets the stream's position from the last set mark.
@@ -40,8 +32,6 @@ public interface IMarkableCharacterInput : ICharacterInput {
     /// mark.</param></summary>
     /// <param name='pos'>The parameter <paramref name='pos'/> is not
     /// documented yet.</param>
-  ///
-  ///
    void setMarkPosition(int pos);
 
     /// <summary>If no mark is set, sets a mark on the stream, and
@@ -50,8 +40,6 @@ public interface IMarkableCharacterInput : ICharacterInput {
     /// moveBack is called. Otherwise, behaves like
     /// getMarkPosition.</summary>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
     int setSoftMark();
 }
 }

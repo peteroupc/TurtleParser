@@ -12,13 +12,9 @@ using System.Collections.Generic;
 using System.IO;
 
     /// <summary>Not documented yet.</summary>
-  ///
-  ///
   public interface IRDFParser {
     /// <summary>Not documented yet.</summary>
     /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
    ISet<RDFTriple> Parse();
 }
 }
