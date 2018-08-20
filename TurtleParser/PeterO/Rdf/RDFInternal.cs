@@ -12,8 +12,12 @@ using System.Collections.Generic;
 using System.Globalization;
 
   internal sealed class RDFInternal {
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFInternal.replaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='triples'>The parameter <paramref name='triples'/> is
+    /// not documented yet.</param>
+    /// <param name='bnodeLabels'>The parameter <paramref
+    /// name='bnodeLabels'/> is not documented yet.</param>
+  ///
   internal static void replaceBlankNodes(
   ISet<RDFTriple> triples,
       IDictionary<string, RDFTerm> bnodeLabels) {

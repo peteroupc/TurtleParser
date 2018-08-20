@@ -12,7 +12,9 @@ import java.util.*;
 
   final class RDFInternal {
     /**
-     *
+     * Not documented yet.
+     * @param triples The parameter {@code triples} is not documented yet.
+     * @param bnodeLabels The parameter {@code bnodeLabels} is not documented yet.
      */
   static void replaceBlankNodes(
   Set<RDFTriple> triples,

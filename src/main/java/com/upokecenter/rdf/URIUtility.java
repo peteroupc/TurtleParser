@@ -263,7 +263,7 @@ private URIUtility() {
      * </pre>
      * @param refValue A string representing an IRI to check.
      * @return {@code true} if the string is a valid IRI with a scheme component;
-     * otherwise, {@code false}.
+     * otherwise, {@code false} .
      */
     public static boolean hasScheme(String refValue) {
       int[] segments = (refValue == null) ? null : splitIRI(
@@ -282,7 +282,7 @@ private URIUtility() {
      * </pre>
      * @param refValue A string representing an IRI to check.
      * @return {@code true} if the string is a valid URI with a scheme component;
-     * otherwise, {@code false}.
+     * otherwise, {@code false} .
      */
     public static boolean hasSchemeForURI(String refValue) {
       int[] segments = (refValue == null) ? null : splitIRI(
@@ -361,6 +361,7 @@ private URIUtility() {
      * @throws IllegalArgumentException Either {@code offset} or {@code length} is
      * less than 0 or greater than {@code s} 's length, or {@code s} 's
      * length minus {@code offset} is less than {@code length}.
+     * @throws NullPointerException The parameter "s" is null.
      */
     public static boolean isValidCurieReference(String s, int offset, int length) {
       if (s == null) {
@@ -937,12 +938,7 @@ private URIUtility() {
      * Parses an Internationalized Resource Identifier (IRI) reference under
      * RFC3987. If the IRI reference is syntactically valid, splits the
      * string into its components and returns an array containing the
-     * indices into the components. <returns>If the string is a valid IRI
-     * reference, returns an array of 10 integers. Each of the five pairs
-     * corresponds to the start and end index of the IRI's scheme,
-     * authority, path, query, or fragment component, respectively. If a
-     * component is absent, both indices in that pair will be -1. If the
-     * string is null or is not a valid IRI, returns null.</returns>
+     * indices into the components.
      * @param s A string that contains an IRI.
      * @return The return value is not documented yet.
      */

@@ -122,6 +122,7 @@ import com.upokecenter.text.*;
     /**
      * Not documented yet.
      * @param count The parameter {@code count} is not documented yet.
+     * @throws IllegalArgumentException
      */
     public void moveBack(int count) {
       if (count < 0) {
@@ -214,6 +215,7 @@ import com.upokecenter.text.*;
      * @param unitCount The parameter {@code unitCount} is not documented yet.
      * @return A 32-bit signed integer.
      * @throws java.lang.NullPointerException The parameter {@code buf} is null.
+     * @throws IllegalArgumentException
      */
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {

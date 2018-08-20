@@ -36,8 +36,8 @@ public interface IMarkableCharacterInput extends ICharacterInput {
      * Sets the stream's position from the last set mark. <param
      * name='pos'>Zero-based character offset from the last set
      * mark.</param>
-     * @param pos The parameter {@code pos} is not documented yet.
      * @param pos Zero-based character offset from the last set mark.
+     * @param pos The parameter {@code pos} is not documented yet.
      */
    void setMarkPosition(int pos);
 

@@ -13,11 +13,16 @@ using System.Text;
 using PeterO;
 using PeterO.Text;
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="T:PeterO.Rdf.NTriplesParser"]/*'/>
+    /// <summary>Not documented yet.</summary>
+  ///
   public sealed class NTriplesParser : IRDFParser {
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.isAsciiChar(System.Int32,System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='c'>The parameter <paramref name='c'/> is not
+    /// documented yet.</param>
+    /// <param name='asciiChars'>The parameter <paramref
+    /// name='asciiChars'/> is not documented yet.</param>
+    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
+  ///
     public static bool isAsciiChar(int c, string asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.IndexOf((char)c) >= 0;
     }
@@ -26,8 +31,12 @@ using PeterO.Text;
 
     private StackableCharacterInput input;
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)"]/*'/>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
+    /// <param name='stream'>A PeterO.IByteReader object.</param>
+    /// <exception cref='T:System.ArgumentNullException'>The parameter
+    /// <paramref name='stream'/> is null.</exception>
+  ///
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
         throw new ArgumentNullException(nameof(stream));
@@ -39,8 +48,13 @@ using PeterO.Text;
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.#ctor(System.String)"]/*'/>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
+    /// <param name='str'>The parameter <paramref name='str'/> is a text
+    /// string.</param>
+    /// <exception cref='T:System.ArgumentNullException'>The parameter
+    /// "stream" is null.</exception>
+  ///
     public NTriplesParser(string str) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -81,8 +95,9 @@ using PeterO.Text;
       }
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.Parse"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>An ISet(RDFTriple) object.</returns>
+  ///
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {

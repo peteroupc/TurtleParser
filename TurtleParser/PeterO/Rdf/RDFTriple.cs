@@ -9,21 +9,30 @@ at: http://peteroupc.github.io/
 namespace PeterO.Rdf {
   using System;
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="T:PeterO.Rdf.RDFTriple"]/*'/>
+    /// <summary>Not documented yet.</summary>
+  ///
   public sealed class RDFTriple {
     private volatile RDFTerm subject, predicate, objectRdf;
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)"]/*'/>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
+    /// <param name='subject'>The subject term.</param>
+    /// <param name='predicate'>The predicate term.</param>
+    /// <param name='objectRdf'>The object term.</param>
+  ///
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       this.setSubject(subject);
       this.setPredicate(predicate);
       this.setObject(objectRdf);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)"]/*'/>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
+    /// <param name='triple'>The parameter <paramref name='triple'/> is a
+    /// RDFTriple object.</param>
+    /// <exception cref='T:System.ArgumentNullException'>The parameter
+    /// <paramref name='triple'/> is null.</exception>
+  ///
     public RDFTriple(RDFTriple triple) {
       if (triple == null) {
         throw new ArgumentNullException(nameof(triple));
@@ -33,10 +42,13 @@ namespace PeterO.Rdf {
       this.setObject(triple.objectRdf);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)"]/*'/>
+    /// <summary>Not documented yet.</summary>
     /// <param name='obj'>The parameter <paramref name='obj'/> is not
     /// documented yet.</param>
+    /// <param name='obj'>The parameter <paramref name='obj'/> is not
+    /// documented yet.</param>
+    /// <returns>The return value is not documented yet.</returns>
+  ///
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -66,26 +78,30 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getObject"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A RDFTerm object.</returns>
+  ///
     public RDFTerm getObject() {
       return this.objectRdf;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getPredicate"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A RDFTerm object.</returns>
+  ///
     public RDFTerm getPredicate() {
       return this.predicate;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.getSubject"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A RDFTerm object.</returns>
+  ///
     public RDFTerm getSubject() {
       return this.subject;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetHashCode"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>The return value is not documented yet.</returns>
+  ///
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -130,8 +146,9 @@ namespace PeterO.Rdf {
       this.subject = subject;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.ToString"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>The return value is not documented yet.</returns>
+  ///
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
             this.objectRdf.ToString() + " .";

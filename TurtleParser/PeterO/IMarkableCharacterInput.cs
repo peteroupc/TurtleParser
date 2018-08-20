@@ -10,31 +10,42 @@ namespace PeterO {
 using System;
 using PeterO.Text;
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="T:PeterO.IMarkableCharacterInput"]/*'/>
+    /// <summary>Not documented yet.</summary>
+  ///
 public interface IMarkableCharacterInput : ICharacterInput {
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.getMarkPosition"]/*'/>
+    /// <summary>Gets the zero-based character position in the stream from
+    /// the last-set mark.</summary>
+    /// <returns>The return value is not documented yet.</returns>
+  ///
    int getMarkPosition();
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)"]/*'/>
+    /// <summary>Moves the stream position back the given number of
+    /// characters.</summary>
     /// <param name='count'>The parameter <paramref name='count'/> is not
     /// documented yet.</param>
+  ///
    void moveBack(int count);
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setHardMark"]/*'/>
+    /// <summary>Sets a mark on the stream's current position.</summary>
+    /// <returns>The return value is not documented yet.</returns>
+  ///
    int setHardMark();
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setMarkPosition(System.Int32)"]/*'/>
+    /// <summary>Sets the stream's position from the last set mark.
+    /// <param name='pos'>Zero-based character offset from the last set
+    /// mark.</param></summary>
     /// <param name='pos'>The parameter <paramref name='pos'/> is not
     /// documented yet.</param>
+  ///
    void setMarkPosition(int pos);
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.setSoftMark"]/*'/>
+    /// <summary>If no mark is set, sets a mark on the stream, and
+    /// characters read before the currently set mark are no longer
+    /// available, while characters read after will be available if
+    /// moveBack is called. Otherwise, behaves like
+    /// getMarkPosition.</summary>
+    /// <returns>The return value is not documented yet.</returns>
+  ///
     int setSoftMark();
 }
 }
