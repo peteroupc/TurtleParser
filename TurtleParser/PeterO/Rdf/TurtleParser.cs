@@ -15,8 +15,6 @@ using PeterO;
 using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
-  ///
-  ///
   public class TurtleParser : IRDFParser {
     private sealed class TurtleObject {
       public const int SIMPLE = 0;
@@ -120,8 +118,6 @@ using PeterO.Text;
     /// <summary>Initializes a new instance of the
     /// <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
-  ///
-  ///
     public TurtleParser(IByteReader stream) : this(stream, "about:blank") {
     }
 
@@ -134,8 +130,6 @@ using PeterO.Text;
     /// <paramref name='stream'/> or <paramref name='baseURI'/> is
     /// null.</exception>
     /// <exception cref='ArgumentException'>BaseURI.</exception>
-  ///
-  ///
     public TurtleParser(IByteReader stream, string baseURI) {
       if (stream == null) {
         throw new ArgumentNullException(nameof(stream));
@@ -157,8 +151,6 @@ using PeterO.Text;
     /// <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
-  ///
-  ///
     public TurtleParser(string str) : this(str, "about:blank") {
     }
 
@@ -172,8 +164,6 @@ using PeterO.Text;
     /// <paramref name='str'/> or <paramref name='baseURI'/> is
     /// null.</exception>
     /// <exception cref='ArgumentException'>BaseURI.</exception>
-  ///
-  ///
     public TurtleParser(string str, string baseURI) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -364,8 +354,6 @@ using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
     /// <returns>An ISet(RDFTriple) object.</returns>
-  ///
-  ///
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> triples = new HashSet<RDFTriple>();
       while (true) {
