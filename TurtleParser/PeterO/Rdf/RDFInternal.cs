@@ -17,6 +17,8 @@ using System.Globalization;
     /// not documented yet.</param>
     /// <param name='bnodeLabels'>The parameter <paramref
     /// name='bnodeLabels'/> is not documented yet.</param>
+  ///
+  ///
   internal static void replaceBlankNodes(
   ISet<RDFTriple> triples,
       IDictionary<string, RDFTerm> bnodeLabels) {
