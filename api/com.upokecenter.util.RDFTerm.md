@@ -11,7 +11,7 @@ Not documented yet.
 * `static int BLANK`<br>
  Type value for a blank node.
 * `static RDFTerm FALSE`<br>
- Object for false.
+ object for false.
 * `static RDFTerm FIRST`<br>
  Predicate for the first object in a list.
 * `static int IRI`<br>
@@ -19,11 +19,11 @@ Not documented yet.
 * `static int LANGSTRING`<br>
  Type value for a string with a language tag.
 * `static RDFTerm NIL`<br>
- Object for nil, the end of a list, or an empty list.
+ object for nil, the end of a list, or an empty list.
 * `static RDFTerm REST`<br>
  Predicate for the remaining objects in a list.
 * `static RDFTerm TRUE`<br>
- Object for true.
+ object for true.
 * `static int TYPEDSTRING`<br>
  Type value for a piece of data serialized to a string.
 
@@ -52,7 +52,7 @@ Not documented yet.
 * `int hashCode()`<br>
  Not documented yet.
 * `boolean isBlank()`<br>
- Gets whether this term is a blank node.
+ Gets a value indicating whether this term is a blank node.
 * `boolean isIRI​(String str)`<br>
  Not documented yet.
 * `boolean isOrdinaryString()`<br>
@@ -82,16 +82,16 @@ Predicate for RDF types.
 Predicate for the first object in a list.
 ### NIL
     public static final RDFTerm NIL
-Object for nil, the end of a list, or an empty list.
+object for nil, the end of a list, or an empty list.
 ### REST
     public static final RDFTerm REST
 Predicate for the remaining objects in a list.
 ### FALSE
     public static final RDFTerm FALSE
-Object for false.
+object for false.
 ### TRUE
     public static final RDFTerm TRUE
-Object for true.
+object for true.
 ## Method Details
 
 ### fromBlankNode
@@ -109,6 +109,8 @@ Not documented yet.
 **Throws:**
 
 * <code>NullPointerException</code> - The parameter <code>name</code> is null.
+
+* <code>IllegalArgumentException</code>
 
 ### fromIRI
     public static RDFTerm fromIRI​(String iri)
@@ -145,6 +147,8 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>str</code> or <code>
  languageTag</code> is null.
 
+* <code>IllegalArgumentException</code>
+
 ### fromTypedString
     public static RDFTerm fromTypedString​(String str)
 Not documented yet.
@@ -175,6 +179,8 @@ Not documented yet.
 
 * <code>NullPointerException</code> - The parameter <code>str</code> or <code>
  iri</code> is null.
+
+* <code>IllegalArgumentException</code>
 
 ### equals
     public final boolean equals​(Object obj)
@@ -232,7 +238,7 @@ Not documented yet.
 
 ### isBlank
     public boolean isBlank()
-Gets whether this term is a blank node.
+Gets a value indicating whether this term is a blank node.
 
 **Returns:**
 

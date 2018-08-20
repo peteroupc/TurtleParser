@@ -52,9 +52,9 @@ Sets the stream's position from the last set mark. <param name='pos'>Zero-based 
 
 **Parameters:**
 
-* <code>pos</code> - The parameter <code>pos</code> is not documented yet.
-
 * <code>pos</code> - Zero-based character offset from the last set mark.
+
+* <code>pos</code> - The parameter <code>pos</code> is not documented yet.
 
 ### setSoftMark
     int setSoftMark()

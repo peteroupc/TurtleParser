@@ -15,6 +15,7 @@ using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
   ///
+  ///
   public sealed class NTriplesParser : IRDFParser {
     /// <summary>Not documented yet.</summary>
     /// <param name='c'>The parameter <paramref name='c'/> is not
@@ -22,6 +23,7 @@ using PeterO.Text;
     /// <param name='asciiChars'>The parameter <paramref
     /// name='asciiChars'/> is not documented yet.</param>
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
+  ///
   ///
     public static bool isAsciiChar(int c, string asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.IndexOf((char)c) >= 0;
@@ -36,6 +38,7 @@ using PeterO.Text;
     /// <param name='stream'>A PeterO.IByteReader object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='stream'/> is null.</exception>
+  ///
   ///
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
@@ -54,6 +57,7 @@ using PeterO.Text;
     /// string.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// "stream" is null.</exception>
+  ///
   ///
     public NTriplesParser(string str) {
       if (str == null) {
@@ -97,6 +101,7 @@ using PeterO.Text;
 
     /// <summary>Not documented yet.</summary>
     /// <returns>An ISet(RDFTriple) object.</returns>
+  ///
   ///
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
