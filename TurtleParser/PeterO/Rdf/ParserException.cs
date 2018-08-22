@@ -11,11 +11,9 @@ using System;
 using System.IO;
 
     /// <summary>Not documented yet.</summary>
-  ///
 public class ParserException : IOException {
     /// <summary>Initializes a new instance of the
     /// <see cref='ParserException'/> class.</summary>
-  ///
         public ParserException() : base() {
         }
 
@@ -23,7 +21,6 @@ public class ParserException : IOException {
     /// <see cref='ParserException'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
-  ///
         public ParserException(string str) : base(str) {
     }
 }
