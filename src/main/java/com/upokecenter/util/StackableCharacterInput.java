@@ -1,4 +1,10 @@
 package com.upokecenter.util;
+
+import java.util.*;
+
+import com.upokecenter.util.*;
+import com.upokecenter.text.*;
+
 /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
@@ -8,15 +14,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-import java.util.*;
-
-import com.upokecenter.util.*;
-import com.upokecenter.text.*;
-
-    /**
-     * A character input stream where additional inputs can be stacked on top of
-     * it. It supports advanced marking capabilities.
-     */
+  /**
+   *
+   */
   public final class StackableCharacterInput implements IMarkableCharacterInput {
     private static class InputAndBuffer implements ICharacterInput {
       private int[] buffer;
@@ -59,13 +59,17 @@ import com.upokecenter.text.*;
           throw new NullPointerException("buf");
         }
         if (offset < 0) {
-          throw new IllegalArgumentException("offset less than 0 (" + (offset) + ")");
+          throw new IllegalArgumentException("offset less than 0 (" + offset + ")");
         }
         if (unitCount < 0) {
-          throw new IllegalArgumentException("unitCount less than 0 (" + (unitCount) + ")");
+          throw new IllegalArgumentException("unitCount less than 0 (" + unitCount +
+                ")");
         }
         if (offset + unitCount > buf.length) {
-          throw new IllegalArgumentException("offset+unitCount more than " + (buf.length) + " (" + (offset + unitCount) + ")");
+          throw new
+            java.lang.IllegalArgumentException("offset+unitCount more than " +
+            buf.length + " (" +
+    (offset + unitCount) + ")");
         }
         if (unitCount == 0) {
           return 0;
@@ -125,7 +129,8 @@ import com.upokecenter.text.*;
      */
     public void moveBack(int count) {
       if (count < 0) {
-        throw new IllegalArgumentException("count less than 0 (" + (count) + ")");
+        throw new IllegalArgumentException("count (" + count +
+          ") is not greater or equal to 0");
       }
       if (this.haveMark && this.pos >= count) {
         this.pos -= count;
@@ -139,7 +144,7 @@ import com.upokecenter.text.*;
      * @param input The parameter {@code input} is not documented yet.
      * @throws java.lang.NullPointerException The parameter {@code input} is null.
      */
-    public void pushInput(ICharacterInput input) {
+    public void PushInput(ICharacterInput input) {
       if (input == null) {
         throw new NullPointerException("input");
       }
@@ -163,14 +168,14 @@ import com.upokecenter.text.*;
         // Read from buffer
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-         // DebugUtility.Log ("buffer: [" + ch + "],["+(char)ch+"]");
+          // DebugUtility.Log ("buffer: [" + ch + "],["+(char)ch+"]");
           return ch;
         }
         // System.out.println(this);
         // End pos is smaller than buffer size, fill
         // entire buffer if possible
         if (this.endpos < this.buffer.length) {
-          int count = this.readInternal(
+          int count = this.ReadInternal(
   this.buffer,
   this.endpos,
   this.buffer.length - this.endpos);
@@ -181,14 +186,14 @@ import com.upokecenter.text.*;
         // Try reading from buffer again
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-           // DebugUtility.Log ("buffer2: [" + ch + "],[" + charch + "]");
-                    return ch;
+          // DebugUtility.Log ("buffer2: [" + ch + "],[" + charch + "]");
+          return ch;
         }
         // System.out.println(this);
         // No room, read next character and put it in buffer
-        int c = this.readInternal();
+        int c = this.ReadInternal();
         if (c < 0) {
-                    return c;
+          return c;
         }
         if (this.pos >= this.buffer.length) {
           int[] newBuffer = new int[this.buffer.length * 2];
@@ -199,11 +204,11 @@ import com.upokecenter.text.*;
         this.buffer[this.pos++] = c;
         ++this.endpos;
         // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
-                return c;
+        return c;
       } else {
-        int c = this.readInternal();
-          // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
-                return c;
+        int c = this.ReadInternal();
+        // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+        return c;
       }
     }
 
@@ -253,7 +258,7 @@ import com.upokecenter.text.*;
         // entire buffer if possible
         int count = 0;
         if (this.endpos < this.buffer.length) {
-          count = this.readInternal(
+          count = this.ReadInternal(
   this.buffer,
   this.endpos,
   this.buffer.length - this.endpos);
@@ -275,7 +280,7 @@ import com.upokecenter.text.*;
           System.arraycopy(this.buffer, 0, newBuffer, 0, this.buffer.length);
           this.buffer = newBuffer;
         }
-        count = this.readInternal(
+        count = this.ReadInternal(
   this.buffer,
   this.endpos,
   Math.min(unitCount, this.buffer.length - this.endpos));
@@ -288,22 +293,22 @@ import com.upokecenter.text.*;
           this.pos += unitCount;
           total += unitCount;
         } else if (this.endpos > this.pos) {
-        System.arraycopy(
-  this.buffer,
-  this.pos,
-  buf,
-  offset,
-  this.endpos - this.pos);
+          System.arraycopy(
+    this.buffer,
+    this.pos,
+    buf,
+    offset,
+    this.endpos - this.pos);
           total += this.endpos - this.pos;
           this.pos = this.endpos;
         }
         return total;
       } else {
-        return this.readInternal(buf, offset, unitCount);
+        return this.ReadInternal(buf, offset, unitCount);
       }
     }
 
-    private int readInternal() {
+    private int ReadInternal() {
       if (this.stack.size() == 0) {
         return -1;
       }
@@ -319,7 +324,7 @@ import com.upokecenter.text.*;
       return -1;
     }
 
-    private int readInternal(int[] buf, int offset, int unitCount) {
+    private int ReadInternal(int[] buf, int offset, int unitCount) {
       if (this.stack.size() == 0) {
         return -1;
       }
@@ -357,12 +362,12 @@ import com.upokecenter.text.*;
       } else if (this.haveMark) {
         // Already have a mark; shift buffer to the new mark
         if (this.pos > 0 && this.pos < this.endpos) {
-     System.arraycopy(
-  this.buffer,
-  this.pos,
-  this.buffer,
-  0,
-  this.endpos - this.pos);
+          System.arraycopy(
+       this.buffer,
+       this.pos,
+       this.buffer,
+       0,
+       this.endpos - this.pos);
         }
         this.endpos -= this.pos;
         this.pos = 0;

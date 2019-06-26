@@ -1,20 +1,18 @@
 # com.upokecenter.util.RDFTriple
 
-    public final class RDFTriple extends Object
-
-Not documented yet.
+    public final class RDFTriple extends java.lang.Object
 
 ## Methods
 
-* `RDFTriple​(RDFTerm subject,
-         RDFTerm predicate,
-         RDFTerm objectRdf)`<br>
+* `RDFTriple​(RDFTerm subject,
+         RDFTerm predicate,
+         RDFTerm objectRdf)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
-* `RDFTriple​(RDFTriple triple)`<br>
+* `RDFTriple​(RDFTriple triple)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
-* `boolean equals​(Object obj)`<br>
+* `boolean equals​(java.lang.Object obj)`<br>
  Not documented yet.
 * `RDFTerm getObject()`<br>
  Not documented yet.
@@ -24,17 +22,17 @@ Not documented yet.
  Not documented yet.
 * `int hashCode()`<br>
  Not documented yet.
-* `String toString()`<br>
+* `java.lang.String toString()`<br>
  Not documented yet.
 
 ## Constructors
 
-* `RDFTriple​(RDFTerm subject,
-         RDFTerm predicate,
-         RDFTerm objectRdf)`<br>
+* `RDFTriple​(RDFTerm subject,
+         RDFTerm predicate,
+         RDFTerm objectRdf)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
-* `RDFTriple​(RDFTriple triple)`<br>
+* `RDFTriple​(RDFTriple triple)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
  class.
 
@@ -64,15 +62,15 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>triple</code> is null.
+* <code>java.lang.NullPointerException</code> - The parameter <code>triple</code> is null.
 
 ### equals
-    public final boolean equals​(Object obj)
+    public final boolean equals​(java.lang.Object obj)
 Not documented yet.
 
 **Overrides:**
 
-* <code>equals</code>&nbsp;in class&nbsp;<code>Object</code>
+* <code>equals</code> in class <code>java.lang.Object</code>
 
 **Parameters:**
 
@@ -114,19 +112,19 @@ Not documented yet.
 
 **Overrides:**
 
-* <code>hashCode</code>&nbsp;in class&nbsp;<code>Object</code>
+* <code>hashCode</code> in class <code>java.lang.Object</code>
 
 **Returns:**
 
 * The return value is not documented yet.
 
 ### toString
-    public final String toString()
+    public final java.lang.String toString()
 Not documented yet.
 
 **Overrides:**
 
-* <code>toString</code>&nbsp;in class&nbsp;<code>Object</code>
+* <code>toString</code> in class <code>java.lang.Object</code>
 
 **Returns:**
 

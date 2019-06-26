@@ -1,4 +1,6 @@
-/*
+using System;
+
+    /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
 http://creativecommons.org/publicdomain/zero/1.0/
@@ -7,47 +9,89 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  using System;
-
-    /// <summary>Not documented yet.</summary>
-  ///
+/// <summary>Not documented yet.</summary>
   public sealed class RDFTriple {
     private volatile RDFTerm subject, predicate, objectRdf;
 
-    /// <summary>Initializes a new instance of the
+    /// <xmlbegin id="21"/><summary>Initializes a new instance of the
     /// <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
     /// <param name='subject'>The subject term.</param>
     /// <param name='predicate'>The predicate term.</param>
     /// <param name='objectRdf'>The object term.</param>
   ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
-      this.setSubject(subject);
-      this.setPredicate(predicate);
-      this.setObject(objectRdf);
+      this.SetSubject(subject);
+      this.SetPredicate(predicate);
+      this.SetObject(objectRdf);
     }
 
-    /// <summary>Initializes a new instance of the
+    /// <xmlbegin id="22"/><summary>Initializes a new instance of the
     /// <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
     /// <param name='triple'>The parameter <paramref name='triple'/> is a
     /// RDFTriple object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='triple'/> is null.</exception>
   ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
     public RDFTriple(RDFTriple triple) {
       if (triple == null) {
         throw new ArgumentNullException(nameof(triple));
       }
-      this.setSubject(triple.subject);
-      this.setPredicate(triple.predicate);
-      this.setObject(triple.objectRdf);
+      this.SetSubject(triple.subject);
+      this.SetPredicate(triple.predicate);
+      this.SetObject(triple.objectRdf);
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="23"/><summary>Not documented yet.</summary>
     /// <param name='obj'>The parameter <paramref name='obj'/> is not
     /// documented yet.</param>
     /// <param name='obj'>The parameter <paramref name='obj'/> is not
     /// documented yet.</param>
     /// <returns>The return value is not documented yet.</returns>
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
   ///
     public override sealed bool Equals(object obj) {
       if (this == obj) {
@@ -78,29 +122,89 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="24"/><summary>Not documented yet.</summary>
     /// <returns>A RDFTerm object.</returns>
   ///
-    public RDFTerm getObject() {
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+    public RDFTerm GetObject() {
       return this.objectRdf;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="25"/><summary>Not documented yet.</summary>
     /// <returns>A RDFTerm object.</returns>
   ///
-    public RDFTerm getPredicate() {
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+    public RDFTerm GetPredicate() {
       return this.predicate;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="26"/><summary>Not documented yet.</summary>
     /// <returns>A RDFTerm object.</returns>
   ///
-    public RDFTerm getSubject() {
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+    public RDFTerm GetSubject() {
       return this.subject;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="27"/><summary>Not documented yet.</summary>
     /// <returns>The return value is not documented yet.</returns>
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
   ///
     public override sealed int GetHashCode() {
       unchecked {
@@ -116,14 +220,14 @@ namespace PeterO.Rdf {
       }
     }
 
-    private void setObject(RDFTerm rdfObject) {
+    private void SetObject(RDFTerm rdfObject) {
       if (rdfObject == null) {
         throw new ArgumentNullException(nameof(rdfObject));
       }
       this.objectRdf = rdfObject;
     }
 
-    private void setPredicate(RDFTerm predicate) {
+    private void SetPredicate(RDFTerm predicate) {
       if (predicate == null) {
         throw new ArgumentNullException(nameof(predicate));
       }
@@ -133,7 +237,7 @@ namespace PeterO.Rdf {
       this.predicate = predicate;
     }
 
-    private void setSubject(RDFTerm subject) {
+    private void SetSubject(RDFTerm subject) {
       if (subject == null) {
         throw new ArgumentNullException(nameof(subject));
       }
@@ -146,8 +250,23 @@ namespace PeterO.Rdf {
       this.subject = subject;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="28"/><summary>Not documented yet.</summary>
     /// <returns>The return value is not documented yet.</returns>
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
   ///
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +

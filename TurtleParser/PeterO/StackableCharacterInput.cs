@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using PeterO;
+using PeterO.Text;
+
 /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
@@ -7,15 +13,7 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO {
-  using System;
-using System.Collections.Generic;
-using System.Globalization;
-using PeterO;
-using PeterO.Text;
-
-    /// <summary>A character input stream where additional inputs can be
-    /// stacked on top of it. It supports advanced marking
-    /// capabilities.</summary>
+  /// <xmlbegin id="5"/><summary>A character input stream where additional inputs can be
   ///
   public sealed class StackableCharacterInput : IMarkableCharacterInput {
     private class InputAndBuffer : ICharacterInput {
@@ -59,18 +57,17 @@ using PeterO.Text;
           throw new ArgumentNullException(nameof(buf));
         }
         if (offset < 0) {
-          throw new ArgumentException("offset less than 0 (" +
-            Convert.ToString(offset, CultureInfo.InvariantCulture) + ")");
+          throw new ArgumentException("offset less than 0 (" + offset + ")");
         }
         if (unitCount < 0) {
-          throw new ArgumentException("unitCount less than 0 (" +
-            Convert.ToString(unitCount, CultureInfo.InvariantCulture) + ")");
+          throw new ArgumentException("unitCount less than 0 (" + unitCount +
+                ")");
         }
         if (offset + unitCount > buf.Length) {
-          throw new ArgumentOutOfRangeException("offset+unitCount more than " +
-            Convert.ToString(buf.Length, CultureInfo.InvariantCulture) + " (" +
-   Convert.ToString(offset + unitCount, CultureInfo.InvariantCulture) +
-              ")");
+          throw new
+            ArgumentOutOfRangeException("offset+unitCount more than " +
+            buf.Length + " (" +
+    (offset + unitCount) + ")");
         }
         if (unitCount == 0) {
           return 0;
@@ -107,30 +104,75 @@ using PeterO.Text;
     private int[] buffer;
     private IList<ICharacterInput> stack = new List<ICharacterInput>();
 
-    /// <summary>Initializes a new instance of the
+    /// <xmlbegin id="6"/><summary>Initializes a new instance of the
     /// <see cref='T:PeterO.StackableCharacterInput'/> class.</summary>
     /// <param name='source'>The parameter <paramref name='source'/> is an
     /// ICharacterInput object.</param>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public StackableCharacterInput(ICharacterInput source) {
       this.stack.Add(source);
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="7"/><summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public int getMarkPosition() {
       return this.pos;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="8"/><summary>Not documented yet.</summary>
     /// <param name='count'>The parameter <paramref name='count'/> is not
     /// documented yet.</param>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public void moveBack(int count) {
       if (count < 0) {
-        throw new ArgumentException("count less than 0 (" +
-          Convert.ToString(count, CultureInfo.InvariantCulture) + ")");
+        throw new ArgumentException("count (" + count +
+          ") is not greater or equal to 0");
       }
       if (this.haveMark && this.pos >= count) {
         this.pos -= count;
@@ -139,13 +181,28 @@ using PeterO.Text;
       throw new InvalidOperationException();
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="9"/><summary>Not documented yet.</summary>
     /// <param name='input'>The parameter <paramref name='input'/> is not
     /// documented yet.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='input'/> is null.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public void pushInput(ICharacterInput input) {
+    public void PushInput(ICharacterInput input) {
       if (input == null) {
         throw new ArgumentNullException(nameof(input));
       }
@@ -160,22 +217,37 @@ using PeterO.Text;
       this.endpos = this.pos;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="10"/><summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public int ReadChar() {
       if (this.haveMark) {
         // Read from buffer
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-         // DebugUtility.Log ("buffer: [" + ch + "],["+(char)ch+"]");
+          // DebugUtility.Log ("buffer: [" + ch + "],["+(char)ch+"]");
           return ch;
         }
         // Console.WriteLine(this);
         // End pos is smaller than buffer size, fill
         // entire buffer if possible
         if (this.endpos < this.buffer.Length) {
-          int count = this.readInternal(
+          int count = this.ReadInternal(
   this.buffer,
   this.endpos,
   this.buffer.Length - this.endpos);
@@ -186,14 +258,14 @@ using PeterO.Text;
         // Try reading from buffer again
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-           // DebugUtility.Log ("buffer2: [" + ch + "],[" + charch + "]");
-                    return ch;
+          // DebugUtility.Log ("buffer2: [" + ch + "],[" + charch + "]");
+          return ch;
         }
         // Console.WriteLine(this);
         // No room, read next character and put it in buffer
-        int c = this.readInternal();
+        int c = this.ReadInternal();
         if (c < 0) {
-                    return c;
+          return c;
         }
         if (this.pos >= this.buffer.Length) {
           var newBuffer = new int[this.buffer.Length * 2];
@@ -204,15 +276,15 @@ using PeterO.Text;
         this.buffer[this.pos++] = c;
         ++this.endpos;
         // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
-                return c;
+        return c;
       } else {
-        int c = this.readInternal();
-          // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
-                return c;
+        int c = this.ReadInternal();
+        // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+        return c;
       }
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="11"/><summary>Not documented yet.</summary>
     /// <param name='buf'>The parameter <paramref name='buf'/> is not
     /// documented yet.</param>
     /// <param name='offset'>The parameter <paramref name='offset'/> is not
@@ -222,6 +294,21 @@ using PeterO.Text;
     /// <returns>A 32-bit signed integer.</returns>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='buf'/> is null.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {
@@ -261,7 +348,7 @@ using PeterO.Text;
         // entire buffer if possible
         var count = 0;
         if (this.endpos < this.buffer.Length) {
-          count = this.readInternal(
+          count = this.ReadInternal(
   this.buffer,
   this.endpos,
   this.buffer.Length - this.endpos);
@@ -283,7 +370,7 @@ using PeterO.Text;
           Array.Copy(this.buffer, 0, newBuffer, 0, this.buffer.Length);
           this.buffer = newBuffer;
         }
-        count = this.readInternal(
+        count = this.ReadInternal(
   this.buffer,
   this.endpos,
   Math.Min(unitCount, this.buffer.Length - this.endpos));
@@ -296,22 +383,22 @@ using PeterO.Text;
           this.pos += unitCount;
           total += unitCount;
         } else if (this.endpos > this.pos) {
-        Array.Copy(
-  this.buffer,
-  this.pos,
-  buf,
-  offset,
-  this.endpos - this.pos);
+          Array.Copy(
+    this.buffer,
+    this.pos,
+    buf,
+    offset,
+    this.endpos - this.pos);
           total += this.endpos - this.pos;
           this.pos = this.endpos;
         }
         return total;
       } else {
-        return this.readInternal(buf, offset, unitCount);
+        return this.ReadInternal(buf, offset, unitCount);
       }
     }
 
-    private int readInternal() {
+    private int ReadInternal() {
       if (this.stack.Count == 0) {
         return -1;
       }
@@ -327,7 +414,7 @@ using PeterO.Text;
       return -1;
     }
 
-    private int readInternal(int[] buf, int offset, int unitCount) {
+    private int ReadInternal(int[] buf, int offset, int unitCount) {
       if (this.stack.Count == 0) {
         return -1;
       }
@@ -352,8 +439,23 @@ using PeterO.Text;
       return count;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="12"/><summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public int setHardMark() {
       if (this.buffer == null) {
@@ -364,12 +466,12 @@ using PeterO.Text;
       } else if (this.haveMark) {
         // Already have a mark; shift buffer to the new mark
         if (this.pos > 0 && this.pos < this.endpos) {
-     Array.Copy(
-  this.buffer,
-  this.pos,
-  this.buffer,
-  0,
-  this.endpos - this.pos);
+          Array.Copy(
+       this.buffer,
+       this.pos,
+       this.buffer,
+       0,
+       this.endpos - this.pos);
         }
         this.endpos -= this.pos;
         this.pos = 0;
@@ -381,9 +483,24 @@ using PeterO.Text;
       return 0;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="13"/><summary>Not documented yet.</summary>
     /// <param name='pos'>The parameter <paramref name='pos'/> is not
     /// documented yet.</param>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public void setMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {
@@ -392,8 +509,23 @@ using PeterO.Text;
       this.pos = pos;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="14"/><summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public int setSoftMark() {
       if (!this.haveMark) {

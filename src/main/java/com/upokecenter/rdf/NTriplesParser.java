@@ -1,4 +1,10 @@
-package com.upokecenter.util;
+package com.upokecenter.rdf;
+
+import java.util.*;
+
+import com.upokecenter.util.*;
+import com.upokecenter.text.*;
+
 /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
@@ -8,14 +14,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-import java.util.*;
-
-import com.upokecenter.util.*;
-import com.upokecenter.text.*;
-
-    /**
-     * Not documented yet.
-     */
+  /**
+   * Not documented yet.
+   */
   public final class NTriplesParser implements IRDFParser {
     /**
      * Not documented yet.
@@ -23,7 +24,7 @@ import com.upokecenter.text.*;
      * @param asciiChars The parameter {@code asciiChars} is not documented yet.
      * @return Either {@code true} or {@code false}.
      */
-    public static boolean isAsciiChar(int c, String asciiChars) {
+    public static boolean IsAsciiChar(int c, String asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.indexOf((char)c) >= 0;
     }
 
@@ -32,7 +33,7 @@ import com.upokecenter.text.*;
     private StackableCharacterInput input;
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
+     * Initializes a new instance of the {@link com.upokecenter.rdf.NTriplesParser}
      * class.
      * @param stream A PeterO.IByteReader object.
      * @throws java.lang.NullPointerException The parameter {@code stream} is null.
@@ -49,7 +50,7 @@ import com.upokecenter.text.*;
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
+     * Initializes a new instance of the {@link com.upokecenter.rdf.NTriplesParser}
      * class.
      * @param str The parameter {@code str} is a text string.
      * @throws java.lang.NullPointerException The parameter "stream" is null.
@@ -63,7 +64,7 @@ import com.upokecenter.text.*;
       this.bnodeLabels = new HashMap<String, RDFTerm>();
     }
 
-    private void endOfLine(int ch) {
+    private void EndOfLine(int ch) {
       if (ch == 0x0a) {
         return;
       } else if (ch == 0x0d) {
@@ -76,15 +77,15 @@ import com.upokecenter.text.*;
       }
     }
 
-    private RDFTerm finishStringLiteral(String str) {
+    private RDFTerm FinishStringLiteral(String str) {
       int mark = this.input.setHardMark();
       int ch = this.input.ReadChar();
       if (ch == '@') {
-        return RDFTerm.fromLangString(str, this.readLanguageTag());
+        return RDFTerm.fromLangString(str, this.ReadLanguageTag());
       } else if (ch == '^' && this.input.ReadChar() == '^') {
         ch = this.input.ReadChar();
         if (ch == '<') {
-          return RDFTerm.fromTypedString(str, this.readIriReference());
+          return RDFTerm.fromTypedString(str, this.ReadIriReference());
         } else {
           throw new ParserException();
         }
@@ -101,7 +102,7 @@ import com.upokecenter.text.*;
     public Set<RDFTriple> Parse() {
       Set<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {
-        this.skipWhitespace();
+        this.SkipWhitespace();
         this.input.setHardMark();
         int ch = this.input.ReadChar();
         if (ch < 0) {
@@ -111,22 +112,22 @@ import com.upokecenter.text.*;
           while (true) {
             ch = this.input.ReadChar();
             if (ch == 0x0a || ch == 0x0d) {
-              this.endOfLine(ch);
+              this.EndOfLine(ch);
               break;
             } else if (ch < 0x20 || ch > 0x7e) {
               throw new ParserException();
             }
           }
         } else if (ch == 0x0a || ch == 0x0d) {
-          this.endOfLine(ch);
+          this.EndOfLine(ch);
         } else {
           this.input.moveBack(1);
-          rdf.Add(this.readTriples());
+          rdf.Add(this.ReadTriples());
         }
       }
     }
 
-    private String readBlankNodeLabel() {
+    private String ReadBlankNodeLabel() {
       StringBuilder ilist = new StringBuilder();
       int startChar = this.input.ReadChar();
       if (!((startChar >= 'A' && startChar <= 'Z') ||
@@ -163,7 +164,7 @@ import com.upokecenter.text.*;
       }
     }
 
-    private String readIriReference() {
+    private String ReadIriReference() {
       StringBuilder ilist = new StringBuilder();
       boolean haveString = false;
       boolean colon = false;
@@ -173,7 +174,7 @@ import com.upokecenter.text.*;
                 .indexOf((char)c2) >= 0)) {
           throw new ParserException();
         } else if (c2 == '\\') {
-          c2 = this.readUnicodeEscape(true);
+          c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0x20 || (c2 >= 0x7f && c2 <= 0x9f) || ((c2 & 0x7f) == c2 &&
             "<\"{}|\\^`".indexOf((char)c2) >= 0)) {
             throw new ParserException();
@@ -215,7 +216,7 @@ import com.upokecenter.text.*;
       }
     }
 
-    private String readLanguageTag() {
+    private String ReadLanguageTag() {
       StringBuilder ilist = new StringBuilder();
       boolean hyphen = false;
       boolean haveHyphen = false;
@@ -272,20 +273,20 @@ import com.upokecenter.text.*;
       }
     }
 
-    private RDFTerm readObject(boolean acceptLiteral) {
+    private RDFTerm ReadObject(boolean acceptLiteral) {
       int ch = this.input.ReadChar();
       if (ch < 0) {
         throw new ParserException();
       } else if (ch == '<') {
-        return RDFTerm.fromIRI(this.readIriReference());
-      } else if (acceptLiteral && (ch == '\"')) {  // start of quote literal
-        String str = this.readStringLiteral(ch);
-        return this.finishStringLiteral(str);
-      } else if (ch == '_') {  // Blank Node Label
+        return RDFTerm.fromIRI(this.ReadIriReference());
+      } else if (acceptLiteral && (ch == '\"')) { // start of quote literal
+        String str = this.ReadStringLiteral(ch);
+        return this.FinishStringLiteral(str);
+      } else if (ch == '_') { // Blank Node Label
         if (this.input.ReadChar() != ':') {
           throw new ParserException();
         }
-        String label = this.readBlankNodeLabel();
+        String label = this.ReadBlankNodeLabel();
         RDFTerm term = this.bnodeLabels.get(label);
         if (term == null) {
           term = RDFTerm.fromBlankNode(label);
@@ -297,14 +298,14 @@ import com.upokecenter.text.*;
       }
     }
 
-    private String readStringLiteral(int ch) {
+    private String ReadStringLiteral(int ch) {
       StringBuilder ilist = new StringBuilder();
       while (true) {
         int c2 = this.input.ReadChar();
         if (c2 < 0x20 || c2 > 0x7e) {
           throw new ParserException();
         } else if (c2 == '\\') {
-          c2 = this.readUnicodeEscape(true);
+          c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0xffff) {
             {
               ilist.append((char)c2);
@@ -328,34 +329,34 @@ import com.upokecenter.text.*;
       }
     }
 
-    private RDFTriple readTriples() {
+    private RDFTriple ReadTriples() {
       int mark = this.input.setHardMark();
       int ch = this.input.ReadChar();
 
       this.input.setMarkPosition(mark);
-      RDFTerm subject = this.readObject(false);
-      if (!this.skipWhitespace()) {
+      RDFTerm subject = this.ReadObject(false);
+      if (!this.SkipWhitespace()) {
         throw new ParserException();
       }
       if (this.input.ReadChar() != '<') {
         throw new ParserException();
       }
-      RDFTerm predicate = RDFTerm.fromIRI(this.readIriReference());
-      if (!this.skipWhitespace()) {
+      RDFTerm predicate = RDFTerm.fromIRI(this.ReadIriReference());
+      if (!this.SkipWhitespace()) {
         throw new ParserException();
       }
-      RDFTerm obj = this.readObject(true);
-      this.skipWhitespace();
+      RDFTerm obj = this.ReadObject(true);
+      this.SkipWhitespace();
       if (this.input.ReadChar() != '.') {
         throw new ParserException();
       }
-      this.skipWhitespace();
+      this.SkipWhitespace();
       RDFTriple ret = new RDFTriple(subject, predicate, obj);
-      this.endOfLine(this.input.ReadChar());
+      this.EndOfLine(this.input.ReadChar());
       return ret;
     }
 
-    private int readUnicodeEscape(boolean extended) {
+    private int ReadUnicodeEscape(boolean extended) {
       int ch = this.input.ReadChar();
       if (ch == 'U') {
         if (this.input.ReadChar() != '0') {
@@ -364,12 +365,12 @@ import com.upokecenter.text.*;
         if (this.input.ReadChar() != '0') {
           throw new ParserException();
         }
-        int a = this.toHexValue(this.input.ReadChar());
-        int b = this.toHexValue(this.input.ReadChar());
-        int c = this.toHexValue(this.input.ReadChar());
-        int d = this.toHexValue(this.input.ReadChar());
-        int e = this.toHexValue(this.input.ReadChar());
-        int f = this.toHexValue(this.input.ReadChar());
+        int a = this.ToHexValue(this.input.ReadChar());
+        int b = this.ToHexValue(this.input.ReadChar());
+        int c = this.ToHexValue(this.input.ReadChar());
+        int d = this.ToHexValue(this.input.ReadChar());
+        int e = this.ToHexValue(this.input.ReadChar());
+        int f = this.ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0 || f < 0) {
           throw new ParserException();
         }
@@ -379,10 +380,10 @@ import com.upokecenter.text.*;
         // throw new ParserException();
         // }
       } else if (ch == 'u') {
-        int a = this.toHexValue(this.input.ReadChar());
-        int b = this.toHexValue(this.input.ReadChar());
-        int c = this.toHexValue(this.input.ReadChar());
-        int d = this.toHexValue(this.input.ReadChar());
+        int a = this.ToHexValue(this.input.ReadChar());
+        int b = this.ToHexValue(this.input.ReadChar());
+        int c = this.ToHexValue(this.input.ReadChar());
+        int d = this.ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0) {
           throw new ParserException();
         }
@@ -413,7 +414,7 @@ import com.upokecenter.text.*;
       return ch;
     }
 
-    private boolean skipWhitespace() {
+    private boolean SkipWhitespace() {
       boolean haveWhitespace = false;
       this.input.setSoftMark();
       while (true) {
@@ -428,7 +429,7 @@ import com.upokecenter.text.*;
       }
     }
 
-    private int toHexValue(int a) {
+    private int ToHexValue(int a) {
       if (a >= '0' && a <= '9') {
         return a - '0';
       }

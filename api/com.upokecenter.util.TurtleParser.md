@@ -1,42 +1,40 @@
 # com.upokecenter.util.TurtleParser
 
-    public class TurtleParser extends Object implements IRDFParser
-
-Not documented yet.
+    public class TurtleParser extends java.lang.Object implements IRDFParser
 
 ## Methods
 
-* `TurtleParser​(com.upokecenter.util.IByteReader stream)`<br>
+* `TurtleParser​(com.upokecenter.util.IByteReader stream)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser​(com.upokecenter.util.IByteReader stream,
-            String baseURI)`<br>
+* `TurtleParser​(com.upokecenter.util.IByteReader stream,
+            java.lang.String baseURI)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser​(String str)`<br>
+* `TurtleParser​(java.lang.String str)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser​(String str,
-            String baseURI)`<br>
+* `TurtleParser​(java.lang.String str,
+            java.lang.String baseURI)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `Set<RDFTriple> Parse()`<br>
+* `java.util.Set<RDFTriple> Parse()`<br>
  Not documented yet.
 
 ## Constructors
 
-* `TurtleParser​(com.upokecenter.util.IByteReader stream)`<br>
+* `TurtleParser​(com.upokecenter.util.IByteReader stream)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser​(com.upokecenter.util.IByteReader stream,
-            String baseURI)`<br>
+* `TurtleParser​(com.upokecenter.util.IByteReader stream,
+            java.lang.String baseURI)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser​(String str)`<br>
+* `TurtleParser​(java.lang.String str)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
-* `TurtleParser​(String str,
-            String baseURI)`<br>
+* `TurtleParser​(java.lang.String str,
+            java.lang.String baseURI)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
@@ -52,7 +50,7 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
 * <code>stream</code> - A PeterO.IByteReader object.
 
 ### TurtleParser
-    public TurtleParser​(com.upokecenter.util.IByteReader stream, String baseURI)
+    public TurtleParser​(com.upokecenter.util.IByteReader stream, java.lang.String baseURI)
 Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
@@ -64,13 +62,13 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>stream</code> or <code>
+* <code>java.lang.NullPointerException</code> - The parameter <code>stream</code> or <code>
  baseURI</code> is null.
 
-* <code>IllegalArgumentException</code> - BaseURI.
+* <code>java.lang.IllegalArgumentException</code> - BaseURI.
 
 ### TurtleParser
-    public TurtleParser​(String str)
+    public TurtleParser​(java.lang.String str)
 Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
@@ -79,7 +77,7 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
 * <code>str</code> - The parameter <code>str</code> is a text string.
 
 ### TurtleParser
-    public TurtleParser​(String str, String baseURI)
+    public TurtleParser​(java.lang.String str, java.lang.String baseURI)
 Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
  class.
 
@@ -91,30 +89,30 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getTurtleParser()}
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>str</code> or <code>
+* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> or <code>
  baseURI</code> is null.
 
-* <code>IllegalArgumentException</code> - BaseURI.
+* <code>java.lang.IllegalArgumentException</code> - BaseURI.
 
 ### Parse
-    public Set<RDFTriple> Parse()
+    public java.util.Set<RDFTriple> Parse()
 Not documented yet.
 
 **Specified by:**
 
-* <code>Parse</code>&nbsp;in interface&nbsp;<code>IRDFParser</code>
+* <code>Parse</code> in interface <code>IRDFParser</code>
 
 **Returns:**
 
 * An ISet(RDFTriple) object.
 
 ### Parse
-    public Set<RDFTriple> Parse()
+    public java.util.Set<RDFTriple> Parse()
 Not documented yet.
 
 **Specified by:**
 
-* <code>Parse</code>&nbsp;in interface&nbsp;<code>IRDFParser</code>
+* <code>Parse</code> in interface <code>IRDFParser</code>
 
 **Returns:**
 

@@ -1,5 +1,6 @@
-package com.upokecenter.util;
-/*
+package com.upokecenter.rdf;
+
+    /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
 http://creativecommons.org/publicdomain/zero/1.0/
@@ -8,27 +9,25 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-    /**
-     * Not documented yet.
-     */
+/// <summary>Not documented yet.</summary>
   public final class RDFTriple {
     private volatile RDFTerm subject, predicate, objectRdf;
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
+     * Initializes a new instance of the {@link com.upokecenter.rdf.RDFTriple}
      * class.
      * @param subject The subject term.
      * @param predicate The predicate term.
      * @param objectRdf The object term.
      */
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
-      this.setSubject(subject);
-      this.setPredicate(predicate);
-      this.setObject(objectRdf);
+      this.SetSubject(subject);
+      this.SetPredicate(predicate);
+      this.SetObject(objectRdf);
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.Rdf.getRDFTriple()}
+     * Initializes a new instance of the {@link com.upokecenter.rdf.RDFTriple}
      * class.
      * @param triple The parameter {@code triple} is a RDFTriple object.
      * @throws java.lang.NullPointerException The parameter {@code triple} is null.
@@ -37,9 +36,9 @@ at: http://peteroupc.github.io/
       if (triple == null) {
         throw new NullPointerException("triple");
       }
-      this.setSubject(triple.subject);
-      this.setPredicate(triple.predicate);
-      this.setObject(triple.objectRdf);
+      this.SetSubject(triple.subject);
+      this.SetPredicate(triple.predicate);
+      this.SetObject(triple.objectRdf);
     }
 
     /**
@@ -81,7 +80,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return A RDFTerm object.
      */
-    public RDFTerm getObject() {
+    public RDFTerm GetObject() {
       return this.objectRdf;
     }
 
@@ -89,7 +88,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return A RDFTerm object.
      */
-    public RDFTerm getPredicate() {
+    public RDFTerm GetPredicate() {
       return this.predicate;
     }
 
@@ -97,7 +96,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return A RDFTerm object.
      */
-    public RDFTerm getSubject() {
+    public RDFTerm GetSubject() {
       return this.subject;
     }
 
@@ -119,14 +118,14 @@ at: http://peteroupc.github.io/
       }
     }
 
-    private void setObject(RDFTerm rdfObject) {
+    private void SetObject(RDFTerm rdfObject) {
       if (rdfObject == null) {
         throw new NullPointerException("rdfObject");
       }
       this.objectRdf = rdfObject;
     }
 
-    private void setPredicate(RDFTerm predicate) {
+    private void SetPredicate(RDFTerm predicate) {
       if (predicate == null) {
         throw new NullPointerException("predicate");
       }
@@ -136,7 +135,7 @@ at: http://peteroupc.github.io/
       this.predicate = predicate;
     }
 
-    private void setSubject(RDFTerm subject) {
+    private void SetSubject(RDFTerm subject) {
       if (subject == null) {
         throw new NullPointerException("subject");
       }

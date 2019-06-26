@@ -1,4 +1,7 @@
-package com.upokecenter.util;
+package com.upokecenter.rdf;
+
+import com.upokecenter.util.*;
+
 /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
@@ -8,31 +11,31 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-    /**
-     * Not documented yet.
-     */
+  /**
+   * Not documented yet.
+   */
   public final class RDFTerm {
     /**
      * Type value for a blank node.
      */
-    public static final int BLANK = 0;  // type is blank node name, literal is blank
+    public static final int BLANK = 0; // type is blank node name, literal is blank
 
     /**
      * Type value for an IRI (Internationalized Resource Identifier.).
      */
-    public static final int IRI = 1;  // type is IRI, literal is blank
+    public static final int IRI = 1; // type is IRI, literal is blank
 
     /**
      * Type value for a string with a language tag.
      */
-    public static final int LANGSTRING = 2;  // literal is given
+    public static final int LANGSTRING = 2; // literal is given
 
     /**
      * Type value for a piece of data serialized to a string.
      */
-    public static final int TYPEDSTRING = 3;  // type is IRI, literal is given
+    public static final int TYPEDSTRING = 3; // type is IRI, literal is given
 
-    private static void escapeBlankNode(String str, StringBuilder builder) {
+    private static void EscapeBlankNode(String str, StringBuilder builder) {
       int length = str.length();
       String hex = "0123456789ABCDEF";
       for (int i = 0; i < length; ++i) {
@@ -41,7 +44,7 @@ at: http://peteroupc.github.io/
             (c > 0 && c >= '0' && c <= '9')) {
           builder.append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                str.charAt(i + 1) >= 0xdc00 && str.charAt(i + 1) <= 0xdfff) {
+                (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c - 0xd800) << 10) + (str.charAt(i + 1) - 0xdc00);
           builder.append("U00");
@@ -62,7 +65,7 @@ at: http://peteroupc.github.io/
       }
     }
 
-    private static void escapeLanguageTag(String str, StringBuilder builder) {
+    private static void EscapeLanguageTag(String str, StringBuilder builder) {
       int length = str.length();
       boolean hyphen = false;
       for (int i = 0; i < length; ++i) {
@@ -85,7 +88,7 @@ at: http://peteroupc.github.io/
       }
     }
 
-    private static void escapeString(
+    private static void EscapeString(
   String str,
   StringBuilder builder,
   boolean uri) {
@@ -108,7 +111,7 @@ at: http://peteroupc.github.io/
         } else if (c >= 0x20 && c <= 0x7e) {
           builder.append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                str.charAt(i + 1) >= 0xdc00 && str.charAt(i + 1) <= 0xdfff) {
+                (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c - 0xd800) << 10) + (str.charAt(i + 1) - 0xdc00);
           builder.append("\\U00");
@@ -143,37 +146,37 @@ at: http://peteroupc.github.io/
      * Predicate for RDF types.
      */
     public static final RDFTerm A =
-        fromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+        FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 
     /**
      * Predicate for the first object in a list.
      */
-    public static final RDFTerm FIRST = fromIRI(
+    public static final RDFTerm FIRST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#first");
 
     /**
      * object for nil, the end of a list, or an empty list.
      */
-    public static final RDFTerm NIL = fromIRI(
+    public static final RDFTerm NIL = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil");
 
     /**
      * Predicate for the remaining objects in a list.
      */
-    public static final RDFTerm REST = fromIRI(
+    public static final RDFTerm REST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");
 
     /**
      * object for false.
      */
-    public static final RDFTerm FALSE = fromTypedString(
+    public static final RDFTerm FALSE = FromTypedString(
         "false",
         "http://www.w3.org/2001/XMLSchema#boolean");
 
     /**
      * object for true.
      */
-    public static final RDFTerm TRUE = fromTypedString(
+    public static final RDFTerm TRUE = FromTypedString(
         "true",
         "http://www.w3.org/2001/XMLSchema#boolean");
 
@@ -184,7 +187,7 @@ at: http://peteroupc.github.io/
      * @throws java.lang.NullPointerException The parameter {@code name} is null.
      * @throws IllegalArgumentException Name is empty.
      */
-    public static RDFTerm fromBlankNode(String name) {
+    public static RDFTerm FromBlankNode(String name) {
       if (name == null) {
         throw new NullPointerException("name");
       }
@@ -200,7 +203,7 @@ at: http://peteroupc.github.io/
      * @return A RDFTerm object.
      * @throws java.lang.NullPointerException The parameter {@code iri} is null.
      */
-    public static RDFTerm fromIRI(String iri) {
+    public static RDFTerm FromIRI(String iri) {
       if (iri == null) {
         throw new NullPointerException("iri");
       }
@@ -216,7 +219,7 @@ at: http://peteroupc.github.io/
      * languageTag} is null.
      * @throws IllegalArgumentException LanguageTag is empty.
      */
-    public static RDFTerm fromLangString(String str, String languageTag) {
+    public static RDFTerm FromLangString(String str, String languageTag) {
       if (str == null) {
         throw new NullPointerException("str");
       }
@@ -234,8 +237,8 @@ at: http://peteroupc.github.io/
      * @param str The parameter {@code str} is not documented yet.
      * @return A RDFTerm object.
      */
-    public static RDFTerm fromTypedString(String str) {
-      return fromTypedString(str, "http://www.w3.org/2001/XMLSchema#String");
+    public static RDFTerm FromTypedString(String str) {
+      return FromTypedString(str, "http://www.w3.org/2001/XMLSchema#String");
     }
 
     /**
@@ -247,7 +250,7 @@ at: http://peteroupc.github.io/
      * iri} is null.
      * @throws IllegalArgumentException Iri is empty.
      */
-    public static RDFTerm fromTypedString(String str, String iri) {
+    public static RDFTerm FromTypedString(String str, String iri) {
       if (str == null) {
         throw new NullPointerException("str");
       }
@@ -295,7 +298,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return A 32-bit signed integer.
      */
-    public int getKind() {
+    public int GetKind() {
       return this.kind;
     }
 
@@ -303,7 +306,7 @@ at: http://peteroupc.github.io/
      * Gets the language tag or data type for this RDF literal.
      * @return A text string.
      */
-    public String getTypeOrLanguage() {
+    public String GetTypeOrLanguage() {
       return this.typeOrLanguage;
     }
 
@@ -311,7 +314,7 @@ at: http://peteroupc.github.io/
      * Gets the IRI, blank node identifier, or lexical form of an RDF literal.
      * @return A text string.
      */
-    public String getValue() {
+    public String GetValue() {
       return this.value;
     }
 
@@ -335,7 +338,7 @@ at: http://peteroupc.github.io/
      * Gets a value indicating whether this term is a blank node.
      * @return Either {@code true} or {@code false}.
      */
-    public boolean isBlank() {
+    public boolean IsBlank() {
       return this.kind == BLANK;
     }
 
@@ -344,7 +347,7 @@ at: http://peteroupc.github.io/
      * @param str The parameter {@code str} is not documented yet.
      * @return Either {@code true} or {@code false}.
      */
-    public boolean isIRI(String str) {
+    public boolean IsIRI(String str) {
       return this.kind == IRI && str != null && str.equals(this.value);
     }
 
@@ -352,9 +355,9 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return Either {@code true} or {@code false}.
      */
-    public boolean isOrdinaryString() {
-   return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#String"
-        .equals(this.typeOrLanguage);
+    public boolean IsOrdinaryString() {
+      return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#String"
+           .equals(this.typeOrLanguage);
     }
 
     /**
@@ -367,28 +370,28 @@ at: http://peteroupc.github.io/
       if (this.kind == BLANK) {
         builder = new StringBuilder();
         builder.append("_:");
-        escapeBlankNode(this.value, builder);
+        EscapeBlankNode(this.value, builder);
       } else if (this.kind == LANGSTRING) {
         builder = new StringBuilder();
         builder.append("\"");
-        escapeString(this.value, builder, false);
+        EscapeString(this.value, builder, false);
         builder.append("\"@");
-        escapeLanguageTag(this.typeOrLanguage, builder);
+        EscapeLanguageTag(this.typeOrLanguage, builder);
       } else if (this.kind == TYPEDSTRING) {
         builder = new StringBuilder();
         builder.append("\"");
-        escapeString(this.value, builder, false);
+        EscapeString(this.value, builder, false);
         builder.append("\"");
         if (!"http://www.w3.org/2001/XMLSchema#String"
               .equals(this.typeOrLanguage)) {
           builder.append("^^<");
-          escapeString(this.typeOrLanguage, builder, true);
+          EscapeString(this.typeOrLanguage, builder, true);
           builder.append(">");
         }
       } else if (this.kind == IRI) {
         builder = new StringBuilder();
         builder.append("<");
-        escapeString(this.value, builder, true);
+        EscapeString(this.value, builder, true);
         builder.append(">");
       } else {
         return "<>";

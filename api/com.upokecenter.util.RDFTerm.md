@@ -1,8 +1,6 @@
 # com.upokecenter.util.RDFTerm
 
-    public final class RDFTerm extends Object
-
-Not documented yet.
+    public final class RDFTerm extends java.lang.Object
 
 ## Fields
 
@@ -29,35 +27,35 @@ Not documented yet.
 
 ## Methods
 
-* `boolean equals​(Object obj)`<br>
+* `boolean equals​(java.lang.Object obj)`<br>
  Not documented yet.
-* `static RDFTerm fromBlankNode​(String name)`<br>
+* `static RDFTerm fromBlankNode​(java.lang.String name)`<br>
  Not documented yet.
-* `static RDFTerm fromIRI​(String iri)`<br>
+* `static RDFTerm fromIRI​(java.lang.String iri)`<br>
  Not documented yet.
-* `static RDFTerm fromLangString​(String str,
-              String languageTag)`<br>
+* `static RDFTerm fromLangString​(java.lang.String str,
+              java.lang.String languageTag)`<br>
  Not documented yet.
-* `static RDFTerm fromTypedString​(String str)`<br>
+* `static RDFTerm fromTypedString​(java.lang.String str)`<br>
  Not documented yet.
-* `static RDFTerm fromTypedString​(String str,
-               String iri)`<br>
+* `static RDFTerm fromTypedString​(java.lang.String str,
+               java.lang.String iri)`<br>
  Not documented yet.
 * `int getKind()`<br>
  Not documented yet.
-* `String getTypeOrLanguage()`<br>
+* `java.lang.String getTypeOrLanguage()`<br>
  Gets the language tag or data type for this RDF literal.
-* `String getValue()`<br>
+* `java.lang.String getValue()`<br>
  Gets the IRI, blank node identifier, or lexical form of an RDF literal.
 * `int hashCode()`<br>
  Not documented yet.
 * `boolean isBlank()`<br>
  Gets a value indicating whether this term is a blank node.
-* `boolean isIRI​(String str)`<br>
+* `boolean isIRI​(java.lang.String str)`<br>
  Not documented yet.
 * `boolean isOrdinaryString()`<br>
  Not documented yet.
-* `String toString()`<br>
+* `java.lang.String toString()`<br>
  Gets a string representation of this RDF term in N-Triples format.
 
 ## Field Details
@@ -95,7 +93,7 @@ object for true.
 ## Method Details
 
 ### fromBlankNode
-    public static RDFTerm fromBlankNode​(String name)
+    public static RDFTerm fromBlankNode​(java.lang.String name)
 Not documented yet.
 
 **Parameters:**
@@ -108,12 +106,12 @@ Not documented yet.
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>name</code> is null.
+* <code>java.lang.NullPointerException</code> - The parameter <code>name</code> is null.
 
-* <code>IllegalArgumentException</code> - Name is empty.
+* <code>java.lang.IllegalArgumentException</code> - Name is empty.
 
 ### fromIRI
-    public static RDFTerm fromIRI​(String iri)
+    public static RDFTerm fromIRI​(java.lang.String iri)
 Not documented yet.
 
 **Parameters:**
@@ -126,10 +124,10 @@ Not documented yet.
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>iri</code> is null.
+* <code>java.lang.NullPointerException</code> - The parameter <code>iri</code> is null.
 
 ### fromLangString
-    public static RDFTerm fromLangString​(String str, String languageTag)
+    public static RDFTerm fromLangString​(java.lang.String str, java.lang.String languageTag)
 Not documented yet.
 
 **Parameters:**
@@ -144,13 +142,13 @@ Not documented yet.
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>str</code> or <code>
+* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> or <code>
  languageTag</code> is null.
 
-* <code>IllegalArgumentException</code> - LanguageTag is empty.
+* <code>java.lang.IllegalArgumentException</code> - LanguageTag is empty.
 
 ### fromTypedString
-    public static RDFTerm fromTypedString​(String str)
+    public static RDFTerm fromTypedString​(java.lang.String str)
 Not documented yet.
 
 **Parameters:**
@@ -162,7 +160,7 @@ Not documented yet.
 * A RDFTerm object.
 
 ### fromTypedString
-    public static RDFTerm fromTypedString​(String str, String iri)
+    public static RDFTerm fromTypedString​(java.lang.String str, java.lang.String iri)
 Not documented yet.
 
 **Parameters:**
@@ -177,18 +175,18 @@ Not documented yet.
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>str</code> or <code>
+* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> or <code>
  iri</code> is null.
 
-* <code>IllegalArgumentException</code> - Iri is empty.
+* <code>java.lang.IllegalArgumentException</code> - Iri is empty.
 
 ### equals
-    public final boolean equals​(Object obj)
+    public final boolean equals​(java.lang.Object obj)
 Not documented yet.
 
 **Overrides:**
 
-* <code>equals</code>&nbsp;in class&nbsp;<code>Object</code>
+* <code>equals</code> in class <code>java.lang.Object</code>
 
 **Parameters:**
 
@@ -209,7 +207,7 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### getTypeOrLanguage
-    public String getTypeOrLanguage()
+    public java.lang.String getTypeOrLanguage()
 Gets the language tag or data type for this RDF literal.
 
 **Returns:**
@@ -217,7 +215,7 @@ Gets the language tag or data type for this RDF literal.
 * A text string.
 
 ### getValue
-    public String getValue()
+    public java.lang.String getValue()
 Gets the IRI, blank node identifier, or lexical form of an RDF literal.
 
 **Returns:**
@@ -230,7 +228,7 @@ Not documented yet.
 
 **Overrides:**
 
-* <code>hashCode</code>&nbsp;in class&nbsp;<code>Object</code>
+* <code>hashCode</code> in class <code>java.lang.Object</code>
 
 **Returns:**
 
@@ -245,7 +243,7 @@ Gets a value indicating whether this term is a blank node.
 * Either <code>true</code> or <code>false</code>.
 
 ### isIRI
-    public boolean isIRI​(String str)
+    public boolean isIRI​(java.lang.String str)
 Not documented yet.
 
 **Parameters:**
@@ -265,13 +263,13 @@ Not documented yet.
 * Either <code>true</code> or <code>false</code>.
 
 ### toString
-    public final String toString()
+    public final java.lang.String toString()
 Gets a string representation of this RDF term in N-Triples format. The
  string will not end in a line break.
 
 **Overrides:**
 
-* <code>toString</code>&nbsp;in class&nbsp;<code>Object</code>
+* <code>toString</code> in class <code>java.lang.Object</code>
 
 **Returns:**
 

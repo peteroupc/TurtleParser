@@ -1,5 +1,9 @@
-package com.upokecenter.util;
-/*
+package com.upokecenter.rdf;
+
+import java.util.*;
+
+import com.upokecenter.util.*;
+  /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
 http://creativecommons.org/publicdomain/zero/1.0/
@@ -8,17 +12,15 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-import java.util.*;
-
-  final class RDFInternal {
+final class RDFInternal {
     /**
      * Not documented yet.
      * @param triples The parameter {@code triples} is not documented yet.
      * @param bnodeLabels The parameter {@code bnodeLabels} is not documented yet.
      */
-  static void replaceBlankNodes(
+  static void ReplaceBlankNodes(
   Set<RDFTriple> triples,
-      Map<String, RDFTerm> bnodeLabels) {
+  Map<String, RDFTerm> bnodeLabels) {
     if (bnodeLabels.size() == 0) {
  return;
 }
@@ -26,16 +28,16 @@ import java.util.*;
       HashMap<String, RDFTerm>();
     List<RDFTriple[]> changedTriples = new ArrayList<RDFTriple[]>();
     int[] nodeindex = new int[] { 0 };
-     for (RDFTriple triple : triples) {
+    for (RDFTriple triple : triples) {
       boolean changed = false;
       RDFTerm subj = triple.getSubject();
       if (subj.getKind() == RDFTerm.BLANK) {
         String oldname = subj.getValue();
-        String newname = suggestBlankNodeName(oldname, nodeindex, bnodeLabels);
+        String newname = SuggestBlankNodeName(oldname, nodeindex, bnodeLabels);
         if (!newname.equals(oldname)) {
             RDFTerm newNode = newBlankNodes.containsKey(oldname) ?
                     newBlankNodes.get(oldname) : null;
-          if (newNode == null) {
+                    if (newNode == null) {
             newNode = RDFTerm.fromBlankNode(newname);
             bnodeLabels.put(newname, newNode);
             newBlankNodes.put(oldname, newNode);
@@ -47,11 +49,11 @@ import java.util.*;
       RDFTerm obj = triple.getObject();
       if (obj.getKind() == RDFTerm.BLANK) {
         String oldname = obj.getValue();
-        String newname = suggestBlankNodeName(oldname, nodeindex, bnodeLabels);
+        String newname = SuggestBlankNodeName(oldname, nodeindex, bnodeLabels);
         if (!newname.equals(oldname)) {
                     RDFTerm newNode = newBlankNodes.containsKey(oldname) ?
                     newBlankNodes.get(oldname) : null;
-          if (newNode == null) {
+                    if (newNode == null) {
             newNode = RDFTerm.fromBlankNode(newname);
             bnodeLabels.put(newname, newNode);
             newBlankNodes.put(oldname, newNode);
@@ -62,18 +64,18 @@ import java.util.*;
       }
       if (changed) {
         RDFTriple[] newTriple = new RDFTriple[] { triple,
-            new RDFTriple(subj, triple.getPredicate(), obj)
+            new RDFTriple(subj, triple.getPredicate(), obj),
         };
         changedTriples.add(newTriple);
       }
     }
-     for (RDFTriple[] triple : changedTriples) {
+    for (RDFTriple[] triple : changedTriples) {
       triples.Remove(triple[0]);
       triples.Add(triple[1]);
     }
   }
 
-  private static String suggestBlankNodeName(
+  private static String SuggestBlankNodeName(
       String node, int[] nodeindex, Map<String, RDFTerm> bnodeLabels) {
     boolean validnode = node.length() > 0;
     // Check if the blank node label is valid

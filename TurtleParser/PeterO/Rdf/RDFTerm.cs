@@ -1,3 +1,7 @@
+using System;
+using System.Text;
+using PeterO;
+
 /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
@@ -7,31 +11,88 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  using System;
-using System.Text;
-
-    /// <summary>Not documented yet.</summary>
+  /// <xmlbegin id="38"/><summary>Not documented yet.</summary>
   ///
   public sealed class RDFTerm {
-    /// <summary>Type value for a blank node.</summary>
+    /// <xmlbegin id="39"/><summary>Type value for a blank node.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public const int BLANK = 0;  // type is blank node name, literal is blank
+    public const int BLANK = 0; // type is blank node name, literal is blank
 
-    /// <summary>Type value for an IRI (Internationalized Resource
+    /// <xmlbegin id="40"/><summary>Type value for an IRI (Internationalized Resource
     /// Identifier.).</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public const int IRI = 1;  // type is IRI, literal is blank
+    public const int IRI = 1; // type is IRI, literal is blank
 
-    /// <summary>Type value for a string with a language tag.</summary>
+    /// <xmlbegin id="41"/><summary>Type value for a string with a language tag.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public const int LANGSTRING = 2;  // literal is given
+    public const int LANGSTRING = 2; // literal is given
 
-    /// <summary>Type value for a piece of data serialized to a
+    /// <xmlbegin id="42"/><summary>Type value for a piece of data serialized to a
     /// string.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public const int TYPEDSTRING = 3;  // type is IRI, literal is given
+    public const int TYPEDSTRING = 3; // type is IRI, literal is given
 
-    private static void escapeBlankNode(string str, StringBuilder builder) {
+    private static void EscapeBlankNode(string str, StringBuilder builder) {
       int length = str.Length;
       string hex = "0123456789ABCDEF";
       for (int i = 0; i < length; ++i) {
@@ -40,7 +101,7 @@ using System.Text;
             (c > 0 && c >= '0' && c <= '9')) {
           builder.Append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
+                (str[i + 1] & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c - 0xd800) << 10) + (str[i + 1] - 0xdc00);
           builder.Append("U00");
@@ -61,7 +122,7 @@ using System.Text;
       }
     }
 
-    private static void escapeLanguageTag(string str, StringBuilder builder) {
+    private static void EscapeLanguageTag(string str, StringBuilder builder) {
       int length = str.Length;
       var hyphen = false;
       for (int i = 0; i < length; ++i) {
@@ -84,7 +145,7 @@ using System.Text;
       }
     }
 
-    private static void escapeString(
+    private static void EscapeString(
   string str,
   StringBuilder builder,
   bool uri) {
@@ -107,7 +168,7 @@ using System.Text;
         } else if (c >= 0x20 && c <= 0x7e) {
           builder.Append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                str[i + 1] >= 0xdc00 && str[i + 1] <= 0xdfff) {
+                (str[i + 1] & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c - 0xd800) << 10) + (str[i + 1] - 0xdc00);
           builder.Append("\\U00");
@@ -138,48 +199,153 @@ using System.Text;
       this.value = value;
     }
 
-    /// <summary>Predicate for RDF types.</summary>
+    /// <xmlbegin id="43"/><summary>Predicate for RDF types.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public static readonly RDFTerm A =
-        fromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+        FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 
-    /// <summary>Predicate for the first object in a list.</summary>
+    /// <xmlbegin id="44"/><summary>Predicate for the first object in a list.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static readonly RDFTerm FIRST = fromIRI(
+    public static readonly RDFTerm FIRST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#first");
 
-    /// <summary>Object for nil, the end of a list, or an empty
+    /// <xmlbegin id="45"/><summary>Object for nil, the end of a list, or an empty
     /// list.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static readonly RDFTerm NIL = fromIRI(
+    public static readonly RDFTerm NIL = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil");
 
-    /// <summary>Predicate for the remaining objects in a list.</summary>
+    /// <xmlbegin id="46"/><summary>Predicate for the remaining objects in a list.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static readonly RDFTerm REST = fromIRI(
+    public static readonly RDFTerm REST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");
 
-    /// <summary>Object for false.</summary>
+    /// <xmlbegin id="47"/><summary>Object for false.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static readonly RDFTerm FALSE = fromTypedString(
+    public static readonly RDFTerm FALSE = FromTypedString(
         "false",
         "http://www.w3.org/2001/XMLSchema#bool");
 
-    /// <summary>Object for true.</summary>
+    /// <xmlbegin id="48"/><summary>Object for true.</summary>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static readonly RDFTerm TRUE = fromTypedString(
+    public static readonly RDFTerm TRUE = FromTypedString(
         "true",
         "http://www.w3.org/2001/XMLSchema#bool");
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="49"/><summary>Not documented yet.</summary>
     /// <param name='name'>The parameter <paramref name='name'/> is not
     /// documented yet.</param>
     /// <returns>A RDFTerm object.</returns>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='name'/> is null.</exception>
     /// <exception cref='ArgumentException'>Name is empty.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static RDFTerm fromBlankNode(string name) {
+    public static RDFTerm FromBlankNode(string name) {
       if (name == null) {
         throw new ArgumentNullException(nameof(name));
       }
@@ -189,21 +355,36 @@ using System.Text;
       return new RDFTerm(BLANK, null, name);
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="50"/><summary>Not documented yet.</summary>
     /// <param name='iri'>The parameter <paramref name='iri'/> is not
     /// documented yet.</param>
     /// <returns>A RDFTerm object.</returns>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='iri'/> is null.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static RDFTerm fromIRI(string iri) {
+    public static RDFTerm FromIRI(string iri) {
       if (iri == null) {
         throw new ArgumentNullException(nameof(iri));
       }
       return new RDFTerm(IRI, null, iri);
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="51"/><summary>Not documented yet.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is not
     /// documented yet.</param>
     /// <param name='languageTag'>The parameter <paramref
@@ -214,8 +395,23 @@ using System.Text;
     /// null.</exception>
     /// <exception cref='ArgumentException'>LanguageTag is
     /// empty.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static RDFTerm fromLangString(string str, string languageTag) {
+    public static RDFTerm FromLangString(string str, string languageTag) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
       }
@@ -228,16 +424,31 @@ using System.Text;
       return new RDFTerm(LANGSTRING, languageTag, str);
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="52"/><summary>Not documented yet.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is not
     /// documented yet.</param>
     /// <returns>A RDFTerm object.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static RDFTerm fromTypedString(string str) {
-      return fromTypedString(str, "http://www.w3.org/2001/XMLSchema#string");
+    public static RDFTerm FromTypedString(string str) {
+      return FromTypedString(str, "http://www.w3.org/2001/XMLSchema#string");
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="53"/><summary>Not documented yet.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is not
     /// documented yet.</param>
     /// <param name='iri'>The parameter <paramref name='iri'/> is not
@@ -247,8 +458,23 @@ using System.Text;
     /// <paramref name='str'/> or <paramref name='iri'/> is
     /// null.</exception>
     /// <exception cref='ArgumentException'>Iri is empty.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static RDFTerm fromTypedString(string str, string iri) {
+    public static RDFTerm FromTypedString(string str, string iri) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
       }
@@ -261,12 +487,27 @@ using System.Text;
       return new RDFTerm(TYPEDSTRING, iri, str);
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="54"/><summary>Not documented yet.</summary>
     /// <param name='obj'>The parameter <paramref name='obj'/> is not
     /// documented yet.</param>
     /// <param name='obj'>The parameter <paramref name='obj'/> is not
     /// documented yet.</param>
     /// <returns>The return value is not documented yet.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public override sealed bool Equals(object obj) {
       if (this == obj) {
@@ -293,31 +534,91 @@ using System.Text;
       }
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="55"/><summary>Not documented yet.</summary>
     /// <returns>A 32-bit signed integer.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public int getKind() {
+    public int GetKind() {
       return this.kind;
     }
 
-    /// <summary>Gets the language tag or data type for this RDF
+    /// <xmlbegin id="56"/><summary>Gets the language tag or data type for this RDF
     /// literal.</summary>
     /// <returns>A text string.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public string getTypeOrLanguage() {
+    public string GetTypeOrLanguage() {
       return this.typeOrLanguage;
     }
 
-    /// <summary>Gets the IRI, blank node identifier, or lexical form of an
+    /// <xmlbegin id="57"/><summary>Gets the IRI, blank node identifier, or lexical form of an
     /// RDF literal.</summary>
     /// <returns>A text string.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public string getValue() {
+    public string GetValue() {
       return this.value;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="58"/><summary>Not documented yet.</summary>
     /// <returns>The return value is not documented yet.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public override sealed int GetHashCode() {
       unchecked {
@@ -331,62 +632,122 @@ using System.Text;
       }
     }
 
-    /// <summary>Gets a value indicating whether this term is a blank
+    /// <xmlbegin id="59"/><summary>Gets a value indicating whether this term is a blank
     /// node.</summary>
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public bool isBlank() {
+    public bool IsBlank() {
       return this.kind == BLANK;
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="60"/><summary>Not documented yet.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is not
     /// documented yet.</param>
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public bool isIRI(string str) {
+    public bool IsIRI(string str) {
       return this.kind == IRI && str != null && str.Equals(this.value);
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="61"/><summary>Not documented yet.</summary>
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public bool isOrdinaryString() {
-   return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#string"
-        .Equals(this.typeOrLanguage);
+    public bool IsOrdinaryString() {
+      return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#string"
+           .Equals(this.typeOrLanguage);
     }
 
-    /// <summary>Gets a string representation of this RDF term in N-Triples
+    /// <xmlbegin id="62"/><summary>Gets a string representation of this RDF term in N-Triples
     /// format. The string will not end in a line break.</summary>
     /// <returns>A string representation of this object.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public override sealed string ToString() {
       StringBuilder builder = null;
       if (this.kind == BLANK) {
         builder = new StringBuilder();
         builder.Append("_:");
-        escapeBlankNode(this.value, builder);
+        EscapeBlankNode(this.value, builder);
       } else if (this.kind == LANGSTRING) {
         builder = new StringBuilder();
         builder.Append("\"");
-        escapeString(this.value, builder, false);
+        EscapeString(this.value, builder, false);
         builder.Append("\"@");
-        escapeLanguageTag(this.typeOrLanguage, builder);
+        EscapeLanguageTag(this.typeOrLanguage, builder);
       } else if (this.kind == TYPEDSTRING) {
         builder = new StringBuilder();
         builder.Append("\"");
-        escapeString(this.value, builder, false);
+        EscapeString(this.value, builder, false);
         builder.Append("\"");
         if (!"http://www.w3.org/2001/XMLSchema#string"
               .Equals(this.typeOrLanguage)) {
           builder.Append("^^<");
-          escapeString(this.typeOrLanguage, builder, true);
+          EscapeString(this.typeOrLanguage, builder, true);
           builder.Append(">");
         }
       } else if (this.kind == IRI) {
         builder = new StringBuilder();
         builder.Append("<");
-        escapeString(this.value, builder, true);
+        EscapeString(this.value, builder, true);
         builder.Append(">");
       } else {
         return "<>";

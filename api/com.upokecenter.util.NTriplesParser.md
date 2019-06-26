@@ -1,29 +1,27 @@
 # com.upokecenter.util.NTriplesParser
 
-    public final class NTriplesParser extends Object implements IRDFParser
-
-Not documented yet.
+    public final class NTriplesParser extends java.lang.Object implements IRDFParser
 
 ## Methods
 
-* `NTriplesParser​(com.upokecenter.util.IByteReader stream)`<br>
+* `NTriplesParser​(com.upokecenter.util.IByteReader stream)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
-* `NTriplesParser​(String str)`<br>
+* `NTriplesParser​(java.lang.String str)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
-* `static boolean isAsciiChar​(int c,
-           String asciiChars)`<br>
+* `static boolean isAsciiChar​(int c,
+           java.lang.String asciiChars)`<br>
  Not documented yet.
-* `Set<RDFTriple> Parse()`<br>
+* `java.util.Set<RDFTriple> Parse()`<br>
  Not documented yet.
 
 ## Constructors
 
-* `NTriplesParser​(com.upokecenter.util.IByteReader stream)`<br>
+* `NTriplesParser​(com.upokecenter.util.IByteReader stream)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
-* `NTriplesParser​(String str)`<br>
+* `NTriplesParser​(java.lang.String str)`<br>
  Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
 
@@ -40,10 +38,10 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter <code>stream</code> is null.
+* <code>java.lang.NullPointerException</code> - The parameter <code>stream</code> is null.
 
 ### NTriplesParser
-    public NTriplesParser​(String str)
+    public NTriplesParser​(java.lang.String str)
 Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()}
  class.
 
@@ -53,10 +51,10 @@ Initializes a new instance of the {@link com.upokecenter.Rdf.getNTriplesParser()
 
 **Throws:**
 
-* <code>NullPointerException</code> - The parameter "stream" is null.
+* <code>java.lang.NullPointerException</code> - The parameter "stream" is null.
 
 ### isAsciiChar
-    public static boolean isAsciiChar​(int c, String asciiChars)
+    public static boolean isAsciiChar​(int c, java.lang.String asciiChars)
 Not documented yet.
 
 **Parameters:**
@@ -70,12 +68,12 @@ Not documented yet.
 * Either <code>true</code> or <code>false</code>.
 
 ### Parse
-    public Set<RDFTriple> Parse()
+    public java.util.Set<RDFTriple> Parse()
 Not documented yet.
 
 **Specified by:**
 
-* <code>Parse</code>&nbsp;in interface&nbsp;<code>IRDFParser</code>
+* <code>Parse</code> in interface <code>IRDFParser</code>
 
 **Returns:**
 

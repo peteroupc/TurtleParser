@@ -7,12 +7,14 @@
     <Authors>Peter Occil</Authors>
     <Owners>Peter Occil</Owners>
     <Description>A library for parsing the Turtle RDF format.</Description>
-  </PropertyGroup>
+  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
 
   <ItemGroup>
     <Folder Include="PeterO\" />
-  </ItemGroup>
+  <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" Version="1.1.118" /><AdditionalFiles Include="stylecop.json"></AdditionalFiles><PackageReference Include="PeterO.Encoding" Version="0.5.1" />
+</ItemGroup>
   <ItemGroup>
-    <PackageReference Include="PeterO.Encoding" Version="0.4.0" />
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="PeterO\URIUtility.cs" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using PeterO;
+using PeterO.Text;
+
 /*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
@@ -7,23 +13,32 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  using System;
-using System.Collections.Generic;
-using System.Text;
-using PeterO;
-using PeterO.Text;
-
-    /// <summary>Not documented yet.</summary>
+  /// <xmlbegin id="16"/><summary>Not documented yet.</summary>
   ///
   public sealed class NTriplesParser : IRDFParser {
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="17"/><summary>Not documented yet.</summary>
     /// <param name='c'>The parameter <paramref name='c'/> is not
     /// documented yet.</param>
     /// <param name='asciiChars'>The parameter <paramref
     /// name='asciiChars'/> is not documented yet.</param>
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
-    public static bool isAsciiChar(int c, string asciiChars) {
+    public static bool IsAsciiChar(int c, string asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.IndexOf((char)c) >= 0;
     }
 
@@ -31,11 +46,26 @@ using PeterO.Text;
 
     private StackableCharacterInput input;
 
-    /// <summary>Initializes a new instance of the
+    /// <xmlbegin id="18"/><summary>Initializes a new instance of the
     /// <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='stream'/> is null.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
@@ -48,12 +78,27 @@ using PeterO.Text;
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
-    /// <summary>Initializes a new instance of the
+    /// <xmlbegin id="19"/><summary>Initializes a new instance of the
     /// <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// "stream" is null.</exception>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public NTriplesParser(string str) {
       if (str == null) {
@@ -64,7 +109,7 @@ using PeterO.Text;
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
-    private void endOfLine(int ch) {
+    private void EndOfLine(int ch) {
       if (ch == 0x0a) {
         return;
       } else if (ch == 0x0d) {
@@ -77,15 +122,15 @@ using PeterO.Text;
       }
     }
 
-    private RDFTerm finishStringLiteral(string str) {
+    private RDFTerm FinishStringLiteral(string str) {
       int mark = this.input.setHardMark();
       int ch = this.input.ReadChar();
       if (ch == '@') {
-        return RDFTerm.fromLangString(str, this.readLanguageTag());
+        return RDFTerm.fromLangString(str, this.ReadLanguageTag());
       } else if (ch == '^' && this.input.ReadChar() == '^') {
         ch = this.input.ReadChar();
         if (ch == '<') {
-          return RDFTerm.fromTypedString(str, this.readIriReference());
+          return RDFTerm.fromTypedString(str, this.ReadIriReference());
         } else {
           throw new ParserException();
         }
@@ -95,13 +140,28 @@ using PeterO.Text;
       }
     }
 
-    /// <summary>Not documented yet.</summary>
+    /// <xmlbegin id="20"/><summary>Not documented yet.</summary>
     /// <returns>An ISet(RDFTriple) object.</returns>
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
   ///
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {
-        this.skipWhitespace();
+        this.SkipWhitespace();
         this.input.setHardMark();
         int ch = this.input.ReadChar();
         if (ch < 0) {
@@ -111,22 +171,22 @@ using PeterO.Text;
           while (true) {
             ch = this.input.ReadChar();
             if (ch == 0x0a || ch == 0x0d) {
-              this.endOfLine(ch);
+              this.EndOfLine(ch);
               break;
             } else if (ch < 0x20 || ch > 0x7e) {
               throw new ParserException();
             }
           }
         } else if (ch == 0x0a || ch == 0x0d) {
-          this.endOfLine(ch);
+          this.EndOfLine(ch);
         } else {
           this.input.moveBack(1);
-          rdf.Add(this.readTriples());
+          rdf.Add(this.ReadTriples());
         }
       }
     }
 
-    private string readBlankNodeLabel() {
+    private string ReadBlankNodeLabel() {
       var ilist = new StringBuilder();
       int startChar = this.input.ReadChar();
       if (!((startChar >= 'A' && startChar <= 'Z') ||
@@ -163,7 +223,7 @@ using PeterO.Text;
       }
     }
 
-    private string readIriReference() {
+    private string ReadIriReference() {
       var ilist = new StringBuilder();
       var haveString = false;
       var colon = false;
@@ -173,7 +233,7 @@ using PeterO.Text;
                 .IndexOf((char)c2) >= 0)) {
           throw new ParserException();
         } else if (c2 == '\\') {
-          c2 = this.readUnicodeEscape(true);
+          c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0x20 || (c2 >= 0x7f && c2 <= 0x9f) || ((c2 & 0x7f) == c2 &&
             "<\"{}|\\^`".IndexOf((char)c2) >= 0)) {
             throw new ParserException();
@@ -215,7 +275,7 @@ using PeterO.Text;
       }
     }
 
-    private string readLanguageTag() {
+    private string ReadLanguageTag() {
       var ilist = new StringBuilder();
       var hyphen = false;
       var haveHyphen = false;
@@ -272,20 +332,20 @@ using PeterO.Text;
       }
     }
 
-    private RDFTerm readObject(bool acceptLiteral) {
+    private RDFTerm ReadObject(bool acceptLiteral) {
       int ch = this.input.ReadChar();
       if (ch < 0) {
         throw new ParserException();
       } else if (ch == '<') {
-        return RDFTerm.fromIRI(this.readIriReference());
-      } else if (acceptLiteral && (ch == '\"')) {  // start of quote literal
-        string str = this.readStringLiteral(ch);
-        return this.finishStringLiteral(str);
-      } else if (ch == '_') {  // Blank Node Label
+        return RDFTerm.fromIRI(this.ReadIriReference());
+      } else if (acceptLiteral && (ch == '\"')) { // start of quote literal
+        string str = this.ReadStringLiteral(ch);
+        return this.FinishStringLiteral(str);
+      } else if (ch == '_') { // Blank Node Label
         if (this.input.ReadChar() != ':') {
           throw new ParserException();
         }
-        string label = this.readBlankNodeLabel();
+        string label = this.ReadBlankNodeLabel();
         RDFTerm term = this.bnodeLabels[label];
         if (term == null) {
           term = RDFTerm.fromBlankNode(label);
@@ -297,14 +357,14 @@ using PeterO.Text;
       }
     }
 
-    private string readStringLiteral(int ch) {
+    private string ReadStringLiteral(int ch) {
       var ilist = new StringBuilder();
       while (true) {
         int c2 = this.input.ReadChar();
         if (c2 < 0x20 || c2 > 0x7e) {
           throw new ParserException();
         } else if (c2 == '\\') {
-          c2 = this.readUnicodeEscape(true);
+          c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0xffff) {
             {
               ilist.Append((char)c2);
@@ -328,7 +388,7 @@ using PeterO.Text;
       }
     }
 
-    private RDFTriple readTriples() {
+    private RDFTriple ReadTriples() {
       int mark = this.input.setHardMark();
       int ch = this.input.ReadChar();
 #if DEBUG
@@ -339,29 +399,29 @@ using PeterO.Text;
       }
 #endif
       this.input.setMarkPosition(mark);
-      RDFTerm subject = this.readObject(false);
-      if (!this.skipWhitespace()) {
+      RDFTerm subject = this.ReadObject(false);
+      if (!this.SkipWhitespace()) {
         throw new ParserException();
       }
       if (this.input.ReadChar() != '<') {
         throw new ParserException();
       }
-      RDFTerm predicate = RDFTerm.fromIRI(this.readIriReference());
-      if (!this.skipWhitespace()) {
+      RDFTerm predicate = RDFTerm.fromIRI(this.ReadIriReference());
+      if (!this.SkipWhitespace()) {
         throw new ParserException();
       }
-      RDFTerm obj = this.readObject(true);
-      this.skipWhitespace();
+      RDFTerm obj = this.ReadObject(true);
+      this.SkipWhitespace();
       if (this.input.ReadChar() != '.') {
         throw new ParserException();
       }
-      this.skipWhitespace();
+      this.SkipWhitespace();
       var ret = new RDFTriple(subject, predicate, obj);
-      this.endOfLine(this.input.ReadChar());
+      this.EndOfLine(this.input.ReadChar());
       return ret;
     }
 
-    private int readUnicodeEscape(bool extended) {
+    private int ReadUnicodeEscape(bool extended) {
       int ch = this.input.ReadChar();
       if (ch == 'U') {
         if (this.input.ReadChar() != '0') {
@@ -370,12 +430,12 @@ using PeterO.Text;
         if (this.input.ReadChar() != '0') {
           throw new ParserException();
         }
-        int a = this.toHexValue(this.input.ReadChar());
-        int b = this.toHexValue(this.input.ReadChar());
-        int c = this.toHexValue(this.input.ReadChar());
-        int d = this.toHexValue(this.input.ReadChar());
-        int e = this.toHexValue(this.input.ReadChar());
-        int f = this.toHexValue(this.input.ReadChar());
+        int a = this.ToHexValue(this.input.ReadChar());
+        int b = this.ToHexValue(this.input.ReadChar());
+        int c = this.ToHexValue(this.input.ReadChar());
+        int d = this.ToHexValue(this.input.ReadChar());
+        int e = this.ToHexValue(this.input.ReadChar());
+        int f = this.ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0 || f < 0) {
           throw new ParserException();
         }
@@ -385,10 +445,10 @@ using PeterO.Text;
         // throw new ParserException();
         // }
       } else if (ch == 'u') {
-        int a = this.toHexValue(this.input.ReadChar());
-        int b = this.toHexValue(this.input.ReadChar());
-        int c = this.toHexValue(this.input.ReadChar());
-        int d = this.toHexValue(this.input.ReadChar());
+        int a = this.ToHexValue(this.input.ReadChar());
+        int b = this.ToHexValue(this.input.ReadChar());
+        int c = this.ToHexValue(this.input.ReadChar());
+        int d = this.ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0) {
           throw new ParserException();
         }
@@ -419,7 +479,7 @@ using PeterO.Text;
       return ch;
     }
 
-    private bool skipWhitespace() {
+    private bool SkipWhitespace() {
       var haveWhitespace = false;
       this.input.setSoftMark();
       while (true) {
@@ -434,7 +494,7 @@ using PeterO.Text;
       }
     }
 
-    private int toHexValue(int a) {
+    private int ToHexValue(int a) {
       if (a >= '0' && a <= '9') {
         return a - '0';
       }
