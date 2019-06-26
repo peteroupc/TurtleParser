@@ -34,10 +34,9 @@ at: http://peteroupc.github.io/
 
     /**
      * Sets the stream's position from the last set mark. <param
-     * name='pos'>Zero-based character offset from the last set
-     * mark.</param>
+     * name='pos'>Zero-based character offset from the last set mark.
+     * </param>
      * @param pos Zero-based character offset from the last set mark.
-     * @param pos The parameter {@code pos} is not documented yet.
      */
     void SetMarkPosition(int pos);
 

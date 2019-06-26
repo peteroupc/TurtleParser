@@ -9,12 +9,17 @@
     <Description>A library for parsing the Turtle RDF format.</Description>
   <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\netstandard1.0\TurtleParser.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DocumentationFile>bin\Release\netstandard1.0\TurtleParser.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <Folder Include="PeterO\" />
   <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" Version="1.1.118" /><AdditionalFiles Include="stylecop.json"></AdditionalFiles><PackageReference Include="PeterO.Encoding" Version="0.5.1" />
 </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
-    <Compile Remove="PeterO\URIUtility.cs" />
   </ItemGroup>
 </Project>

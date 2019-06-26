@@ -13,8 +13,8 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO {
-  /// <xmlbegin id="5"/><summary>A character input stream where additional inputs can be
-  ///
+  /// <include file='../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.StackableCharacterInput"]/*'/>
   public sealed class StackableCharacterInput : IMarkableCharacterInput {
     private class InputAndBuffer : ICharacterInput {
       private int[] buffer;
@@ -104,72 +104,22 @@ namespace PeterO {
     private int[] buffer;
     private IList<ICharacterInput> stack = new List<ICharacterInput>();
 
-    /// <xmlbegin id="6"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.StackableCharacterInput'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='StackableCharacterInput'/> class.</summary>
     /// <param name='source'>The parameter <paramref name='source'/> is an
     /// ICharacterInput object.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public StackableCharacterInput(ICharacterInput source) {
       this.stack.Add(source);
     }
 
-    /// <xmlbegin id="7"/><summary>Not documented yet.</summary>
-    /// <returns>A 32-bit signed integer.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
-    public int getMarkPosition() {
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.GetMarkPosition"]/*'/>
+    public int GetMarkPosition() {
       return this.pos;
     }
 
-    /// <xmlbegin id="8"/><summary>Not documented yet.</summary>
-    /// <param name='count'>The parameter <paramref name='count'/> is not
-    /// documented yet.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
-    public void moveBack(int count) {
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.MoveBack(System.Int32)"]/*'/>
+    public void MoveBack(int count) {
       if (count < 0) {
         throw new ArgumentException("count (" + count +
           ") is not greater or equal to 0");
@@ -181,27 +131,8 @@ namespace PeterO {
       throw new InvalidOperationException();
     }
 
-    /// <xmlbegin id="9"/><summary>Not documented yet.</summary>
-    /// <param name='input'>The parameter <paramref name='input'/> is not
-    /// documented yet.</param>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='input'/> is null.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.PushInput(PeterO.Text.ICharacterInput)"]/*'/>
     public void PushInput(ICharacterInput input) {
       if (input == null) {
         throw new ArgumentNullException(nameof(input));
@@ -217,24 +148,8 @@ namespace PeterO {
       this.endpos = this.pos;
     }
 
-    /// <xmlbegin id="10"/><summary>Not documented yet.</summary>
-    /// <returns>A 32-bit signed integer.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.ReadChar"]/*'/>
     public int ReadChar() {
       if (this.haveMark) {
         // Read from buffer
@@ -284,32 +199,8 @@ namespace PeterO {
       }
     }
 
-    /// <xmlbegin id="11"/><summary>Not documented yet.</summary>
-    /// <param name='buf'>The parameter <paramref name='buf'/> is not
-    /// documented yet.</param>
-    /// <param name='offset'>The parameter <paramref name='offset'/> is not
-    /// documented yet.</param>
-    /// <param name='unitCount'>The parameter <paramref name='unitCount'/>
-    /// is not documented yet.</param>
-    /// <returns>A 32-bit signed integer.</returns>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='buf'/> is null.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)"]/*'/>
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {
         throw new ArgumentNullException(nameof(buf));
@@ -439,25 +330,9 @@ namespace PeterO {
       return count;
     }
 
-    /// <xmlbegin id="12"/><summary>Not documented yet.</summary>
-    /// <returns>A 32-bit signed integer.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
-    public int setHardMark() {
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.SetHardMark"]/*'/>
+    public int SetHardMark() {
       if (this.buffer == null) {
         this.buffer = new int[16];
         this.pos = 0;
@@ -483,55 +358,22 @@ namespace PeterO {
       return 0;
     }
 
-    /// <xmlbegin id="13"/><summary>Not documented yet.</summary>
-    /// <param name='pos'>The parameter <paramref name='pos'/> is not
-    /// documented yet.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
-    public void setMarkPosition(int pos) {
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.SetMarkPosition(System.Int32)"]/*'/>
+    public void SetMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {
         throw new InvalidOperationException();
       }
       this.pos = pos;
     }
 
-    /// <xmlbegin id="14"/><summary>Not documented yet.</summary>
-    /// <returns>A 32-bit signed integer.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
-    public int setSoftMark() {
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.SetSoftMark"]/*'/>
+    public int SetSoftMark() {
       if (!this.haveMark) {
-        this.setHardMark();
+        this.SetHardMark();
       }
-      return this.getMarkPosition();
+      return this.GetMarkPosition();
     }
   }
 }

@@ -39,16 +39,13 @@ namespace PeterO.Rdf {
     // is a text string.
     // </param>
     // <param name='skipByteOrderMark'>
-    // Either
-    // <c>
-    // true
-    // </c>
-    // or
-    // <c>
-    // false
-    // </c>
-    // .
+    // If true and the first character in the string is U+FEFF, skip that character.
     // </param>
+    // <exception cref='T:System.ArgumentNullException'>
+    // The parameter
+    // <paramref name='str'/>
+    // is null.
+    // </exception>
     public CharacterReader(string str, bool skipByteOrderMark)
       : this(str, skipByteOrderMark, false) {
     }
@@ -60,26 +57,12 @@ namespace PeterO.Rdf {
     // is a text string.
     // </param>
     // <param name='skipByteOrderMark'>
-    // Either
-    // <c>
-    // true
-    // </c>
-    // or
-    // <c>
-    // false
-    // </c>
-    // .
+    // If true and the first character in the string is U+FEFF, skip that character.
     // </param>
     // <param name='errorThrow'>
-    // Either
-    // <c>
-    // true
-    // </c>
-    // or
-    // <c>
-    // false
-    // </c>
-    // .
+    // When encountering invalid encoding, throw an exception if this
+    // parameter is true, or replace it with U+FFFD (replacement character)
+    // if this parameter is false.
     // </param>
     // <exception cref='T:System.ArgumentNullException'>
     // The parameter

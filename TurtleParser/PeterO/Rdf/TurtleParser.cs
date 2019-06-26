@@ -14,8 +14,8 @@ using PeterO;
 using PeterO.Text;
 
 namespace PeterO.Rdf {
-  /// <xmlbegin id="32"/><summary>Not documented yet.</summary>
-  ///
+  /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.TurtleParser"]/*'/>
   public class TurtleParser : IRDFParser {
     private sealed class TurtleObject {
       public const int SIMPLE = 0;
@@ -116,53 +116,19 @@ namespace PeterO.Rdf {
     private StackableCharacterInput input;
     private int curBlankNode = 0;
 
-    /// <xmlbegin id="33"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public TurtleParser(IByteReader stream) : this(stream, "about:blank") {
     }
 
-    /// <xmlbegin id="34"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
     /// <param name='baseURI'>The parameter <paramref name='baseURI'/> is a
     /// text string.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='stream'/> or <paramref name='baseURI'/> is
     /// null.</exception>
-    /// <exception cref='ArgumentException'>BaseURI.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <exception cref='T:System.ArgumentException'>BaseURI.</exception>
     public TurtleParser(IByteReader stream, string baseURI) {
       if (stream == null) {
         throw new ArgumentNullException(nameof(stream));
@@ -180,31 +146,13 @@ namespace PeterO.Rdf {
       this.namespaces = new Dictionary<string, string>();
     }
 
-    /// <xmlbegin id="35"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public TurtleParser(string str) : this(str, "about:blank") {
     }
 
-    /// <xmlbegin id="36"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.TurtleParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
     /// <param name='baseURI'>The parameter <paramref name='baseURI'/> is a
@@ -212,23 +160,7 @@ namespace PeterO.Rdf {
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='str'/> or <paramref name='baseURI'/> is
     /// null.</exception>
-    /// <exception cref='ArgumentException'>BaseURI.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <exception cref='T:System.ArgumentException'>BaseURI.</exception>
     public TurtleParser(string str, string baseURI) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -254,7 +186,7 @@ namespace PeterO.Rdf {
       // not concretely defined)
       string label = "." + Convert.ToString(this.curBlankNode,
             System.Globalization.CultureInfo.InvariantCulture);
-      RDFTerm node = RDFTerm.fromBlankNode(label);
+      RDFTerm node = RDFTerm.FromBlankNode(label);
       this.bnodeLabels.Add(label, node);
       return node;
     }
@@ -351,20 +283,20 @@ namespace PeterO.Rdf {
     }
 
     private RDFTerm FinishStringLiteral(string str) {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       if (ch == '@') {
-        return RDFTerm.fromLangString(str, this.ReadLanguageTag());
+        return RDFTerm.FromLangString(str, this.ReadLanguageTag());
       } else if (ch == '^' && this.input.ReadChar() == '^') {
         ch = this.input.ReadChar();
         if (ch == '<') {
-          return RDFTerm.fromTypedString(str, this.ReadIriReference());
+          return RDFTerm.FromTypedString(str, this.ReadIriReference());
         } else if (ch == ':') { // prefixed name with current prefix
           string scope = this.namespaces[String.Empty];
           if (scope == null) {
             throw new ParserException();
           }
-          return RDFTerm.fromTypedString(
+          return RDFTerm.FromTypedString(
      str,
      scope + this.ReadOptionalLocalName());
         } else if (this.IsNameStartChar(ch)) { // prefix
@@ -373,15 +305,15 @@ namespace PeterO.Rdf {
           if (scope == null) {
             throw new ParserException();
           }
-          return RDFTerm.fromTypedString(
+          return RDFTerm.FromTypedString(
      str,
      scope + this.ReadOptionalLocalName());
         } else {
           throw new ParserException();
         }
       } else {
-        this.input.setMarkPosition(mark);
-        return RDFTerm.fromTypedString(str);
+        this.input.SetMarkPosition(mark);
+        return RDFTerm.FromTypedString(str);
       }
     }
 
@@ -417,32 +349,16 @@ namespace PeterO.Rdf {
             (ch >= 0xfdf0 && ch <= 0xfffd) || (ch >= 0x10000 && ch <= 0xeffff);
     }
 
-    /// <xmlbegin id="37"/><summary>Not documented yet.</summary>
-    /// <returns>An ISet(RDFTriple) object.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.TurtleParser.Parse"]/*'/>
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> triples = new HashSet<RDFTriple>();
       while (true) {
         this.SkipWhitespace();
-        int mark = this.input.setHardMark();
+        int mark = this.input.SetHardMark();
         int ch = this.input.ReadChar();
         if (ch < 0) {
-          RDFInternal.replaceBlankNodes(triples, this.bnodeLabels);
+          RDFInternal.ReplaceBlankNodes(triples, this.bnodeLabels);
           return triples;
         }
         if (ch == '@') {
@@ -470,7 +386,7 @@ namespace PeterO.Rdf {
             this.ReadBase(true);
             continue;
           } else {
-            this.input.setMarkPosition(mark);
+            this.input.SetMarkPosition(mark);
           }
         } else if (ch == 'p' || ch == 'P') {
           var c2 = 0;
@@ -483,10 +399,10 @@ namespace PeterO.Rdf {
             this.ReadPrefixStatement(true);
             continue;
           } else {
-            this.input.setMarkPosition(mark);
+            this.input.SetMarkPosition(mark);
           }
         } else {
-          this.input.setMarkPosition(mark);
+          this.input.SetMarkPosition(mark);
         }
         this.ReadTriples(triples);
       }
@@ -523,17 +439,17 @@ namespace PeterO.Rdf {
         ilist.Append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
       }
       var lastIsPeriod = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch == '.') {
-          int position = this.input.getMarkPosition();
+          int position = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (!this.IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
-            this.input.setMarkPosition(position - 1);
+            this.input.SetMarkPosition(position - 1);
             return ilist.ToString();
           } else {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (ch <= 0xffff) {
             {
@@ -556,7 +472,7 @@ namespace PeterO.Rdf {
           lastIsPeriod = false;
         } else {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (lastIsPeriod) {
             throw new ParserException();
@@ -575,14 +491,14 @@ namespace PeterO.Rdf {
         if (havePredObject) {
           var haveSemicolon = false;
           while (true) {
-            this.input.setSoftMark();
+            this.input.SetSoftMark();
             ch = this.input.ReadChar();
             if (ch == ';') {
               this.SkipWhitespace();
               haveSemicolon = true;
             } else {
               if (ch >= 0) {
-                this.input.moveBack(1);
+                this.input.MoveBack(1);
               }
               break;
             }
@@ -608,13 +524,13 @@ namespace PeterO.Rdf {
       TurtleObject obj = TurtleObject.NewCollection();
       while (true) {
         this.SkipWhitespace();
-        this.input.setHardMark();
+        this.input.SetHardMark();
         int ch = this.input.ReadChar();
         if (ch == ')') {
           break;
         } else {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           TurtleObject subobj = this.ReadObject(true);
           obj.GetObjects().Add(subobj);
@@ -662,7 +578,7 @@ namespace PeterO.Rdf {
       var hyphen = false;
       var haveHyphen = false;
       var haveString = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int c2 = this.input.ReadChar();
         if (c2 >= 'A' && c2 <= 'Z') {
@@ -701,7 +617,7 @@ namespace PeterO.Rdf {
           haveString = true;
         } else {
           if (c2 >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (hyphen || !haveString) {
             throw new ParserException();
@@ -728,7 +644,7 @@ namespace PeterO.Rdf {
       }
       bool haveDigits = ch >= '0' && ch <= '9';
       bool haveDot = ch == '.';
-      this.input.setHardMark();
+      this.input.SetHardMark();
       while (true) {
         int ch1 = this.input.ReadChar();
         if (haveDigits && (ch1 == 'e' || ch1 == 'E')) {
@@ -758,7 +674,7 @@ namespace PeterO.Rdf {
           } else {
             throw new ParserException();
           }
-          this.input.setHardMark();
+          this.input.SetHardMark();
           while (true) {
             ch1 = this.input.ReadChar();
             if (ch1 >= '0' && ch1 <= '9') {
@@ -774,12 +690,12 @@ namespace PeterO.Rdf {
               }
             } else {
               if (ch1 >= 0) {
-                this.input.moveBack(1);
+                this.input.MoveBack(1);
               }
               if (!haveDigits) {
                 throw new ParserException();
               }
-              return RDFTerm.fromTypedString(
+              return RDFTerm.FromTypedString(
   ilist.ToString(),
   "http://www.w3.org/2001/XMLSchema#double");
             }
@@ -797,21 +713,21 @@ namespace PeterO.Rdf {
         } else if (!haveDot && ch1 == '.') {
           haveDot = true;
           // check for non-digit and non-E
-          int markpos = this.input.getMarkPosition();
+          int markpos = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (ch2 != 'e' && ch2 != 'E' && (ch2 < '0' || ch2 > '9')) {
             // move to just at the period and return
-            this.input.setMarkPosition(markpos - 1);
+            this.input.SetMarkPosition(markpos - 1);
             if (!haveDigits) {
               throw new ParserException();
             }
             string ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
                 "http://www.w3.org/2001/XMLSchema#integer";
-            return RDFTerm.fromTypedString(
+            return RDFTerm.FromTypedString(
   ilist.ToString(),
   ns);
           } else {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (ch1 <= 0xffff) {
             {
@@ -823,14 +739,14 @@ namespace PeterO.Rdf {
           }
         } else { // no more digits
           if (ch1 >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (!haveDigits) {
             throw new ParserException();
           }
           string ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
               "http://www.w3.org/2001/XMLSchema#integer";
-          return RDFTerm.fromTypedString(
+          return RDFTerm.FromTypedString(
   ilist.ToString(),
   ns);
         }
@@ -839,12 +755,12 @@ namespace PeterO.Rdf {
 
     private TurtleObject ReadObject(bool acceptLiteral) {
       int ch = this.input.ReadChar();
-      int mark = this.input.setSoftMark();
+      int mark = this.input.SetSoftMark();
       if (ch < 0) {
         throw new ParserException();
       } else if (ch == '<') {
         return TurtleObject.FromTerm(
-  RDFTerm.fromIRI(this.ReadIriReference()));
+  RDFTerm.FromIRI(this.ReadIriReference()));
       } else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
         (ch >= '0' && ch <= '9'))) {
         return TurtleObject.FromTerm(this.ReadNumberLiteral(ch));
@@ -860,7 +776,7 @@ namespace PeterO.Rdf {
         RDFTerm term = this.bnodeLabels.ContainsKey(label) ?
                     this.bnodeLabels[label] : null;
         if (term == null) {
-          term = RDFTerm.fromBlankNode(label);
+          term = RDFTerm.FromBlankNode(label);
           this.bnodeLabels.Add(label, term);
         }
         return TurtleObject.FromTerm(term);
@@ -874,10 +790,10 @@ namespace PeterO.Rdf {
           throw new ParserException();
         }
         return TurtleObject.FromTerm(
-            RDFTerm.fromIRI(scope + this.ReadOptionalLocalName()));
+            RDFTerm.FromIRI(scope + this.ReadOptionalLocalName()));
       } else if (this.IsNameStartChar(ch)) { // prefix
         if (acceptLiteral && (ch == 't' || ch == 'f')) {
-          mark = this.input.setHardMark();
+          mark = this.input.SetHardMark();
           if (ch == 't' && this.input.ReadChar() == 'r' &&
             this.input.ReadChar() == 'u' &&
               this.input.ReadChar() == 'e' && this.IsBooleanLiteralEnd()) {
@@ -887,7 +803,7 @@ namespace PeterO.Rdf {
                 this.input.ReadChar() == 'e' && this.IsBooleanLiteralEnd()) {
             return TurtleObject.FromTerm(RDFTerm.FALSE);
           } else {
-            this.input.setMarkPosition(mark);
+            this.input.SetMarkPosition(mark);
           }
         }
         string prefix = this.ReadPrefix(ch);
@@ -897,9 +813,9 @@ namespace PeterO.Rdf {
           throw new ParserException();
         }
         return TurtleObject.FromTerm(
-            RDFTerm.fromIRI(scope + this.ReadOptionalLocalName()));
+            RDFTerm.FromIRI(scope + this.ReadOptionalLocalName()));
       } else {
-        this.input.setMarkPosition(mark);
+        this.input.SetMarkPosition(mark);
         return null;
       }
     }
@@ -907,13 +823,13 @@ namespace PeterO.Rdf {
     private void ReadObjectList(ISet<RDFTriple> triples) {
       var haveObject = false;
       while (true) {
-        this.input.setSoftMark();
+        this.input.SetSoftMark();
         int ch;
         if (haveObject) {
           ch = this.input.ReadChar();
           if (ch != ',') {
             if (ch >= 0) {
-              this.input.moveBack(1);
+              this.input.MoveBack(1);
             }
             break;
           }
@@ -943,13 +859,13 @@ namespace PeterO.Rdf {
         TurtleObject propertyList) {
       var haveObject = false;
       while (true) {
-        this.input.setSoftMark();
+        this.input.SetSoftMark();
         int ch;
         if (haveObject) {
           ch = this.input.ReadChar();
           if (ch != ',') {
             if (ch >= 0) {
-              this.input.moveBack(1);
+              this.input.MoveBack(1);
             }
             break;
           }
@@ -981,7 +897,7 @@ namespace PeterO.Rdf {
       var ilist = new StringBuilder();
       var lastIsPeriod = false;
       var first = true;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch < 0) {
@@ -1043,12 +959,12 @@ namespace PeterO.Rdf {
         if (first) {
           if (!this.IsNameStartCharU(ch) && ch != ':' &&
                (ch < '0' || ch > '9')) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
             return ilist.ToString();
           }
         } else {
           if (!this.IsNameChar(ch) && ch != ':' && ch != '.') {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
             if (lastIsPeriod) {
               throw new ParserException();
             }
@@ -1060,13 +976,13 @@ namespace PeterO.Rdf {
           // if a period was just read, check
           // if the next character is valid before
           // adding the period.
-          int position = this.input.getMarkPosition();
+          int position = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (!this.IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
-            this.input.setMarkPosition(position - 1);
+            this.input.SetMarkPosition(position - 1);
             return ilist.ToString();
           } else {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
         }
         first = false;
@@ -1082,26 +998,26 @@ namespace PeterO.Rdf {
     }
 
     private RDFTerm ReadPredicate() {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       RDFTerm predicate = null;
       if (ch == 'a') {
-        mark = this.input.setHardMark();
+        mark = this.input.SetHardMark();
         if (this.SkipWhitespace()) {
           return RDFTerm.A;
         } else {
-          this.input.setMarkPosition(mark);
+          this.input.SetMarkPosition(mark);
           string prefix = this.ReadPrefix('a');
           string scope = this.namespaces[prefix];
           if (scope == null) {
             throw new ParserException();
           }
-          predicate = RDFTerm.fromIRI(scope + this.ReadOptionalLocalName());
+          predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
           this.SkipWhitespace();
           return predicate;
         }
       } else if (ch == '<') {
-        predicate = RDFTerm.fromIRI(this.ReadIriReference());
+        predicate = RDFTerm.FromIRI(this.ReadIriReference());
         this.SkipWhitespace();
         return predicate;
       } else if (ch == ':') { // prefixed name with current prefix
@@ -1109,7 +1025,7 @@ namespace PeterO.Rdf {
         if (scope == null) {
           throw new ParserException();
         }
-        predicate = RDFTerm.fromIRI(scope + this.ReadOptionalLocalName());
+        predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
         this.SkipWhitespace();
         return predicate;
       } else if (this.IsNameStartChar(ch)) { // prefix
@@ -1118,11 +1034,11 @@ namespace PeterO.Rdf {
         if (scope == null) {
           throw new ParserException();
         }
-        predicate = RDFTerm.fromIRI(scope + this.ReadOptionalLocalName());
+        predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
         this.SkipWhitespace();
         return predicate;
       } else {
-        this.input.setMarkPosition(mark);
+        this.input.SetMarkPosition(mark);
         return null;
       }
     }
@@ -1135,7 +1051,7 @@ namespace PeterO.Rdf {
         if (havePredObject) {
           var haveSemicolon = false;
           while (true) {
-            this.input.setSoftMark();
+            this.input.SetSoftMark();
             ch = this.input.ReadChar();
             // Console.WriteLine("nextchar %c",(char)ch);
             if (ch == ';') {
@@ -1143,7 +1059,7 @@ namespace PeterO.Rdf {
               haveSemicolon = true;
             } else {
               if (ch >= 0) {
-                this.input.moveBack(1);
+                this.input.MoveBack(1);
               }
               break;
             }
@@ -1175,12 +1091,12 @@ namespace PeterO.Rdf {
       if (this.SkipWhitespace()) {
         return true;
       }
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       int ch = this.input.ReadChar();
       if (ch < 0) {
         return true;
       }
-      this.input.moveBack(1);
+      this.input.MoveBack(1);
       return this.IsNameChar(ch);
     }
 
@@ -1254,11 +1170,11 @@ namespace PeterO.Rdf {
       while (true) {
         int c2 = this.input.ReadChar();
         if (first && c2 == ch) {
-          this.input.setHardMark();
+          this.input.SetHardMark();
           c2 = this.input.ReadChar();
           if (c2 != ch) {
             if (c2 >= 0) {
-              this.input.moveBack(1);
+              this.input.MoveBack(1);
             }
             return String.Empty;
           }
@@ -1345,12 +1261,12 @@ namespace PeterO.Rdf {
     }
 
     private void ReadTriples(ISet<RDFTriple> triples) {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       if (ch < 0) {
         return;
       }
-      this.input.setMarkPosition(mark);
+      this.input.SetMarkPosition(mark);
       TurtleObject subject = this.ReadObject(false);
       if (subject == null) {
         throw new ParserException();
@@ -1362,7 +1278,7 @@ namespace PeterO.Rdf {
         this.ReadPredicateObjectList(triples);
       } else {
         this.SkipWhitespace();
-        this.input.setHardMark();
+        this.input.SetHardMark();
         ch = this.input.ReadChar();
         if (ch == '.') {
           // just a blank node property list;
@@ -1375,7 +1291,7 @@ namespace PeterO.Rdf {
         } else if (ch < 0) {
           throw new ParserException();
         }
-        this.input.moveBack(1);
+        this.input.MoveBack(1);
         this.ReadPredicateObjectList(triples);
       }
       this.SkipWhitespace();
@@ -1441,7 +1357,7 @@ namespace PeterO.Rdf {
 
     private bool SkipWhitespace() {
       var haveWhitespace = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch == '#') {
@@ -1456,7 +1372,7 @@ namespace PeterO.Rdf {
           }
         } else if (ch != 0x09 && ch != 0x0a && ch != 0x0d && ch != 0x20) {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           return haveWhitespace;
         }

@@ -7,45 +7,36 @@ Not documented yet.
 ## Methods
 
 * `TurtleParser​(com.upokecenter.util.IByteReader stream) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 * `TurtleParser​(com.upokecenter.util.IByteReader stream,
             java.lang.String baseURI) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 * `TurtleParser​(java.lang.String str) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 * `TurtleParser​(java.lang.String str,
             java.lang.String baseURI) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 * `java.util.Set<RDFTriple> Parse()`<br>
  Not documented yet.
 
 ## Constructors
 
 * `TurtleParser​(com.upokecenter.util.IByteReader stream) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 * `TurtleParser​(com.upokecenter.util.IByteReader stream,
             java.lang.String baseURI) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 * `TurtleParser​(java.lang.String str) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 * `TurtleParser​(java.lang.String str,
             java.lang.String baseURI) TurtleParser`<br>
- Initializes a new instance of the TurtleParser
- class.
+ Initializes a new instance of the TurtleParser class.
 
 ## Method Details
 
 ### TurtleParser
     public TurtleParser​(com.upokecenter.util.IByteReader stream)
-Initializes a new instance of the <code>TurtleParser</code>
- class.
+Initializes a new instance of the <code>TurtleParser</code> class.
 
 **Parameters:**
 
@@ -53,8 +44,7 @@ Initializes a new instance of the <code>TurtleParser</code>
 
 ### TurtleParser
     public TurtleParser​(com.upokecenter.util.IByteReader stream, java.lang.String baseURI)
-Initializes a new instance of the <code>TurtleParser</code>
- class.
+Initializes a new instance of the <code>TurtleParser</code> class.
 
 **Parameters:**
 
@@ -71,8 +61,7 @@ Initializes a new instance of the <code>TurtleParser</code>
 
 ### TurtleParser
     public TurtleParser​(java.lang.String str)
-Initializes a new instance of the <code>TurtleParser</code>
- class.
+Initializes a new instance of the <code>TurtleParser</code> class.
 
 **Parameters:**
 
@@ -80,8 +69,7 @@ Initializes a new instance of the <code>TurtleParser</code>
 
 ### TurtleParser
     public TurtleParser​(java.lang.String str, java.lang.String baseURI)
-Initializes a new instance of the <code>TurtleParser</code>
- class.
+Initializes a new instance of the <code>TurtleParser</code> class.
 
 **Parameters:**
 

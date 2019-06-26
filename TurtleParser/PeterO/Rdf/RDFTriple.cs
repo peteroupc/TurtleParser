@@ -11,88 +11,59 @@ at: http://peteroupc.github.io/
 namespace PeterO.Rdf {
 /// <summary>Not documented yet.</summary>
   public sealed class RDFTriple {
-    private volatile RDFTerm subject, predicate, objectRdf;
+    private readonly RDFTerm subject;
+    private readonly RDFTerm predicate;
+    private readonly RDFTerm objectRdf;
 
-    /// <xmlbegin id="21"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
     /// <param name='subject'>The subject term.</param>
     /// <param name='predicate'>The predicate term.</param>
     /// <param name='objectRdf'>The object term.</param>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
-      this.SetSubject(subject);
-      this.SetPredicate(predicate);
-      this.SetObject(objectRdf);
+      if (objectRdf == null) {
+        throw new ArgumentNullException(nameof(objectRdf));
+      }
+      this.objectRdf = objectRdf;
+      if (predicate == null) {
+        throw new ArgumentNullException(nameof(predicate));
+      }
+      if (!(predicate.GetKind() == RDFTerm.IRI)) {
+        throw new ArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
+      }
+      this.predicate = predicate;
+      if (subject == null) {
+        throw new ArgumentNullException(nameof(subject));
+      }
+      if (!(subject.GetKind() == RDFTerm.IRI ||
+          subject.GetKind() == RDFTerm.BLANK)) {
+        throw new
+         ArgumentException(
+  "doesn't satisfy subject.kind==RDFTerm.IRI || subject.kind==RDFTerm.BLANK");
+      }
+      this.subject = subject;
     }
 
-    /// <xmlbegin id="22"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.RDFTriple'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
     /// <param name='triple'>The parameter <paramref name='triple'/> is a
     /// RDFTriple object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='triple'/> is null.</exception>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-    public RDFTriple(RDFTriple triple) {
+    public RDFTriple(RDFTriple triple)
+      : this(
+        Check(triple).subject,
+        Check(triple).predicate,
+        Check(triple).objectRdf) {
+    }
+
+    private static RDFTriple Check(RDFTriple triple) {
       if (triple == null) {
         throw new ArgumentNullException(nameof(triple));
       }
-      this.SetSubject(triple.subject);
-      this.SetPredicate(triple.predicate);
-      this.SetObject(triple.objectRdf);
+      return triple;
     }
 
-    /// <xmlbegin id="23"/><summary>Not documented yet.</summary>
-    /// <param name='obj'>The parameter <paramref name='obj'/> is not
-    /// documented yet.</param>
-    /// <param name='obj'>The parameter <paramref name='obj'/> is not
-    /// documented yet.</param>
-    /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)"]/*'/>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -122,90 +93,26 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <xmlbegin id="24"/><summary>Not documented yet.</summary>
-    /// <returns>A RDFTerm object.</returns>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetObject"]/*'/>
     public RDFTerm GetObject() {
       return this.objectRdf;
     }
 
-    /// <xmlbegin id="25"/><summary>Not documented yet.</summary>
-    /// <returns>A RDFTerm object.</returns>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetPredicate"]/*'/>
     public RDFTerm GetPredicate() {
       return this.predicate;
     }
 
-    /// <xmlbegin id="26"/><summary>Not documented yet.</summary>
-    /// <returns>A RDFTerm object.</returns>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetSubject"]/*'/>
     public RDFTerm GetSubject() {
       return this.subject;
     }
 
-    /// <xmlbegin id="27"/><summary>Not documented yet.</summary>
-    /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetHashCode"]/*'/>
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -220,54 +127,8 @@ namespace PeterO.Rdf {
       }
     }
 
-    private void SetObject(RDFTerm rdfObject) {
-      if (rdfObject == null) {
-        throw new ArgumentNullException(nameof(rdfObject));
-      }
-      this.objectRdf = rdfObject;
-    }
-
-    private void SetPredicate(RDFTerm predicate) {
-      if (predicate == null) {
-        throw new ArgumentNullException(nameof(predicate));
-      }
-      if (!(predicate.getKind() == RDFTerm.IRI)) {
-    throw new ArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
-      }
-      this.predicate = predicate;
-    }
-
-    private void SetSubject(RDFTerm subject) {
-      if (subject == null) {
-        throw new ArgumentNullException(nameof(subject));
-      }
-      if (!(subject.getKind() == RDFTerm.IRI ||
-          subject.getKind() == RDFTerm.BLANK)) {
-        throw new
-         ArgumentException(
-  "doesn't satisfy subject.kind==RDFTerm.IRI || subject.kind==RDFTerm.BLANK");
-      }
-      this.subject = subject;
-    }
-
-    /// <xmlbegin id="28"/><summary>Not documented yet.</summary>
-    /// <returns>The return value is not documented yet.</returns>
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.ToString"]/*'/>
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
             this.objectRdf.ToString() + " .";

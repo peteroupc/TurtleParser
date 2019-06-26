@@ -47,14 +47,11 @@ Sets a mark on the stream's current position.
 
 ### SetMarkPosition
     void SetMarkPosition​(int pos)
-Sets the stream's position from the last set mark. <param name='pos'/>Zero-based character offset from the last set
- mark.
+Sets the stream's position from the last set mark. <param name='pos'/>Zero-based character offset from the last set mark.
 
 **Parameters:**
 
 * <code>pos</code> - Zero-based character offset from the last set mark.
-
-* <code>pos</code> - The parameter <code>pos</code> is not documented yet.
 
 ### SetSoftMark
     int SetSoftMark()

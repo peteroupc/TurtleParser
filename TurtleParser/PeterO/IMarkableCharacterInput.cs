@@ -9,117 +9,27 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO {
-  /// <xmlbegin id="64"/><summary>Not documented yet.</summary>
-  ///
+  /// <include file='../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.IMarkableCharacterInput"]/*'/>
   public interface IMarkableCharacterInput : ICharacterInput {
-    /// <xmlbegin id="65"/><summary>Gets the zero-based character position in the stream from
-    /// the last-set mark.</summary>
-    /// <returns>The return value is not documented yet.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.GetMarkPosition"]/*'/>
     int GetMarkPosition();
 
-    /// <xmlbegin id="66"/><summary>Moves the stream position back the given number of
-    /// characters.</summary>
-    /// <param name='count'>The parameter <paramref name='count'/> is not
-    /// documented yet.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.MoveBack(System.Int32)"]/*'/>
     void MoveBack(int count);
 
-    /// <xmlbegin id="67"/><summary>Sets a mark on the stream's current position.</summary>
-    /// <returns>The return value is not documented yet.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.SetHardMark"]/*'/>
     int SetHardMark();
 
-    /// <xmlbegin id="68"/><summary>Sets the stream's position from the last set mark.
-    /// <param name='pos'>Zero-based character offset from the last set
-    /// mark.</param></summary>
-    /// <param name='pos'>The parameter <paramref name='pos'/> is not
-    /// documented yet.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.SetMarkPosition(System.Int32)"]/*'/>
     void SetMarkPosition(int pos);
 
-    /// <xmlbegin id="69"/><summary>If no mark is set, sets a mark on the stream, and
-    /// characters read before the currently set mark are no longer
-    /// available, while characters read after will be available if
-    /// MoveBack is called. Otherwise, behaves like
-    /// GetMarkPosition.</summary>
-    /// <returns>The return value is not documented yet.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.IMarkableCharacterInput.SetSoftMark"]/*'/>
     int SetSoftMark();
   }
 }

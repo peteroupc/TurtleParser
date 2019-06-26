@@ -11,85 +11,21 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  /// <xmlbegin id="38"/><summary>Not documented yet.</summary>
-  ///
+  /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.RDFTerm"]/*'/>
   public sealed class RDFTerm {
-    /// <xmlbegin id="39"/><summary>Type value for a blank node.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Type value for a blank node.</summary>
     public const int BLANK = 0; // type is blank node name, literal is blank
 
-    /// <xmlbegin id="40"/><summary>Type value for an IRI (Internationalized Resource
+    /// <summary>Type value for an IRI (Internationalized Resource
     /// Identifier.).</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public const int IRI = 1; // type is IRI, literal is blank
 
-    /// <xmlbegin id="41"/><summary>Type value for a string with a language tag.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Type value for a string with a language tag.</summary>
     public const int LANGSTRING = 2; // literal is given
 
-    /// <xmlbegin id="42"/><summary>Type value for a piece of data serialized to a
+    /// <summary>Type value for a piece of data serialized to a
     /// string.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public const int TYPEDSTRING = 3; // type is IRI, literal is given
 
     private static void EscapeBlankNode(string str, StringBuilder builder) {
@@ -199,152 +135,35 @@ namespace PeterO.Rdf {
       this.value = value;
     }
 
-    /// <xmlbegin id="43"/><summary>Predicate for RDF types.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Predicate for RDF types.</summary>
     public static readonly RDFTerm A =
         FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 
-    /// <xmlbegin id="44"/><summary>Predicate for the first object in a list.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Predicate for the first object in a list.</summary>
     public static readonly RDFTerm FIRST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#first");
 
-    /// <xmlbegin id="45"/><summary>Object for nil, the end of a list, or an empty
+    /// <summary>Object for nil, the end of a list, or an empty
     /// list.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public static readonly RDFTerm NIL = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil");
 
-    /// <xmlbegin id="46"/><summary>Predicate for the remaining objects in a list.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Predicate for the remaining objects in a list.</summary>
     public static readonly RDFTerm REST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");
 
-    /// <xmlbegin id="47"/><summary>Object for false.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Object for false.</summary>
     public static readonly RDFTerm FALSE = FromTypedString(
         "false",
         "http://www.w3.org/2001/XMLSchema#bool");
 
-    /// <xmlbegin id="48"/><summary>Object for true.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Object for true.</summary>
     public static readonly RDFTerm TRUE = FromTypedString(
         "true",
         "http://www.w3.org/2001/XMLSchema#bool");
 
-    /// <xmlbegin id="49"/><summary>Not documented yet.</summary>
-    /// <param name='name'>The parameter <paramref name='name'/> is not
-    /// documented yet.</param>
-    /// <returns>A RDFTerm object.</returns>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='name'/> is null.</exception>
-    /// <exception cref='ArgumentException'>Name is empty.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromBlankNode(System.String)"]/*'/>
     public static RDFTerm FromBlankNode(string name) {
       if (name == null) {
         throw new ArgumentNullException(nameof(name));
@@ -355,28 +174,8 @@ namespace PeterO.Rdf {
       return new RDFTerm(BLANK, null, name);
     }
 
-    /// <xmlbegin id="50"/><summary>Not documented yet.</summary>
-    /// <param name='iri'>The parameter <paramref name='iri'/> is not
-    /// documented yet.</param>
-    /// <returns>A RDFTerm object.</returns>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='iri'/> is null.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromIRI(System.String)"]/*'/>
     public static RDFTerm FromIRI(string iri) {
       if (iri == null) {
         throw new ArgumentNullException(nameof(iri));
@@ -384,33 +183,8 @@ namespace PeterO.Rdf {
       return new RDFTerm(IRI, null, iri);
     }
 
-    /// <xmlbegin id="51"/><summary>Not documented yet.</summary>
-    /// <param name='str'>The parameter <paramref name='str'/> is not
-    /// documented yet.</param>
-    /// <param name='languageTag'>The parameter <paramref
-    /// name='languageTag'/> is not documented yet.</param>
-    /// <returns>A RDFTerm object.</returns>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='str'/> or <paramref name='languageTag'/> is
-    /// null.</exception>
-    /// <exception cref='ArgumentException'>LanguageTag is
-    /// empty.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromLangString(System.String,System.String)"]/*'/>
     public static RDFTerm FromLangString(string str, string languageTag) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -424,56 +198,14 @@ namespace PeterO.Rdf {
       return new RDFTerm(LANGSTRING, languageTag, str);
     }
 
-    /// <xmlbegin id="52"/><summary>Not documented yet.</summary>
-    /// <param name='str'>The parameter <paramref name='str'/> is not
-    /// documented yet.</param>
-    /// <returns>A RDFTerm object.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromTypedString(System.String)"]/*'/>
     public static RDFTerm FromTypedString(string str) {
       return FromTypedString(str, "http://www.w3.org/2001/XMLSchema#string");
     }
 
-    /// <xmlbegin id="53"/><summary>Not documented yet.</summary>
-    /// <param name='str'>The parameter <paramref name='str'/> is not
-    /// documented yet.</param>
-    /// <param name='iri'>The parameter <paramref name='iri'/> is not
-    /// documented yet.</param>
-    /// <returns>A RDFTerm object.</returns>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='str'/> or <paramref name='iri'/> is
-    /// null.</exception>
-    /// <exception cref='ArgumentException'>Iri is empty.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromTypedString(System.String,System.String)"]/*'/>
     public static RDFTerm FromTypedString(string str, string iri) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -487,28 +219,8 @@ namespace PeterO.Rdf {
       return new RDFTerm(TYPEDSTRING, iri, str);
     }
 
-    /// <xmlbegin id="54"/><summary>Not documented yet.</summary>
-    /// <param name='obj'>The parameter <paramref name='obj'/> is not
-    /// documented yet.</param>
-    /// <param name='obj'>The parameter <paramref name='obj'/> is not
-    /// documented yet.</param>
-    /// <returns>The return value is not documented yet.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)"]/*'/>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -534,92 +246,26 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <xmlbegin id="55"/><summary>Not documented yet.</summary>
-    /// <returns>A 32-bit signed integer.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetKind"]/*'/>
     public int GetKind() {
       return this.kind;
     }
 
-    /// <xmlbegin id="56"/><summary>Gets the language tag or data type for this RDF
-    /// literal.</summary>
-    /// <returns>A text string.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetTypeOrLanguage"]/*'/>
     public string GetTypeOrLanguage() {
       return this.typeOrLanguage;
     }
 
-    /// <xmlbegin id="57"/><summary>Gets the IRI, blank node identifier, or lexical form of an
-    /// RDF literal.</summary>
-    /// <returns>A text string.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetValue"]/*'/>
     public string GetValue() {
       return this.value;
     }
 
-    /// <xmlbegin id="58"/><summary>Not documented yet.</summary>
-    /// <returns>The return value is not documented yet.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetHashCode"]/*'/>
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -632,95 +278,27 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <xmlbegin id="59"/><summary>Gets a value indicating whether this term is a blank
-    /// node.</summary>
-    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.IsBlank"]/*'/>
     public bool IsBlank() {
       return this.kind == BLANK;
     }
 
-    /// <xmlbegin id="60"/><summary>Not documented yet.</summary>
-    /// <param name='str'>The parameter <paramref name='str'/> is not
-    /// documented yet.</param>
-    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.IsIRI(System.String)"]/*'/>
     public bool IsIRI(string str) {
       return this.kind == IRI && str != null && str.Equals(this.value);
     }
 
-    /// <xmlbegin id="61"/><summary>Not documented yet.</summary>
-    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.IsOrdinaryString"]/*'/>
     public bool IsOrdinaryString() {
       return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#string"
            .Equals(this.typeOrLanguage);
     }
 
-    /// <xmlbegin id="62"/><summary>Gets a string representation of this RDF term in N-Triples
-    /// format. The string will not end in a line break.</summary>
-    /// <returns>A string representation of this object.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.ToString"]/*'/>
     public override sealed string ToString() {
       StringBuilder builder = null;
       if (this.kind == BLANK) {

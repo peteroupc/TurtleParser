@@ -11,39 +11,61 @@ at: http://peteroupc.github.io/
 
 /// <summary>Not documented yet.</summary>
   public final class RDFTriple {
-    private volatile RDFTerm subject, predicate, objectRdf;
+    private final RDFTerm subject;
+    private final RDFTerm predicate;
+    private final RDFTerm objectRdf;
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.RDFTriple}
-     * class.
+     * Initializes a new instance of the {@link RDFTriple} class.
      * @param subject The subject term.
      * @param predicate The predicate term.
      * @param objectRdf The object term.
      */
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
-      this.SetSubject(subject);
-      this.SetPredicate(predicate);
-      this.SetObject(objectRdf);
+      if (objectRdf == null) {
+        throw new NullPointerException("objectRdf");
+      }
+      this.objectRdf = objectRdf;
+      if (predicate == null) {
+        throw new NullPointerException("predicate");
+      }
+      if (!(predicate.GetKind() == RDFTerm.IRI)) {
+        throw new IllegalArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
+      }
+      this.predicate = predicate;
+      if (subject == null) {
+        throw new NullPointerException("subject");
+      }
+      if (!(subject.GetKind() == RDFTerm.IRI ||
+          subject.GetKind() == RDFTerm.BLANK)) {
+        throw new
+         IllegalArgumentException(
+  "doesn't satisfy subject.kind==RDFTerm.IRI || subject.kind==RDFTerm.BLANK");
+      }
+      this.subject = subject;
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.RDFTriple}
-     * class.
+     * Initializes a new instance of the {@link RDFTriple} class.
      * @param triple The parameter {@code triple} is a RDFTriple object.
      * @throws java.lang.NullPointerException The parameter {@code triple} is null.
      */
     public RDFTriple(RDFTriple triple) {
+ this(
+        Check(triple).subject,
+        Check(triple).predicate,
+        Check(triple).objectRdf);
+    }
+
+    private static RDFTriple Check(RDFTriple triple) {
       if (triple == null) {
         throw new NullPointerException("triple");
       }
-      this.SetSubject(triple.subject);
-      this.SetPredicate(triple.predicate);
-      this.SetObject(triple.objectRdf);
+      return triple;
     }
 
     /**
      * Not documented yet.
-     * @param obj The parameter {@code obj} is not documented yet.
      * @param obj The parameter {@code obj} is not documented yet.
      * @return The return value is not documented yet.
      */
@@ -116,36 +138,6 @@ at: http://peteroupc.github.io/
           this.subject.hashCode());
         return result;
       }
-    }
-
-    private void SetObject(RDFTerm rdfObject) {
-      if (rdfObject == null) {
-        throw new NullPointerException("rdfObject");
-      }
-      this.objectRdf = rdfObject;
-    }
-
-    private void SetPredicate(RDFTerm predicate) {
-      if (predicate == null) {
-        throw new NullPointerException("predicate");
-      }
-      if (!(predicate.getKind() == RDFTerm.IRI)) {
-    throw new IllegalArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
-      }
-      this.predicate = predicate;
-    }
-
-    private void SetSubject(RDFTerm subject) {
-      if (subject == null) {
-        throw new NullPointerException("subject");
-      }
-      if (!(subject.getKind() == RDFTerm.IRI ||
-          subject.getKind() == RDFTerm.BLANK)) {
-        throw new
-         IllegalArgumentException(
-  "doesn't satisfy subject.kind==RDFTerm.IRI || subject.kind==RDFTerm.BLANK");
-      }
-      this.subject = subject;
     }
 
     /**

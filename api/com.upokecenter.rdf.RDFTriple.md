@@ -7,11 +7,9 @@
 * `RDFTriple​(RDFTerm subject,
          RDFTerm predicate,
          RDFTerm objectRdf) RDFTriple`<br>
- Initializes a new instance of the RDFTriple
- class.
+ Initializes a new instance of the RDFTriple class.
 * `RDFTriple​(RDFTriple triple) RDFTriple`<br>
- Initializes a new instance of the RDFTriple
- class.
+ Initializes a new instance of the RDFTriple class.
 * `boolean equals​(java.lang.Object obj)`<br>
  Not documented yet.
 * `RDFTerm GetObject()`<br>
@@ -30,18 +28,15 @@
 * `RDFTriple​(RDFTerm subject,
          RDFTerm predicate,
          RDFTerm objectRdf) RDFTriple`<br>
- Initializes a new instance of the RDFTriple
- class.
+ Initializes a new instance of the RDFTriple class.
 * `RDFTriple​(RDFTriple triple) RDFTriple`<br>
- Initializes a new instance of the RDFTriple
- class.
+ Initializes a new instance of the RDFTriple class.
 
 ## Method Details
 
 ### RDFTriple
     public RDFTriple​(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf)
-Initializes a new instance of the <code>RDFTriple</code>
- class.
+Initializes a new instance of the <code>RDFTriple</code> class.
 
 **Parameters:**
 
@@ -53,8 +48,7 @@ Initializes a new instance of the <code>RDFTriple</code>
 
 ### RDFTriple
     public RDFTriple​(RDFTriple triple)
-Initializes a new instance of the <code>RDFTriple</code>
- class.
+Initializes a new instance of the <code>RDFTriple</code> class.
 
 **Parameters:**
 
@@ -73,8 +67,6 @@ Not documented yet.
 * <code>equals</code> in class <code>java.lang.Object</code>
 
 **Parameters:**
-
-* <code>obj</code> - The parameter <code>obj</code> is not documented yet.
 
 * <code>obj</code> - The parameter <code>obj</code> is not documented yet.
 

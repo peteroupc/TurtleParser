@@ -22,7 +22,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @param c The parameter {@code c} is not documented yet.
      * @param asciiChars The parameter {@code asciiChars} is not documented yet.
-     * @return Either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false} .
      */
     public static boolean IsAsciiChar(int c, String asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.indexOf((char)c) >= 0;
@@ -33,8 +33,7 @@ at: http://peteroupc.github.io/
     private StackableCharacterInput input;
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.NTriplesParser}
-     * class.
+     * Initializes a new instance of the {@link NTriplesParser} class.
      * @param stream A PeterO.IByteReader object.
      * @throws java.lang.NullPointerException The parameter {@code stream} is null.
      */
@@ -50,8 +49,7 @@ at: http://peteroupc.github.io/
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.NTriplesParser}
-     * class.
+     * Initializes a new instance of the {@link NTriplesParser} class.
      * @param str The parameter {@code str} is a text string.
      * @throws java.lang.NullPointerException The parameter "stream" is null.
      */
@@ -70,7 +68,7 @@ at: http://peteroupc.github.io/
       } else if (ch == 0x0d) {
         ch = this.input.ReadChar();
         if (ch != 0x0a && ch >= 0) {
-          this.input.moveBack(1);
+          this.input.MoveBack(1);
         }
       } else {
         throw new ParserException();
@@ -78,20 +76,20 @@ at: http://peteroupc.github.io/
     }
 
     private RDFTerm FinishStringLiteral(String str) {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       if (ch == '@') {
-        return RDFTerm.fromLangString(str, this.ReadLanguageTag());
+        return RDFTerm.FromLangString(str, this.ReadLanguageTag());
       } else if (ch == '^' && this.input.ReadChar() == '^') {
         ch = this.input.ReadChar();
         if (ch == '<') {
-          return RDFTerm.fromTypedString(str, this.ReadIriReference());
+          return RDFTerm.FromTypedString(str, this.ReadIriReference());
         } else {
           throw new ParserException();
         }
       } else {
-        this.input.setMarkPosition(mark);
-        return RDFTerm.fromTypedString(str);
+        this.input.SetMarkPosition(mark);
+        return RDFTerm.FromTypedString(str);
       }
     }
 
@@ -103,7 +101,7 @@ at: http://peteroupc.github.io/
       Set<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {
         this.SkipWhitespace();
-        this.input.setHardMark();
+        this.input.SetHardMark();
         int ch = this.input.ReadChar();
         if (ch < 0) {
           return rdf;
@@ -121,7 +119,7 @@ at: http://peteroupc.github.io/
         } else if (ch == 0x0a || ch == 0x0d) {
           this.EndOfLine(ch);
         } else {
-          this.input.moveBack(1);
+          this.input.MoveBack(1);
           rdf.Add(this.ReadTriples());
         }
       }
@@ -142,7 +140,7 @@ at: http://peteroupc.github.io/
         ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) + 0xd800));
         ilist.append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
       }
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') ||
@@ -157,7 +155,7 @@ at: http://peteroupc.github.io/
           }
         } else {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           return ilist.toString();
         }
@@ -221,7 +219,7 @@ at: http://peteroupc.github.io/
       boolean hyphen = false;
       boolean haveHyphen = false;
       boolean haveString = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int c2 = this.input.ReadChar();
         if (c2 >= 'a' && c2 <= 'z') {
@@ -263,7 +261,7 @@ at: http://peteroupc.github.io/
           haveString = true;
         } else {
           if (c2 >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (hyphen || !haveString) {
             throw new ParserException();
@@ -278,7 +276,7 @@ at: http://peteroupc.github.io/
       if (ch < 0) {
         throw new ParserException();
       } else if (ch == '<') {
-        return RDFTerm.fromIRI(this.ReadIriReference());
+        return RDFTerm.FromIRI(this.ReadIriReference());
       } else if (acceptLiteral && (ch == '\"')) { // start of quote literal
         String str = this.ReadStringLiteral(ch);
         return this.FinishStringLiteral(str);
@@ -289,7 +287,7 @@ at: http://peteroupc.github.io/
         String label = this.ReadBlankNodeLabel();
         RDFTerm term = this.bnodeLabels.get(label);
         if (term == null) {
-          term = RDFTerm.fromBlankNode(label);
+          term = RDFTerm.FromBlankNode(label);
           this.bnodeLabels.put(label, term);
         }
         return term;
@@ -330,10 +328,10 @@ at: http://peteroupc.github.io/
     }
 
     private RDFTriple ReadTriples() {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
 
-      this.input.setMarkPosition(mark);
+      this.input.SetMarkPosition(mark);
       RDFTerm subject = this.ReadObject(false);
       if (!this.SkipWhitespace()) {
         throw new ParserException();
@@ -341,7 +339,7 @@ at: http://peteroupc.github.io/
       if (this.input.ReadChar() != '<') {
         throw new ParserException();
       }
-      RDFTerm predicate = RDFTerm.fromIRI(this.ReadIriReference());
+      RDFTerm predicate = RDFTerm.FromIRI(this.ReadIriReference());
       if (!this.SkipWhitespace()) {
         throw new ParserException();
       }
@@ -416,12 +414,12 @@ at: http://peteroupc.github.io/
 
     private boolean SkipWhitespace() {
       boolean haveWhitespace = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch != 0x09 && ch != 0x20) {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           return haveWhitespace;
         }

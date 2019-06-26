@@ -9,50 +9,16 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  /// <xmlbegin id="29"/><summary>Not documented yet.</summary>
-  ///
+  /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.ParserException"]/*'/>
   public class ParserException : IOException {
-    /// <xmlbegin id="30"/><summary>Initializes a new instance of the
-    /// <see cref='ParserException'/> class.</summary>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <summary>Initializes a new instance of the <see cref='ParserException'/> class.</summary>
     public ParserException() : base() {
     }
 
-    /// <xmlbegin id="31"/><summary>Initializes a new instance of the
-    /// <see cref='ParserException'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='ParserException'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public ParserException(string str) : base(str) {
     }
   }

@@ -15,7 +15,7 @@ at: http://peteroupc.github.io/
 */
 
   /**
-   *
+   * A character input stream where additional inputs can be
    */
   public final class StackableCharacterInput implements IMarkableCharacterInput {
     private static class InputAndBuffer implements ICharacterInput {
@@ -107,8 +107,7 @@ at: http://peteroupc.github.io/
     private List<ICharacterInput> stack = new ArrayList<ICharacterInput>();
 
     /**
-     * Initializes a new instance of the {@link
-     * com.upokecenter.StackableCharacterInput} class.
+     * Initializes a new instance of the {@link StackableCharacterInput} class.
      * @param source The parameter {@code source} is an ICharacterInput object.
      */
     public StackableCharacterInput(ICharacterInput source) {
@@ -119,7 +118,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return A 32-bit signed integer.
      */
-    public int getMarkPosition() {
+    public int GetMarkPosition() {
       return this.pos;
     }
 
@@ -127,7 +126,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @param count The parameter {@code count} is not documented yet.
      */
-    public void moveBack(int count) {
+    public void MoveBack(int count) {
       if (count < 0) {
         throw new IllegalArgumentException("count (" + count +
           ") is not greater or equal to 0");
@@ -142,7 +141,6 @@ at: http://peteroupc.github.io/
     /**
      * Not documented yet.
      * @param input The parameter {@code input} is not documented yet.
-     * @throws java.lang.NullPointerException The parameter {@code input} is null.
      */
     public void PushInput(ICharacterInput input) {
       if (input == null) {
@@ -353,7 +351,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return A 32-bit signed integer.
      */
-    public int setHardMark() {
+    public int SetHardMark() {
       if (this.buffer == null) {
         this.buffer = new int[16];
         this.pos = 0;
@@ -383,7 +381,7 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @param pos The parameter {@code pos} is not documented yet.
      */
-    public void setMarkPosition(int pos) {
+    public void SetMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {
         throw new IllegalStateException();
       }
@@ -394,10 +392,10 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @return A 32-bit signed integer.
      */
-    public int setSoftMark() {
+    public int SetSoftMark() {
       if (!this.haveMark) {
-        this.setHardMark();
+        this.SetHardMark();
       }
-      return this.getMarkPosition();
+      return this.GetMarkPosition();
     }
   }

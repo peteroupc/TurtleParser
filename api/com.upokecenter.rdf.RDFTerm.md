@@ -108,8 +108,6 @@ Not documented yet.
 
 **Throws:**
 
-* <code>java.lang.NullPointerException</code> - The parameter <code>name</code> is null.
-
 * <code>java.lang.IllegalArgumentException</code> - Name is empty.
 
 ### FromIRI
@@ -194,8 +192,6 @@ Not documented yet.
 
 * <code>obj</code> - The parameter <code>obj</code> is not documented yet.
 
-* <code>obj</code> - The parameter <code>obj</code> is not documented yet.
-
 **Returns:**
 
 * The return value is not documented yet.
@@ -242,7 +238,7 @@ Gets a value indicating whether this term is a blank node.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code> .
 
 ### IsIRI
     public boolean IsIRI​(java.lang.String str)
@@ -254,7 +250,7 @@ Not documented yet.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code> .
 
 ### IsOrdinaryString
     public boolean IsOrdinaryString()
@@ -262,7 +258,7 @@ Not documented yet.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code> .
 
 ### toString
     public final java.lang.String toString()

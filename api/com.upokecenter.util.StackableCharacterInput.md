@@ -2,13 +2,15 @@
 
     public final class StackableCharacterInput extends java.lang.Object implements IMarkableCharacterInput
 
+A character input stream where additional inputs can be
+
 ## Methods
 
-* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
- Initializes a new instance of the com.upokecenter.StackableCharacterInput class.
-* `int getMarkPosition()`<br>
+* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) StackableCharacterInput`<br>
+ Initializes a new instance of the StackableCharacterInput class.
+* `int GetMarkPosition()`<br>
  Not documented yet.
-* `void moveBack​(int count)`<br>
+* `void MoveBack​(int count)`<br>
  Not documented yet.
 * `void PushInput​(com.upokecenter.text.ICharacterInput input)`<br>
  Not documented yet.
@@ -18,23 +20,23 @@
  Not documented yet.
 * `int ReadChar()`<br>
  Not documented yet.
-* `int setHardMark()`<br>
+* `int SetHardMark()`<br>
  Not documented yet.
-* `void setMarkPosition​(int pos)`<br>
+* `void SetMarkPosition​(int pos)`<br>
  Not documented yet.
-* `int setSoftMark()`<br>
+* `int SetSoftMark()`<br>
  Not documented yet.
 
 ## Constructors
 
-* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
- Initializes a new instance of the com.upokecenter.StackableCharacterInput class.
+* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) StackableCharacterInput`<br>
+ Initializes a new instance of the StackableCharacterInput class.
 
 ## Method Details
 
 ### StackableCharacterInput
     public StackableCharacterInput​(com.upokecenter.text.ICharacterInput source)
-Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput</code> class.
+Initializes a new instance of the <code>StackableCharacterInput</code> class.
 
 **Parameters:**
 
@@ -42,23 +44,31 @@ Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput<
 
 ### StackableCharacterInput
     public StackableCharacterInput​(com.upokecenter.text.ICharacterInput source)
-Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput</code> class.
+Initializes a new instance of the <code>StackableCharacterInput</code> class.
 
 **Parameters:**
 
 * <code>source</code> - The parameter <code>source</code> is an ICharacterInput object.
 
-### getMarkPosition
-    public int getMarkPosition()
+### GetMarkPosition
+    public int GetMarkPosition()
 Not documented yet.
+
+**Specified by:**
+
+* <code>GetMarkPosition</code> in interface <code>IMarkableCharacterInput</code>
 
 **Returns:**
 
 * A 32-bit signed integer.
 
-### moveBack
-    public void moveBack​(int count)
+### MoveBack
+    public void MoveBack​(int count)
 Not documented yet.
+
+**Specified by:**
+
+* <code>MoveBack</code> in interface <code>IMarkableCharacterInput</code>
 
 **Parameters:**
 
@@ -71,10 +81,6 @@ Not documented yet.
 **Parameters:**
 
 * <code>input</code> - The parameter <code>input</code> is not documented yet.
-
-**Throws:**
-
-* <code>java.lang.NullPointerException</code> - The parameter <code>input</code> is null.
 
 ### ReadChar
     public int ReadChar()
@@ -112,25 +118,37 @@ Not documented yet.
 
 * <code>java.lang.NullPointerException</code> - The parameter <code>buf</code> is null.
 
-### setHardMark
-    public int setHardMark()
+### SetHardMark
+    public int SetHardMark()
 Not documented yet.
+
+**Specified by:**
+
+* <code>SetHardMark</code> in interface <code>IMarkableCharacterInput</code>
 
 **Returns:**
 
 * A 32-bit signed integer.
 
-### setMarkPosition
-    public void setMarkPosition​(int pos)
+### SetMarkPosition
+    public void SetMarkPosition​(int pos)
 Not documented yet.
+
+**Specified by:**
+
+* <code>SetMarkPosition</code> in interface <code>IMarkableCharacterInput</code>
 
 **Parameters:**
 
 * <code>pos</code> - The parameter <code>pos</code> is not documented yet.
 
-### setSoftMark
-    public int setSoftMark()
+### SetSoftMark
+    public int SetSoftMark()
 Not documented yet.
+
+**Specified by:**
+
+* <code>SetSoftMark</code> in interface <code>IMarkableCharacterInput</code>
 
 **Returns:**
 

@@ -184,7 +184,6 @@ at: http://peteroupc.github.io/
      * Not documented yet.
      * @param name The parameter {@code name} is not documented yet.
      * @return A RDFTerm object.
-     * @throws java.lang.NullPointerException The parameter {@code name} is null.
      * @throws IllegalArgumentException Name is empty.
      */
     public static RDFTerm FromBlankNode(String name) {
@@ -266,7 +265,6 @@ at: http://peteroupc.github.io/
     /**
      * Not documented yet.
      * @param obj The parameter {@code obj} is not documented yet.
-     * @param obj The parameter {@code obj} is not documented yet.
      * @return The return value is not documented yet.
      */
     @Override public final boolean equals(Object obj) {
@@ -336,7 +334,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Gets a value indicating whether this term is a blank node.
-     * @return Either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false} .
      */
     public boolean IsBlank() {
       return this.kind == BLANK;
@@ -345,7 +343,7 @@ at: http://peteroupc.github.io/
     /**
      * Not documented yet.
      * @param str The parameter {@code str} is not documented yet.
-     * @return Either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false} .
      */
     public boolean IsIRI(String str) {
       return this.kind == IRI && str != null && str.equals(this.value);
@@ -353,7 +351,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @return Either {@code true} or {@code false}.
+     * @return Either {@code true} or {@code false} .
      */
     public boolean IsOrdinaryString() {
       return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#String"

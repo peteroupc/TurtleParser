@@ -105,8 +105,7 @@ public final void setObj(TurtleObject value) {
     private int curBlankNode = 0;
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
-     * class.
+     * Initializes a new instance of the {@link TurtleParser} class.
      * @param stream A PeterO.IByteReader object.
      */
     public TurtleParser(IByteReader stream) {
@@ -114,8 +113,7 @@ public final void setObj(TurtleObject value) {
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
-     * class.
+     * Initializes a new instance of the {@link TurtleParser} class.
      * @param stream A PeterO.IByteReader object.
      * @param baseURI The parameter {@code baseURI} is a text string.
      * @throws java.lang.NullPointerException The parameter {@code stream} or {@code
@@ -140,8 +138,7 @@ public final void setObj(TurtleObject value) {
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
-     * class.
+     * Initializes a new instance of the {@link TurtleParser} class.
      * @param str The parameter {@code str} is a text string.
      */
     public TurtleParser(String str) {
@@ -149,8 +146,7 @@ public final void setObj(TurtleObject value) {
     }
 
     /**
-     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
-     * class.
+     * Initializes a new instance of the {@link TurtleParser} class.
      * @param str The parameter {@code str} is a text string.
      * @param baseURI The parameter {@code baseURI} is a text string.
      * @throws java.lang.NullPointerException The parameter {@code str} or {@code
@@ -181,7 +177,7 @@ public final void setObj(TurtleObject value) {
       // because the syntax for blank node identifiers is
       // not concretely defined)
       String label = "." + (this.curBlankNode).toString();
-      RDFTerm node = RDFTerm.fromBlankNode(label);
+      RDFTerm node = RDFTerm.FromBlankNode(label);
       this.bnodeLabels.put(label, node);
       return node;
     }
@@ -278,20 +274,20 @@ public final void setObj(TurtleObject value) {
     }
 
     private RDFTerm FinishStringLiteral(String str) {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       if (ch == '@') {
-        return RDFTerm.fromLangString(str, this.ReadLanguageTag());
+        return RDFTerm.FromLangString(str, this.ReadLanguageTag());
       } else if (ch == '^' && this.input.ReadChar() == '^') {
         ch = this.input.ReadChar();
         if (ch == '<') {
-          return RDFTerm.fromTypedString(str, this.ReadIriReference());
+          return RDFTerm.FromTypedString(str, this.ReadIriReference());
         } else if (ch == ':') { // prefixed name with current prefix
           String scope = this.namespaces.get("");
           if (scope == null) {
             throw new ParserException();
           }
-          return RDFTerm.fromTypedString(
+          return RDFTerm.FromTypedString(
      str,
      scope + this.ReadOptionalLocalName());
         } else if (this.IsNameStartChar(ch)) { // prefix
@@ -300,15 +296,15 @@ public final void setObj(TurtleObject value) {
           if (scope == null) {
             throw new ParserException();
           }
-          return RDFTerm.fromTypedString(
+          return RDFTerm.FromTypedString(
      str,
      scope + this.ReadOptionalLocalName());
         } else {
           throw new ParserException();
         }
       } else {
-        this.input.setMarkPosition(mark);
-        return RDFTerm.fromTypedString(str);
+        this.input.SetMarkPosition(mark);
+        return RDFTerm.FromTypedString(str);
       }
     }
 
@@ -352,10 +348,10 @@ public final void setObj(TurtleObject value) {
       Set<RDFTriple> triples = new HashSet<RDFTriple>();
       while (true) {
         this.SkipWhitespace();
-        int mark = this.input.setHardMark();
+        int mark = this.input.SetHardMark();
         int ch = this.input.ReadChar();
         if (ch < 0) {
-          RDFInternal.replaceBlankNodes(triples, this.bnodeLabels);
+          RDFInternal.ReplaceBlankNodes(triples, this.bnodeLabels);
           return triples;
         }
         if (ch == '@') {
@@ -383,7 +379,7 @@ public final void setObj(TurtleObject value) {
             this.ReadBase(true);
             continue;
           } else {
-            this.input.setMarkPosition(mark);
+            this.input.SetMarkPosition(mark);
           }
         } else if (ch == 'p' || ch == 'P') {
           int c2 = 0;
@@ -396,10 +392,10 @@ public final void setObj(TurtleObject value) {
             this.ReadPrefixStatement(true);
             continue;
           } else {
-            this.input.setMarkPosition(mark);
+            this.input.SetMarkPosition(mark);
           }
         } else {
-          this.input.setMarkPosition(mark);
+          this.input.SetMarkPosition(mark);
         }
         this.ReadTriples(triples);
       }
@@ -436,17 +432,17 @@ public final void setObj(TurtleObject value) {
         ilist.append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
       }
       boolean lastIsPeriod = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch == '.') {
-          int position = this.input.getMarkPosition();
+          int position = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (!this.IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
-            this.input.setMarkPosition(position - 1);
+            this.input.SetMarkPosition(position - 1);
             return ilist.toString();
           } else {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (ch <= 0xffff) {
             {
@@ -469,7 +465,7 @@ public final void setObj(TurtleObject value) {
           lastIsPeriod = false;
         } else {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (lastIsPeriod) {
             throw new ParserException();
@@ -488,14 +484,14 @@ public final void setObj(TurtleObject value) {
         if (havePredObject) {
           boolean haveSemicolon = false;
           while (true) {
-            this.input.setSoftMark();
+            this.input.SetSoftMark();
             ch = this.input.ReadChar();
             if (ch == ';') {
               this.SkipWhitespace();
               haveSemicolon = true;
             } else {
               if (ch >= 0) {
-                this.input.moveBack(1);
+                this.input.MoveBack(1);
               }
               break;
             }
@@ -521,13 +517,13 @@ public final void setObj(TurtleObject value) {
       TurtleObject obj = TurtleObject.NewCollection();
       while (true) {
         this.SkipWhitespace();
-        this.input.setHardMark();
+        this.input.SetHardMark();
         int ch = this.input.ReadChar();
         if (ch == ')') {
           break;
         } else {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           TurtleObject subobj = this.ReadObject(true);
           obj.GetObjects().Add(subobj);
@@ -575,7 +571,7 @@ public final void setObj(TurtleObject value) {
       boolean hyphen = false;
       boolean haveHyphen = false;
       boolean haveString = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int c2 = this.input.ReadChar();
         if (c2 >= 'A' && c2 <= 'Z') {
@@ -614,7 +610,7 @@ public final void setObj(TurtleObject value) {
           haveString = true;
         } else {
           if (c2 >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (hyphen || !haveString) {
             throw new ParserException();
@@ -641,7 +637,7 @@ public final void setObj(TurtleObject value) {
       }
       boolean haveDigits = ch >= '0' && ch <= '9';
       boolean haveDot = ch == '.';
-      this.input.setHardMark();
+      this.input.SetHardMark();
       while (true) {
         int ch1 = this.input.ReadChar();
         if (haveDigits && (ch1 == 'e' || ch1 == 'E')) {
@@ -671,7 +667,7 @@ public final void setObj(TurtleObject value) {
           } else {
             throw new ParserException();
           }
-          this.input.setHardMark();
+          this.input.SetHardMark();
           while (true) {
             ch1 = this.input.ReadChar();
             if (ch1 >= '0' && ch1 <= '9') {
@@ -687,12 +683,12 @@ public final void setObj(TurtleObject value) {
               }
             } else {
               if (ch1 >= 0) {
-                this.input.moveBack(1);
+                this.input.MoveBack(1);
               }
               if (!haveDigits) {
                 throw new ParserException();
               }
-              return RDFTerm.fromTypedString(
+              return RDFTerm.FromTypedString(
   ilist.toString(),
   "http://www.w3.org/2001/XMLSchema#double");
             }
@@ -710,21 +706,21 @@ public final void setObj(TurtleObject value) {
         } else if (!haveDot && ch1 == '.') {
           haveDot = true;
           // check for non-digit and non-E
-          int markpos = this.input.getMarkPosition();
+          int markpos = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (ch2 != 'e' && ch2 != 'E' && (ch2 < '0' || ch2 > '9')) {
             // move to just at the period and return
-            this.input.setMarkPosition(markpos - 1);
+            this.input.SetMarkPosition(markpos - 1);
             if (!haveDigits) {
               throw new ParserException();
             }
             String ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
                 "http://www.w3.org/2001/XMLSchema#integer";
-            return RDFTerm.fromTypedString(
+            return RDFTerm.FromTypedString(
   ilist.toString(),
   ns);
           } else {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (ch1 <= 0xffff) {
             {
@@ -736,14 +732,14 @@ public final void setObj(TurtleObject value) {
           }
         } else { // no more digits
           if (ch1 >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (!haveDigits) {
             throw new ParserException();
           }
           String ns = haveDot ? "http://www.w3.org/2001/XMLSchema#decimal" :
               "http://www.w3.org/2001/XMLSchema#integer";
-          return RDFTerm.fromTypedString(
+          return RDFTerm.FromTypedString(
   ilist.toString(),
   ns);
         }
@@ -752,12 +748,12 @@ public final void setObj(TurtleObject value) {
 
     private TurtleObject ReadObject(boolean acceptLiteral) {
       int ch = this.input.ReadChar();
-      int mark = this.input.setSoftMark();
+      int mark = this.input.SetSoftMark();
       if (ch < 0) {
         throw new ParserException();
       } else if (ch == '<') {
         return TurtleObject.FromTerm(
-  RDFTerm.fromIRI(this.ReadIriReference()));
+  RDFTerm.FromIRI(this.ReadIriReference()));
       } else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
         (ch >= '0' && ch <= '9'))) {
         return TurtleObject.FromTerm(this.ReadNumberLiteral(ch));
@@ -773,7 +769,7 @@ public final void setObj(TurtleObject value) {
         RDFTerm term = this.bnodeLabels.containsKey(label) ?
                     this.bnodeLabels.get(label) : null;
         if (term == null) {
-          term = RDFTerm.fromBlankNode(label);
+          term = RDFTerm.FromBlankNode(label);
           this.bnodeLabels.put(label, term);
         }
         return TurtleObject.FromTerm(term);
@@ -787,10 +783,10 @@ public final void setObj(TurtleObject value) {
           throw new ParserException();
         }
         return TurtleObject.FromTerm(
-            RDFTerm.fromIRI(scope + this.ReadOptionalLocalName()));
+            RDFTerm.FromIRI(scope + this.ReadOptionalLocalName()));
       } else if (this.IsNameStartChar(ch)) { // prefix
         if (acceptLiteral && (ch == 't' || ch == 'f')) {
-          mark = this.input.setHardMark();
+          mark = this.input.SetHardMark();
           if (ch == 't' && this.input.ReadChar() == 'r' &&
             this.input.ReadChar() == 'u' &&
               this.input.ReadChar() == 'e' && this.IsBooleanLiteralEnd()) {
@@ -800,7 +796,7 @@ public final void setObj(TurtleObject value) {
                 this.input.ReadChar() == 'e' && this.IsBooleanLiteralEnd()) {
             return TurtleObject.FromTerm(RDFTerm.FALSE);
           } else {
-            this.input.setMarkPosition(mark);
+            this.input.SetMarkPosition(mark);
           }
         }
         String prefix = this.ReadPrefix(ch);
@@ -810,9 +806,9 @@ public final void setObj(TurtleObject value) {
           throw new ParserException();
         }
         return TurtleObject.FromTerm(
-            RDFTerm.fromIRI(scope + this.ReadOptionalLocalName()));
+            RDFTerm.FromIRI(scope + this.ReadOptionalLocalName()));
       } else {
-        this.input.setMarkPosition(mark);
+        this.input.SetMarkPosition(mark);
         return null;
       }
     }
@@ -820,13 +816,13 @@ public final void setObj(TurtleObject value) {
     private void ReadObjectList(Set<RDFTriple> triples) {
       boolean haveObject = false;
       while (true) {
-        this.input.setSoftMark();
+        this.input.SetSoftMark();
         int ch;
         if (haveObject) {
           ch = this.input.ReadChar();
           if (ch != ',') {
             if (ch >= 0) {
-              this.input.moveBack(1);
+              this.input.MoveBack(1);
             }
             break;
           }
@@ -856,13 +852,13 @@ public final void setObj(TurtleObject value) {
         TurtleObject propertyList) {
       boolean haveObject = false;
       while (true) {
-        this.input.setSoftMark();
+        this.input.SetSoftMark();
         int ch;
         if (haveObject) {
           ch = this.input.ReadChar();
           if (ch != ',') {
             if (ch >= 0) {
-              this.input.moveBack(1);
+              this.input.MoveBack(1);
             }
             break;
           }
@@ -894,7 +890,7 @@ public final void setObj(TurtleObject value) {
       StringBuilder ilist = new StringBuilder();
       boolean lastIsPeriod = false;
       boolean first = true;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch < 0) {
@@ -956,12 +952,12 @@ public final void setObj(TurtleObject value) {
         if (first) {
           if (!this.IsNameStartCharU(ch) && ch != ':' &&
                (ch < '0' || ch > '9')) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
             return ilist.toString();
           }
         } else {
           if (!this.IsNameChar(ch) && ch != ':' && ch != '.') {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
             if (lastIsPeriod) {
               throw new ParserException();
             }
@@ -973,13 +969,13 @@ public final void setObj(TurtleObject value) {
           // if a period was just read, check
           // if the next character is valid before
           // adding the period.
-          int position = this.input.getMarkPosition();
+          int position = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (!this.IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
-            this.input.setMarkPosition(position - 1);
+            this.input.SetMarkPosition(position - 1);
             return ilist.toString();
           } else {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
         }
         first = false;
@@ -995,26 +991,26 @@ public final void setObj(TurtleObject value) {
     }
 
     private RDFTerm ReadPredicate() {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       RDFTerm predicate = null;
       if (ch == 'a') {
-        mark = this.input.setHardMark();
+        mark = this.input.SetHardMark();
         if (this.SkipWhitespace()) {
           return RDFTerm.A;
         } else {
-          this.input.setMarkPosition(mark);
+          this.input.SetMarkPosition(mark);
           String prefix = this.ReadPrefix('a');
           String scope = this.namespaces.get(prefix);
           if (scope == null) {
             throw new ParserException();
           }
-          predicate = RDFTerm.fromIRI(scope + this.ReadOptionalLocalName());
+          predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
           this.SkipWhitespace();
           return predicate;
         }
       } else if (ch == '<') {
-        predicate = RDFTerm.fromIRI(this.ReadIriReference());
+        predicate = RDFTerm.FromIRI(this.ReadIriReference());
         this.SkipWhitespace();
         return predicate;
       } else if (ch == ':') { // prefixed name with current prefix
@@ -1022,7 +1018,7 @@ public final void setObj(TurtleObject value) {
         if (scope == null) {
           throw new ParserException();
         }
-        predicate = RDFTerm.fromIRI(scope + this.ReadOptionalLocalName());
+        predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
         this.SkipWhitespace();
         return predicate;
       } else if (this.IsNameStartChar(ch)) { // prefix
@@ -1031,11 +1027,11 @@ public final void setObj(TurtleObject value) {
         if (scope == null) {
           throw new ParserException();
         }
-        predicate = RDFTerm.fromIRI(scope + this.ReadOptionalLocalName());
+        predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
         this.SkipWhitespace();
         return predicate;
       } else {
-        this.input.setMarkPosition(mark);
+        this.input.SetMarkPosition(mark);
         return null;
       }
     }
@@ -1048,7 +1044,7 @@ public final void setObj(TurtleObject value) {
         if (havePredObject) {
           boolean haveSemicolon = false;
           while (true) {
-            this.input.setSoftMark();
+            this.input.SetSoftMark();
             ch = this.input.ReadChar();
             // System.out.println("nextchar %c",(char)ch);
             if (ch == ';') {
@@ -1056,7 +1052,7 @@ public final void setObj(TurtleObject value) {
               haveSemicolon = true;
             } else {
               if (ch >= 0) {
-                this.input.moveBack(1);
+                this.input.MoveBack(1);
               }
               break;
             }
@@ -1088,12 +1084,12 @@ public final void setObj(TurtleObject value) {
       if (this.SkipWhitespace()) {
         return true;
       }
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       int ch = this.input.ReadChar();
       if (ch < 0) {
         return true;
       }
-      this.input.moveBack(1);
+      this.input.MoveBack(1);
       return this.IsNameChar(ch);
     }
 
@@ -1167,11 +1163,11 @@ public final void setObj(TurtleObject value) {
       while (true) {
         int c2 = this.input.ReadChar();
         if (first && c2 == ch) {
-          this.input.setHardMark();
+          this.input.SetHardMark();
           c2 = this.input.ReadChar();
           if (c2 != ch) {
             if (c2 >= 0) {
-              this.input.moveBack(1);
+              this.input.MoveBack(1);
             }
             return "";
           }
@@ -1258,12 +1254,12 @@ public final void setObj(TurtleObject value) {
     }
 
     private void ReadTriples(Set<RDFTriple> triples) {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       if (ch < 0) {
         return;
       }
-      this.input.setMarkPosition(mark);
+      this.input.SetMarkPosition(mark);
       TurtleObject subject = this.ReadObject(false);
       if (subject == null) {
         throw new ParserException();
@@ -1275,7 +1271,7 @@ public final void setObj(TurtleObject value) {
         this.ReadPredicateObjectList(triples);
       } else {
         this.SkipWhitespace();
-        this.input.setHardMark();
+        this.input.SetHardMark();
         ch = this.input.ReadChar();
         if (ch == '.') {
           // just a blank node property list;
@@ -1288,7 +1284,7 @@ public final void setObj(TurtleObject value) {
         } else if (ch < 0) {
           throw new ParserException();
         }
-        this.input.moveBack(1);
+        this.input.MoveBack(1);
         this.ReadPredicateObjectList(triples);
       }
       this.SkipWhitespace();
@@ -1354,7 +1350,7 @@ public final void setObj(TurtleObject value) {
 
     private boolean SkipWhitespace() {
       boolean haveWhitespace = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch == '#') {
@@ -1369,7 +1365,7 @@ public final void setObj(TurtleObject value) {
           }
         } else if (ch != 0x09 && ch != 0x0a && ch != 0x0d && ch != 0x20) {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           return haveWhitespace;
         }

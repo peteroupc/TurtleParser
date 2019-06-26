@@ -19,4 +19,5 @@ Not documented yet.
 * [com.upokecenter.util.IMarkableCharacterInput](com.upokecenter.util.IMarkableCharacterInput.md) -
 Not documented yet.
 
-* [com.upokecenter.util.StackableCharacterInput](com.upokecenter.util.StackableCharacterInput.md) -  
+* [com.upokecenter.util.StackableCharacterInput](com.upokecenter.util.StackableCharacterInput.md) -
+A character input stream where additional inputs can be

@@ -7,11 +7,9 @@ Not documented yet.
 ## Methods
 
 * `NTriplesParser​(com.upokecenter.util.IByteReader stream) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser
- class.
+ Initializes a new instance of the NTriplesParser class.
 * `NTriplesParser​(java.lang.String str) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser
- class.
+ Initializes a new instance of the NTriplesParser class.
 * `static boolean IsAsciiChar​(int c,
            java.lang.String asciiChars)`<br>
  Not documented yet.
@@ -21,18 +19,15 @@ Not documented yet.
 ## Constructors
 
 * `NTriplesParser​(com.upokecenter.util.IByteReader stream) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser
- class.
+ Initializes a new instance of the NTriplesParser class.
 * `NTriplesParser​(java.lang.String str) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser
- class.
+ Initializes a new instance of the NTriplesParser class.
 
 ## Method Details
 
 ### NTriplesParser
     public NTriplesParser​(com.upokecenter.util.IByteReader stream)
-Initializes a new instance of the <code>NTriplesParser</code>
- class.
+Initializes a new instance of the <code>NTriplesParser</code> class.
 
 **Parameters:**
 
@@ -44,8 +39,7 @@ Initializes a new instance of the <code>NTriplesParser</code>
 
 ### NTriplesParser
     public NTriplesParser​(java.lang.String str)
-Initializes a new instance of the <code>NTriplesParser</code>
- class.
+Initializes a new instance of the <code>NTriplesParser</code> class.
 
 **Parameters:**
 
@@ -67,7 +61,7 @@ Not documented yet.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code>.
+* Either <code>true</code> or <code>false</code> .
 
 ### Parse
     public java.util.Set<RDFTriple> Parse()

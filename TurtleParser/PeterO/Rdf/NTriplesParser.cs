@@ -13,31 +13,11 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  /// <xmlbegin id="16"/><summary>Not documented yet.</summary>
-  ///
+  /// <include file='../../docs.xml'
+  /// path='docs/doc[@name="T:PeterO.Rdf.NTriplesParser"]/*'/>
   public sealed class NTriplesParser : IRDFParser {
-    /// <xmlbegin id="17"/><summary>Not documented yet.</summary>
-    /// <param name='c'>The parameter <paramref name='c'/> is not
-    /// documented yet.</param>
-    /// <param name='asciiChars'>The parameter <paramref
-    /// name='asciiChars'/> is not documented yet.</param>
-    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.IsAsciiChar(System.Int32,System.String)"]/*'/>
     public static bool IsAsciiChar(int c, string asciiChars) {
       return c >= 0 && c <= 0x7f && asciiChars.IndexOf((char)c) >= 0;
     }
@@ -46,27 +26,10 @@ namespace PeterO.Rdf {
 
     private StackableCharacterInput input;
 
-    /// <xmlbegin id="18"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='stream'/> is null.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
         throw new ArgumentNullException(nameof(stream));
@@ -78,28 +41,11 @@ namespace PeterO.Rdf {
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
-    /// <xmlbegin id="19"/><summary>Initializes a new instance of the
-    /// <see cref='T:PeterO.Rdf.NTriplesParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// "stream" is null.</exception>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
     public NTriplesParser(string str) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -115,7 +61,7 @@ namespace PeterO.Rdf {
       } else if (ch == 0x0d) {
         ch = this.input.ReadChar();
         if (ch != 0x0a && ch >= 0) {
-          this.input.moveBack(1);
+          this.input.MoveBack(1);
         }
       } else {
         throw new ParserException();
@@ -123,46 +69,30 @@ namespace PeterO.Rdf {
     }
 
     private RDFTerm FinishStringLiteral(string str) {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
       if (ch == '@') {
-        return RDFTerm.fromLangString(str, this.ReadLanguageTag());
+        return RDFTerm.FromLangString(str, this.ReadLanguageTag());
       } else if (ch == '^' && this.input.ReadChar() == '^') {
         ch = this.input.ReadChar();
         if (ch == '<') {
-          return RDFTerm.fromTypedString(str, this.ReadIriReference());
+          return RDFTerm.FromTypedString(str, this.ReadIriReference());
         } else {
           throw new ParserException();
         }
       } else {
-        this.input.setMarkPosition(mark);
-        return RDFTerm.fromTypedString(str);
+        this.input.SetMarkPosition(mark);
+        return RDFTerm.FromTypedString(str);
       }
     }
 
-    /// <xmlbegin id="20"/><summary>Not documented yet.</summary>
-    /// <returns>An ISet(RDFTriple) object.</returns>
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-  ///
+    /// <include file='../../docs.xml'
+    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.Parse"]/*'/>
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {
         this.SkipWhitespace();
-        this.input.setHardMark();
+        this.input.SetHardMark();
         int ch = this.input.ReadChar();
         if (ch < 0) {
           return rdf;
@@ -180,7 +110,7 @@ namespace PeterO.Rdf {
         } else if (ch == 0x0a || ch == 0x0d) {
           this.EndOfLine(ch);
         } else {
-          this.input.moveBack(1);
+          this.input.MoveBack(1);
           rdf.Add(this.ReadTriples());
         }
       }
@@ -201,7 +131,7 @@ namespace PeterO.Rdf {
         ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) + 0xd800));
         ilist.Append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
       }
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') ||
@@ -216,7 +146,7 @@ namespace PeterO.Rdf {
           }
         } else {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           return ilist.ToString();
         }
@@ -280,7 +210,7 @@ namespace PeterO.Rdf {
       var hyphen = false;
       var haveHyphen = false;
       var haveString = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int c2 = this.input.ReadChar();
         if (c2 >= 'a' && c2 <= 'z') {
@@ -322,7 +252,7 @@ namespace PeterO.Rdf {
           haveString = true;
         } else {
           if (c2 >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           if (hyphen || !haveString) {
             throw new ParserException();
@@ -337,7 +267,7 @@ namespace PeterO.Rdf {
       if (ch < 0) {
         throw new ParserException();
       } else if (ch == '<') {
-        return RDFTerm.fromIRI(this.ReadIriReference());
+        return RDFTerm.FromIRI(this.ReadIriReference());
       } else if (acceptLiteral && (ch == '\"')) { // start of quote literal
         string str = this.ReadStringLiteral(ch);
         return this.FinishStringLiteral(str);
@@ -348,7 +278,7 @@ namespace PeterO.Rdf {
         string label = this.ReadBlankNodeLabel();
         RDFTerm term = this.bnodeLabels[label];
         if (term == null) {
-          term = RDFTerm.fromBlankNode(label);
+          term = RDFTerm.FromBlankNode(label);
           this.bnodeLabels.Add(label, term);
         }
         return term;
@@ -389,7 +319,7 @@ namespace PeterO.Rdf {
     }
 
     private RDFTriple ReadTriples() {
-      int mark = this.input.setHardMark();
+      int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
 #if DEBUG
       if (!(ch >= 0)) {
@@ -398,7 +328,7 @@ namespace PeterO.Rdf {
         }
       }
 #endif
-      this.input.setMarkPosition(mark);
+      this.input.SetMarkPosition(mark);
       RDFTerm subject = this.ReadObject(false);
       if (!this.SkipWhitespace()) {
         throw new ParserException();
@@ -406,7 +336,7 @@ namespace PeterO.Rdf {
       if (this.input.ReadChar() != '<') {
         throw new ParserException();
       }
-      RDFTerm predicate = RDFTerm.fromIRI(this.ReadIriReference());
+      RDFTerm predicate = RDFTerm.FromIRI(this.ReadIriReference());
       if (!this.SkipWhitespace()) {
         throw new ParserException();
       }
@@ -481,12 +411,12 @@ namespace PeterO.Rdf {
 
     private bool SkipWhitespace() {
       var haveWhitespace = false;
-      this.input.setSoftMark();
+      this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if (ch != 0x09 && ch != 0x20) {
           if (ch >= 0) {
-            this.input.moveBack(1);
+            this.input.MoveBack(1);
           }
           return haveWhitespace;
         }
