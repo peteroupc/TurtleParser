@@ -475,11 +475,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.ArrayWriter.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.ArrayWriter'/> class with a default buffer size.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.ArrayWriter'/>
+       class with a default buffer size.
     </summary>
   </doc>
   <doc name='M:PeterO.ArrayWriter.#ctor(System.Int32)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.ArrayWriter'/> class with the given initial buffer size.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.ArrayWriter'/>
+       class with the given initial buffer size.
     </summary>
     <param name='initialSize'>The parameter
       <paramref name='initialSize'/>
@@ -742,7 +746,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.BinaryIO.#ctor(System.IO.Stream)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.BinaryIO'/> class. Initializes a new BinaryIO instance.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.BinaryIO'/>
+       class. Initializes a new BinaryIO instance.
     </summary>
     <param name='stream'>The parameter
       <paramref name='stream'/>
@@ -1205,11 +1211,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Cbor.CBOREncodeOptions.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.CBOREncodeOptions'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.CBOREncodeOptions'/>
+       class.
     </summary>
   </doc>
   <doc name='M:PeterO.Cbor.CBOREncodeOptions.#ctor(System.Boolean,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.CBOREncodeOptions'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.CBOREncodeOptions'/>
+       class.
     </summary>
     <param name='useIndefLengthStrings'>A value indicating whether to always encode strings with a definite-length
       encoding.
@@ -1288,11 +1298,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Cbor.CBORException.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.CBORException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.CBORException'/>
+       class.
     </summary>
   </doc>
   <doc name='M:PeterO.Cbor.CBORException.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.CBORException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.CBORException'/>
+       class.
     </summary>
     <param name='message'>The parameter
       <paramref name='message'/>
@@ -1300,7 +1314,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Cbor.CBORException.#ctor(System.String,System.Exception)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.CBORException'/> class. Uses the given message and inner exception.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.CBORException'/>
+       class. Uses the given message and inner exception.
     </summary>
     <param name='message'>The parameter
       <paramref name='message'/>
@@ -3058,7 +3074,8 @@
         var keyString=(key.CBORType==CBORType.String) ? key.AsString() :
         key.ToJSONString(); builder.Append(CBORObject.FromObject(keyString)
         .ToJSONString()) .Append(":").Append(mapObj[key].ToJSONString());
-        first=false; } } return builder.Append("}").ToString(); }</code> </summary>
+        first=false; } } return builder.Append("}").ToString(); }</code> .
+    </summary>
     <param name='options'>An object containing the options to control writing the CBOR object to
       JSON.
     </param>
@@ -3525,7 +3542,8 @@
         map."); } outputStream.WriteByte((byte)0xBF); for(CBORObject key in
         keys)[ if(mapObj.ContainsKey(key)){ key.WriteTo(outputStream);
         mapObj[key].WriteTo(outputStream); } }
-        outputStream.WriteByte((byte)0xBF); }</code> </summary>
+        outputStream.WriteByte((byte)0xBF); }</code> .
+    </summary>
     <param name='stream'>A writable data stream.
     </param>
   </doc>
@@ -4007,11 +4025,15 @@
     <seealso cref='M:PeterO.Cbor.CBORObject.ToJSONString'/>
   </doc>
   <doc name='M:PeterO.Cbor.JSONOptions.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.JSONOptions'/> class with default options.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.JSONOptions'/>
+       class with default options.
     </summary>
   </doc>
   <doc name='M:PeterO.Cbor.JSONOptions.#ctor(System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.JSONOptions'/> class with the given values for the options.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.JSONOptions'/>
+       class with the given values for the options.
     </summary>
     <param name='base64Padding'>Whether padding is included when writing data in base64url or traditional
       base64 format to JSON.
@@ -4038,11 +4060,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Cbor.PODOptions.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.PODOptions'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.PODOptions'/>
+       class.
     </summary>
   </doc>
   <doc name='M:PeterO.Cbor.PODOptions.#ctor(System.Boolean,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Cbor.PODOptions'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Cbor.PODOptions'/>
+       class.
     </summary>
     <param name='removeIsPrefix'>If set to
       <c>true</c> remove is prefix.
@@ -4073,7 +4099,8 @@
   </doc>
   <doc name='T:PeterO.Cbor.StringRefs'>
     <summary>Implements CBOR string references, described at
-      <c>http://cbor.schmorp.de/stringref</c> </summary>
+      <c>http://cbor.schmorp.de/stringref</c> .
+    </summary>
   </doc>
   <doc name='T:PeterO.Cbor.URIUtility'>
     <summary>Contains utility methods for processing Uniform Resource Identifiers
@@ -4150,7 +4177,8 @@
       <para>The following cases return true:
       </para>
       <code>xx-x:mm example:/ww</code> The following cases return false:
-      <code>x@y:/z /x/y/z example.xyz</code> </summary>
+      <code>x@y:/z /x/y/z example.xyz</code> .
+    </summary>
     <param name='refValue'>A string representing an IRI to check.
     </param>
     <returns><c>true</c> if the string is a valid IRI with a scheme component; otherwise,
@@ -4162,7 +4190,8 @@
       can be used to check for relative URI references. The following cases
       return true:
       <code>http://example/z xx-x:mm example:/ww</code> The following cases return false:
-      <code>x@y:/z /x/y/z example.xyz</code> </summary>
+      <code>x@y:/z /x/y/z example.xyz</code> .
+    </summary>
     <param name='refValue'>A string representing an IRI to check.
     </param>
     <returns><c>true</c> if the string is a valid URI with a scheme component; otherwise,
@@ -5125,7 +5154,9 @@
     </typeparam>
   </doc>
   <doc name='M:PeterO.DisposableList`1.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.DisposableList`1'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.DisposableList`1'/>
+       class.
     </summary>
   </doc>
   <doc name='M:PeterO.DisposableList`1.Add(`0)'>
@@ -5955,7 +5986,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.ExtendedRational.#ctor(PeterO.BigInteger,PeterO.BigInteger)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.ExtendedRational'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.ExtendedRational'/>
+       class.
     </summary>
     <param name='numerator'>An arbitrary-precision integer.
     </param>
@@ -6294,7 +6327,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.IniEntry.#ctor(PeterO.IniEntry)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniEntry'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniEntry'/>
+       class.
     </summary>
     <param name='entry'>The parameter
       <paramref name='entry'/>
@@ -6306,7 +6341,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.IniEntry.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniEntry'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniEntry'/>
+       class.
     </summary>
     <param name='comment'>The parameter
       <paramref name='comment'/>
@@ -6318,7 +6355,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.IniEntry.#ctor(System.String,System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniEntry'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniEntry'/>
+       class.
     </summary>
     <param name='key'>The parameter
       <paramref name='key'/>
@@ -6365,11 +6404,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.IniFile.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniFile'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniFile'/>
+       class.
     </summary>
   </doc>
   <doc name='M:PeterO.IniFile.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniFile'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniFile'/>
+       class.
     </summary>
     <param name='path'>The parameter
       <paramref name='path'/>
@@ -6377,7 +6420,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.IniFile.#ctor(System.String,PeterO.IniMergeBehavior)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniFile'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniFile'/>
+       class.
     </summary>
     <param name='path'>The parameter
       <paramref name='path'/>
@@ -6523,7 +6568,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.IniSection.#ctor(PeterO.IniSection)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniSection'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniSection'/>
+       class.
     </summary>
     <param name='other'>The parameter
       <paramref name='other'/>
@@ -6531,7 +6578,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.IniSection.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.IniSection'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.IniSection'/>
+       class.
     </summary>
     <param name='name'>The parameter
       <paramref name='name'/>
@@ -6851,7 +6900,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.Address.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.Address'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.Address'/>
+       class.
     </summary>
     <param name='addressValue'>An email address.
     </param>
@@ -7234,11 +7285,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.DispositionBuilder.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.DispositionBuilder'/> class using the disposition type "attachment".
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.DispositionBuilder'/>
+       class using the disposition type "attachment".
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.DispositionBuilder.#ctor(PeterO.Mail.ContentDisposition)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.DispositionBuilder'/> class using the data from the given content disposition.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.DispositionBuilder'/>
+       class using the data from the given content disposition.
     </summary>
     <param name='mt'>The parameter
       <paramref name='mt'/>
@@ -7250,7 +7305,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.Mail.DispositionBuilder.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.DispositionBuilder'/> class using the given disposition type.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.DispositionBuilder'/>
+       class using the given disposition type.
     </summary>
     <param name='type'>The parameter
       <paramref name='type'/>
@@ -7893,11 +7950,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.MediaTypeBuilder.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.MediaTypeBuilder'/> class, using the type "application/octet-stream".
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.MediaTypeBuilder'/>
+       class, using the type "application/octet-stream".
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.MediaTypeBuilder.#ctor(PeterO.Mail.MediaType)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.MediaTypeBuilder'/> class using the data from another media type.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.MediaTypeBuilder'/>
+       class using the data from another media type.
     </summary>
     <param name='mt'>The parameter
       <paramref name='mt'/>
@@ -7905,7 +7966,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Mail.MediaTypeBuilder.#ctor(System.String,System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.MediaTypeBuilder'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.MediaTypeBuilder'/>
+       class.
     </summary>
     <param name='type'>The media type's top-level type.
     </param>
@@ -8132,18 +8195,24 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.Message.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.Message'/> class. The message will be plain text and have an artificial From
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.Message'/>
+       class. The message will be plain text and have an artificial From
       address.
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.Message.#ctor(System.Byte[])'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.Message'/> class. Reads from the given byte array to initialize the message.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.Message'/>
+       class. Reads from the given byte array to initialize the message.
     </summary>
     <param name='bytes'>A readable data stream.
     </param>
   </doc>
   <doc name='M:PeterO.Mail.Message.#ctor(System.IO.Stream)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.Message'/> class. Reads from the given Stream object to initialize the message.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.Message'/>
+       class. Reads from the given Stream object to initialize the message.
     </summary>
     <param name='stream'>A readable data stream.
     </param>
@@ -8170,7 +8239,8 @@
       method that adds an attachment from a byte array to a message.
       <code>public static Message AddAttachmentFromBytes(this Message msg, byte[]
         bytes, MediaType mediaType){ using(var fs=new MemoryStream(bytes)){
-        return msg.AddAttachment(fs,mediaType); } }</code> </example>
+        return msg.AddAttachment(fs,mediaType); } }</code> .
+    </example>
     <param name='inputStream'>A readable data stream.
     </param>
     <param name='mediaType'>A media type to assign to the attachment.
@@ -8211,7 +8281,8 @@
       method that adds an attachment from a data file to a message.
       <code>public static Message AddAttachmentFromFile(this Message msg, string
         filename){ using(var fs=new FileStream(filename,FileMode.Open)){ return
-        msg.AddAttachment(fs,filename); } }</code> </example>
+        msg.AddAttachment(fs,filename); } }</code> .
+    </example>
     <param name='inputStream'>A readable data stream.
     </param>
     <param name='filename'>A file name to assign to the attachment. If the file name has one of
@@ -8288,7 +8359,8 @@
       method that adds an inline body part from a byte array to a message.
       <code>public static Message AddInlineFromBytes(this Message msg, byte[] bytes,
         MediaType mediaType){ using(var fs=new MemoryStream(bytes)){ return
-        msg.AddInline(fs,mediaType); } }</code> </example>
+        msg.AddInline(fs,mediaType); } }</code> .
+    </example>
     <param name='inputStream'>A readable data stream.
     </param>
     <param name='mediaType'>A media type to assign to the body part.
@@ -8323,7 +8395,8 @@
       method that adds an inline body part from a data file to a message.
       <code>public static Message AddAttachmentFromInline(this Message msg, string
         filename){ using(var fs=new FileStream(filename,FileMode.Open)){ return
-        msg.AddInline(fs,filename); } }</code> </example>
+        msg.AddInline(fs,filename); } }</code> .
+    </example>
     <param name='inputStream'>A readable data stream.
     </param>
     <param name='filename'>A file name to assign to the body part. If the file name has one of
@@ -8854,17 +8927,23 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.MessageDataException.#ctor'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.MessageDataException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.MessageDataException'/>
+       class.
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.MessageDataException.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.MessageDataException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.MessageDataException'/>
+       class.
     </summary>
     <param name='message'>A string to use as the exception message.
     </param>
   </doc>
   <doc name='M:PeterO.Mail.MessageDataException.#ctor(System.String,System.Exception)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.MessageDataException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.MessageDataException'/>
+       class.
     </summary>
     <param name='message'>A string to use as the exception message.
     </param>
@@ -8879,7 +8958,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.NamedAddress.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.NamedAddress'/> class. Examples:
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.NamedAddress'/>
+       class. Examples:
       <list>
         <item><c>john@example.com</c> </item>
         <item><c>"John Doe" &lt;john@example.com&gt;</c> </item>
@@ -8915,7 +8996,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.Mail.NamedAddress.#ctor(System.String,PeterO.Mail.Address)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.NamedAddress'/> class using the given display name and email address.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.NamedAddress'/>
+       class using the given display name and email address.
     </summary>
     <param name='displayName'>The display name of the email address. Can be null or empty. Encoded words
       under RFC 2047 will not be decoded.
@@ -8924,7 +9007,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Mail.NamedAddress.#ctor(System.String,System.Collections.Generic.IList{PeterO.Mail.NamedAddress})'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.NamedAddress'/> class. Takes a group name and several named email addresses as
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.NamedAddress'/>
+       class. Takes a group name and several named email addresses as
       parameters, and forms a group with them.
     </summary>
     <param name='groupName'>The group's name.
@@ -8943,7 +9028,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.Mail.NamedAddress.#ctor(System.String,System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.NamedAddress'/> class using the given display name and email address.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.NamedAddress'/>
+       class using the given display name and email address.
     </summary>
     <param name='displayName'>The display name of the email address. Can be null or empty. Encoded words
       under RFC 2047 will not be decoded.
@@ -8954,7 +9041,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.Mail.NamedAddress.#ctor(System.String,System.String,System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.NamedAddress'/> class using the given name and an email address made up of its local part
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.NamedAddress'/>
+       class using the given name and an email address made up of its local part
       and domain.
     </summary>
     <param name='displayName'>The display name of the email address. Can be null or empty.
@@ -9051,7 +9140,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Mail.StringAndQuality.#ctor(System.String,System.Int32)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Mail.StringAndQuality'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Mail.StringAndQuality'/>
+       class.
     </summary>
     <param name='value'>An arbitrary text string.
     </param>
@@ -9125,7 +9216,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Numbers.EContext.#ctor(System.Int32,PeterO.Numbers.ERounding,System.Int32,System.Int32,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Numbers.EContext'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Numbers.EContext'/>
+       class.
       <c>HasFlags</c> will be set to false.
     </summary>
     <param name='precision'>The maximum number of digits a number can have, or 0 for an unlimited
@@ -10072,7 +10165,8 @@
   </doc>
   <doc name='M:PeterO.Numbers.EDecimal.Create(PeterO.Numbers.EInteger,PeterO.Numbers.EInteger)'>
     <summary>Creates a number with the value
-      <c>exponent*10^mantissa</c> </summary>
+      <c>exponent*10^mantissa</c> .
+    </summary>
     <param name='mantissa'>Desired value for the mantissa.
     </param>
     <param name='exponent'>Desired value for the exponent.
@@ -10082,7 +10176,8 @@
   </doc>
   <doc name='M:PeterO.Numbers.EDecimal.Create(System.Int32,System.Int32)'>
     <summary>Creates a number with the value
-      <c>exponent*10^mantissa</c> </summary>
+      <c>exponent*10^mantissa</c> .
+    </summary>
     <param name='mantissaSmall'>Desired value for the mantissa.
     </param>
     <param name='exponentSmall'>Desired value for the exponent.
@@ -11714,7 +11809,8 @@
   </doc>
   <doc name='M:PeterO.Numbers.EDecimal.RemainderNaturalScale(PeterO.Numbers.EDecimal)'>
     <summary>Calculates the remainder of a number by the formula
-      <c>"this" - (("this" / "divisor") * "divisor")</c> </summary>
+      <c>"this" - (("this" / "divisor") * "divisor")</c> .
+    </summary>
     <param name='divisor'>The number to divide by.
     </param>
     <returns>An arbitrary-precision decimal number.
@@ -14739,7 +14835,8 @@
   </doc>
   <doc name='M:PeterO.Numbers.EFloat.RemainderNaturalScale(PeterO.Numbers.EFloat)'>
     <summary>Calculates the remainder of a number by the formula
-      <c>"this" - (("this" / "divisor") * "divisor")</c> </summary>
+      <c>"this" - (("this" / "divisor") * "divisor")</c> .
+    </summary>
     <param name='divisor'>The number to divide by.
     </param>
     <returns>An arbitrary-precision binary float.
@@ -17208,7 +17305,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Numbers.ERational.#ctor(PeterO.Numbers.EInteger,PeterO.Numbers.EInteger)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Numbers.ERational'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Numbers.ERational'/>
+       class.
     </summary>
     <param name='numerator'>The numerator.
     </param>
@@ -18603,7 +18702,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Numbers.ETrapException.#ctor(System.Int32,PeterO.Numbers.EContext,System.Object)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Numbers.ETrapException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Numbers.ETrapException'/>
+       class.
     </summary>
     <param name='flag'>A flag that specifies the kind of error (
       <c>EContext.FlagXXYY</c> ). This will only be one flag, such as
@@ -18740,7 +18841,9 @@
     </typeparam>
   </doc>
   <doc name='M:PeterO.Pair`2.#ctor(`0,`1)'>
-    <summary>Initializes a new instance of the <see cref='!:&lt;TFirst,TSecond&gt;'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='!:&lt;TFirst,TSecond&gt;'/>
+       class.
     </summary>
     <param name='first'>The parameter
       <paramref name='first'/>
@@ -18806,7 +18909,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.PartialStream.#ctor(System.IO.Stream,System.Int64,System.Int64)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.PartialStream'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.PartialStream'/>
+       class.
     </summary>
     <param name='stream'>The parameter
       <paramref name='stream'/>
@@ -18822,7 +18927,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.PartialStream.#ctor(System.IO.Stream,System.Int64,System.Int64,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.PartialStream'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.PartialStream'/>
+       class.
     </summary>
     <param name='stream'>The parameter
       <paramref name='stream'/>
@@ -18973,7 +19080,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Png.#ctor(System.Int32,System.Int32)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Png'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Png'/>
+       class.
     </summary>
     <param name='width'>The parameter
       <paramref name='width'/>
@@ -19099,7 +19208,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Png4BitIndexed.#ctor(System.Int32,System.Int32)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Png4BitIndexed'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Png4BitIndexed'/>
+       class.
     </summary>
     <param name='width'>The parameter
       <paramref name='width'/>
@@ -19191,7 +19302,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Png8BitIndexed.#ctor(System.Int32,System.Int32)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Png8BitIndexed'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Png8BitIndexed'/>
+       class.
     </summary>
     <param name='width'>The parameter
       <paramref name='width'/>
@@ -19301,7 +19414,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.PrecisionContext.#ctor(System.Int32,PeterO.Rounding,System.Int32,System.Int32,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.PrecisionContext'/> class. HasFlags will be set to false.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.PrecisionContext'/>
+       class. HasFlags will be set to false.
     </summary>
     <param name='precision'>The maximum number of digits a number can have, or 0 for an unlimited
       number of digits.
@@ -19338,7 +19453,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Rdf.NTriplesParser.#ctor(PeterO.IByteReader)'>
-    <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='NTriplesParser'/>
+       class.
     </summary>
     <param name='stream'>A PeterO.IByteReader object.
     </param>
@@ -19348,7 +19465,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.Rdf.NTriplesParser.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='NTriplesParser'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -19400,11 +19519,15 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Rdf.ParserException.#ctor'>
-    <summary>Initializes a new instance of the <see cref='ParserException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='ParserException'/>
+       class.
     </summary>
   </doc>
   <doc name='M:PeterO.Rdf.ParserException.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='ParserException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='ParserException'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -19679,7 +19802,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm,PeterO.Rdf.RDFTerm)'>
-    <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='RDFTriple'/>
+       class.
     </summary>
     <param name='subject'>The subject term.
     </param>
@@ -19689,7 +19814,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)'>
-    <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='RDFTriple'/>
+       class.
     </summary>
     <param name='triple'>The parameter
       <paramref name='triple'/>
@@ -19763,13 +19890,17 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader)'>
-    <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='TurtleParser'/>
+       class.
     </summary>
     <param name='stream'>A PeterO.IByteReader object.
     </param>
   </doc>
   <doc name='M:PeterO.Rdf.TurtleParser.#ctor(PeterO.IByteReader,System.String)'>
-    <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='TurtleParser'/>
+       class.
     </summary>
     <param name='stream'>A PeterO.IByteReader object.
     </param>
@@ -19787,7 +19918,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.Rdf.TurtleParser.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='TurtleParser'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -19795,7 +19928,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Rdf.TurtleParser.#ctor(System.String,System.String)'>
-    <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='TurtleParser'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -19885,7 +20020,8 @@
       <para>The following cases return true:
       </para>
       <code>xx-x:mm example:/ww</code> The following cases return false:
-      <code>x@y:/z /x/y/z example.xyz</code> </summary>
+      <code>x@y:/z /x/y/z example.xyz</code> .
+    </summary>
     <param name='refValue'>A string representing an IRI to check.
     </param>
     <returns><c>true</c> if the string is a valid IRI with a scheme component; otherwise,
@@ -19897,7 +20033,8 @@
       can be used to check for relative URI references. The following cases
       return true:
       <code>http://example/z xx-x:mm example:/ww</code> The following cases return false:
-      <code>x@y:/z /x/y/z example.xyz</code> </summary>
+      <code>x@y:/z /x/y/z example.xyz</code> .
+    </summary>
     <param name='refValue'>A string representing an IRI to check.
     </param>
     <returns><c>true</c> if the string is a valid URI with a scheme component; otherwise,
@@ -20112,11 +20249,13 @@
     </returns>
   </doc>
   <doc name='T:PeterO.StackableCharacterInput'>
-    <summary>A character input stream where additional inputs can be
+    <summary>A character input stream where additional inputs can be stacked on.
     </summary>
   </doc>
   <doc name='M:PeterO.StackableCharacterInput.#ctor(PeterO.Text.ICharacterInput)'>
-    <summary>Initializes a new instance of the <see cref='StackableCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='StackableCharacterInput'/>
+       class.
     </summary>
     <param name='source'>The parameter
       <paramref name='source'/>
@@ -20246,7 +20385,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.IO.Stream)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class; will read the stream as UTF-8, skip the byte-order mark (U+FEFF)
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class; will read the stream as UTF-8, skip the byte-order mark (U+FEFF)
       if it appears first in the stream, and replace invalid byte sequences with
       replacement characters (U+FFFD).
     </summary>
@@ -20254,7 +20395,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.IO.Stream,System.Int32)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class; will skip the byte-order mark (U+FEFF) if it appears first in the
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class; will skip the byte-order mark (U+FEFF) if it appears first in the
       stream and replace invalid byte sequences with replacement characters
       (U+FFFD).
     </summary>
@@ -20283,7 +20426,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.IO.Stream,System.Int32,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class; will skip the byte-order mark (U+FEFF) if it appears first in the
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class; will skip the byte-order mark (U+FEFF) if it appears first in the
       stream.
     </summary>
     <param name='stream'>A readable byte stream.
@@ -20316,7 +20461,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.IO.Stream,System.Int32,System.Boolean,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class.
     </summary>
     <param name='stream'>A readable byte stream.
     </param>
@@ -20351,7 +20498,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class using a Unicode 16-bit string; if the string begins with a
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class using a Unicode 16-bit string; if the string begins with a
       byte-order mark (U+FEFF), it won't be skipped, and any unpaired surrogate
       code points (U+D800 to U+DFFF) in the string are replaced with replacement
       characters (U+FFFD).
@@ -20360,7 +20509,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.String,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class using a Unicode 16-bit string; any unpaired surrogate code points
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class using a Unicode 16-bit string; any unpaired surrogate code points
       (U+D800 to U+DFFF) in the string are replaced with replacement characters
       (U+FFFD).
     </summary>
@@ -20371,7 +20522,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.String,System.Boolean,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class using a Unicode 16-bit string.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class using a Unicode 16-bit string.
     </summary>
     <param name='str'>The string to read.
     </param>
@@ -20384,7 +20537,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.String,System.Int32,System.Int32)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -20402,7 +20557,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.CharacterReader.#ctor(System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.CharacterReader'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.CharacterReader'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -21617,7 +21774,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Text.Normalizer.#ctor(System.String,PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.Normalizer'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.Normalizer'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -21777,7 +21936,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Text.NormalizerInput.#ctor(PeterO.Text.ICharacterInput)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizerInput'/> class using Normalization Form C.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizerInput'/>
+       class using Normalization Form C.
     </summary>
     <param name='input'>The parameter
       <paramref name='input'/>
@@ -21785,7 +21946,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizerInput.#ctor(PeterO.Text.ICharacterInput,PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizerInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizerInput'/>
+       class.
     </summary>
     <param name='stream'>The parameter
       <paramref name='stream'/>
@@ -21795,13 +21958,17 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizerInput.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizerInput'/> class using Normalization Form C.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizerInput'/>
+       class using Normalization Form C.
     </summary>
     <param name='str'>A string specifying the text to normalize.
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizerInput.#ctor(System.String,PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizerInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizerInput'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -21811,7 +21978,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizerInput.#ctor(System.String,System.Int32,System.Int32,PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizerInput'/> class. Uses a portion of a string as the input.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizerInput'/>
+       class. Uses a portion of a string as the input.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -21986,7 +22155,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.Text.NormalizingCharacterInput.#ctor(PeterO.Text.ICharacterInput)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizingCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizingCharacterInput'/>
+       class.
     </summary>
     <param name='input'>The parameter
       <paramref name='input'/>
@@ -21994,7 +22165,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizingCharacterInput.#ctor(PeterO.Text.ICharacterInput,PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizingCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizingCharacterInput'/>
+       class.
     </summary>
     <param name='stream'>The parameter
       <paramref name='stream'/>
@@ -22006,7 +22179,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizingCharacterInput.#ctor(System.Collections.Generic.IList{System.Int32})'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizingCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizingCharacterInput'/>
+       class.
     </summary>
     <param name='characterList'>The parameter
       <paramref name='characterList'/>
@@ -22014,7 +22189,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizingCharacterInput.#ctor(System.Collections.Generic.IList{System.Int32},PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizingCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizingCharacterInput'/>
+       class.
     </summary>
     <param name='characterList'>The parameter
       <paramref name='characterList'/>
@@ -22026,7 +22203,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizingCharacterInput.#ctor(System.String)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizingCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizingCharacterInput'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -22034,7 +22213,9 @@
     </param>
   </doc>
   <doc name='M:PeterO.Text.NormalizingCharacterInput.#ctor(System.String,PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizingCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizingCharacterInput'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -22050,7 +22231,9 @@
     </exception>
   </doc>
   <doc name='M:PeterO.Text.NormalizingCharacterInput.#ctor(System.String,System.Int32,System.Int32,PeterO.Text.Normalization)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.Text.NormalizingCharacterInput'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.Text.NormalizingCharacterInput'/>
+       class.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -22202,7 +22385,9 @@
     </summary>
   </doc>
   <doc name='M:PeterO.TrapException.#ctor(System.Int32,PeterO.PrecisionContext,System.Object)'>
-    <summary>Initializes a new instance of the <see cref='T:PeterO.TrapException'/> class.
+    <summary>Initializes a new instance of the
+      <see cref='T:PeterO.TrapException'/>
+       class.
     </summary>
     <param name='flag'>A flag that specifies the kind of error (PrecisionContext.FlagXXX). This
       will only be one flag, such as FlagInexact or FlagSubnormal.
@@ -22471,7 +22656,8 @@
        Useful in queries where the index must be manipulated or returned by the
       query. For example:
       <code>from o in Util.EachWithIndex(objects) where IndexMeetsCriteria(o.Second)
-        select o.First</code> </remarks>
+        select o.First</code> .
+    </remarks>
   </doc>
   <doc name='M:PeterO.Util.GetSegment``1(System.Collections.Generic.IList{``0},System.Int32)'>
     <summary>Not documented yet.

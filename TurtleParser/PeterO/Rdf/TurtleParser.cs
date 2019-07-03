@@ -116,12 +116,15 @@ namespace PeterO.Rdf {
     private StackableCharacterInput input;
     private int curBlankNode = 0;
 
-    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+    /// <xmlbegin id="7"/><summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
+  ///
+  ///
+  ///
     public TurtleParser(IByteReader stream) : this(stream, "about:blank") {
     }
 
-    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+    /// <xmlbegin id="8"/><summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
     /// <param name='baseURI'>The parameter <paramref name='baseURI'/> is a
     /// text string.</param>
@@ -129,6 +132,9 @@ namespace PeterO.Rdf {
     /// <paramref name='stream'/> or <paramref name='baseURI'/> is
     /// null.</exception>
     /// <exception cref='T:System.ArgumentException'>BaseURI.</exception>
+  ///
+  ///
+  ///
     public TurtleParser(IByteReader stream, string baseURI) {
       if (stream == null) {
         throw new ArgumentNullException(nameof(stream));
@@ -146,13 +152,16 @@ namespace PeterO.Rdf {
       this.namespaces = new Dictionary<string, string>();
     }
 
-    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+    /// <xmlbegin id="9"/><summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
+  ///
+  ///
+  ///
     public TurtleParser(string str) : this(str, "about:blank") {
     }
 
-    /// <summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
+    /// <xmlbegin id="10"/><summary>Initializes a new instance of the <see cref='TurtleParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
     /// <param name='baseURI'>The parameter <paramref name='baseURI'/> is a
@@ -161,6 +170,9 @@ namespace PeterO.Rdf {
     /// <paramref name='str'/> or <paramref name='baseURI'/> is
     /// null.</exception>
     /// <exception cref='T:System.ArgumentException'>BaseURI.</exception>
+  ///
+  ///
+  ///
     public TurtleParser(string str, string baseURI) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));

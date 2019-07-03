@@ -2,7 +2,7 @@
 
     public final class StackableCharacterInput extends java.lang.Object implements IMarkableCharacterInput
 
-A character input stream where additional inputs can be
+A character input stream where additional inputs can be stacked on.
 
 ## Methods
 

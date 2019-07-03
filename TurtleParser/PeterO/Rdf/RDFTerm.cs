@@ -14,18 +14,30 @@ namespace PeterO.Rdf {
   /// <include file='../../docs.xml'
   /// path='docs/doc[@name="T:PeterO.Rdf.RDFTerm"]/*'/>
   public sealed class RDFTerm {
-    /// <summary>Type value for a blank node.</summary>
+    /// <xmlbegin id="11"/><summary>Type value for a blank node.</summary>
+  ///
+  ///
+  ///
     public const int BLANK = 0; // type is blank node name, literal is blank
 
-    /// <summary>Type value for an IRI (Internationalized Resource
+    /// <xmlbegin id="12"/><summary>Type value for an IRI (Internationalized Resource
     /// Identifier.).</summary>
+  ///
+  ///
+  ///
     public const int IRI = 1; // type is IRI, literal is blank
 
-    /// <summary>Type value for a string with a language tag.</summary>
+    /// <xmlbegin id="13"/><summary>Type value for a string with a language tag.</summary>
+  ///
+  ///
+  ///
     public const int LANGSTRING = 2; // literal is given
 
-    /// <summary>Type value for a piece of data serialized to a
+    /// <xmlbegin id="14"/><summary>Type value for a piece of data serialized to a
     /// string.</summary>
+  ///
+  ///
+  ///
     public const int TYPEDSTRING = 3; // type is IRI, literal is given
 
     private static void EscapeBlankNode(string str, StringBuilder builder) {
@@ -135,29 +147,47 @@ namespace PeterO.Rdf {
       this.value = value;
     }
 
-    /// <summary>Predicate for RDF types.</summary>
+    /// <xmlbegin id="15"/><summary>Predicate for RDF types.</summary>
+  ///
+  ///
+  ///
     public static readonly RDFTerm A =
         FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 
-    /// <summary>Predicate for the first object in a list.</summary>
+    /// <xmlbegin id="16"/><summary>Predicate for the first object in a list.</summary>
+  ///
+  ///
+  ///
     public static readonly RDFTerm FIRST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#first");
 
-    /// <summary>Object for nil, the end of a list, or an empty
+    /// <xmlbegin id="17"/><summary>Object for nil, the end of a list, or an empty
     /// list.</summary>
+  ///
+  ///
+  ///
     public static readonly RDFTerm NIL = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil");
 
-    /// <summary>Predicate for the remaining objects in a list.</summary>
+    /// <xmlbegin id="18"/><summary>Predicate for the remaining objects in a list.</summary>
+  ///
+  ///
+  ///
     public static readonly RDFTerm REST = FromIRI(
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest");
 
-    /// <summary>Object for false.</summary>
+    /// <xmlbegin id="19"/><summary>Object for false.</summary>
+  ///
+  ///
+  ///
     public static readonly RDFTerm FALSE = FromTypedString(
         "false",
         "http://www.w3.org/2001/XMLSchema#bool");
 
-    /// <summary>Object for true.</summary>
+    /// <xmlbegin id="20"/><summary>Object for true.</summary>
+  ///
+  ///
+  ///
     public static readonly RDFTerm TRUE = FromTypedString(
         "true",
         "http://www.w3.org/2001/XMLSchema#bool");

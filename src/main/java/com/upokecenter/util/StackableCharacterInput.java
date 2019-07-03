@@ -15,7 +15,7 @@ at: http://peteroupc.github.io/
 */
 
   /**
-   * A character input stream where additional inputs can be
+   * A character input stream where additional inputs can be stacked on.
    */
   public final class StackableCharacterInput implements IMarkableCharacterInput {
     private static class InputAndBuffer implements ICharacterInput {

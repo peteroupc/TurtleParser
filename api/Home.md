@@ -20,4 +20,4 @@ Not documented yet.
 Not documented yet.
 
 * [com.upokecenter.util.StackableCharacterInput](com.upokecenter.util.StackableCharacterInput.md) -
-A character input stream where additional inputs can be
+A character input stream where additional inputs can be stacked on.
