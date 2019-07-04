@@ -26,13 +26,10 @@ namespace PeterO.Rdf {
 
     private StackableCharacterInput input;
 
-    /// <xmlbegin id="1"/><summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='stream'/> is null.</exception>
-  ///
-  ///
-  ///
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
         throw new ArgumentNullException(nameof(stream));
@@ -44,14 +41,11 @@ namespace PeterO.Rdf {
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
-    /// <xmlbegin id="2"/><summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// "stream" is null.</exception>
-  ///
-  ///
-  ///
     public NTriplesParser(string str) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));

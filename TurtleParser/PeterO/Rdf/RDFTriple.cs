@@ -15,13 +15,10 @@ namespace PeterO.Rdf {
     private readonly RDFTerm predicate;
     private readonly RDFTerm objectRdf;
 
-    /// <xmlbegin id="3"/><summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
     /// <param name='subject'>The subject term.</param>
     /// <param name='predicate'>The predicate term.</param>
     /// <param name='objectRdf'>The object term.</param>
-  ///
-  ///
-  ///
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       if (objectRdf == null) {
         throw new ArgumentNullException(nameof(objectRdf));
@@ -46,14 +43,11 @@ namespace PeterO.Rdf {
       this.subject = subject;
     }
 
-    /// <xmlbegin id="4"/><summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
     /// <param name='triple'>The parameter <paramref name='triple'/> is a
     /// RDFTriple object.</param>
     /// <exception cref='T:System.ArgumentNullException'>The parameter
     /// <paramref name='triple'/> is null.</exception>
-  ///
-  ///
-  ///
     public RDFTriple(RDFTriple triple)
       : this(
         Check(triple).subject,

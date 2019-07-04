@@ -104,12 +104,9 @@ namespace PeterO {
     private int[] buffer;
     private IList<ICharacterInput> stack = new List<ICharacterInput>();
 
-    /// <xmlbegin id="0"/><summary>Initializes a new instance of the <see cref='StackableCharacterInput'/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref='StackableCharacterInput'/> class.</summary>
     /// <param name='source'>The parameter <paramref name='source'/> is an
     /// ICharacterInput object.</param>
-  ///
-  ///
-  ///
     public StackableCharacterInput(ICharacterInput source) {
       this.stack.Add(source);
     }
