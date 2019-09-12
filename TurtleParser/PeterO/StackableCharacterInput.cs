@@ -13,8 +13,8 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO {
-  /// <include file='../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.StackableCharacterInput"]/*'/>
+    /// <summary>A character input stream where additional inputs can be
+    /// stacked on.</summary>
   public sealed class StackableCharacterInput : IMarkableCharacterInput {
     private class InputAndBuffer : ICharacterInput {
       private int[] buffer;
@@ -22,10 +22,10 @@ namespace PeterO {
       private int pos = 0;
 
       public InputAndBuffer(
-  ICharacterInput charInput,
-  int[] buffer,
-  int offset,
-  int length) {
+        ICharacterInput charInput,
+        int[] buffer,
+        int offset,
+        int length) {
         this.charInput = charInput;
         if (length > 0) {
           this.buffer = new int[length];
@@ -104,21 +104,23 @@ namespace PeterO {
     private int[] buffer;
     private IList<ICharacterInput> stack = new List<ICharacterInput>();
 
-    /// <summary>Initializes a new instance of the <see cref='StackableCharacterInput'/> class.</summary>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='PeterO.StackableCharacterInput'/> class.</summary>
     /// <param name='source'>The parameter <paramref name='source'/> is an
     /// ICharacterInput object.</param>
     public StackableCharacterInput(ICharacterInput source) {
       this.stack.Add(source);
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.GetMarkPosition"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A 32-bit signed integer.</returns>
     public int GetMarkPosition() {
       return this.pos;
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.MoveBack(System.Int32)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='count'>The parameter <paramref name='count'/> is a
+    /// 32-bit signed integer.</param>
     public void MoveBack(int count) {
       if (count < 0) {
         throw new ArgumentException("count (" + count +
@@ -131,8 +133,11 @@ namespace PeterO {
       throw new InvalidOperationException();
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.PushInput(PeterO.Text.ICharacterInput)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='input'>The parameter <paramref name='input'/> is
+    /// a.Text.ICharacterInput object.</param>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='input'/> is null.</exception>
     public void PushInput(ICharacterInput input) {
       if (input == null) {
         throw new ArgumentNullException(nameof(input));
@@ -141,15 +146,15 @@ namespace PeterO {
       // input sits on top of the existing input
       this.stack.Add(
   new InputAndBuffer(
-  input,
-  this.buffer,
-  this.pos,
-  this.endpos - this.pos));
+    input,
+    this.buffer,
+    this.pos,
+    this.endpos - this.pos));
       this.endpos = this.pos;
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.ReadChar"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A 32-bit signed integer.</returns>
     public int ReadChar() {
       if (this.haveMark) {
         // Read from buffer
@@ -163,9 +168,9 @@ namespace PeterO {
         // entire buffer if possible
         if (this.endpos < this.buffer.Length) {
           int count = this.ReadInternal(
-  this.buffer,
-  this.endpos,
-  this.buffer.Length - this.endpos);
+            this.buffer,
+            this.endpos,
+            this.buffer.Length - this.endpos);
           if (count > 0) {
             this.endpos += count;
           }
@@ -199,8 +204,16 @@ namespace PeterO {
       }
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.Read(System.Int32[],System.Int32,System.Int32)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='buf'>The parameter <paramref name='buf'/> is a.Int32[]
+    /// object.</param>
+    /// <param name='offset'>The parameter <paramref name='offset'/> is a
+    /// 32-bit signed integer.</param>
+    /// <param name='unitCount'>The parameter <paramref name='unitCount'/>
+    /// is a 32-bit signed integer.</param>
+    /// <returns>A 32-bit signed integer.</returns>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='buf'/> is null.</exception>
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {
         throw new ArgumentNullException(nameof(buf));
@@ -240,9 +253,9 @@ namespace PeterO {
         var count = 0;
         if (this.endpos < this.buffer.Length) {
           count = this.ReadInternal(
-  this.buffer,
-  this.endpos,
-  this.buffer.Length - this.endpos);
+            this.buffer,
+            this.endpos,
+            this.buffer.Length - this.endpos);
           // Console.WriteLine("%s",this);
           if (count > 0) {
             this.endpos += count;
@@ -275,11 +288,11 @@ namespace PeterO {
           total += unitCount;
         } else if (this.endpos > this.pos) {
           Array.Copy(
-    this.buffer,
-    this.pos,
-    buf,
-    offset,
-    this.endpos - this.pos);
+            this.buffer,
+            this.pos,
+            buf,
+            offset,
+            this.endpos - this.pos);
           total += this.endpos - this.pos;
           this.pos = this.endpos;
         }
@@ -330,8 +343,8 @@ namespace PeterO {
       return count;
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.SetHardMark"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A 32-bit signed integer.</returns>
     public int SetHardMark() {
       if (this.buffer == null) {
         this.buffer = new int[16];
@@ -342,11 +355,11 @@ namespace PeterO {
         // Already have a mark; shift buffer to the new mark
         if (this.pos > 0 && this.pos < this.endpos) {
           Array.Copy(
-       this.buffer,
-       this.pos,
-       this.buffer,
-       0,
-       this.endpos - this.pos);
+            this.buffer,
+            this.pos,
+            this.buffer,
+            0,
+            this.endpos - this.pos);
         }
         this.endpos -= this.pos;
         this.pos = 0;
@@ -358,8 +371,9 @@ namespace PeterO {
       return 0;
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.SetMarkPosition(System.Int32)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='pos'>The parameter <paramref name='pos'/> is a 32-bit
+    /// signed integer.</param>
     public void SetMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {
         throw new InvalidOperationException();
@@ -367,8 +381,8 @@ namespace PeterO {
       this.pos = pos;
     }
 
-    /// <include file='../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.StackableCharacterInput.SetSoftMark"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A 32-bit signed integer.</returns>
     public int SetSoftMark() {
       if (!this.haveMark) {
         this.SetHardMark();

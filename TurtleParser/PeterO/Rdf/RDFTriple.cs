@@ -15,10 +15,17 @@ namespace PeterO.Rdf {
     private readonly RDFTerm predicate;
     private readonly RDFTerm objectRdf;
 
-    /// <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='PeterO.Rdf.RDFTriple'/> class.</summary>
     /// <param name='subject'>The subject term.</param>
     /// <param name='predicate'>The predicate term.</param>
     /// <param name='objectRdf'>The object term.</param>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='objectRdf'/> or <paramref name='predicate'/> or <paramref
+    /// name='subject'/> is null.</exception>
+    /// <exception cref='ArgumentException'>Doesn't satisfy
+    /// predicate.kind==RDFTerm.IRI; doesn't satisfy subject.kind ==
+    /// RDFTerm.IRI || subject.kind == RDFTerm.BLANK.</exception>
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       if (objectRdf == null) {
         throw new ArgumentNullException(nameof(objectRdf));
@@ -28,7 +35,7 @@ namespace PeterO.Rdf {
         throw new ArgumentNullException(nameof(predicate));
       }
       if (!(predicate.GetKind() == RDFTerm.IRI)) {
-        throw new ArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
+    throw new ArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
       }
       this.predicate = predicate;
       if (subject == null) {
@@ -43,13 +50,11 @@ namespace PeterO.Rdf {
       this.subject = subject;
     }
 
-    /// <summary>Initializes a new instance of the <see cref='RDFTriple'/> class.</summary>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='PeterO.Rdf.RDFTriple'/> class.</summary>
     /// <param name='triple'>The parameter <paramref name='triple'/> is a
     /// RDFTriple object.</param>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='triple'/> is null.</exception>
-    public RDFTriple(RDFTriple triple)
-      : this(
+    public RDFTriple(RDFTriple triple) : this(
         Check(triple).subject,
         Check(triple).predicate,
         Check(triple).objectRdf) {
@@ -62,8 +67,10 @@ namespace PeterO.Rdf {
       return triple;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.Equals(System.Object)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='obj'>The parameter <paramref name='obj'/> is a Object
+    /// object.</param>
+    /// <returns>The return value is not documented yet.</returns>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -93,26 +100,26 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetObject"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A RDFTerm object.</returns>
     public RDFTerm GetObject() {
       return this.objectRdf;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetPredicate"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A RDFTerm object.</returns>
     public RDFTerm GetPredicate() {
       return this.predicate;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetSubject"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A RDFTerm object.</returns>
     public RDFTerm GetSubject() {
       return this.subject;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.GetHashCode"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>The return value is not documented yet.</returns>
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -127,8 +134,8 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTriple.ToString"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>The return value is not documented yet.</returns>
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
             this.objectRdf.ToString() + " .";

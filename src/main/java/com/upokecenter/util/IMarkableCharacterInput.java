@@ -10,9 +10,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-  /**
-   * Not documented yet.
-   */
+    /**
+     * Not documented yet.
+     */
   public interface IMarkableCharacterInput extends ICharacterInput {
     /**
      * Gets the zero-based character position in the stream from the last-set mark.
@@ -22,7 +22,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Moves the stream position back the given number of characters.
-     * @param count The parameter {@code count} is not documented yet.
+     * @param count The parameter {@code count} is a 32-bit signed integer.
      */
     void MoveBack(int count);
 
@@ -34,8 +34,8 @@ at: http://peteroupc.github.io/
 
     /**
      * Sets the stream's position from the last set mark. <param
-     * name='pos'>Zero-based character offset from the last set mark.
-     * </param>
+     * name='pos'>Zero-based character offset from the last set
+     * mark.</param>.
      * @param pos Zero-based character offset from the last set mark.
      */
     void SetMarkPosition(int pos);

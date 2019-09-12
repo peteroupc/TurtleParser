@@ -7,9 +7,11 @@
 * `RDFTriple​(RDFTerm subject,
          RDFTerm predicate,
          RDFTerm objectRdf) RDFTriple`<br>
- Initializes a new instance of the RDFTriple class.
+ Initializes a new instance of the RDFTriple
+ class.
 * `RDFTriple​(RDFTriple triple) RDFTriple`<br>
- Initializes a new instance of the RDFTriple class.
+ Initializes a new instance of the RDFTriple
+ class.
 * `boolean equals​(java.lang.Object obj)`<br>
  Not documented yet.
 * `RDFTerm GetObject()`<br>
@@ -28,15 +30,18 @@
 * `RDFTriple​(RDFTerm subject,
          RDFTerm predicate,
          RDFTerm objectRdf) RDFTriple`<br>
- Initializes a new instance of the RDFTriple class.
+ Initializes a new instance of the RDFTriple
+ class.
 * `RDFTriple​(RDFTriple triple) RDFTriple`<br>
- Initializes a new instance of the RDFTriple class.
+ Initializes a new instance of the RDFTriple
+ class.
 
 ## Method Details
 
 ### RDFTriple
     public RDFTriple​(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf)
-Initializes a new instance of the <code>RDFTriple</code> class.
+Initializes a new instance of the <code>RDFTriple</code>
+ class.
 
 **Parameters:**
 
@@ -46,17 +51,23 @@ Initializes a new instance of the <code>RDFTriple</code> class.
 
 * <code>objectRdf</code> - The object term.
 
+**Throws:**
+
+* <code>java.lang.NullPointerException</code> - The parameter <code>objectRdf</code> or <code>
+ predicate</code> or <code>subject</code> is null.
+
+* <code>java.lang.IllegalArgumentException</code> - Doesn't satisfy predicate.kind==RDFTerm.IRI;
+ doesn't satisfy subject.kind == RDFTerm.IRI || subject.kind ==
+ RDFTerm.BLANK.
+
 ### RDFTriple
     public RDFTriple​(RDFTriple triple)
-Initializes a new instance of the <code>RDFTriple</code> class.
+Initializes a new instance of the <code>RDFTriple</code>
+ class.
 
 **Parameters:**
 
 * <code>triple</code> - The parameter <code>triple</code> is a RDFTriple object.
-
-**Throws:**
-
-* <code>java.lang.NullPointerException</code> - The parameter <code>triple</code> is null.
 
 ### equals
     public final boolean equals​(java.lang.Object obj)
@@ -68,7 +79,7 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>obj</code> - The parameter <code>obj</code> is not documented yet.
+* <code>obj</code> - The parameter <code>obj</code> is a object object.
 
 **Returns:**
 

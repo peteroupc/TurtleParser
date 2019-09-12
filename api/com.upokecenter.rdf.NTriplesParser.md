@@ -7,9 +7,11 @@ Not documented yet.
 ## Methods
 
 * `NTriplesParser​(com.upokecenter.util.IByteReader stream) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser class.
+ Initializes a new instance of the NTriplesParser
+ class.
 * `NTriplesParser​(java.lang.String str) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser class.
+ Initializes a new instance of the NTriplesParser
+ class.
 * `static boolean IsAsciiChar​(int c,
            java.lang.String asciiChars)`<br>
  Not documented yet.
@@ -19,15 +21,18 @@ Not documented yet.
 ## Constructors
 
 * `NTriplesParser​(com.upokecenter.util.IByteReader stream) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser class.
+ Initializes a new instance of the NTriplesParser
+ class.
 * `NTriplesParser​(java.lang.String str) NTriplesParser`<br>
- Initializes a new instance of the NTriplesParser class.
+ Initializes a new instance of the NTriplesParser
+ class.
 
 ## Method Details
 
 ### NTriplesParser
     public NTriplesParser​(com.upokecenter.util.IByteReader stream)
-Initializes a new instance of the <code>NTriplesParser</code> class.
+Initializes a new instance of the <code>NTriplesParser</code>
+ class.
 
 **Parameters:**
 
@@ -39,7 +44,8 @@ Initializes a new instance of the <code>NTriplesParser</code> class.
 
 ### NTriplesParser
     public NTriplesParser​(java.lang.String str)
-Initializes a new instance of the <code>NTriplesParser</code> class.
+Initializes a new instance of the <code>NTriplesParser</code>
+ class.
 
 **Parameters:**
 
@@ -47,7 +53,7 @@ Initializes a new instance of the <code>NTriplesParser</code> class.
 
 **Throws:**
 
-* <code>java.lang.NullPointerException</code> - The parameter "stream" is null.
+* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> is null.
 
 ### IsAsciiChar
     public static boolean IsAsciiChar​(int c, java.lang.String asciiChars)
@@ -55,13 +61,17 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>c</code> - The parameter <code>c</code> is not documented yet.
+* <code>c</code> - The parameter <code>c</code> is a 32-bit signed integer.
 
-* <code>asciiChars</code> - The parameter <code>asciiChars</code> is not documented yet.
+* <code>asciiChars</code> - The parameter <code>asciiChars</code> is a text string.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code> .
+* Either <code>true</code> or <code>false</code>.
+
+**Throws:**
+
+* <code>java.lang.NullPointerException</code> - The parameter <code>asciiChars</code> is null.
 
 ### Parse
     public java.util.Set<RDFTriple> Parse()

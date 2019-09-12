@@ -9,14 +9,15 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.ParserException"]/*'/>
+    /// <summary>Not documented yet.</summary>
   public class ParserException : IOException {
-    /// <summary>Initializes a new instance of the <see cref='ParserException'/> class.</summary>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='PeterO.Rdf.ParserException'/> class.</summary>
     public ParserException() : base() {
     }
 
-    /// <summary>Initializes a new instance of the <see cref='ParserException'/> class.</summary>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='PeterO.Rdf.ParserException'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
     public ParserException(string str) : base(str) {

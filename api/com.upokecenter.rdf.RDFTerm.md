@@ -100,7 +100,7 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>name</code> - The parameter <code>name</code> is not documented yet.
+* <code>name</code> - The parameter <code>name</code> is a text string.
 
 **Returns:**
 
@@ -110,13 +110,15 @@ Not documented yet.
 
 * <code>java.lang.IllegalArgumentException</code> - Name is empty.
 
+* <code>java.lang.NullPointerException</code> - The parameter <code>name</code> is null.
+
 ### FromIRI
     public static RDFTerm FromIRI​(java.lang.String iri)
 Not documented yet.
 
 **Parameters:**
 
-* <code>iri</code> - The parameter <code>iri</code> is not documented yet.
+* <code>iri</code> - The parameter <code>iri</code> is a text string.
 
 **Returns:**
 
@@ -132,9 +134,9 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>str</code> - The parameter <code>str</code> is not documented yet.
+* <code>str</code> - The parameter <code>str</code> is a text string.
 
-* <code>languageTag</code> - The parameter <code>languageTag</code> is not documented yet.
+* <code>languageTag</code> - The parameter <code>languageTag</code> is a text string.
 
 **Returns:**
 
@@ -153,7 +155,7 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>str</code> - The parameter <code>str</code> is not documented yet.
+* <code>str</code> - The parameter <code>str</code> is a text string.
 
 **Returns:**
 
@@ -165,9 +167,9 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>str</code> - The parameter <code>str</code> is not documented yet.
+* <code>str</code> - The parameter <code>str</code> is a text string.
 
-* <code>iri</code> - The parameter <code>iri</code> is not documented yet.
+* <code>iri</code> - The parameter <code>iri</code> is a text string.
 
 **Returns:**
 
@@ -175,8 +177,8 @@ Not documented yet.
 
 **Throws:**
 
-* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> or <code>
- iri</code> is null.
+* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> or <code>iri</code> is
+ null.
 
 * <code>java.lang.IllegalArgumentException</code> - Iri is empty.
 
@@ -190,7 +192,7 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>obj</code> - The parameter <code>obj</code> is not documented yet.
+* <code>obj</code> - The parameter <code>obj</code> is a object object.
 
 **Returns:**
 
@@ -238,7 +240,7 @@ Gets a value indicating whether this term is a blank node.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code> .
+* Either <code>true</code> or <code>false</code>.
 
 ### IsIRI
     public boolean IsIRI​(java.lang.String str)
@@ -246,11 +248,11 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>str</code> - The parameter <code>str</code> is not documented yet.
+* <code>str</code> - The parameter <code>str</code> is a text string.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code> .
+* Either <code>true</code> or <code>false</code>.
 
 ### IsOrdinaryString
     public boolean IsOrdinaryString()
@@ -258,7 +260,7 @@ Not documented yet.
 
 **Returns:**
 
-* Either <code>true</code> or <code>false</code> .
+* Either <code>true</code> or <code>false</code>.
 
 ### toString
     public final java.lang.String toString()

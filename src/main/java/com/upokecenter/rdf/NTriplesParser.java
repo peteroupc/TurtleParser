@@ -14,17 +14,21 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-  /**
-   * Not documented yet.
-   */
+    /**
+     * Not documented yet.
+     */
   public final class NTriplesParser implements IRDFParser {
     /**
      * Not documented yet.
-     * @param c The parameter {@code c} is not documented yet.
-     * @param asciiChars The parameter {@code asciiChars} is not documented yet.
-     * @return Either {@code true} or {@code false} .
+     * @param c The parameter {@code c} is a 32-bit signed integer.
+     * @param asciiChars The parameter {@code asciiChars} is a text string.
+     * @return Either {@code true} or {@code false}.
+     * @throws NullPointerException The parameter {@code asciiChars} is null.
      */
     public static boolean IsAsciiChar(int c, String asciiChars) {
+      if (asciiChars == null) {
+        throw new NullPointerException("asciiChars");
+      }
       return c >= 0 && c <= 0x7f && asciiChars.indexOf((char)c) >= 0;
     }
 
@@ -33,9 +37,10 @@ at: http://peteroupc.github.io/
     private StackableCharacterInput input;
 
     /**
-     * Initializes a new instance of the {@link NTriplesParser} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.NTriplesParser}
+     * class.
      * @param stream A PeterO.IByteReader object.
-     * @throws java.lang.NullPointerException The parameter {@code stream} is null.
+     * @throws NullPointerException The parameter {@code stream} is null.
      */
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
@@ -49,9 +54,10 @@ at: http://peteroupc.github.io/
     }
 
     /**
-     * Initializes a new instance of the {@link NTriplesParser} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.NTriplesParser}
+     * class.
      * @param str The parameter {@code str} is a text string.
-     * @throws java.lang.NullPointerException The parameter "stream" is null.
+     * @throws NullPointerException The parameter {@code str} is null.
      */
     public NTriplesParser(String str) {
       if (str == null) {
@@ -137,8 +143,8 @@ at: http://peteroupc.github.io/
           ilist.append((char)startChar);
         }
       } else if (startChar <= 0x10ffff) {
-        ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) + 0xd800));
-        ilist.append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
+        ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) | 0xd800));
+        ilist.append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       this.input.SetSoftMark();
       while (true) {
@@ -150,8 +156,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)ch);
             }
           } else if (ch <= 0x10ffff) {
-            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
           }
         } else {
           if (ch >= 0) {
@@ -185,8 +191,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
         } else if (c2 == '>') {
@@ -206,8 +212,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
         }
@@ -228,8 +234,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
           hyphen = false;
@@ -239,8 +245,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
           hyphen = false;
@@ -253,8 +259,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           hyphen = true;
           haveHyphen = true;
@@ -309,8 +315,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
         } else if (c2 == ch) {
           return ilist.toString();
@@ -320,8 +326,8 @@ at: http://peteroupc.github.io/
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
         }
       }

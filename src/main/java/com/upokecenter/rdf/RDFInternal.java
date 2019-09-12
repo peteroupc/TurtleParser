@@ -13,10 +13,14 @@ at: http://peteroupc.github.io/
 */
 
   final class RDFInternal {
+private RDFInternal() {
+}
     /**
      * Not documented yet.
-     * @param triples The parameter {@code triples} is not documented yet.
-     * @param bnodeLabels The parameter {@code bnodeLabels} is not documented yet.
+     * @param triples The parameter {@code triples} is
+     * a.getCollections().getGeneric().getISet() {PeterO.Rdf.RDFTriple} object.
+     * @param bnodeLabels The parameter {@code bnodeLabels} is
+     * a.getCollections().getGeneric().getMap() {System.String object.
      */
     static void ReplaceBlankNodes(
     Set<RDFTriple> triples,
@@ -33,7 +37,10 @@ at: http://peteroupc.github.io/
         RDFTerm subj = triple.GetSubject();
         if (subj.GetKind() == RDFTerm.BLANK) {
           String oldname = subj.GetValue();
-          String newname = SuggestBlankNodeName(oldname, nodeindex, bnodeLabels);
+          String newname = SuggestBlankNodeName(
+            oldname,
+            nodeindex,
+            bnodeLabels);
           if (!newname.equals(oldname)) {
             RDFTerm newNode = newBlankNodes.containsKey(oldname) ?
                     newBlankNodes.get(oldname) : null;
@@ -49,7 +56,10 @@ at: http://peteroupc.github.io/
         RDFTerm obj = triple.GetObject();
         if (obj.GetKind() == RDFTerm.BLANK) {
           String oldname = obj.GetValue();
-          String newname = SuggestBlankNodeName(oldname, nodeindex, bnodeLabels);
+          String newname = SuggestBlankNodeName(
+            oldname,
+            nodeindex,
+            bnodeLabels);
           if (!newname.equals(oldname)) {
             RDFTerm newNode = newBlankNodes.containsKey(oldname) ?
               newBlankNodes.get(oldname) : null;
@@ -63,9 +73,10 @@ at: http://peteroupc.github.io/
           }
         }
         if (changed) {
-          RDFTriple[] newTriple = new RDFTriple[] { triple,
+          RDFTriple[] newTriple = new RDFTriple[] {
+            triple,
             new RDFTriple(subj, triple.GetPredicate(), obj),
-        };
+          };
           changedTriples.add(newTriple);
         }
       }
@@ -76,7 +87,9 @@ at: http://peteroupc.github.io/
     }
 
     private static String SuggestBlankNodeName(
-        String node, int[] nodeindex, Map<String, RDFTerm> bnodeLabels) {
+      String node,
+      int[] nodeindex,
+      Map<String, RDFTerm> bnodeLabels) {
       boolean validnode = node.length() > 0;
       // Check if the blank node label is valid
       // under N-Triples
@@ -98,14 +111,12 @@ at: http://peteroupc.github.io/
       while (true) {
         // Generate a new blank node label,
         // and ensure it's unique
-        node = "b" + (nodeindex[0]).toString();
+        node = "b" + (
+          nodeindex[0]).toString();
         if (!bnodeLabels.containsKey(node)) {
           return node;
         }
         ++nodeindex[0];
       }
-    }
-
-    private RDFInternal() {
     }
   }

@@ -11,8 +11,8 @@ at: http://peteroupc.github.io/
 namespace PeterO.Rdf {
 /// <summary>Not documented yet.</summary>
   public interface IRDFParser {
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.IRDFParser.Parse"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>The return value is not documented yet.</returns>
    ISet<RDFTriple> Parse();
 }
 }

@@ -13,9 +13,9 @@ import java.util.*;
 import com.upokecenter.util.*;
 import com.upokecenter.text.*;
 
-  /**
-   * Not documented yet.
-   */
+    /**
+     * Not documented yet.
+     */
   public class TurtleParser implements IRDFParser {
     private static final class TurtleObject {
       public static final int SIMPLE = 0;
@@ -104,8 +104,16 @@ public final void setObj(TurtleObject value) {
     private StackableCharacterInput input;
     private int curBlankNode = 0;
 
+    private static String UriToString(java.net.URI baseURI) {
+       if (baseURI == null) {
+         throw new NullPointerException("baseURI");
+       }
+       return baseURI.toString();
+    }
+
     /**
-     * Initializes a new instance of the {@link TurtleParser} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
+     * class.
      * @param stream A PeterO.IByteReader object.
      */
     public TurtleParser(IByteReader stream) {
@@ -113,12 +121,33 @@ public final void setObj(TurtleObject value) {
     }
 
     /**
-     * Initializes a new instance of the {@link TurtleParser} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
+     * class.
+     * @param stream The parameter {@code stream} is an IByteReader object.
+     * @param baseURI The parameter {@code baseURI} is an java.net.URI object.
+     */
+    public TurtleParser(IByteReader stream, java.net.URI baseURI) {
+ this(stream, UriToString(baseURI));
+    }
+
+    /**
+     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
+     * class.
+     * @param str The parameter {@code str} is a text string.
+     * @param baseURI The parameter {@code baseURI} is an java.net.URI object.
+     */
+    public TurtleParser(String str, java.net.URI baseURI) {
+ this(str, UriToString(baseURI));
+    }
+
+    /**
+     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
+     * class.
      * @param stream A PeterO.IByteReader object.
      * @param baseURI The parameter {@code baseURI} is a text string.
-     * @throws java.lang.NullPointerException The parameter {@code stream} or {@code
+     * @throws NullPointerException The parameter {@code stream} or {@code
      * baseURI} is null.
-     * @throws IllegalArgumentException BaseURI.
+     * @throws IllegalArgumentException BaseURI has no scheme.
      */
     public TurtleParser(IByteReader stream, String baseURI) {
       if (stream == null) {
@@ -128,7 +157,7 @@ public final void setObj(TurtleObject value) {
         throw new NullPointerException("baseURI");
       }
       if (!URIUtility.HasScheme(baseURI)) {
-        throw new IllegalArgumentException("baseURI");
+        throw new IllegalArgumentException("baseURI has no scheme.");
       }
       this.input = new StackableCharacterInput(
           Encodings.GetDecoderInput(Encodings.UTF8, stream));
@@ -138,7 +167,8 @@ public final void setObj(TurtleObject value) {
     }
 
     /**
-     * Initializes a new instance of the {@link TurtleParser} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
+     * class.
      * @param str The parameter {@code str} is a text string.
      */
     public TurtleParser(String str) {
@@ -146,11 +176,12 @@ public final void setObj(TurtleObject value) {
     }
 
     /**
-     * Initializes a new instance of the {@link TurtleParser} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.TurtleParser}
+     * class.
      * @param str The parameter {@code str} is a text string.
      * @param baseURI The parameter {@code baseURI} is a text string.
-     * @throws java.lang.NullPointerException The parameter {@code str} or {@code
-     * baseURI} is null.
+     * @throws NullPointerException The parameter {@code str} or {@code baseURI}
+     * is null.
      * @throws IllegalArgumentException BaseURI.
      */
     public TurtleParser(String str, String baseURI) {
@@ -161,7 +192,7 @@ public final void setObj(TurtleObject value) {
         throw new NullPointerException("baseURI");
       }
       if (!URIUtility.HasScheme(baseURI)) {
-        throw new IllegalArgumentException("baseURI");
+        throw new IllegalArgumentException("baseURI has no scheme");
       }
       this.input = new StackableCharacterInput(
           Encodings.StringToInput(str));
@@ -290,7 +321,7 @@ public final void setObj(TurtleObject value) {
           return RDFTerm.FromTypedString(
      str,
      scope + this.ReadOptionalLocalName());
-        } else if (this.IsNameStartChar(ch)) { // prefix
+   } else if (IsNameStartChar(ch)) { // prefix
           String prefix = this.ReadPrefix(ch);
           String scope = this.namespaces.get(prefix);
           if (scope == null) {
@@ -299,7 +330,7 @@ public final void setObj(TurtleObject value) {
           return RDFTerm.FromTypedString(
      str,
      scope + this.ReadOptionalLocalName());
-        } else {
+   } else {
           throw new ParserException();
         }
       } else {
@@ -308,7 +339,7 @@ public final void setObj(TurtleObject value) {
       }
     }
 
-    private boolean IsNameChar(int ch) {
+    private static boolean IsNameChar(int ch) {
       return (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') ||
           (ch >= 'A' && ch <= 'Z') || ch == '_' || ch == '-' ||
           ch == 0xb7 || (ch >= 0xc0 && ch <= 0xd6) ||
@@ -320,7 +351,7 @@ public final void setObj(TurtleObject value) {
           (ch >= 0x10000 && ch <= 0xeffff);
     }
 
-    private boolean IsNameStartChar(int ch) {
+    private static boolean IsNameStartChar(int ch) {
       return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') ||
           (ch >= 0xc0 && ch <= 0xd6) || (ch >= 0xd8 && ch <= 0xf6) ||
           (ch >= 0xf8 && ch <= 0x2ff) || (ch >= 0x370 && ch <= 0x37d) ||
@@ -330,7 +361,7 @@ public final void setObj(TurtleObject value) {
           (ch >= 0xfdf0 && ch <= 0xfffd) || (ch >= 0x10000 && ch <= 0xeffff);
     }
 
-    private boolean IsNameStartCharU(int ch) {
+    private static boolean IsNameStartCharU(int ch) {
       return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch ==
           '_' || (ch >= 0xc0 && ch <= 0xd6) || (ch >= 0xd8 && ch <= 0xf6) ||
             (ch >= 0xf8 && ch <= 0x2ff) || (ch >= 0x370 && ch <= 0x37d) ||
@@ -419,7 +450,7 @@ public final void setObj(TurtleObject value) {
     private String ReadBlankNodeLabel() {
       StringBuilder ilist = new StringBuilder();
       int startChar = this.input.ReadChar();
-      if (!this.IsNameStartCharU(startChar) &&
+      if (!IsNameStartCharU(startChar) &&
            (startChar < '0' || startChar > '9')) {
         throw new ParserException();
       }
@@ -428,8 +459,8 @@ public final void setObj(TurtleObject value) {
           ilist.append((char)startChar);
         }
       } else if (startChar <= 0x10ffff) {
-        ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) + 0xd800));
-        ilist.append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
+        ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) | 0xd800));
+        ilist.append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       boolean lastIsPeriod = false;
       this.input.SetSoftMark();
@@ -438,7 +469,7 @@ public final void setObj(TurtleObject value) {
         if (ch == '.') {
           int position = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
-          if (!this.IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
+          if (!IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
             this.input.SetMarkPosition(position - 1);
             return ilist.toString();
           } else {
@@ -449,18 +480,18 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)ch);
             }
           } else if (ch <= 0x10ffff) {
-            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
           }
           lastIsPeriod = true;
-        } else if (this.IsNameChar(ch)) {
+        } else if (IsNameChar(ch)) {
           if (ch <= 0xffff) {
             {
               ilist.append((char)ch);
             }
           } else if (ch <= 0x10ffff) {
-            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
           }
           lastIsPeriod = false;
         } else {
@@ -560,8 +591,8 @@ public final void setObj(TurtleObject value) {
             ilist.append((char)ch);
           }
         } else if (ch <= 0x10ffff) {
-          ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-          ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+          ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+          ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
         }
       }
     }
@@ -580,8 +611,8 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
           hyphen = false;
@@ -602,8 +633,8 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           hyphen = true;
           haveHyphen = true;
@@ -632,8 +663,8 @@ public final void setObj(TurtleObject value) {
           ilist.append((char)ch);
         }
       } else if (ch <= 0x10ffff) {
-        ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-        ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+        ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+        ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
       }
       boolean haveDigits = ch >= '0' && ch <= '9';
       boolean haveDot = ch == '.';
@@ -647,8 +678,8 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)ch1);
             }
           } else if (ch1 <= 0x10ffff) {
-            ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((ch1 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
           }
           ch1 = this.input.ReadChar();
           haveDigits = false;
@@ -658,8 +689,8 @@ public final void setObj(TurtleObject value) {
                 ilist.append((char)ch1);
               }
             } else if (ch1 <= 0x10ffff) {
-              ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-              ilist.append((char)(((ch1 - 0x10000) & 0x3ff) + 0xdc00));
+              ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+              ilist.append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
             }
             if (ch1 >= '0' && ch1 <= '9') {
               haveDigits = true;
@@ -677,9 +708,9 @@ public final void setObj(TurtleObject value) {
                   ilist.append((char)ch1);
                 }
               } else if (ch1 <= 0x10ffff) {
-                ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) +
-                    0xd800));
-                ilist.append((char)(((ch1 - 0x10000) & 0x3ff) + 0xdc00));
+                ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) |
+0xd800));
+                ilist.append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
               }
             } else {
               if (ch1 >= 0) {
@@ -689,8 +720,8 @@ public final void setObj(TurtleObject value) {
                 throw new ParserException();
               }
               return RDFTerm.FromTypedString(
-  ilist.toString(),
-  "http://www.w3.org/2001/XMLSchema#double");
+                ilist.toString(),
+                "http://www.w3.org/2001/XMLSchema#double");
             }
           }
         } else if (ch1 >= '0' && ch1 <= '9') {
@@ -700,8 +731,8 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)ch1);
             }
           } else if (ch1 <= 0x10ffff) {
-            ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((ch1 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
           }
         } else if (!haveDot && ch1 == '.') {
           haveDot = true;
@@ -727,8 +758,8 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)ch1);
             }
           } else if (ch1 <= 0x10ffff) {
-            ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((ch1 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
           }
         } else { // no more digits
           if (ch1 >= 0) {
@@ -754,10 +785,10 @@ public final void setObj(TurtleObject value) {
       } else if (ch == '<') {
         return TurtleObject.FromTerm(
   RDFTerm.FromIRI(this.ReadIriReference()));
-      } else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
+} else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
         (ch >= '0' && ch <= '9'))) {
-        return TurtleObject.FromTerm(this.ReadNumberLiteral(ch));
-      } else if (acceptLiteral && (ch == '\'' || ch == '\"')) {
+  return TurtleObject.FromTerm(this.ReadNumberLiteral(ch));
+} else if (acceptLiteral && (ch == '\'' || ch == '\"')) {
         // start of quote literal
         String str = this.ReadStringLiteral(ch);
         return TurtleObject.FromTerm(this.FinishStringLiteral(str));
@@ -784,7 +815,7 @@ public final void setObj(TurtleObject value) {
         }
         return TurtleObject.FromTerm(
             RDFTerm.FromIRI(scope + this.ReadOptionalLocalName()));
-      } else if (this.IsNameStartChar(ch)) { // prefix
+          } else if (IsNameStartChar(ch)) { // prefix
         if (acceptLiteral && (ch == 't' || ch == 'f')) {
           mark = this.input.SetHardMark();
           if (ch == 't' && this.input.ReadChar() == 'r' &&
@@ -807,7 +838,7 @@ public final void setObj(TurtleObject value) {
         }
         return TurtleObject.FromTerm(
             RDFTerm.FromIRI(scope + this.ReadOptionalLocalName()));
-      } else {
+          } else {
         this.input.SetMarkPosition(mark);
         return null;
       }
@@ -848,8 +879,8 @@ public final void setObj(TurtleObject value) {
     }
 
     private void ReadObjectListToProperties(
-        RDFTerm predicate,
-        TurtleObject propertyList) {
+      RDFTerm predicate,
+      TurtleObject propertyList) {
       boolean haveObject = false;
       while (true) {
         this.input.SetSoftMark();
@@ -899,8 +930,8 @@ public final void setObj(TurtleObject value) {
         if (ch == '%') {
           int a = this.input.ReadChar();
           int b = this.input.ReadChar();
-          if (this.ToHexValue(a) < 0 ||
-              this.ToHexValue(b) < 0) {
+          if (ToHexValue(a) < 0 ||
+              ToHexValue(b) < 0) {
             throw new ParserException();
           }
           if (ch <= 0xffff) {
@@ -908,24 +939,24 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)ch);
             }
           } else if (ch <= 0x10ffff) {
-            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
           }
           if (a <= 0xffff) {
             {
               ilist.append((char)a);
             }
           } else if (a <= 0x10ffff) {
-            ilist.append((char)((((a - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((a - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((a - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((a - 0x10000) & 0x3ff) | 0xdc00));
           }
           if (b <= 0xffff) {
             {
               ilist.append((char)b);
             }
           } else if (b <= 0x10ffff) {
-            ilist.append((char)((((b - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((b - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((b - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((b - 0x10000) & 0x3ff) | 0xdc00));
           }
           lastIsPeriod = false;
           first = false;
@@ -939,8 +970,8 @@ public final void setObj(TurtleObject value) {
                 ilist.append((char)ch);
               }
             } else if (ch <= 0x10ffff) {
-              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-              ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+              ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
             }
           } else {
             throw new ParserException();
@@ -950,13 +981,13 @@ public final void setObj(TurtleObject value) {
           continue;
         }
         if (first) {
-          if (!this.IsNameStartCharU(ch) && ch != ':' &&
+          if (!IsNameStartCharU(ch) && ch != ':' &&
                (ch < '0' || ch > '9')) {
             this.input.MoveBack(1);
             return ilist.toString();
           }
         } else {
-          if (!this.IsNameChar(ch) && ch != ':' && ch != '.') {
+          if (!IsNameChar(ch) && ch != ':' && ch != '.') {
             this.input.MoveBack(1);
             if (lastIsPeriod) {
               throw new ParserException();
@@ -971,7 +1002,7 @@ public final void setObj(TurtleObject value) {
           // adding the period.
           int position = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
-          if (!this.IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
+          if (!IsNameChar(ch2) && ch2 != ':' && ch2 != '.') {
             this.input.SetMarkPosition(position - 1);
             return ilist.toString();
           } else {
@@ -984,8 +1015,8 @@ public final void setObj(TurtleObject value) {
             ilist.append((char)ch);
           }
         } else if (ch <= 0x10ffff) {
-          ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-          ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+          ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+          ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
         }
       }
     }
@@ -1021,7 +1052,7 @@ public final void setObj(TurtleObject value) {
         predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
         this.SkipWhitespace();
         return predicate;
-      } else if (this.IsNameStartChar(ch)) { // prefix
+      } else if (IsNameStartChar(ch)) { // prefix
         String prefix = this.ReadPrefix(ch);
         String scope = this.namespaces.get(prefix);
         if (scope == null) {
@@ -1090,7 +1121,7 @@ public final void setObj(TurtleObject value) {
         return true;
       }
       this.input.MoveBack(1);
-      return this.IsNameChar(ch);
+      return IsNameChar(ch);
     }
 
     private String ReadPrefix(int startChar) {
@@ -1103,9 +1134,9 @@ public final void setObj(TurtleObject value) {
             ilist.append((char)startChar);
           }
         } else if (startChar <= 0x10ffff) {
-          ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) +
-              0xd800));
-          ilist.append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
+          ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
+0xd800));
+          ilist.append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
         }
         first = false;
       }
@@ -1119,9 +1150,9 @@ public final void setObj(TurtleObject value) {
             throw new ParserException();
           }
           return ilist.toString();
-        } else if (first && !this.IsNameStartChar(ch)) {
+        } else if (first && !IsNameStartChar(ch)) {
           throw new ParserException();
-        } else if (ch != '.' && !this.IsNameChar(ch)) {
+        } else if (ch != '.' && !IsNameChar(ch)) {
           throw new ParserException();
         }
         first = false;
@@ -1130,8 +1161,8 @@ public final void setObj(TurtleObject value) {
             ilist.append((char)ch);
           }
         } else if (ch <= 0x10ffff) {
-          ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-          ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+          ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+          ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
         }
         lastIsPeriod = ch == '.';
       }
@@ -1185,8 +1216,8 @@ public final void setObj(TurtleObject value) {
                 ilist.append((char)ch);
               }
             } else if (ch <= 0x10ffff) {
-              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-              ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+              ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
             }
           }
           if (quotecount >= 1) {
@@ -1195,8 +1226,8 @@ public final void setObj(TurtleObject value) {
                 ilist.append((char)ch);
               }
             } else if (ch <= 0x10ffff) {
-              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-              ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+              ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
             }
           }
           if (c2 <= 0xffff) {
@@ -1204,8 +1235,8 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           quotecount = 0;
         } else if (c2 == ch) {
@@ -1226,8 +1257,8 @@ public final void setObj(TurtleObject value) {
                 ilist.append((char)ch);
               }
             } else if (ch <= 0x10ffff) {
-              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-              ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+              ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
             }
           }
           if (quotecount >= 1) {
@@ -1236,8 +1267,8 @@ public final void setObj(TurtleObject value) {
                 ilist.append((char)ch);
               }
             } else if (ch <= 0x10ffff) {
-              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-              ilist.append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+              ilist.append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+              ilist.append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
             }
           }
           if (c2 <= 0xffff) {
@@ -1245,8 +1276,8 @@ public final void setObj(TurtleObject value) {
               ilist.append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           quotecount = 0;
         }
@@ -1302,21 +1333,21 @@ public final void setObj(TurtleObject value) {
         if (this.input.ReadChar() != '0') {
           throw new ParserException();
         }
-        int a = this.ToHexValue(this.input.ReadChar());
-        int b = this.ToHexValue(this.input.ReadChar());
-        int c = this.ToHexValue(this.input.ReadChar());
-        int d = this.ToHexValue(this.input.ReadChar());
-        int e = this.ToHexValue(this.input.ReadChar());
-        int f = this.ToHexValue(this.input.ReadChar());
+        int a = ToHexValue(this.input.ReadChar());
+        int b = ToHexValue(this.input.ReadChar());
+        int c = ToHexValue(this.input.ReadChar());
+        int d = ToHexValue(this.input.ReadChar());
+        int e = ToHexValue(this.input.ReadChar());
+        int f = ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0 || f < 0) {
           throw new ParserException();
         }
         ch = (a << 20) | (b << 16) | (c << 12) | (d << 8) | (e << 4) | f;
       } else if (ch == 'u') {
-        int a = this.ToHexValue(this.input.ReadChar());
-        int b = this.ToHexValue(this.input.ReadChar());
-        int c = this.ToHexValue(this.input.ReadChar());
-        int d = this.ToHexValue(this.input.ReadChar());
+        int a = ToHexValue(this.input.ReadChar());
+        int b = ToHexValue(this.input.ReadChar());
+        int c = ToHexValue(this.input.ReadChar());
+        int d = ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0) {
           throw new ParserException();
         }
@@ -1373,11 +1404,11 @@ public final void setObj(TurtleObject value) {
       }
     }
 
-    private int ToHexValue(int a) {
+    private static int ToHexValue(int a) {
       if (a >= '0' && a <= '9') {
         return a - '0';
       }
       return (a >= 'a' && a <= 'f') ? (a + 10 - 'a') : ((a >= 'A' && a <= 'F') ?
-        (a + 10 - 'A') : (-1));
+        (a + 10 - 'A') : -1);
     }
   }

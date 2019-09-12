@@ -11,8 +11,7 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.RDFTerm"]/*'/>
+    /// <summary>Not documented yet.</summary>
   public sealed class RDFTerm {
     /// <summary>Type value for a blank node.</summary>
     public const int BLANK = 0; // type is blank node name, literal is blank
@@ -39,7 +38,7 @@ namespace PeterO.Rdf {
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
                 (str[i + 1] & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
-          c = 0x10000 + ((c - 0xd800) << 10) + (str[i + 1] - 0xdc00);
+          c = 0x10000 + ((c & 0x3ff) << 10) + (str[i + 1] & 0x3ff);
           builder.Append("U00");
           builder.Append(hex[(c >> 20) & 15]);
           builder.Append(hex[(c >> 16) & 15]);
@@ -82,9 +81,9 @@ namespace PeterO.Rdf {
     }
 
     private static void EscapeString(
-  string str,
-  StringBuilder builder,
-  bool uri) {
+      string str,
+      StringBuilder builder,
+      bool uri) {
       int length = str.Length;
       const string Hex = "0123456789ABCDEF";
       for (int i = 0; i < length; ++i) {
@@ -106,7 +105,7 @@ namespace PeterO.Rdf {
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
                 (str[i + 1] & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
-          c = 0x10000 + ((c - 0xd800) << 10) + (str[i + 1] - 0xdc00);
+          c = 0x10000 + ((c & 0x3ff) << 10) + (str[i + 1] & 0x3ff);
           builder.Append("\\U00");
           builder.Append(Hex[(c >> 20) & 15]);
           builder.Append(Hex[(c >> 16) & 15]);
@@ -154,16 +153,21 @@ namespace PeterO.Rdf {
 
     /// <summary>Object for false.</summary>
     public static readonly RDFTerm FALSE = FromTypedString(
-        "false",
-        "http://www.w3.org/2001/XMLSchema#bool");
+      "false",
+      "http://www.w3.org/2001/XMLSchema#bool");
 
     /// <summary>Object for true.</summary>
     public static readonly RDFTerm TRUE = FromTypedString(
-        "true",
-        "http://www.w3.org/2001/XMLSchema#bool");
+      "true",
+      "http://www.w3.org/2001/XMLSchema#bool");
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromBlankNode(System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='name'>The parameter <paramref name='name'/> is a text
+    /// string.</param>
+    /// <returns>A RDFTerm object.</returns>
+    /// <exception cref='ArgumentException'>Name is empty.</exception>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='name'/> is null.</exception>
     public static RDFTerm FromBlankNode(string name) {
       if (name == null) {
         throw new ArgumentNullException(nameof(name));
@@ -174,8 +178,12 @@ namespace PeterO.Rdf {
       return new RDFTerm(BLANK, null, name);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromIRI(System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='iri'>The parameter <paramref name='iri'/> is a text
+    /// string.</param>
+    /// <returns>A RDFTerm object.</returns>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='iri'/> is null.</exception>
     public static RDFTerm FromIRI(string iri) {
       if (iri == null) {
         throw new ArgumentNullException(nameof(iri));
@@ -183,8 +191,16 @@ namespace PeterO.Rdf {
       return new RDFTerm(IRI, null, iri);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromLangString(System.String,System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='str'>The parameter <paramref name='str'/> is a text
+    /// string.</param>
+    /// <param name='languageTag'>The parameter <paramref
+    /// name='languageTag'/> is a text string.</param>
+    /// <returns>A RDFTerm object.</returns>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='str'/> or <paramref name='languageTag'/> is null.</exception>
+    /// <exception cref='ArgumentException'>LanguageTag is
+    /// empty.</exception>
     public static RDFTerm FromLangString(string str, string languageTag) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -198,14 +214,23 @@ namespace PeterO.Rdf {
       return new RDFTerm(LANGSTRING, languageTag, str);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromTypedString(System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='str'>The parameter <paramref name='str'/> is a text
+    /// string.</param>
+    /// <returns>A RDFTerm object.</returns>
     public static RDFTerm FromTypedString(string str) {
       return FromTypedString(str, "http://www.w3.org/2001/XMLSchema#string");
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.FromTypedString(System.String,System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='str'>The parameter <paramref name='str'/> is a text
+    /// string.</param>
+    /// <param name='iri'>The parameter <paramref name='iri'/> is a text
+    /// string.</param>
+    /// <returns>A RDFTerm object.</returns>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='str'/> or <paramref name='iri'/> is null.</exception>
+    /// <exception cref='ArgumentException'>Iri is empty.</exception>
     public static RDFTerm FromTypedString(string str, string iri) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -219,8 +244,10 @@ namespace PeterO.Rdf {
       return new RDFTerm(TYPEDSTRING, iri, str);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.Equals(System.Object)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='obj'>The parameter <paramref name='obj'/> is a Object
+    /// object.</param>
+    /// <returns>The return value is not documented yet.</returns>
     public override sealed bool Equals(object obj) {
       if (this == obj) {
         return true;
@@ -236,36 +263,39 @@ namespace PeterO.Rdf {
         if (other.typeOrLanguage != null) {
           return false;
         }
-      } else if (!this.typeOrLanguage.Equals(other.typeOrLanguage)) {
+      } else if (!this.typeOrLanguage.Equals(other.typeOrLanguage,
+  StringComparison.Ordinal)) {
         return false;
       }
       if (this.value == null) {
         return other.value != null;
       } else {
-        return !this.value.Equals(other.value);
+        return !this.value.Equals(other.value, StringComparison.Ordinal);
       }
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetKind"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>A 32-bit signed integer.</returns>
     public int GetKind() {
       return this.kind;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetTypeOrLanguage"]/*'/>
+    /// <summary>Gets the language tag or data type for this RDF
+    /// literal.</summary>
+    /// <returns>A text string.</returns>
     public string GetTypeOrLanguage() {
       return this.typeOrLanguage;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetValue"]/*'/>
+    /// <summary>Gets the IRI, blank node identifier, or lexical form of an
+    /// RDF literal.</summary>
+    /// <returns>A text string.</returns>
     public string GetValue() {
       return this.value;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.GetHashCode"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>The return value is not documented yet.</returns>
     public override sealed int GetHashCode() {
       unchecked {
         var prime = 31;
@@ -278,27 +308,32 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.IsBlank"]/*'/>
+    /// <summary>Gets a value indicating whether this term is a blank
+    /// node.</summary>
+    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
     public bool IsBlank() {
       return this.kind == BLANK;
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.IsIRI(System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='str'>The parameter <paramref name='str'/> is a text
+    /// string.</param>
+    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
     public bool IsIRI(string str) {
-      return this.kind == IRI && str != null && str.Equals(this.value);
+      return this.kind == IRI && str != null && str.Equals(this.value,
+  StringComparison.Ordinal);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.IsOrdinaryString"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
     public bool IsOrdinaryString() {
-      return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#string"
+   return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#string"
            .Equals(this.typeOrLanguage);
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFTerm.ToString"]/*'/>
+    /// <summary>Gets a string representation of this RDF term in N-Triples
+    /// format. The string will not end in a line break.</summary>
+    /// <returns>A string representation of this object.</returns>
     public override sealed string ToString() {
       StringBuilder builder = null;
       if (this.kind == BLANK) {

@@ -13,12 +13,20 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  /// <include file='../../docs.xml'
-  /// path='docs/doc[@name="T:PeterO.Rdf.NTriplesParser"]/*'/>
+    /// <summary>Not documented yet.</summary>
   public sealed class NTriplesParser : IRDFParser {
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.IsAsciiChar(System.Int32,System.String)"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <param name='c'>The parameter <paramref name='c'/> is a 32-bit
+    /// signed integer.</param>
+    /// <param name='asciiChars'>The parameter <paramref
+    /// name='asciiChars'/> is a text string.</param>
+    /// <returns>Either <c>true</c> or <c>false</c>.</returns>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='asciiChars'/> is null.</exception>
     public static bool IsAsciiChar(int c, string asciiChars) {
+      if (asciiChars == null) {
+        throw new ArgumentNullException(nameof(asciiChars));
+      }
       return c >= 0 && c <= 0x7f && asciiChars.IndexOf((char)c) >= 0;
     }
 
@@ -26,10 +34,11 @@ namespace PeterO.Rdf {
 
     private StackableCharacterInput input;
 
-    /// <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='PeterO.Rdf.NTriplesParser'/> class.</summary>
     /// <param name='stream'>A PeterO.IByteReader object.</param>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// <paramref name='stream'/> is null.</exception>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='stream'/> is null.</exception>
     public NTriplesParser(IByteReader stream) {
       if (stream == null) {
         throw new ArgumentNullException(nameof(stream));
@@ -41,11 +50,12 @@ namespace PeterO.Rdf {
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
-    /// <summary>Initializes a new instance of the <see cref='NTriplesParser'/> class.</summary>
+    /// <summary>Initializes a new instance of the
+    /// <see cref='PeterO.Rdf.NTriplesParser'/> class.</summary>
     /// <param name='str'>The parameter <paramref name='str'/> is a text
     /// string.</param>
-    /// <exception cref='T:System.ArgumentNullException'>The parameter
-    /// "stream" is null.</exception>
+    /// <exception cref='ArgumentNullException'>The parameter <paramref
+    /// name='str'/> is null.</exception>
     public NTriplesParser(string str) {
       if (str == null) {
         throw new ArgumentNullException(nameof(str));
@@ -86,8 +96,8 @@ namespace PeterO.Rdf {
       }
     }
 
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.NTriplesParser.Parse"]/*'/>
+    /// <summary>Not documented yet.</summary>
+    /// <returns>An ISet(RDFTriple) object.</returns>
     public ISet<RDFTriple> Parse() {
       ISet<RDFTriple> rdf = new HashSet<RDFTriple>();
       while (true) {
@@ -128,8 +138,8 @@ namespace PeterO.Rdf {
           ilist.Append((char)startChar);
         }
       } else if (startChar <= 0x10ffff) {
-        ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) + 0xd800));
-        ilist.Append((char)(((startChar - 0x10000) & 0x3ff) + 0xdc00));
+        ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) | 0xd800));
+        ilist.Append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       this.input.SetSoftMark();
       while (true) {
@@ -141,8 +151,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)ch);
             }
           } else if (ch <= 0x10ffff) {
-            ilist.Append((char)((((ch - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((ch - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((ch - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((ch - 0x10000) & 0x3ff) | 0xdc00));
           }
         } else {
           if (ch >= 0) {
@@ -176,8 +186,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
         } else if (c2 == '>') {
@@ -197,8 +207,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
         }
@@ -219,8 +229,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
           hyphen = false;
@@ -230,8 +240,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           haveString = true;
           hyphen = false;
@@ -244,8 +254,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
           hyphen = true;
           haveHyphen = true;
@@ -300,8 +310,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
         } else if (c2 == ch) {
           return ilist.ToString();
@@ -311,8 +321,8 @@ namespace PeterO.Rdf {
               ilist.Append((char)c2);
             }
           } else if (c2 <= 0x10ffff) {
-            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) + 0xd800));
-            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) + 0xdc00));
+            ilist.Append((char)((((c2 - 0x10000) >> 10) & 0x3ff) | 0xd800));
+            ilist.Append((char)(((c2 - 0x10000) & 0x3ff) | 0xdc00));
           }
         }
       }

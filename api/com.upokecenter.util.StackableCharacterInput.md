@@ -6,8 +6,8 @@ A character input stream where additional inputs can be stacked on.
 
 ## Methods
 
-* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) StackableCharacterInput`<br>
- Initializes a new instance of the StackableCharacterInput class.
+* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
+ Initializes a new instance of the com.upokecenter.StackableCharacterInput class.
 * `int GetMarkPosition()`<br>
  Not documented yet.
 * `void MoveBack​(int count)`<br>
@@ -29,14 +29,14 @@ A character input stream where additional inputs can be stacked on.
 
 ## Constructors
 
-* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) StackableCharacterInput`<br>
- Initializes a new instance of the StackableCharacterInput class.
+* `StackableCharacterInput​(com.upokecenter.text.ICharacterInput source) com.upokecenter.StackableCharacterInput`<br>
+ Initializes a new instance of the com.upokecenter.StackableCharacterInput class.
 
 ## Method Details
 
 ### StackableCharacterInput
     public StackableCharacterInput​(com.upokecenter.text.ICharacterInput source)
-Initializes a new instance of the <code>StackableCharacterInput</code> class.
+Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput</code> class.
 
 **Parameters:**
 
@@ -44,7 +44,7 @@ Initializes a new instance of the <code>StackableCharacterInput</code> class.
 
 ### StackableCharacterInput
     public StackableCharacterInput​(com.upokecenter.text.ICharacterInput source)
-Initializes a new instance of the <code>StackableCharacterInput</code> class.
+Initializes a new instance of the <code>com.upokecenter.StackableCharacterInput</code> class.
 
 **Parameters:**
 
@@ -72,7 +72,7 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>count</code> - The parameter <code>count</code> is not documented yet.
+* <code>count</code> - The parameter <code>count</code> is a 32-bit signed integer.
 
 ### PushInput
     public void PushInput​(com.upokecenter.text.ICharacterInput input)
@@ -80,7 +80,11 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>input</code> - The parameter <code>input</code> is not documented yet.
+* <code>input</code> - The parameter <code>input</code> is a.getText().ICharacterInput object.
+
+**Throws:**
+
+* <code>java.lang.NullPointerException</code> - The parameter <code>input</code> is null.
 
 ### ReadChar
     public int ReadChar()
@@ -104,11 +108,11 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>buf</code> - The parameter <code>buf</code> is not documented yet.
+* <code>buf</code> - The parameter <code>buf</code> is a.getInt32()[] object.
 
-* <code>offset</code> - The parameter <code>offset</code> is not documented yet.
+* <code>offset</code> - The parameter <code>offset</code> is a 32-bit signed integer.
 
-* <code>unitCount</code> - The parameter <code>unitCount</code> is not documented yet.
+* <code>unitCount</code> - The parameter <code>unitCount</code> is a 32-bit signed integer.
 
 **Returns:**
 
@@ -140,7 +144,7 @@ Not documented yet.
 
 **Parameters:**
 
-* <code>pos</code> - The parameter <code>pos</code> is not documented yet.
+* <code>pos</code> - The parameter <code>pos</code> is a 32-bit signed integer.
 
 ### SetSoftMark
     public int SetSoftMark()

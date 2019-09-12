@@ -16,10 +16,16 @@ at: http://peteroupc.github.io/
     private final RDFTerm objectRdf;
 
     /**
-     * Initializes a new instance of the {@link RDFTriple} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.RDFTriple}
+     * class.
      * @param subject The subject term.
      * @param predicate The predicate term.
      * @param objectRdf The object term.
+     * @throws NullPointerException The parameter {@code objectRdf} or {@code
+     * predicate} or {@code subject} is null.
+     * @throws IllegalArgumentException Doesn't satisfy predicate.kind==RDFTerm.IRI;
+     * doesn't satisfy subject.kind == RDFTerm.IRI || subject.kind ==
+     * RDFTerm.BLANK.
      */
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       if (objectRdf == null) {
@@ -30,7 +36,7 @@ at: http://peteroupc.github.io/
         throw new NullPointerException("predicate");
       }
       if (!(predicate.GetKind() == RDFTerm.IRI)) {
-        throw new IllegalArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
+    throw new IllegalArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
       }
       this.predicate = predicate;
       if (subject == null) {
@@ -46,9 +52,9 @@ at: http://peteroupc.github.io/
     }
 
     /**
-     * Initializes a new instance of the {@link RDFTriple} class.
+     * Initializes a new instance of the {@link com.upokecenter.rdf.RDFTriple}
+     * class.
      * @param triple The parameter {@code triple} is a RDFTriple object.
-     * @throws java.lang.NullPointerException The parameter {@code triple} is null.
      */
     public RDFTriple(RDFTriple triple) {
  this(
@@ -66,7 +72,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param obj The parameter {@code obj} is not documented yet.
+     * @param obj The parameter {@code obj} is a object object.
      * @return The return value is not documented yet.
      */
     @Override public final boolean equals(Object obj) {

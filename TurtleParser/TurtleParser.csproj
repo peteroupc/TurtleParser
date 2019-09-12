@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk='Microsoft.NET.Sdk'>
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
@@ -9,17 +9,18 @@
     <Description>A library for parsing the Turtle RDF format.</Description>
   <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=' &apos;$(Configuration)|$(Platform)&apos; == &apos;Debug|AnyCPU&apos; '>
     <DocumentationFile>bin\Debug\netstandard1.0\TurtleParser.xml</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=' &apos;$(Configuration)|$(Platform)&apos; == &apos;Release|AnyCPU&apos; '>
     <DocumentationFile>bin\Release\netstandard1.0\TurtleParser.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="PeterO\" />
-  <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" Version="1.1.118" /><AdditionalFiles Include="stylecop.json"></AdditionalFiles><PackageReference Include="PeterO.Encoding" Version="0.5.1" />
+    <Folder Include='PeterO\'/>
+  <PackageReference Include='StyleCop.Analyzers' PrivateAssets='All' Version='1.1.118'/><AdditionalFiles Include='stylecop.json'/><PackageReference Include='PeterO.Encoding' Version='0.5.1'/>
+<AdditionalFiles Include='rules.ruleset'/><PackageReference Include='Microsoft.CodeAnalysis.FxCopAnalyzers' PrivateAssets='All' Version='2.9.4'/><PackageReference Include='PeterO.URIUtility' Version='1.0.0'/>
 </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Class1.cs" />
+    <Compile Remove='Class1.cs'/>
   </ItemGroup>
-</Project>
+   </Project>

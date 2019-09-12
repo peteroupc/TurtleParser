@@ -11,9 +11,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-  /**
-   * Not documented yet.
-   */
+    /**
+     * Not documented yet.
+     */
   public final class RDFTerm {
     /**
      * Type value for a blank node.
@@ -46,7 +46,7 @@ at: http://peteroupc.github.io/
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
                 (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
-          c = 0x10000 + ((c - 0xd800) << 10) + (str.charAt(i + 1) - 0xdc00);
+          c = 0x10000 + ((c & 0x3ff) << 10) + (str.charAt(i + 1) & 0x3ff);
           builder.append("U00");
           builder.append(hex.charAt((c >> 20) & 15));
           builder.append(hex.charAt((c >> 16) & 15));
@@ -89,9 +89,9 @@ at: http://peteroupc.github.io/
     }
 
     private static void EscapeString(
-  String str,
-  StringBuilder builder,
-  boolean uri) {
+      String str,
+      StringBuilder builder,
+      boolean uri) {
       int length = str.length();
       String Hex = "0123456789ABCDEF";
       for (int i = 0; i < length; ++i) {
@@ -113,7 +113,7 @@ at: http://peteroupc.github.io/
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
                 (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
-          c = 0x10000 + ((c - 0xd800) << 10) + (str.charAt(i + 1) - 0xdc00);
+          c = 0x10000 + ((c & 0x3ff) << 10) + (str.charAt(i + 1) & 0x3ff);
           builder.append("\\U00");
           builder.append(Hex.charAt((c >> 20) & 15));
           builder.append(Hex.charAt((c >> 16) & 15));
@@ -170,21 +170,22 @@ at: http://peteroupc.github.io/
      * object for false.
      */
     public static final RDFTerm FALSE = FromTypedString(
-        "false",
-        "http://www.w3.org/2001/XMLSchema#boolean");
+      "false",
+      "http://www.w3.org/2001/XMLSchema#boolean");
 
     /**
      * object for true.
      */
     public static final RDFTerm TRUE = FromTypedString(
-        "true",
-        "http://www.w3.org/2001/XMLSchema#boolean");
+      "true",
+      "http://www.w3.org/2001/XMLSchema#boolean");
 
     /**
      * Not documented yet.
-     * @param name The parameter {@code name} is not documented yet.
+     * @param name The parameter {@code name} is a text string.
      * @return A RDFTerm object.
      * @throws IllegalArgumentException Name is empty.
+     * @throws NullPointerException The parameter {@code name} is null.
      */
     public static RDFTerm FromBlankNode(String name) {
       if (name == null) {
@@ -198,9 +199,9 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param iri The parameter {@code iri} is not documented yet.
+     * @param iri The parameter {@code iri} is a text string.
      * @return A RDFTerm object.
-     * @throws java.lang.NullPointerException The parameter {@code iri} is null.
+     * @throws NullPointerException The parameter {@code iri} is null.
      */
     public static RDFTerm FromIRI(String iri) {
       if (iri == null) {
@@ -211,10 +212,10 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param str The parameter {@code str} is not documented yet.
-     * @param languageTag The parameter {@code languageTag} is not documented yet.
+     * @param str The parameter {@code str} is a text string.
+     * @param languageTag The parameter {@code languageTag} is a text string.
      * @return A RDFTerm object.
-     * @throws java.lang.NullPointerException The parameter {@code str} or {@code
+     * @throws NullPointerException The parameter {@code str} or {@code
      * languageTag} is null.
      * @throws IllegalArgumentException LanguageTag is empty.
      */
@@ -233,7 +234,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param str The parameter {@code str} is not documented yet.
+     * @param str The parameter {@code str} is a text string.
      * @return A RDFTerm object.
      */
     public static RDFTerm FromTypedString(String str) {
@@ -242,11 +243,11 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param str The parameter {@code str} is not documented yet.
-     * @param iri The parameter {@code iri} is not documented yet.
+     * @param str The parameter {@code str} is a text string.
+     * @param iri The parameter {@code iri} is a text string.
      * @return A RDFTerm object.
-     * @throws java.lang.NullPointerException The parameter {@code str} or {@code
-     * iri} is null.
+     * @throws NullPointerException The parameter {@code str} or {@code iri} is
+     * null.
      * @throws IllegalArgumentException Iri is empty.
      */
     public static RDFTerm FromTypedString(String str, String iri) {
@@ -264,7 +265,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param obj The parameter {@code obj} is not documented yet.
+     * @param obj The parameter {@code obj} is a object object.
      * @return The return value is not documented yet.
      */
     @Override public final boolean equals(Object obj) {
@@ -334,7 +335,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Gets a value indicating whether this term is a blank node.
-     * @return Either {@code true} or {@code false} .
+     * @return Either {@code true} or {@code false}.
      */
     public boolean IsBlank() {
       return this.kind == BLANK;
@@ -342,8 +343,8 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param str The parameter {@code str} is not documented yet.
-     * @return Either {@code true} or {@code false} .
+     * @param str The parameter {@code str} is a text string.
+     * @return Either {@code true} or {@code false}.
      */
     public boolean IsIRI(String str) {
       return this.kind == IRI && str != null && str.equals(this.value);
@@ -351,10 +352,10 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @return Either {@code true} or {@code false} .
+     * @return Either {@code true} or {@code false}.
      */
     public boolean IsOrdinaryString() {
-      return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#String"
+   return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#String"
            .equals(this.typeOrLanguage);
     }
 

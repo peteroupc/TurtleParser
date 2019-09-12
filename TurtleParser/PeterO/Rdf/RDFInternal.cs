@@ -11,9 +11,13 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-  internal sealed class RDFInternal {
-    /// <include file='../../docs.xml'
-    /// path='docs/doc[@name="M:PeterO.Rdf.RDFInternal.ReplaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})"]/*'/>
+  internal static class RDFInternal {
+    /// <summary>Not documented yet.</summary>
+    /// <param name='triples'>The parameter <paramref name='triples'/> is
+    /// a.Collections.Generic.ISet{PeterO.Rdf.RDFTriple} object.</param>
+    /// <param name='bnodeLabels'>The parameter <paramref
+    /// name='bnodeLabels'/> is a.Collections.Generic.IDictionary
+    /// {System.String object.</param>
     internal static void ReplaceBlankNodes(
     ISet<RDFTriple> triples,
     IDictionary<string, RDFTerm> bnodeLabels) {
@@ -29,8 +33,11 @@ namespace PeterO.Rdf {
         RDFTerm subj = triple.GetSubject();
         if (subj.GetKind() == RDFTerm.BLANK) {
           string oldname = subj.GetValue();
-          string newname = SuggestBlankNodeName(oldname, nodeindex, bnodeLabels);
-          if (!newname.Equals(oldname)) {
+          string newname = SuggestBlankNodeName(
+            oldname,
+            nodeindex,
+            bnodeLabels);
+          if (!newname.Equals(oldname, StringComparison.Ordinal)) {
             RDFTerm newNode = newBlankNodes.ContainsKey(oldname) ?
                     newBlankNodes[oldname] : null;
             if (newNode == null) {
@@ -45,8 +52,11 @@ namespace PeterO.Rdf {
         RDFTerm obj = triple.GetObject();
         if (obj.GetKind() == RDFTerm.BLANK) {
           string oldname = obj.GetValue();
-          string newname = SuggestBlankNodeName(oldname, nodeindex, bnodeLabels);
-          if (!newname.Equals(oldname)) {
+          string newname = SuggestBlankNodeName(
+            oldname,
+            nodeindex,
+            bnodeLabels);
+          if (!newname.Equals(oldname, StringComparison.Ordinal)) {
             RDFTerm newNode = newBlankNodes.ContainsKey(oldname) ?
               newBlankNodes[oldname] : null;
             if (newNode == null) {
@@ -59,9 +69,10 @@ namespace PeterO.Rdf {
           }
         }
         if (changed) {
-          var newTriple = new RDFTriple[] { triple,
+          var newTriple = new RDFTriple[] {
+            triple,
             new RDFTriple(subj, triple.GetPredicate(), obj),
-        };
+          };
           changedTriples.Add(newTriple);
         }
       }
@@ -72,7 +83,9 @@ namespace PeterO.Rdf {
     }
 
     private static string SuggestBlankNodeName(
-        string node, int[] nodeindex, IDictionary<string, RDFTerm> bnodeLabels) {
+      string node,
+      int[] nodeindex,
+      IDictionary<string, RDFTerm> bnodeLabels) {
       bool validnode = node.Length > 0;
       // Check if the blank node label is valid
       // under N-Triples
@@ -94,15 +107,14 @@ namespace PeterO.Rdf {
       while (true) {
         // Generate a new blank node label,
         // and ensure it's unique
-        node = "b" + Convert.ToString(nodeindex[0], CultureInfo.InvariantCulture);
+        node = "b" + Convert.ToString(
+          nodeindex[0],
+          CultureInfo.InvariantCulture);
         if (!bnodeLabels.ContainsKey(node)) {
           return node;
         }
         ++nodeindex[0];
       }
-    }
-
-    private RDFInternal() {
     }
   }
 }

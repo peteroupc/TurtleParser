@@ -14,9 +14,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-  /**
-   * A character input stream where additional inputs can be stacked on.
-   */
+    /**
+     * A character input stream where additional inputs can be stacked on.
+     */
   public final class StackableCharacterInput implements IMarkableCharacterInput {
     private static class InputAndBuffer implements ICharacterInput {
       private int[] buffer;
@@ -24,10 +24,10 @@ at: http://peteroupc.github.io/
       private int pos = 0;
 
       public InputAndBuffer(
-  ICharacterInput charInput,
-  int[] buffer,
-  int offset,
-  int length) {
+        ICharacterInput charInput,
+        int[] buffer,
+        int offset,
+        int length) {
         this.charInput = charInput;
         if (length > 0) {
           this.buffer = new int[length];
@@ -67,7 +67,7 @@ at: http://peteroupc.github.io/
         }
         if (offset + unitCount > buf.length) {
           throw new
-            java.lang.IllegalArgumentException("offset+unitCount more than " +
+            IllegalArgumentException("offset+unitCount more than " +
             buf.length + " (" +
     (offset + unitCount) + ")");
         }
@@ -107,7 +107,8 @@ at: http://peteroupc.github.io/
     private List<ICharacterInput> stack = new ArrayList<ICharacterInput>();
 
     /**
-     * Initializes a new instance of the {@link StackableCharacterInput} class.
+     * Initializes a new instance of the {@link
+     * com.upokecenter.StackableCharacterInput} class.
      * @param source The parameter {@code source} is an ICharacterInput object.
      */
     public StackableCharacterInput(ICharacterInput source) {
@@ -124,7 +125,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param count The parameter {@code count} is not documented yet.
+     * @param count The parameter {@code count} is a 32-bit signed integer.
      */
     public void MoveBack(int count) {
       if (count < 0) {
@@ -140,7 +141,8 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param input The parameter {@code input} is not documented yet.
+     * @param input The parameter {@code input} is a.getText().ICharacterInput object.
+     * @throws NullPointerException The parameter {@code input} is null.
      */
     public void PushInput(ICharacterInput input) {
       if (input == null) {
@@ -150,10 +152,10 @@ at: http://peteroupc.github.io/
       // input sits on top of the existing input
       this.stack.add(
   new InputAndBuffer(
-  input,
-  this.buffer,
-  this.pos,
-  this.endpos - this.pos));
+    input,
+    this.buffer,
+    this.pos,
+    this.endpos - this.pos));
       this.endpos = this.pos;
     }
 
@@ -174,9 +176,9 @@ at: http://peteroupc.github.io/
         // entire buffer if possible
         if (this.endpos < this.buffer.length) {
           int count = this.ReadInternal(
-  this.buffer,
-  this.endpos,
-  this.buffer.length - this.endpos);
+            this.buffer,
+            this.endpos,
+            this.buffer.length - this.endpos);
           if (count > 0) {
             this.endpos += count;
           }
@@ -212,11 +214,11 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param buf The parameter {@code buf} is not documented yet.
-     * @param offset The parameter {@code offset} is not documented yet.
-     * @param unitCount The parameter {@code unitCount} is not documented yet.
+     * @param buf The parameter {@code buf} is a.getInt32()[] object.
+     * @param offset The parameter {@code offset} is a 32-bit signed integer.
+     * @param unitCount The parameter {@code unitCount} is a 32-bit signed integer.
      * @return A 32-bit signed integer.
-     * @throws java.lang.NullPointerException The parameter {@code buf} is null.
+     * @throws NullPointerException The parameter {@code buf} is null.
      */
     public int Read(int[] buf, int offset, int unitCount) {
       if (buf == null) {
@@ -257,9 +259,9 @@ at: http://peteroupc.github.io/
         int count = 0;
         if (this.endpos < this.buffer.length) {
           count = this.ReadInternal(
-  this.buffer,
-  this.endpos,
-  this.buffer.length - this.endpos);
+            this.buffer,
+            this.endpos,
+            this.buffer.length - this.endpos);
           // System.out.println("%s",this);
           if (count > 0) {
             this.endpos += count;
@@ -292,11 +294,11 @@ at: http://peteroupc.github.io/
           total += unitCount;
         } else if (this.endpos > this.pos) {
           System.arraycopy(
-    this.buffer,
-    this.pos,
-    buf,
-    offset,
-    this.endpos - this.pos);
+            this.buffer,
+            this.pos,
+            buf,
+            offset,
+            this.endpos - this.pos);
           total += this.endpos - this.pos;
           this.pos = this.endpos;
         }
@@ -361,11 +363,11 @@ at: http://peteroupc.github.io/
         // Already have a mark; shift buffer to the new mark
         if (this.pos > 0 && this.pos < this.endpos) {
           System.arraycopy(
-       this.buffer,
-       this.pos,
-       this.buffer,
-       0,
-       this.endpos - this.pos);
+            this.buffer,
+            this.pos,
+            this.buffer,
+            0,
+            this.endpos - this.pos);
         }
         this.endpos -= this.pos;
         this.pos = 0;
@@ -379,7 +381,7 @@ at: http://peteroupc.github.io/
 
     /**
      * Not documented yet.
-     * @param pos The parameter {@code pos} is not documented yet.
+     * @param pos The parameter {@code pos} is a 32-bit signed integer.
      */
     public void SetMarkPosition(int pos) {
       if (!this.haveMark || pos < 0 || pos > this.endpos) {

@@ -40,21 +40,7 @@
     <Reference Include='System.Core'/>
     <Reference Include='Microsoft.CSharp'/>
     <Reference Include='System.ComponentModel.Composition'/>
-    <Reference Include='nunit.core'>
-      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.core.dll</HintPath>
-    </Reference>
-    <Reference Include='nunit.core.interfaces'>
-      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include='nunit.framework'>
-      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include='nunit.util'>
-      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.util.dll</HintPath>
-    </Reference>
-    <Reference Include='NUnit.VisualStudio.TestAdapter'>
-      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
-    </Reference>
+
     <Reference Include='System.IO'>
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
     </Reference>
@@ -65,14 +51,16 @@
     <Reference Include='System.Runtime'>
       <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
     </Reference>
-  <AdditionalFiles Include='stylecop.json'/></ItemGroup>
+  <AdditionalFiles Include='stylecop.json'/><AdditionalFiles Include='rules.ruleset'/><PackageReference Include='NUnit'><Version>3.12.0</Version></PackageReference><PackageReference Include='StyleCop.Analyzers'><Version>1.1.118</Version></PackageReference><PackageReference Include='Microsoft.CodeAnalysis.FxCopAnalyzers'><Version>2.9.4</Version></PackageReference><PackageReference Include='PeterO.URIUtility'>
+  <Version>1.0.0</Version>
+</PackageReference>
+</ItemGroup>
   <ItemGroup>
     <Compile Include='Program.cs'/>
     <Compile Include='Properties\AssemblyInfo.cs'/>
   </ItemGroup>
   <ItemGroup>
-    <None Include='app.config'/>
-    <None Include='packages.config'/>
+
   </ItemGroup>
   <ItemGroup>
     <Service Include='{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}'/>
@@ -91,4 +79,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-</Project>
+   </Project>
