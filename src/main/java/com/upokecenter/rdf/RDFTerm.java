@@ -11,9 +11,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-    /**
-     * Not documented yet.
-     */
+  /**
+   * Not documented yet.
+   */
   public final class RDFTerm {
     /**
      * Type value for a blank node.
@@ -41,10 +41,10 @@ at: http://peteroupc.github.io/
       for (int i = 0; i < length; ++i) {
         int c = str.charAt(i);
         if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
-            (c > 0 && c >= '0' && c <= '9')) {
+          (c > 0 && c >= '0' && c <= '9')) {
           builder.append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
+          (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c & 0x3ff) << 10) + (str.charAt(i + 1) & 0x3ff);
           builder.append("U00");
@@ -111,7 +111,7 @@ at: http://peteroupc.github.io/
         } else if (c >= 0x20 && c <= 0x7e) {
           builder.append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
+          (str.charAt(i + 1) & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c & 0x3ff) << 10) + (str.charAt(i + 1) & 0x3ff);
           builder.append("\\U00");
@@ -146,7 +146,7 @@ at: http://peteroupc.github.io/
      * Predicate for RDF types.
      */
     public static final RDFTerm A =
-        FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+      FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 
     /**
      * Predicate for the first object in a list.
@@ -326,7 +326,7 @@ at: http://peteroupc.github.io/
         int prime = 31;
         int result = prime + this.kind;
         result = (prime * result) + ((this.typeOrLanguage == null) ? 0 :
-                this.typeOrLanguage.hashCode());
+            this.typeOrLanguage.hashCode());
         boolean isnull = this.value == null;
         result = (prime * result) + (isnull ? 0 : this.value.hashCode());
         return result;
@@ -350,13 +350,16 @@ at: http://peteroupc.github.io/
       return this.kind == IRI && str != null && str.equals(this.value);
     }
 
+    private static final String XmlSchemaString =
+"http://www.w3.org/2001/XMLSchema#String";
+
     /**
      * Not documented yet.
      * @return Either {@code true} or {@code false}.
      */
     public boolean IsOrdinaryString() {
-   return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#String"
-           .equals(this.typeOrLanguage);
+      return this.kind == TYPEDSTRING &&
+XmlSchemaString.equals(this.typeOrLanguage);
     }
 
     /**
@@ -381,8 +384,7 @@ at: http://peteroupc.github.io/
         builder.append("\"");
         EscapeString(this.value, builder, false);
         builder.append("\"");
-        if (!"http://www.w3.org/2001/XMLSchema#String"
-              .equals(this.typeOrLanguage)) {
+        if (!XmlSchemaString.equals(this.typeOrLanguage)) {
           builder.append("^^<");
           EscapeString(this.typeOrLanguage, builder, true);
           builder.append(">");

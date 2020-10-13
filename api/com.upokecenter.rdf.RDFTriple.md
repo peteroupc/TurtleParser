@@ -2,6 +2,8 @@
 
     public final class RDFTriple extends java.lang.Object
 
+Not documented yet.
+
 ## Methods
 
 * `RDFTriple​(RDFTerm subject,
@@ -55,10 +57,6 @@ Initializes a new instance of the <code>RDFTriple</code>
 
 * <code>java.lang.NullPointerException</code> - The parameter <code>objectRdf</code> or <code>
  predicate</code> or <code>subject</code> is null.
-
-* <code>java.lang.IllegalArgumentException</code> - Doesn't satisfy predicate.kind==RDFTerm.IRI;
- doesn't satisfy subject.kind == RDFTerm.IRI || subject.kind ==
- RDFTerm.BLANK.
 
 ### RDFTriple
     public RDFTriple​(RDFTriple triple)

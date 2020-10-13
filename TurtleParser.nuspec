@@ -16,7 +16,7 @@ A Turtle RDF parser for C# and Java.
     <releaseNotes>
     Version 0.1.0: First release
     </releaseNotes>
-    <copyright>Written by Peter O. in 2015.  Any copyright is released to the Public Domain.</copyright>
+    <copyright>Written by Peter O.  Any copyright is released to the Public Domain.</copyright>
     <dependencies>
       <group targetFramework="dotnet">
         <dependency id="System.Collections" version="4.0.0" />

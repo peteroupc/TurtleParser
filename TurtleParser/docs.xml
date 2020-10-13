@@ -1549,7 +1549,7 @@
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsBigInteger">
 <summary>Converts this object to an arbitrary-precision integer. Fractional values
-      are truncated to an integer.
+      are converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest big integer to this object.
     </returns>
@@ -1568,12 +1568,12 @@
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsByte">
 <summary>Converts this object to a byte (0 to 255). Floating point values are
-      truncated to an integer.
+      converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest byte-sized integer to this object.
     </returns>
     <exception cref='OverflowException'>This object's value exceeds the range of a byte (would be less than 0 or
-      greater than 255 when truncated to an integer).
+      greater than 255 when converted to an integer by discarding the fractional part of the result of division).
     </exception>
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsDecimal">
@@ -1613,7 +1613,7 @@
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsEInteger">
 <summary>Converts this object to an arbitrary-precision integer. Fractional values
-      are truncated to an integer.
+      are converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest big integer to this object.
     </returns>
@@ -1651,7 +1651,7 @@
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsInt16">
 <summary>Converts this object to a 16-bit signed integer. Floating point values are
-      truncated to an integer.
+      converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest 16-bit signed integer to this object.
     </returns>
@@ -1660,7 +1660,7 @@
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsInt32">
 <summary>Converts this object to a 32-bit signed integer. Floating point values are
-      truncated to an integer.
+      converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest big integer to this object.
     </returns>
@@ -1669,7 +1669,7 @@
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsInt64">
 <summary>Converts this object to a 64-bit signed integer. Floating point values are
-      truncated to an integer.
+      converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest 64-bit signed integer to this object.
     </returns>
@@ -1719,7 +1719,7 @@
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsUInt64">
 <summary>Converts this object to a 64-bit unsigned integer. Non-integer values are
-      truncated to an integer.
+      converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest big integer to this object.
     </returns>
@@ -1763,18 +1763,18 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.CanTruncatedIntFitInInt32">
-<summary>Returns whether this object's value, truncated to an integer, would be
+<summary>Returns whether this object's value, converted to an integer by discarding the fractional part of the result of division, would be
       -(2^31) or greater, and less than 2^31.
     </summary>
-    <returns><c>true</c> if this object's value, truncated to an integer, would be -(2^31) or
+    <returns><c>true</c> if this object's value, converted to an integer by discarding the fractional part of the result of division, would be -(2^31) or
       greater, and less than 2^31; otherwise, <c>false</c> .
     </returns>
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.CanTruncatedIntFitInInt64">
-<summary>Returns whether this object's value, truncated to an integer, would be
+<summary>Returns whether this object's value, converted to an integer by discarding the fractional part of the result of division, would be
       -(2^63) or greater, and less than 2^63.
     </summary>
-    <returns><c>true</c> if this object's value, truncated to an integer, would be -(2^63) or
+    <returns><c>true</c> if this object's value, converted to an integer by discarding the fractional part of the result of division, would be -(2^63) or
       greater, and less than 2^63; otherwise, <c>false</c> .
     </returns>
 </doc>
@@ -11029,7 +11029,7 @@
     </value>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.Max(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal)">
-<summary>Gets the greater value between two decimal numbers.
+<summary>Gets the greater value of two decimal numbers.
     </summary>
     <param name='first'>An arbitrary-precision decimal number.
     </param>
@@ -11039,7 +11039,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.Max(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal,PeterO.Numbers.EContext)">
-<summary>Gets the greater value between two decimal numbers.
+<summary>Gets the greater value of two decimal numbers.
     </summary>
     <param name='first'>The first value to compare.
     </param>
@@ -11055,7 +11055,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.MaxMagnitude(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal)">
-<summary>Gets the greater value between two values, ignoring their signs. If the
+<summary>Gets the greater value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Max.
     </summary>
     <param name='first'>The first value to compare.
@@ -11066,7 +11066,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.MaxMagnitude(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal,PeterO.Numbers.EContext)">
-<summary>Gets the greater value between two values, ignoring their signs. If the
+<summary>Gets the greater value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Max.
     </summary>
     <param name='first'>The first value to compare.
@@ -11083,7 +11083,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.Min(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal)">
-<summary>Gets the lesser value between two decimal numbers.
+<summary>Gets the smaller value of two decimal numbers.
     </summary>
     <param name='first'>The first value to compare.
     </param>
@@ -11093,7 +11093,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.Min(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal,PeterO.Numbers.EContext)">
-<summary>Gets the lesser value between two decimal numbers.
+<summary>Gets the smaller value of two decimal numbers.
     </summary>
     <param name='first'>The first value to compare.
     </param>
@@ -11109,7 +11109,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.MinMagnitude(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal)">
-<summary>Gets the lesser value between two values, ignoring their signs. If the
+<summary>Gets the smaller value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Min.
     </summary>
     <param name='first'>The first value to compare.
@@ -11120,7 +11120,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.MinMagnitude(PeterO.Numbers.EDecimal,PeterO.Numbers.EDecimal,PeterO.Numbers.EContext)">
-<summary>Gets the lesser value between two values, ignoring their signs. If the
+<summary>Gets the smaller value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Min.
     </summary>
     <param name='first'>The first value to compare.
@@ -13731,7 +13731,7 @@
          This parameter can't be null, as the exponential function's results are
         generally not exact.
       </i>
-       (Unlike in the General Binary Arithmetic Specification, any rounding mode
+       (Unlike in the General Decimal Arithmetic Specification, any rounding mode
       is allowed.).
     </param>
     <returns>Exponential of this object. If this object's value is 1, returns an
@@ -14029,7 +14029,7 @@
          This parameter can't be null, as the ln function's results are
         generally not exact.
       </i>
-       (Unlike in the General Binary Arithmetic Specification, any rounding mode
+       (Unlike in the General Decimal Arithmetic Specification, any rounding mode
       is allowed.).
     </param>
     <returns>Ln(this object). Signals the flag FlagInvalid and returns NaN if this
@@ -14056,7 +14056,7 @@
          This parameter can't be null, as the ln function's results are
         generally not exact.
       </i>
-       (Unlike in the General Binary Arithmetic Specification, any rounding mode
+       (Unlike in the General Decimal Arithmetic Specification, any rounding mode
       is allowed.).
     </param>
     <returns>Ln(this object)/Ln(10). Signals the flag FlagInvalid and returns
@@ -14075,7 +14075,7 @@
     </value>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.Max(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat)">
-<summary>Gets the greater value between two binary floats.
+<summary>Gets the greater value of two binary floats.
     </summary>
     <param name='first'>An arbitrary-precision binary float.
     </param>
@@ -14085,7 +14085,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.Max(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat,PeterO.Numbers.EContext)">
-<summary>Gets the greater value between two binary floats.
+<summary>Gets the greater value of two binary floats.
     </summary>
     <param name='first'>The first value to compare.
     </param>
@@ -14101,7 +14101,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.MaxMagnitude(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat)">
-<summary>Gets the greater value between two values, ignoring their signs. If the
+<summary>Gets the greater value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Max.
     </summary>
     <param name='first'>The first value to compare.
@@ -14112,7 +14112,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.MaxMagnitude(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat,PeterO.Numbers.EContext)">
-<summary>Gets the greater value between two values, ignoring their signs. If the
+<summary>Gets the greater value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Max.
     </summary>
     <param name='first'>The first value to compare.
@@ -14129,7 +14129,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.Min(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat)">
-<summary>Gets the lesser value between two binary floats.
+<summary>Gets the smaller value of two binary floats.
     </summary>
     <param name='first'>The first value to compare.
     </param>
@@ -14139,7 +14139,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.Min(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat,PeterO.Numbers.EContext)">
-<summary>Gets the lesser value between two binary floats.
+<summary>Gets the smaller value of two binary floats.
     </summary>
     <param name='first'>The first value to compare.
     </param>
@@ -14155,7 +14155,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.MinMagnitude(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat)">
-<summary>Gets the lesser value between two values, ignoring their signs. If the
+<summary>Gets the smaller value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Min.
     </summary>
     <param name='first'>The first value to compare.
@@ -14166,7 +14166,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.MinMagnitude(PeterO.Numbers.EFloat,PeterO.Numbers.EFloat,PeterO.Numbers.EContext)">
-<summary>Gets the lesser value between two values, ignoring their signs. If the
+<summary>Gets the smaller value of two values, ignoring their signs. If the
       absolute values are equal, has the same effect as Min.
     </summary>
     <param name='first'>The first value to compare.
@@ -15082,7 +15082,7 @@
          This parameter can't be null, as the square root function's results are
         generally not exact for many inputs.
       </i>
-       (Unlike in the General Binary Arithmetic Specification, any rounding mode
+       (Unlike in the General Decimal Arithmetic Specification, any rounding mode
       is allowed.).
     </param>
     <returns>The square root. Signals the flag FlagInvalid and returns NaN if this
@@ -15105,7 +15105,7 @@
          This parameter can't be null, as the square root function's results are
         generally not exact for many inputs.
       </i>
-       (Unlike in the General Binary Arithmetic Specification, any rounding mode
+       (Unlike in the General Decimal Arithmetic Specification, any rounding mode
       is allowed.).
     </param>
     <returns>The square root. Signals the flag FlagInvalid and returns NaN if this
@@ -19369,7 +19369,15 @@
 </doc>
 <doc name="T:PeterO.Rdf.ParserException">
 
-            <summary>Not documented yet.</summary>
+            <summary>Exception thrown for errors that occur while parsing data.
+            <para>This library may throw exceptions of this type in certain
+            cases, notably when errors occur, and may supply messages to those
+            exceptions (the message can be accessed through the <c>Message</c> property in.NET or the <c>getMessage()</c> method in Java). These
+            messages are intended to be read by humans to help diagnose the
+            error (or other cause of the exception); they are not intended to
+            be parsed by computer programs, and the exact text of the messages
+            may change at any time between versions of this
+            library.</para></summary>
 
 </doc>
 <doc name="M:PeterO.Rdf.ParserException.#ctor">
@@ -19382,8 +19390,18 @@
 
             <summary>Initializes a new instance of the
             <see cref='PeterO.Rdf.ParserException'/> class.</summary>
-            <param name='str'>The parameter <paramref name='str'/> is a text
-            string.</param>
+            <param name='message'>The parameter <paramref name='message'/> is a
+            text string.</param>
+
+</doc>
+<doc name="M:PeterO.Rdf.ParserException.#ctor(System.String,System.Exception)">
+
+            <summary>Initializes a new instance of the
+            <see cref='PeterO.Rdf.ParserException'/> class. Uses the given
+            message and inner exception.</summary>
+            <param name='message'>The parameter <paramref name='message'/> is a
+            text string.</param>
+            <param name='innerException'>The parameter <paramref name='innerException'/> is an Exception object.</param>
 
 </doc>
 <doc name="M:PeterO.Rdf.RDFInternal.ReplaceBlankNodes(System.Collections.Generic.ISet{PeterO.Rdf.RDFTriple},System.Collections.Generic.IDictionary{System.String,PeterO.Rdf.RDFTerm})">
@@ -19637,9 +19655,6 @@
             <param name='predicate'>The predicate term.</param>
             <param name='objectRdf'>The object term.</param>
             <exception cref='ArgumentNullException'>The parameter <paramref name='objectRdf'/> or <paramref name='predicate'/> or <paramref name='subject'/> is null.</exception>
-            <exception cref='ArgumentException'>Doesn't satisfy
-            predicate.kind==RDFTerm.IRI; doesn't satisfy subject.kind ==
-            RDFTerm.IRI || subject.kind == RDFTerm.BLANK.</exception>
 
 </doc>
 <doc name="M:PeterO.Rdf.RDFTriple.#ctor(PeterO.Rdf.RDFTriple)">

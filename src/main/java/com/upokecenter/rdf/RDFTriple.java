@@ -1,6 +1,6 @@
 package com.upokecenter.rdf;
 
-    /*
+/*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
 http://creativecommons.org/publicdomain/zero/1.0/
@@ -9,7 +9,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-/// <summary>Not documented yet.</summary>
+  /**
+   * Not documented yet.
+   */
   public final class RDFTriple {
     private final RDFTerm subject;
     private final RDFTerm predicate;
@@ -23,9 +25,6 @@ at: http://peteroupc.github.io/
      * @param objectRdf The object term.
      * @throws NullPointerException The parameter {@code objectRdf} or {@code
      * predicate} or {@code subject} is null.
-     * @throws IllegalArgumentException Doesn't satisfy predicate.kind==RDFTerm.IRI;
-     * doesn't satisfy subject.kind == RDFTerm.IRI || subject.kind ==
-     * RDFTerm.BLANK.
      */
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       if (objectRdf == null) {
@@ -36,7 +35,8 @@ at: http://peteroupc.github.io/
         throw new NullPointerException("predicate");
       }
       if (!(predicate.GetKind() == RDFTerm.IRI)) {
-    throw new IllegalArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
+        throw new IllegalArgumentException("doesn't satisfy" +
+"\u0020predicate.kind==RDFTerm.IRI");
       }
       this.predicate = predicate;
       if (subject == null) {
@@ -45,8 +45,9 @@ at: http://peteroupc.github.io/
       if (!(subject.GetKind() == RDFTerm.IRI ||
           subject.GetKind() == RDFTerm.BLANK)) {
         throw new
-         IllegalArgumentException(
-  "doesn't satisfy subject.kind==RDFTerm.IRI || subject.kind==RDFTerm.BLANK");
+        IllegalArgumentException(
+          "doesn't satisfy subject.kind==RDFTerm.IRI ||" +
+"\u0020subject.kind==RDFTerm.BLANK");
       }
       this.subject = subject;
     }
@@ -136,12 +137,12 @@ at: http://peteroupc.github.io/
       {
         int prime = 31;
         int result = prime + ((this.objectRdf == null) ? 0 :
-             this.objectRdf.hashCode());
+            this.objectRdf.hashCode());
         result = (prime * result) +
-            ((this.predicate == null) ? 0 : this.predicate.hashCode());
+          ((this.predicate == null) ? 0 : this.predicate.hashCode());
         boolean subjnull = this.subject == null;
         result = (prime * result) + (subjnull ? 0 :
-          this.subject.hashCode());
+            this.subject.hashCode());
         return result;
       }
     }
@@ -152,6 +153,6 @@ at: http://peteroupc.github.io/
      */
     @Override public final String toString() {
       return this.subject.toString() + " " + this.predicate.toString() + " " +
-            this.objectRdf.toString() + " .";
+        this.objectRdf.toString() + " .";
     }
   }

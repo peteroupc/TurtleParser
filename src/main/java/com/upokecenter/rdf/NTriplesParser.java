@@ -14,9 +14,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-    /**
-     * Not documented yet.
-     */
+  /**
+   * Not documented yet.
+   */
   public final class NTriplesParser implements IRDFParser {
     /**
      * Not documented yet.
@@ -47,9 +47,9 @@ at: http://peteroupc.github.io/
         throw new NullPointerException("stream");
       }
       this.input = new StackableCharacterInput(
-          Encodings.GetDecoderInput(
-  Encodings.GetEncoding("us-ascii", true),
-  stream));
+        Encodings.GetDecoderInput(
+          Encodings.GetEncoding("us-ascii", true),
+          stream));
       this.bnodeLabels = new HashMap<String, RDFTerm>();
     }
 
@@ -64,7 +64,7 @@ at: http://peteroupc.github.io/
         throw new NullPointerException("str");
       }
       this.input = new StackableCharacterInput(
-          Encodings.StringToInput(str));
+        Encodings.StringToInput(str));
       this.bnodeLabels = new HashMap<String, RDFTerm>();
     }
 
@@ -143,14 +143,15 @@ at: http://peteroupc.github.io/
           ilist.append((char)startChar);
         }
       } else if (startChar <= 0x10ffff) {
-        ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) | 0xd800));
+        ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
+0xd800));
         ilist.append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') ||
-            (ch >= '0' && ch <= '9')) {
+          (ch >= '0' && ch <= '9')) {
           if (ch <= 0xffff) {
             {
               ilist.append((char)ch);
@@ -175,12 +176,12 @@ at: http://peteroupc.github.io/
       while (true) {
         int c2 = this.input.ReadChar();
         if ((c2 <= 0x20 || c2 > 0x7e) || ((c2 & 0x7F) == c2 && "<\"{}|^`"
-                .indexOf((char)c2) >= 0)) {
+            .indexOf((char)c2) >= 0)) {
           throw new ParserException();
         } else if (c2 == '\\') {
           c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0x20 || (c2 >= 0x7f && c2 <= 0x9f) || ((c2 & 0x7f) == c2 &&
-            "<\"{}|\\^`".indexOf((char)c2) >= 0)) {
+              "<\"{}|\\^`".indexOf((char)c2) >= 0)) {
             throw new ParserException();
           }
           if (c2 == ':') {
@@ -369,12 +370,12 @@ at: http://peteroupc.github.io/
         if (this.input.ReadChar() != '0') {
           throw new ParserException();
         }
-        int a = this.ToHexValue(this.input.ReadChar());
-        int b = this.ToHexValue(this.input.ReadChar());
-        int c = this.ToHexValue(this.input.ReadChar());
-        int d = this.ToHexValue(this.input.ReadChar());
-        int e = this.ToHexValue(this.input.ReadChar());
-        int f = this.ToHexValue(this.input.ReadChar());
+        int a = ToHexValue(this.input.ReadChar());
+        int b = ToHexValue(this.input.ReadChar());
+        int c = ToHexValue(this.input.ReadChar());
+        int d = ToHexValue(this.input.ReadChar());
+        int e = ToHexValue(this.input.ReadChar());
+        int f = ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0 || f < 0) {
           throw new ParserException();
         }
@@ -384,10 +385,10 @@ at: http://peteroupc.github.io/
         // throw new ParserException();
         // }
       } else if (ch == 'u') {
-        int a = this.ToHexValue(this.input.ReadChar());
-        int b = this.ToHexValue(this.input.ReadChar());
-        int c = this.ToHexValue(this.input.ReadChar());
-        int d = this.ToHexValue(this.input.ReadChar());
+        int a = ToHexValue(this.input.ReadChar());
+        int b = ToHexValue(this.input.ReadChar());
+        int c = ToHexValue(this.input.ReadChar());
+        int d = ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0) {
           throw new ParserException();
         }
@@ -433,11 +434,11 @@ at: http://peteroupc.github.io/
       }
     }
 
-    private int ToHexValue(int a) {
+    private static int ToHexValue(int a) {
       if (a >= '0' && a <= '9') {
         return a - '0';
       }
       return (a >= 'a' && a <= 'f') ? (a + 10 - 'a') : ((a >= 'A' && a <= 'F') ?
-        (a + 10 - 'A') : (-1));
+          (a + 10 - 'A') : (-1));
     }
   }

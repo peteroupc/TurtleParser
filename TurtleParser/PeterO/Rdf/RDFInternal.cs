@@ -19,13 +19,13 @@ namespace PeterO.Rdf {
     /// name='bnodeLabels'/> is a.Collections.Generic.IDictionary
     /// {System.String object.</param>
     internal static void ReplaceBlankNodes(
-    ISet<RDFTriple> triples,
-    IDictionary<string, RDFTerm> bnodeLabels) {
+      ISet<RDFTriple> triples,
+      IDictionary<string, RDFTerm> bnodeLabels) {
       if (bnodeLabels.Count == 0) {
         return;
       }
       IDictionary<string, RDFTerm> newBlankNodes = new
-        Dictionary<string, RDFTerm>();
+      Dictionary<string, RDFTerm>();
       IList<RDFTriple[]> changedTriples = new List<RDFTriple[]>();
       var nodeindex = new int[] { 0 };
       foreach (RDFTriple triple in triples) {
@@ -39,7 +39,7 @@ namespace PeterO.Rdf {
             bnodeLabels);
           if (!newname.Equals(oldname, StringComparison.Ordinal)) {
             RDFTerm newNode = newBlankNodes.ContainsKey(oldname) ?
-                    newBlankNodes[oldname] : null;
+              newBlankNodes[oldname] : null;
             if (newNode == null) {
               newNode = RDFTerm.FromBlankNode(newname);
               bnodeLabels.Add(newname, newNode);

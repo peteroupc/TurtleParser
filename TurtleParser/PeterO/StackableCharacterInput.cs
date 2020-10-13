@@ -13,8 +13,8 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO {
-    /// <summary>A character input stream where additional inputs can be
-    /// stacked on.</summary>
+  /// <summary>A character input stream where additional inputs can be
+  /// stacked on.</summary>
   public sealed class StackableCharacterInput : IMarkableCharacterInput {
     private class InputAndBuffer : ICharacterInput {
       private int[] buffer;
@@ -57,17 +57,16 @@ namespace PeterO {
           throw new ArgumentNullException(nameof(buf));
         }
         if (offset < 0) {
-          throw new ArgumentException("offset less than 0 (" + offset + ")");
+          throw new ArgumentException("offset less than 0(" + offset + ")");
         }
         if (unitCount < 0) {
-          throw new ArgumentException("unitCount less than 0 (" + unitCount +
-                ")");
+          throw new ArgumentException("unitCount less than 0(" + unitCount +
+            ")");
         }
         if (offset + unitCount > buf.Length) {
           throw new
-            ArgumentOutOfRangeException("offset+unitCount more than " +
-            buf.Length + " (" +
-    (offset + unitCount) + ")");
+          ArgumentOutOfRangeException("offset+unitCount more than " +
+            buf.Length + " (" + (offset + unitCount) + ")");
         }
         if (unitCount == 0) {
           return 0;
@@ -123,7 +122,7 @@ namespace PeterO {
     /// 32-bit signed integer.</param>
     public void MoveBack(int count) {
       if (count < 0) {
-        throw new ArgumentException("count (" + count +
+        throw new ArgumentException("count(" + count +
           ") is not greater or equal to 0");
       }
       if (this.haveMark && this.pos >= count) {
@@ -145,11 +144,11 @@ namespace PeterO {
       // Move unread characters in buffer, since this new
       // input sits on top of the existing input
       this.stack.Add(
-  new InputAndBuffer(
-    input,
-    this.buffer,
-    this.pos,
-    this.endpos - this.pos));
+        new InputAndBuffer(
+          input,
+          this.buffer,
+          this.pos,
+          this.endpos - this.pos));
       this.endpos = this.pos;
     }
 
@@ -219,23 +218,23 @@ namespace PeterO {
         throw new ArgumentNullException(nameof(buf));
       }
       if (offset < 0) {
-        throw new ArgumentException("offset (" + offset +
+        throw new ArgumentException("offset(" + offset +
           ") is less than 0");
       }
       if (offset > buf.Length) {
-        throw new ArgumentException("offset (" + offset +
+        throw new ArgumentException("offset(" + offset +
           ") is more than " + buf.Length);
       }
       if (unitCount < 0) {
-        throw new ArgumentException("unitCount (" + unitCount +
+        throw new ArgumentException("unitCount(" + unitCount +
           ") is less than 0");
       }
       if (unitCount > buf.Length) {
-        throw new ArgumentException("unitCount (" + unitCount +
+        throw new ArgumentException("unitCount(" + unitCount +
           ") is more than " + buf.Length);
       }
       if (buf.Length - offset < unitCount) {
-        throw new ArgumentException("buf's length minus " + offset + " (" +
+        throw new ArgumentException("buf's length minus " + offset + "(" +
           (buf.Length - offset) + ") is less than " + unitCount);
       }
       if (this.haveMark) {
@@ -275,9 +274,9 @@ namespace PeterO {
           this.buffer = newBuffer;
         }
         count = this.ReadInternal(
-  this.buffer,
-  this.endpos,
-  Math.Min(unitCount, this.buffer.Length - this.endpos));
+            this.buffer,
+            this.endpos,
+            Math.Min(unitCount, this.buffer.Length - this.endpos));
         if (count > 0) {
           this.endpos += count;
         }

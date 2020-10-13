@@ -1,6 +1,6 @@
 using System;
 
-    /*
+/*
 Written in 2013 by Peter Occil.
 Any copyright is dedicated to the Public Domain.
 http://creativecommons.org/publicdomain/zero/1.0/
@@ -9,7 +9,7 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-/// <summary>Not documented yet.</summary>
+  /// <summary>Not documented yet.</summary>
   public sealed class RDFTriple {
     private readonly RDFTerm subject;
     private readonly RDFTerm predicate;
@@ -23,9 +23,6 @@ namespace PeterO.Rdf {
     /// <exception cref='ArgumentNullException'>The parameter <paramref
     /// name='objectRdf'/> or <paramref name='predicate'/> or <paramref
     /// name='subject'/> is null.</exception>
-    /// <exception cref='ArgumentException'>Doesn't satisfy
-    /// predicate.kind==RDFTerm.IRI; doesn't satisfy subject.kind ==
-    /// RDFTerm.IRI || subject.kind == RDFTerm.BLANK.</exception>
     public RDFTriple(RDFTerm subject, RDFTerm predicate, RDFTerm objectRdf) {
       if (objectRdf == null) {
         throw new ArgumentNullException(nameof(objectRdf));
@@ -35,7 +32,8 @@ namespace PeterO.Rdf {
         throw new ArgumentNullException(nameof(predicate));
       }
       if (!(predicate.GetKind() == RDFTerm.IRI)) {
-    throw new ArgumentException("doesn't satisfy predicate.kind==RDFTerm.IRI");
+        throw new ArgumentException("doesn't satisfy" +
+"\u0020predicate.kind==RDFTerm.IRI");
       }
       this.predicate = predicate;
       if (subject == null) {
@@ -44,8 +42,9 @@ namespace PeterO.Rdf {
       if (!(subject.GetKind() == RDFTerm.IRI ||
           subject.GetKind() == RDFTerm.BLANK)) {
         throw new
-         ArgumentException(
-  "doesn't satisfy subject.kind==RDFTerm.IRI || subject.kind==RDFTerm.BLANK");
+        ArgumentException(
+          "doesn't satisfy subject.kind==RDFTerm.IRI ||" +
+"\u0020subject.kind==RDFTerm.BLANK");
       }
       this.subject = subject;
     }
@@ -124,12 +123,12 @@ namespace PeterO.Rdf {
       unchecked {
         var prime = 31;
         int result = prime + ((this.objectRdf == null) ? 0 :
-             this.objectRdf.GetHashCode());
+            this.objectRdf.GetHashCode());
         result = (prime * result) +
-            ((this.predicate == null) ? 0 : this.predicate.GetHashCode());
+          ((this.predicate == null) ? 0 : this.predicate.GetHashCode());
         bool subjnull = this.subject == null;
         result = (prime * result) + (subjnull ? 0 :
-          this.subject.GetHashCode());
+            this.subject.GetHashCode());
         return result;
       }
     }
@@ -138,7 +137,7 @@ namespace PeterO.Rdf {
     /// <returns>The return value is not documented yet.</returns>
     public override sealed string ToString() {
       return this.subject.ToString() + " " + this.predicate.ToString() + " " +
-            this.objectRdf.ToString() + " .";
+        this.objectRdf.ToString() + " .";
     }
   }
 }

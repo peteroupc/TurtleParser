@@ -13,7 +13,7 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-    /// <summary>Not documented yet.</summary>
+  /// <summary>Not documented yet.</summary>
   public sealed class NTriplesParser : IRDFParser {
     /// <summary>Not documented yet.</summary>
     /// <param name='c'>The parameter <paramref name='c'/> is a 32-bit
@@ -44,9 +44,9 @@ namespace PeterO.Rdf {
         throw new ArgumentNullException(nameof(stream));
       }
       this.input = new StackableCharacterInput(
-          Encodings.GetDecoderInput(
-  Encodings.GetEncoding("us-ascii", true),
-  stream));
+        Encodings.GetDecoderInput(
+          Encodings.GetEncoding("us-ascii", true),
+          stream));
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
@@ -61,7 +61,7 @@ namespace PeterO.Rdf {
         throw new ArgumentNullException(nameof(str));
       }
       this.input = new StackableCharacterInput(
-          Encodings.StringToInput(str));
+        Encodings.StringToInput(str));
       this.bnodeLabels = new Dictionary<string, RDFTerm>();
     }
 
@@ -138,14 +138,15 @@ namespace PeterO.Rdf {
           ilist.Append((char)startChar);
         }
       } else if (startChar <= 0x10ffff) {
-        ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) | 0xd800));
+        ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
+0xd800));
         ilist.Append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       this.input.SetSoftMark();
       while (true) {
         int ch = this.input.ReadChar();
         if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') ||
-            (ch >= '0' && ch <= '9')) {
+          (ch >= '0' && ch <= '9')) {
           if (ch <= 0xffff) {
             {
               ilist.Append((char)ch);
@@ -170,12 +171,12 @@ namespace PeterO.Rdf {
       while (true) {
         int c2 = this.input.ReadChar();
         if ((c2 <= 0x20 || c2 > 0x7e) || ((c2 & 0x7F) == c2 && "<\"{}|^`"
-                .IndexOf((char)c2) >= 0)) {
+            .IndexOf((char)c2) >= 0)) {
           throw new ParserException();
         } else if (c2 == '\\') {
           c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0x20 || (c2 >= 0x7f && c2 <= 0x9f) || ((c2 & 0x7f) == c2 &&
-            "<\"{}|\\^`".IndexOf((char)c2) >= 0)) {
+              "<\"{}|\\^`".IndexOf((char)c2) >= 0)) {
             throw new ParserException();
           }
           if (c2 == ':') {
@@ -331,13 +332,13 @@ namespace PeterO.Rdf {
     private RDFTriple ReadTriples() {
       int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
-#if DEBUG
+      #if DEBUG
       if (!(ch >= 0)) {
         {
           throw new InvalidOperationException("ch>= 0");
         }
       }
-#endif
+      #endif
       this.input.SetMarkPosition(mark);
       RDFTerm subject = this.ReadObject(false);
       if (!this.SkipWhitespace()) {
@@ -370,12 +371,12 @@ namespace PeterO.Rdf {
         if (this.input.ReadChar() != '0') {
           throw new ParserException();
         }
-        int a = this.ToHexValue(this.input.ReadChar());
-        int b = this.ToHexValue(this.input.ReadChar());
-        int c = this.ToHexValue(this.input.ReadChar());
-        int d = this.ToHexValue(this.input.ReadChar());
-        int e = this.ToHexValue(this.input.ReadChar());
-        int f = this.ToHexValue(this.input.ReadChar());
+        int a = ToHexValue(this.input.ReadChar());
+        int b = ToHexValue(this.input.ReadChar());
+        int c = ToHexValue(this.input.ReadChar());
+        int d = ToHexValue(this.input.ReadChar());
+        int e = ToHexValue(this.input.ReadChar());
+        int f = ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0 || f < 0) {
           throw new ParserException();
         }
@@ -385,10 +386,10 @@ namespace PeterO.Rdf {
         // throw new ParserException();
         // }
       } else if (ch == 'u') {
-        int a = this.ToHexValue(this.input.ReadChar());
-        int b = this.ToHexValue(this.input.ReadChar());
-        int c = this.ToHexValue(this.input.ReadChar());
-        int d = this.ToHexValue(this.input.ReadChar());
+        int a = ToHexValue(this.input.ReadChar());
+        int b = ToHexValue(this.input.ReadChar());
+        int c = ToHexValue(this.input.ReadChar());
+        int d = ToHexValue(this.input.ReadChar());
         if (a < 0 || b < 0 || c < 0 || d < 0) {
           throw new ParserException();
         }
@@ -434,12 +435,12 @@ namespace PeterO.Rdf {
       }
     }
 
-    private int ToHexValue(int a) {
+    private static int ToHexValue(int a) {
       if (a >= '0' && a <= '9') {
         return a - '0';
       }
       return (a >= 'a' && a <= 'f') ? (a + 10 - 'a') : ((a >= 'A' && a <= 'F') ?
-        (a + 10 - 'A') : (-1));
+          (a + 10 - 'A') : (-1));
     }
   }
 }

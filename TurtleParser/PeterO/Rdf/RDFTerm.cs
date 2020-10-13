@@ -11,7 +11,7 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 namespace PeterO.Rdf {
-    /// <summary>Not documented yet.</summary>
+  /// <summary>Not documented yet.</summary>
   public sealed class RDFTerm {
     /// <summary>Type value for a blank node.</summary>
     public const int BLANK = 0; // type is blank node name, literal is blank
@@ -33,10 +33,10 @@ namespace PeterO.Rdf {
       for (int i = 0; i < length; ++i) {
         int c = str[i];
         if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
-            (c > 0 && c >= '0' && c <= '9')) {
+          (c > 0 && c >= '0' && c <= '9')) {
           builder.Append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                (str[i + 1] & 0xfc00) == 0xdc00) {
+          (str[i + 1] & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c & 0x3ff) << 10) + (str[i + 1] & 0x3ff);
           builder.Append("U00");
@@ -103,7 +103,7 @@ namespace PeterO.Rdf {
         } else if (c >= 0x20 && c <= 0x7e) {
           builder.Append((char)c);
         } else if ((c & 0xfc00) == 0xd800 && i + 1 < length &&
-                (str[i + 1] & 0xfc00) == 0xdc00) {
+          (str[i + 1] & 0xfc00) == 0xdc00) {
           // Get the Unicode code point for the surrogate pair
           c = 0x10000 + ((c & 0x3ff) << 10) + (str[i + 1] & 0x3ff);
           builder.Append("\\U00");
@@ -136,7 +136,7 @@ namespace PeterO.Rdf {
 
     /// <summary>Predicate for RDF types.</summary>
     public static readonly RDFTerm A =
-        FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+      FromIRI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 
     /// <summary>Predicate for the first object in a list.</summary>
     public static readonly RDFTerm FIRST = FromIRI(
@@ -264,7 +264,7 @@ namespace PeterO.Rdf {
           return false;
         }
       } else if (!this.typeOrLanguage.Equals(other.typeOrLanguage,
-  StringComparison.Ordinal)) {
+          StringComparison.Ordinal)) {
         return false;
       }
       if (this.value == null) {
@@ -301,7 +301,7 @@ namespace PeterO.Rdf {
         var prime = 31;
         int result = prime + this.kind;
         result = (prime * result) + ((this.typeOrLanguage == null) ? 0 :
-                this.typeOrLanguage.GetHashCode());
+            this.typeOrLanguage.GetHashCode());
         bool isnull = this.value == null;
         result = (prime * result) + (isnull ? 0 : this.value.GetHashCode());
         return result;
@@ -321,14 +321,17 @@ namespace PeterO.Rdf {
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
     public bool IsIRI(string str) {
       return this.kind == IRI && str != null && str.Equals(this.value,
-  StringComparison.Ordinal);
+          StringComparison.Ordinal);
     }
+
+    private const string XmlSchemaString =
+"http://www.w3.org/2001/XMLSchema#string";
 
     /// <summary>Not documented yet.</summary>
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
     public bool IsOrdinaryString() {
-   return this.kind == TYPEDSTRING && "http://www.w3.org/2001/XMLSchema#string"
-           .Equals(this.typeOrLanguage);
+      return this.kind == TYPEDSTRING &&
+XmlSchemaString.Equals(this.typeOrLanguage, StringComparison.Ordinal);
     }
 
     /// <summary>Gets a string representation of this RDF term in N-Triples
@@ -351,8 +354,8 @@ namespace PeterO.Rdf {
         builder.Append("\"");
         EscapeString(this.value, builder, false);
         builder.Append("\"");
-        if (!"http://www.w3.org/2001/XMLSchema#string"
-              .Equals(this.typeOrLanguage)) {
+        if (!XmlSchemaString.Equals(this.typeOrLanguage,
+  StringComparison.Ordinal)) {
           builder.Append("^^<");
           EscapeString(this.typeOrLanguage, builder, true);
           builder.Append(">");

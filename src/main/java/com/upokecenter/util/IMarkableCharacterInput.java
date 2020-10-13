@@ -10,9 +10,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-    /**
-     * Not documented yet.
-     */
+  /**
+   * Not documented yet.
+   */
   public interface IMarkableCharacterInput extends ICharacterInput {
     /**
      * Gets the zero-based character position in the stream from the last-set mark.

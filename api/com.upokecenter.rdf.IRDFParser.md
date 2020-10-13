@@ -2,6 +2,8 @@
 
     public interface IRDFParser
 
+Not documented yet.
+
 ## Methods
 
 * `java.util.Set<RDFTriple> Parse()`<br>

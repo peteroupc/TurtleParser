@@ -23,13 +23,13 @@ private RDFInternal() {
      * a.getCollections().getGeneric().getMap() {System.String object.
      */
     static void ReplaceBlankNodes(
-    Set<RDFTriple> triples,
-    Map<String, RDFTerm> bnodeLabels) {
+      Set<RDFTriple> triples,
+      Map<String, RDFTerm> bnodeLabels) {
       if (bnodeLabels.size() == 0) {
         return;
       }
       Map<String, RDFTerm> newBlankNodes = new
-        HashMap<String, RDFTerm>();
+      HashMap<String, RDFTerm>();
       List<RDFTriple[]> changedTriples = new ArrayList<RDFTriple[]>();
       int[] nodeindex = new int[] { 0 };
       for (RDFTriple triple : triples) {
@@ -43,7 +43,7 @@ private RDFInternal() {
             bnodeLabels);
           if (!newname.equals(oldname)) {
             RDFTerm newNode = newBlankNodes.containsKey(oldname) ?
-                    newBlankNodes.get(oldname) : null;
+              newBlankNodes.get(oldname) : null;
             if (newNode == null) {
               newNode = RDFTerm.FromBlankNode(newname);
               bnodeLabels.put(newname, newNode);

@@ -14,9 +14,9 @@ If you like this, you should donate to Peter O.
 at: http://peteroupc.github.io/
 */
 
-    /**
-     * A character input stream where additional inputs can be stacked on.
-     */
+  /**
+   * A character input stream where additional inputs can be stacked on.
+   */
   public final class StackableCharacterInput implements IMarkableCharacterInput {
     private static class InputAndBuffer implements ICharacterInput {
       private int[] buffer;
@@ -59,17 +59,16 @@ at: http://peteroupc.github.io/
           throw new NullPointerException("buf");
         }
         if (offset < 0) {
-          throw new IllegalArgumentException("offset less than 0 (" + offset + ")");
+          throw new IllegalArgumentException("offset less than 0(" + offset + ")");
         }
         if (unitCount < 0) {
-          throw new IllegalArgumentException("unitCount less than 0 (" + unitCount +
-                ")");
+          throw new IllegalArgumentException("unitCount less than 0(" + unitCount +
+            ")");
         }
         if (offset + unitCount > buf.length) {
           throw new
-            IllegalArgumentException("offset+unitCount more than " +
-            buf.length + " (" +
-    (offset + unitCount) + ")");
+          IllegalArgumentException("offset+unitCount more than " +
+            buf.length + " (" + (offset + unitCount) + ")");
         }
         if (unitCount == 0) {
           return 0;
@@ -129,7 +128,7 @@ at: http://peteroupc.github.io/
      */
     public void MoveBack(int count) {
       if (count < 0) {
-        throw new IllegalArgumentException("count (" + count +
+        throw new IllegalArgumentException("count(" + count +
           ") is not greater or equal to 0");
       }
       if (this.haveMark && this.pos >= count) {
@@ -151,11 +150,11 @@ at: http://peteroupc.github.io/
       // Move unread characters in buffer, since this new
       // input sits on top of the existing input
       this.stack.add(
-  new InputAndBuffer(
-    input,
-    this.buffer,
-    this.pos,
-    this.endpos - this.pos));
+        new InputAndBuffer(
+          input,
+          this.buffer,
+          this.pos,
+          this.endpos - this.pos));
       this.endpos = this.pos;
     }
 
@@ -168,7 +167,7 @@ at: http://peteroupc.github.io/
         // Read from buffer
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-          // DebugUtility.Log ("buffer: [" + ch + "],["+(char)ch+"]");
+          // System.out.println ("buffer: [" + ch + "],["+(char)ch+"]");
           return ch;
         }
         // System.out.println(this);
@@ -186,7 +185,7 @@ at: http://peteroupc.github.io/
         // Try reading from buffer again
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-          // DebugUtility.Log ("buffer2: [" + ch + "],[" + charch + "]");
+          // System.out.println ("buffer2: [" + ch + "],[" + charch + "]");
           return ch;
         }
         // System.out.println(this);
@@ -203,11 +202,11 @@ at: http://peteroupc.github.io/
         // System.out.println(this);
         this.buffer[this.pos++] = c;
         ++this.endpos;
-        // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+        // System.out.println ("readInt3: [" + c + "],[" + charc + "]");
         return c;
       } else {
         int c = this.ReadInternal();
-        // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+        // System.out.println ("readInt3: [" + c + "],[" + charc + "]");
         return c;
       }
     }
@@ -225,23 +224,23 @@ at: http://peteroupc.github.io/
         throw new NullPointerException("buf");
       }
       if (offset < 0) {
-        throw new IllegalArgumentException("offset (" + offset +
+        throw new IllegalArgumentException("offset(" + offset +
           ") is less than 0");
       }
       if (offset > buf.length) {
-        throw new IllegalArgumentException("offset (" + offset +
+        throw new IllegalArgumentException("offset(" + offset +
           ") is more than " + buf.length);
       }
       if (unitCount < 0) {
-        throw new IllegalArgumentException("unitCount (" + unitCount +
+        throw new IllegalArgumentException("unitCount(" + unitCount +
           ") is less than 0");
       }
       if (unitCount > buf.length) {
-        throw new IllegalArgumentException("unitCount (" + unitCount +
+        throw new IllegalArgumentException("unitCount(" + unitCount +
           ") is more than " + buf.length);
       }
       if (buf.length - offset < unitCount) {
-        throw new IllegalArgumentException("buf's length minus " + offset + " (" +
+        throw new IllegalArgumentException("buf's length minus " + offset + "(" +
           (buf.length - offset) + ") is less than " + unitCount);
       }
       if (this.haveMark) {
@@ -281,9 +280,9 @@ at: http://peteroupc.github.io/
           this.buffer = newBuffer;
         }
         count = this.ReadInternal(
-  this.buffer,
-  this.endpos,
-  Math.min(unitCount, this.buffer.length - this.endpos));
+            this.buffer,
+            this.endpos,
+            Math.min(unitCount, this.buffer.length - this.endpos));
         if (count > 0) {
           this.endpos += count;
         }
