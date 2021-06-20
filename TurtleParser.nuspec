@@ -6,7 +6,7 @@
     <title>Turtle Parser</title>
     <authors>Peter Occil</authors>
     <owners>Peter Occil</owners>
-    <licenseUrl>http://creativecommons.org/publicdomain/zero/1.0/</licenseUrl>
+    <licenseUrl>https://creativecommons.org/publicdomain/zero/1.0/</licenseUrl>
     <projectUrl>https://github.com/peteroupc/TurtleParser</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
@@ -16,7 +16,8 @@ A Turtle RDF parser for C# and Java.
     <releaseNotes>
     Version 0.1.0: First release
     </releaseNotes>
-    <copyright>Written by Peter O.  Any copyright to this work is released to the Public Domain.</copyright>
+    <copyright>Written by Peter O.  Any copyright to this work is released to the Public Domain.  In case this is not possible, this work is also
+licensed under Creative Commons Zero (CC0): https://creativecommons.org/publicdomain/zero/1.0/</copyright>
     <dependencies>
       <group targetFramework="dotnet">
         <dependency id="System.Collections" version="4.0.0" />
