@@ -33,18 +33,15 @@ https://creativecommons.org/publicdomain/zero/1.0/
     int SetHardMark();
 
     /**
-     * Sets the stream's position from the last set mark. <param
-     * name='pos'>Zero-based character offset from the last set
-     * mark.</param>.
+     * Sets the stream's position from the last set mark.
      * @param pos Zero-based character offset from the last set mark.
      */
     void SetMarkPosition(int pos);
 
     /**
      * If no mark is set, sets a mark on the stream, and characters read before the
-     * currently set mark are no longer available, while characters read
-     * after will be available if MoveBack is called. Otherwise, behaves
-     * like GetMarkPosition.
+     * currently set mark are no longer available, while characters read after will
+     * be available if MoveBack is called. Otherwise, behaves like GetMarkPosition.
      * @return The return value is not documented yet.
      */
     int SetSoftMark();

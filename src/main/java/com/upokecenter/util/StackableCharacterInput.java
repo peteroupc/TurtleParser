@@ -107,7 +107,7 @@ https://creativecommons.org/publicdomain/zero/1.0/
 
     /**
      * Initializes a new instance of the {@link
-     * com.upokecenter.StackableCharacterInput} class.
+     * com.upokecenter.util.StackableCharacterInput} class.
      * @param source The parameter {@code source} is an ICharacterInput object.
      */
     public StackableCharacterInput(ICharacterInput source) {

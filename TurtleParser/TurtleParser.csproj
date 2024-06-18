@@ -1,13 +1,13 @@
 <Project Sdk='Microsoft.NET.Sdk'>
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+
     <PackageId>PeterO.TurtleParser</PackageId>
     <PackageVersion>0.1.0</PackageVersion>
     <Authors>Peter Occil</Authors>
     <Owners>Peter Occil</Owners>
     <Description>A library for parsing the Turtle RDF format.</Description>
-  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
+  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet><IsTrimmable Condition='$([MSBuild]::IsTargetFrameworkCompatible(&apos;$(TargetFramework)&apos;, &apos;net6.0&apos;))'>true</IsTrimmable><TargetFrameworks>netstandard1.0;net7.0</TargetFrameworks></PropertyGroup>
 
   <PropertyGroup Condition=' &apos;$(Configuration)&apos;==&apos;Debug&apos; '>
     <DocumentationFile>bin\Debug\netstandard1.0\TurtleParser.xml</DocumentationFile>
@@ -19,7 +19,7 @@
     <Folder Include='PeterO\'/>
   <PackageReference Include='StyleCop.Analyzers' PrivateAssets='All' Version='1.2.0-beta.354'/><AdditionalFiles Include='stylecop.json'/><PackageReference Include='PeterO.Encoding' Version='0.6.0'/>
 <AdditionalFiles Include='rules.ruleset'/><PackageReference Include='PeterO.URIUtility' Version='1.0.0'/>
-<PackageReference Include='Microsoft.CodeAnalysis.NetAnalyzers' PrivateAssets='All' Version='5.0.3'/></ItemGroup>
+<PackageReference Include='Microsoft.CodeAnalysis.NetAnalyzers' PrivateAssets='All' Version='7.0.3'/></ItemGroup>
   <ItemGroup>
     <Compile Remove='Class1.cs'/>
   </ItemGroup>

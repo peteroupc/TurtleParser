@@ -4,7 +4,7 @@ using PeterO;
 
 namespace EncodingTest {
   internal class Program {
-    internal static void Main() {
+    internal static void Main_() {
       foreach (var f in Directory.GetFiles(
         ".",
         "*.ttl")) {

@@ -1,82 +1,27 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<Project DefaultTargets='Build' ToolsVersion='14.0' xmlns='http://schemas.microsoft.com/developer/msbuild/2003'>
-  <Import Condition='Exists(&apos;$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props&apos;)' Project='$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props'/>
+<Project Sdk='Microsoft.NET.Sdk'>
   <PropertyGroup>
-    <Configuration Condition=' &apos;$(Configuration)&apos; == &apos;&apos; '>Debug</Configuration>
-    <Platform Condition=' &apos;$(Platform)&apos; == &apos;&apos; '>AnyCPU</Platform>
-    <ProjectGuid>{8C720F8C-E0D2-45E6-B463-40FB128DE87E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
-<RootNamespace>TurtleParserTest</RootNamespace>
-    <AssemblyName>TurtleParserTest</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile/>
-  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
+    <TargetFramework>netcoreapp6.0</TargetFramework>
+  </PropertyGroup>
   <PropertyGroup Condition=' &apos;$(Configuration)&apos;==&apos;Debug&apos; '>
-    <PlatformTarget>anycpu</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
+    <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
   <PropertyGroup Condition=' &apos;$(Configuration)&apos;==&apos;Release&apos; '>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet></PropertyGroup>
   <ItemGroup>
-    <Reference Include='System'/>
-    <Reference Include='System.Core'/>
-    <Reference Include='Microsoft.CSharp'/>
-    <Reference Include='System.ComponentModel.Composition'/>
-
-    <Reference Include='System.IO'>
-      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
-    </Reference>
-    <Reference Include='mscorlib'/>
-    <Reference Include='Encoding'>
-      <HintPath>..\packages\PeterO.Encoding.0.5.1\lib\net40\Encoding.dll</HintPath>
-    </Reference>
-    <Reference Include='System.Runtime'>
-      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
-    </Reference>
-  <AdditionalFiles Include='stylecop.json'/><AdditionalFiles Include='rules.ruleset'/><PackageReference Include='NUnit'><Version>3.12.0</Version></PackageReference><PackageReference Include='StyleCop.Analyzers'><Version>1.1.118</Version></PackageReference><PackageReference Include='Microsoft.CodeAnalysis.NetAnalyzers'><Version>5.0.3</Version></PackageReference><PackageReference Include='PeterO.URIUtility'>
-  <Version>1.0.0</Version>
-</PackageReference>
-<PackageReference Include='Microsoft.CodeAnalysis.NetAnalyzers'><Version>5.0.3</Version></PackageReference></ItemGroup>
+    <ProjectReference Include='..\TurtleParser\TurtleParser.csproj'/>
+  <AdditionalFiles Include='stylecop.json'/><AdditionalFiles Include='rules.ruleset'/></ItemGroup>
   <ItemGroup>
-    <Compile Include='Program.cs'/>
-    <Compile Include='Properties\AssemblyInfo.cs'/>
-  </ItemGroup>
-  <ItemGroup>
-
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include='{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}'/>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include='..\TurtleParser\TurtleParser.csproj'>
-      <Project>{A140CB91-6733-4633-9955-FC0292914A52}</Project>
-      <Name>TurtleParserTest</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project='$(MSBuildToolsPath)\Microsoft.CSharp.targets'/>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+</ItemGroup>
+      <ItemGroup>
+        <PackageReference Include='Microsoft.NET.Test.Sdk' Version='15.9.0'/>
+        <PackageReference Include='NUnit' Version='3.13.2'/>
+        <PackageReference Include='Microsoft.CodeAnalysis.NetAnalyzers' PrivateAssets='All' Version='7.0.3'/>
+        <PackageReference Include='NUnit3TestAdapter' Version='3.16.1'>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include='StyleCop.Analyzers' PrivateAssets='All' Version='1.2.0-beta.354'/>
+        <PackageReference Include='PeterO.Numbers' Version='1.8.2'/>
+      </ItemGroup>
    </Project>

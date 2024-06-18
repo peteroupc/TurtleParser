@@ -26,9 +26,10 @@ namespace PeterO {
     /// <returns>The return value is not documented yet.</returns>
     int SetHardMark();
 
-    /// <summary>Sets the stream's position from the last set mark.
+    /// <summary>Sets the stream's position from the last set
+    /// mark.</summary>
     /// <param name='pos'>Zero-based character offset from the last set
-    /// mark.</param>.</summary>
+    /// mark.</param>
     void SetMarkPosition(int pos);
 
     /// <summary>If no mark is set, sets a mark on the stream, and

@@ -1,63 +1,85 @@
 # com.upokecenter.rdf.RDFTerm
 
-    public final class RDFTerm extends java.lang.Object
+    public final class RDFTerm extends Object
 
 Not documented yet.
 
 ## Fields
 
-* `static RDFTerm A`<br>
+* `static final RDFTerm A`<br>
  Predicate for RDF types.
-* `static int BLANK`<br>
+
+* `static final int BLANK`<br>
  Type value for a blank node.
-* `static RDFTerm FALSE`<br>
+
+* `static final RDFTerm FALSE`<br>
  object for false.
-* `static RDFTerm FIRST`<br>
+
+* `static final RDFTerm FIRST`<br>
  Predicate for the first object in a list.
-* `static int IRI`<br>
+
+* `static final int IRI`<br>
  Type value for an IRI (Internationalized Resource Identifier.).
-* `static int LANGSTRING`<br>
+
+* `static final int LANGSTRING`<br>
  Type value for a string with a language tag.
-* `static RDFTerm NIL`<br>
+
+* `static final RDFTerm NIL`<br>
  object for nil, the end of a list, or an empty list.
-* `static RDFTerm REST`<br>
+
+* `static final RDFTerm REST`<br>
  Predicate for the remaining objects in a list.
-* `static RDFTerm TRUE`<br>
+
+* `static final RDFTerm TRUE`<br>
  object for true.
-* `static int TYPEDSTRING`<br>
+
+* `static final int TYPEDSTRING`<br>
  Type value for a piece of data serialized to a string.
 
 ## Methods
 
-* `boolean equals​(java.lang.Object obj)`<br>
+* `final boolean equals(Object obj)`<br>
  Not documented yet.
-* `static RDFTerm FromBlankNode​(java.lang.String name)`<br>
+
+* `static RDFTerm FromBlankNode(String name)`<br>
  Not documented yet.
-* `static RDFTerm FromIRI​(java.lang.String iri)`<br>
+
+* `static RDFTerm FromIRI(String iri)`<br>
  Not documented yet.
-* `static RDFTerm FromLangString​(java.lang.String str,
-              java.lang.String languageTag)`<br>
+
+* `static RDFTerm FromLangString(String str,
+ String languageTag)`<br>
  Not documented yet.
-* `static RDFTerm FromTypedString​(java.lang.String str)`<br>
+
+* `static RDFTerm FromTypedString(String str)`<br>
  Not documented yet.
-* `static RDFTerm FromTypedString​(java.lang.String str,
-               java.lang.String iri)`<br>
+
+* `static RDFTerm FromTypedString(String str,
+ String iri)`<br>
  Not documented yet.
+
 * `int GetKind()`<br>
  Not documented yet.
-* `java.lang.String GetTypeOrLanguage()`<br>
+
+* `String GetTypeOrLanguage()`<br>
  Gets the language tag or data type for this RDF literal.
-* `java.lang.String GetValue()`<br>
+
+* `String GetValue()`<br>
  Gets the IRI, blank node identifier, or lexical form of an RDF literal.
-* `int hashCode()`<br>
+
+* `final int hashCode()`<br>
  Not documented yet.
+
 * `boolean IsBlank()`<br>
  Gets a value indicating whether this term is a blank node.
-* `boolean IsIRI​(java.lang.String str)`<br>
+
+* `boolean IsIRI(String str)`<br>
  Not documented yet.
+
 * `boolean IsOrdinaryString()`<br>
  Not documented yet.
-* `java.lang.String toString()`<br>
+
+* `final String toString()`<br>
  Gets a string representation of this RDF term in N-Triples format.
 
 ## Field Details
@@ -95,7 +117,7 @@ object for true.
 ## Method Details
 
 ### FromBlankNode
-    public static RDFTerm FromBlankNode​(java.lang.String name)
+    public static RDFTerm FromBlankNode(String name)
 Not documented yet.
 
 **Parameters:**
@@ -108,12 +130,12 @@ Not documented yet.
 
 **Throws:**
 
-* <code>java.lang.IllegalArgumentException</code> - Name is empty.
+* <code>IllegalArgumentException</code> - Name is empty.
 
-* <code>java.lang.NullPointerException</code> - The parameter <code>name</code> is null.
+* <code>NullPointerException</code> - The parameter <code>name</code> is null.
 
 ### FromIRI
-    public static RDFTerm FromIRI​(java.lang.String iri)
+    public static RDFTerm FromIRI(String iri)
 Not documented yet.
 
 **Parameters:**
@@ -126,10 +148,10 @@ Not documented yet.
 
 **Throws:**
 
-* <code>java.lang.NullPointerException</code> - The parameter <code>iri</code> is null.
+* <code>NullPointerException</code> - The parameter <code>iri</code> is null.
 
 ### FromLangString
-    public static RDFTerm FromLangString​(java.lang.String str, java.lang.String languageTag)
+    public static RDFTerm FromLangString(String str, String languageTag)
 Not documented yet.
 
 **Parameters:**
@@ -144,13 +166,13 @@ Not documented yet.
 
 **Throws:**
 
-* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> or <code>
+* <code>NullPointerException</code> - The parameter <code>str</code> or <code>
  languageTag</code> is null.
 
-* <code>java.lang.IllegalArgumentException</code> - LanguageTag is empty.
+* <code>IllegalArgumentException</code> - LanguageTag is empty.
 
 ### FromTypedString
-    public static RDFTerm FromTypedString​(java.lang.String str)
+    public static RDFTerm FromTypedString(String str)
 Not documented yet.
 
 **Parameters:**
@@ -162,7 +184,7 @@ Not documented yet.
 * A RDFTerm object.
 
 ### FromTypedString
-    public static RDFTerm FromTypedString​(java.lang.String str, java.lang.String iri)
+    public static RDFTerm FromTypedString(String str, String iri)
 Not documented yet.
 
 **Parameters:**
@@ -177,18 +199,18 @@ Not documented yet.
 
 **Throws:**
 
-* <code>java.lang.NullPointerException</code> - The parameter <code>str</code> or <code>iri</code> is
+* <code>NullPointerException</code> - The parameter <code>str</code> or <code>iri</code> is
  null.
 
-* <code>java.lang.IllegalArgumentException</code> - Iri is empty.
+* <code>IllegalArgumentException</code> - Iri is empty.
 
 ### equals
-    public final boolean equals​(java.lang.Object obj)
+    public final boolean equals(Object obj)
 Not documented yet.
 
 **Overrides:**
 
-* <code>equals</code> in class <code>java.lang.Object</code>
+* <code>equals</code> in class <code>Object</code>
 
 **Parameters:**
 
@@ -207,7 +229,7 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### GetTypeOrLanguage
-    public java.lang.String GetTypeOrLanguage()
+    public String GetTypeOrLanguage()
 Gets the language tag or data type for this RDF literal.
 
 **Returns:**
@@ -215,7 +237,7 @@ Gets the language tag or data type for this RDF literal.
 * A text string.
 
 ### GetValue
-    public java.lang.String GetValue()
+    public String GetValue()
 Gets the IRI, blank node identifier, or lexical form of an RDF literal.
 
 **Returns:**
@@ -228,7 +250,7 @@ Not documented yet.
 
 **Overrides:**
 
-* <code>hashCode</code> in class <code>java.lang.Object</code>
+* <code>hashCode</code> in class <code>Object</code>
 
 **Returns:**
 
@@ -243,7 +265,7 @@ Gets a value indicating whether this term is a blank node.
 * Either <code>true</code> or <code>false</code>.
 
 ### IsIRI
-    public boolean IsIRI​(java.lang.String str)
+    public boolean IsIRI(String str)
 Not documented yet.
 
 **Parameters:**
@@ -263,13 +285,13 @@ Not documented yet.
 * Either <code>true</code> or <code>false</code>.
 
 ### toString
-    public final java.lang.String toString()
+    public final String toString()
 Gets a string representation of this RDF term in N-Triples format. The
  string will not end in a line break.
 
 **Overrides:**
 
-* <code>toString</code> in class <code>java.lang.Object</code>
+* <code>toString</code> in class <code>Object</code>
 
 **Returns:**
 
