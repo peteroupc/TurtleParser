@@ -7,13 +7,13 @@
     <Authors>Peter Occil</Authors>
     <Owners>Peter Occil</Owners>
     <Description>A library for parsing the Turtle RDF format.</Description>
-  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet><IsTrimmable Condition='$([MSBuild]::IsTargetFrameworkCompatible(&apos;$(TargetFramework)&apos;, &apos;net6.0&apos;))'>true</IsTrimmable><TargetFrameworks>netstandard1.0;net7.0</TargetFrameworks></PropertyGroup>
+  <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet><IsTrimmable Condition='$([MSBuild]::IsTargetFrameworkCompatible(&apos;$(TargetFramework)&apos;, &apos;net6.0&apos;))'>true</IsTrimmable><TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks></PropertyGroup>
 
   <PropertyGroup Condition=' &apos;$(Configuration)&apos;==&apos;Debug&apos; '>
-    <DocumentationFile>bin\Debug\netstandard1.0\TurtleParser.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard2.0\TurtleParser.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=' &apos;$(Configuration)&apos;==&apos;Release&apos; '>
-    <DocumentationFile>bin\Release\netstandard1.0\TurtleParser.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\TurtleParser.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include='PeterO\'/>
