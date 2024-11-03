@@ -19,7 +19,7 @@
     <Folder Include='PeterO\'/>
   <PackageReference Include='StyleCop.Analyzers' PrivateAssets='All' Version='1.2.0-beta.354'/><AdditionalFiles Include='stylecop.json'/><PackageReference Include='PeterO.Encoding' Version='0.6.0'/>
 <AdditionalFiles Include='rules.ruleset'/><PackageReference Include='PeterO.URIUtility' Version='1.0.0'/>
-<PackageReference Include='Microsoft.CodeAnalysis.NetAnalyzers' PrivateAssets='All' Version='7.0.3'/></ItemGroup>
+<PackageReference Include='Microsoft.CodeAnalysis.NetAnalyzers' PrivateAssets='All' Version='9.0.0'/></ItemGroup>
   <ItemGroup>
     <Compile Remove='Class1.cs'/>
   </ItemGroup>

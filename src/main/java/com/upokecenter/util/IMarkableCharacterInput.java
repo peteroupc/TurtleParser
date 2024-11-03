@@ -5,8 +5,7 @@ import com.upokecenter.text.*;
 Written in 2013 by Peter Occil.
 Any copyright to this work is released to the Public Domain.
 In case this is not possible, this work is also
-licensed under Creative Commons Zero (CC0):
-https://creativecommons.org/publicdomain/zero/1.0/
+licensed under the Unlicense: https://unlicense.org/
 
 */
 
