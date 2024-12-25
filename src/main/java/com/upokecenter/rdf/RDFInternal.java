@@ -80,8 +80,8 @@ private RDFInternal() {
         }
       }
       for (RDFTriple[] triple : changedTriples) {
-        triples.Remove(triple[0]);
-        triples.Add(triple[1]);
+        triples.remove(triple[0]);
+        triples.add(triple[1]);
       }
     }
 

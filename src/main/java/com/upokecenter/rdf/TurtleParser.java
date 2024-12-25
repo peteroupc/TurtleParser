@@ -42,26 +42,16 @@ import com.upokecenter.text.*;
         return tobj;
       }
 
-      private RDFTerm term;
-
-      private int kind;
       private List<TurtleObject> objects;
 
       private List<TurtleProperty> properties;
 
-      public final RDFTerm getTerm() {
-          return this.term;
-        }
-public final void setTerm(RDFTerm value) {
-          this.term = value;
-        }
-
-      public final int getKind() {
-          return this.kind;
-        }
-public final void setKind(int value) {
-          this.kind = value;
-        }
+      public final RDFTerm getTerm() { return propVarterm; }
+public final void setTerm(RDFTerm value) { propVarterm = value; }
+private RDFTerm propVarterm;
+      public final int getKind() { return propVarkind; }
+public final void setKind(int value) { propVarkind = value; }
+private int propVarkind;
 
       public List<TurtleObject> GetObjects() {
         return this.objects;
@@ -73,22 +63,12 @@ public final void setKind(int value) {
     }
 
     private static final class TurtleProperty {
-      private RDFTerm predValue;
-      private TurtleObject objValue;
-
-      public final RDFTerm getPred() {
-          return this.predValue;
-        }
-public final void setPred(RDFTerm value) {
-          this.predValue = value;
-        }
-
-      public final TurtleObject getObj() {
-          return this.objValue;
-        }
-public final void setObj(TurtleObject value) {
-          this.objValue = value;
-        }
+      public final RDFTerm getPred() { return propVarpred; }
+public final void setPred(RDFTerm value) { propVarpred = value; }
+private RDFTerm propVarpred;
+      public final TurtleObject getObj() { return propVarobj; }
+public final void setObj(TurtleObject value) { propVarobj = value; }
+private TurtleObject propVarobj;
     }
 
     private Map<String, RDFTerm> bnodeLabels;
@@ -218,7 +198,7 @@ public final void setObj(TurtleObject value) {
       RDFTerm obj,
       Set<RDFTriple> triples) {
       RDFTriple triple = new RDFTriple(subj, pred, obj);
-      triples.Add(triple);
+      triples.add(triple);
     }
 
     private void EmitRDFTriple(
@@ -236,7 +216,8 @@ public final void setObj(TurtleObject value) {
           RDFTerm blank = this.AllocateBlankNode();
           EmitRDFTriple(subj, pred, blank, triples);
           for (int i = 0; i < props.size(); ++i) {
-            this.EmitRDFTriple(blank, props.get(i).getPred(), props.get(i).getObj(), triples);
+            TurtleProperty prop = props.get(i);
+            this.EmitRDFTriple(blank, prop.getPred(), props.get(i).getObj(), triples);
           }
         }
       } else if (obj.getKind() == TurtleObject.COLLECTION) {
@@ -737,7 +718,7 @@ public final void setObj(TurtleObject value) {
           }
         } else if (!haveDot && ch1 == '.') {
           haveDot = true;
-          // check for non-digit and non-E
+          // check for nondigit and non-E
           int markpos = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (ch2 != 'e' && ch2 != 'E' && (ch2 < '0' || ch2 > '9')) {
@@ -1309,7 +1290,7 @@ public final void setObj(TurtleObject value) {
           // just a blank node property list;
           // generate a blank node as the subject
           RDFTerm blankNode = this.AllocateBlankNode();
-          for (Object prop : subject.GetProperties()) {
+          for (TurtleProperty prop : subject.GetProperties()) {
             this.EmitRDFTriple(blankNode, prop.getPred(), prop.getObj(), triples);
           }
           return;

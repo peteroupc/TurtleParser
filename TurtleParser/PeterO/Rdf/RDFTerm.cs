@@ -123,8 +123,8 @@ namespace PeterO.Rdf {
       }
     }
 
-    private readonly string typeOrLanguage = null;
-    private readonly string value = null;
+    private readonly string typeOrLanguage;
+    private readonly string value;
     private readonly int kind;
 
     private RDFTerm(int kind, string typeOrLanguage, string value) {

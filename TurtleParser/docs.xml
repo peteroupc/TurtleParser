@@ -211,7 +211,7 @@
     <returns>A 32-bit signed integer.
     </returns>
     <example><para>The examples below will clarify the comparison rules used in this
-        method. In the examples below, this method would return -1 if it were
+        method. In the following examples, this method would return -1 if it were
         passed the following pairs of lists, since list 1 is less than list 2:
       </para>
       <para>list1 = {0, 2, 5, 1}
@@ -738,7 +738,7 @@
     </returns>
 </doc>
 <doc name="T:PeterO.BinaryIO">
-<summary>Reads and writes data types in little endian or big endian.
+<summary>Reads and writes data types in little-endian or big-endian.
     </summary>
 </doc>
 <doc name="M:PeterO.BinaryIO.#ctor(System.IO.Stream)">
@@ -1718,7 +1718,7 @@
     </exception>
 </doc>
 <doc name="M:PeterO.Cbor.CBORObject.AsUInt64">
-<summary>Converts this object to a 64-bit unsigned integer. Non-integer values are
+<summary>Converts this object to a 64-bit unsigned integer. Noninteger values are
       converted to an integer by discarding the fractional part of the result of division.
     </summary>
     <returns>The closest big integer to this object.
@@ -2274,8 +2274,8 @@
         read/write properties (or all properties in the case of a
         compiler-generated type). Properties are converted to their camel-case
         names (meaning if a name starts with A to Z, that letter is
-        lower-cased). If the property name begins with the word "Is" followed by
-        an upper-case A to Z, the "Is" prefix is deleted from the name. (Passing
+        lowercase). If the property name begins with the word "Is" followed by
+        an uppercase A to Z, the "Is" prefix is deleted from the name. (Passing
         the appropriate "options" parameter can be done to control whether the
         "Is" prefix is removed and whether a camel-case conversion happens.)
         Also, .NET
@@ -2284,11 +2284,11 @@
       </para>
       <para>In the Java version, if the object is a type not specially handled by
         this method, this method checks the CBOR object for methods starting
-        with the word "get" or "is" (either word followed by an upper-case A to
+        with the word "get" or "is" (either word followed by an uppercase A to
         Z) that take no parameters, and returns a CBOR map with one entry for
         each such method found. For each method found, the starting word "get"
         or "is" is deleted from its name, and the name is converted to camel
-        case (meaning if a name starts with A to Z, that letter is lower-cased).
+        case (meaning if a name starts with A to Z, that letter is lowercase).
         (Passing the appropriate "options" parameter can be done to control
         whether the "is" prefix is removed and whether a camel-case conversion
         happens.) Also, Java
@@ -2997,7 +2997,7 @@
       function works not only with arrays and maps, but also integers, strings,
       byte arrays, and other JSON data types. Notes:
       <list type=''>
-        <item>If this object contains maps with non-string keys, the keys are
+        <item>If this object contains maps with nonstring keys, the keys are
           converted to JSON strings before writing the map as a JSON string.
         </item>
         <item>If the CBOR object contains CBOR maps, or is a CBOR map itself, the
@@ -3886,7 +3886,7 @@
     </returns>
 </doc>
 <doc name="T:PeterO.Cbor.CBORUtilities">
-<summary>Contains utility methods that may have use outside of the CBORObject
+<summary>Contains auxiliary methods that may have use outside the CBORObject
       class.
     </summary>
 </doc>
@@ -4064,7 +4064,7 @@
     </summary>
 </doc>
 <doc name="T:PeterO.Cbor.URIUtility">
-<summary>Contains utility methods for processing Uniform Resource Identifiers
+<summary>Contains auxiliary methods for processing Uniform Resource Identifiers
       (URIs) and Internationalized Resource Identifiers (IRIs) under RFC3986 and
       RFC3987, respectively. In the following documentation, URIs and IRIs
       include URI references and IRI references, for convenience.
@@ -5001,8 +5001,8 @@
     </exception>
 </doc>
 <doc name="M:PeterO.DataUtilities.ToLowerCaseAscii(System.String)">
-<summary>Returns a string with the basic upper-case letters A to Z (U+0041 to
-      U+005A) converted to lower-case. Other characters remain unchanged.
+<summary>Returns a string with the basic uppercase letters A to Z (U+0041 to
+      U+005A) converted to lowercase. Other characters remain unchanged.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -5014,8 +5014,8 @@
     </returns>
 </doc>
 <doc name="M:PeterO.DataUtilities.ToUpperCaseAscii(System.String)">
-<summary>Returns a string with the basic lower-case letters A to Z (U+0061 to
-      U+007A) converted to upper-case. Other characters remain unchanged.
+<summary>Returns a string with the basic lowercase letters A to Z (U+0061 to
+      U+007A) converted to uppercase. Other characters remain unchanged.
     </summary>
     <param name='str'>The parameter
       <paramref name='str'/>
@@ -5311,7 +5311,7 @@
         values, and infinity.
         <b>Negative zero</b> is generally used when a negative number is rounded to 0; it has the
         same mathematical value as positive zero.
-        <b>Infinity</b> is generally used when a non-zero number is divided by zero, or when a
+        <b>Infinity</b> is generally used when a nonzero number is divided by zero, or when a
         very high number can't be represented in a given exponent range.
         <b>Not-a-number</b> is generally used to signal errors.
       </para>
@@ -5746,10 +5746,9 @@
       </list>
       <para>The string can also be "-INF", "-Infinity", "Infinity", "INF", quiet NaN
         ("NaN") followed by any number of digits, or signaling NaN ("sNaN")
-        followed by any number of digits, all in any combination of upper and
-        lower case.
+        followed by any number of digits, all in any combination of uppercase and lowercase.
       </para>
-      <para>All characters mentioned above are the corresponding characters in the
+      <para>All characters mentioned earlier are the corresponding characters in the
         Basic Latin range. In particular, the digits must be the basic digits 0
         to 9 (U+0030 to U+0039). The string is not allowed to contain white
         space characters, including spaces.
@@ -7003,8 +7002,8 @@
     </summary>
     <param name='name'>The name of the parameter to get. The name will be matched using a basic
       case-insensitive comparison. (Two strings are equal in such a comparison,
-      if they match after converting the basic upper-case letters A to Z (U+0041
-      to U+005A) in both strings to lower case.). Can't be null.
+      if they match after converting the basic uppercase letters A to Z (U+0041
+      to U+005A) in both strings to lowercase.). Can't be null.
     </param>
     <returns>The value of the parameter, or null if the parameter does not exist.
     </returns>
@@ -7279,8 +7278,8 @@
     </summary>
     <param name='name'>The parameter to remove. The name is compared using a basic
       case-insensitive comparison. (Two strings are equal in such a comparison,
-      if they match after converting the basic upper-case letters A to Z (U+0041
-      to U+005A) in both strings to lower case.).
+      if they match after converting the basic uppercase letters A to Z (U+0041
+      to U+005A) in both strings to lowercase.).
     </param>
     <returns>This instance.
     </returns>
@@ -7301,8 +7300,8 @@
     <param name='name'>Name of the parameter to set. If this name already exists (compared using
       a basic case-insensitive comparison), it will be overwritten. (Two strings
       are equal in a basic case-insensitive comparison, if they match after
-      converting the basic upper-case letters A to Z (U+0041 to U+005A) in both
-      strings to lower case.).
+      converting the basic uppercase letters A to Z (U+0041 to U+005A) in both
+      strings to lowercase.).
     </param>
     <param name='value'>Value of the parameter to set.
     </param>
@@ -7698,11 +7697,11 @@
 <summary>Gets this media type's "charset" parameter, naming a character encoding
       used to represent text in the data that uses this media type.
     </summary>
-    <returns>If the "charset" parameter is present and non-empty, returns the result of
+    <returns>If the "charset" parameter is present and nonempty, returns the result of
       the Encodings.ResolveAliasForEmail method for that parameter, except that
-      result's basic upper-case letters A to Z (U+0041 to U+005A) are converted
-      to lower case. If the "charset" parameter is absent or empty, returns the
-      default value, if any, for that parameter given the media type (e.g.,
+      result's basic uppercase letters A to Z (U+0041 to U+005A) are converted
+      to lowercase. If the "charset" parameter is absent or empty, returns the
+      default value, if any, for that parameter given the media type (for example,
       "us-ascii" if the media type is "text/plain"; see RFC2046), or the empty
       string if there is none.
     </returns>
@@ -7720,8 +7719,8 @@
     </summary>
     <param name='name'>Name of the parameter to get. The name is compared using a basic
       case-insensitive comparison. (Two strings are equal in such a comparison,
-      if they match after converting the basic upper-case letters A to Z (U+0041
-      to U+005A) in both strings to lower case.).
+      if they match after converting the basic uppercase letters A to Z (U+0041
+      to U+005A) in both strings to lowercase.).
     </param>
     <returns>The value of the parameter as a string, or null if the parameter doesn't
       exist.
@@ -7921,8 +7920,8 @@
     </summary>
     <param name='name'>Name of the parameter to remove. The name is compared using a basic
       case-insensitive comparison. (Two strings are equal in such a comparison,
-      if they match after converting the basic upper-case letters A to Z (U+0041
-      to U+005A) in both strings to lower case.).
+      if they match after converting the basic uppercase letters A to Z (U+0041
+      to U+005A) in both strings to lowercase.).
     </param>
     <returns>This instance.
     </returns>
@@ -7932,8 +7931,8 @@
     </summary>
     <param name='name'>Name of the parameter to set, such as "charset". The name is compared
       using a basic case-insensitive comparison. (Two strings are equal in such
-      a comparison, if they match after converting the basic upper-case letters
-      A to Z (U+0041 to U+005A) in both strings to lower case.).
+      a comparison, if they match after converting the basic uppercase letters
+      A to Z (U+0041 to U+005A) in both strings to lowercase.).
     </param>
     <param name='value'>A text string giving the parameter's value.
     </param>
@@ -8350,7 +8349,7 @@
     </value>
     <exception cref='NotSupportedException'>Either this message is a multipart message, so it doesn't have its own
       body text, or this message has no character encoding declared or assumed
-      for it (which is usually the case for non-text messages), or the character
+      for it (which is usually the case for nontext messages), or the character
       encoding is not supported.
     </exception>
 </doc>
@@ -8526,8 +8525,8 @@
 <doc name="M:PeterO.Mail.Message.GetHeader(System.String)">
 <summary>Gets the first instance of the header field with the specified name, using
       a basic case-insensitive comparison. (Two strings are equal in such a
-      comparison, if they match after converting the basic upper-case letters A
-      to Z (U+0041 to U+005A) in both strings to lower case.).
+      comparison, if they match after converting the basic uppercase letters A
+      to Z (U+0041 to U+005A) in both strings to lowercase.).
     </summary>
     <param name='name'>The name of a header field.
     </param>
@@ -8540,8 +8539,8 @@
 <doc name="M:PeterO.Mail.Message.GetHeaderArray(System.String)">
 <summary>Gets an array with the values of all header fields with the specified
       name, using a basic case-insensitive comparison. (Two strings are equal in
-      such a comparison, if they match after converting the basic upper-case
-      letters A to Z (U+0041 to U+005A) in both strings to lower case.).
+      such a comparison, if they match after converting the basic uppercase
+      letters A to Z (U+0041 to U+005A) in both strings to lowercase.).
     </summary>
     <param name='name'>The name of a header field.
     </param>
@@ -8553,8 +8552,8 @@
 <doc name="P:PeterO.Mail.Message.HeaderFields">
 <summary>Gets a snapshot of the header fields of this message, in the order in
       which they appear in the message. For each item in the list, the key is
-      the header field's name (where any basic upper-case letters [U+0041 to
-      U+005A] are converted to lower case) and the value is the header field's
+      the header field's name (where any basic uppercase letters [U+0041 to
+      U+005A] are converted to lowercase) and the value is the header field's
       value.
     </summary>
     <value>A snapshot of the header fields of this message.
@@ -8631,8 +8630,7 @@
       is a multipart message, the header field is not removed from its body part
       headers. A basic case-insensitive comparison is used. (Two strings are
       equal in such a comparison, if they match after converting the basic
-      upper-case letters A to Z (U+0041 to U+005A) in both strings to lower
-      case.).
+      uppercase letters A to Z (U+0041 to U+005A) in both strings to lowercase.).
       <para>Updates the ContentType and ContentDisposition properties if those
         header fields have been modified by this method.
       </para>
@@ -8903,7 +8901,7 @@
       display names will be decoded.
       <para>An RFC 2047 encoded word consists of "=?", a character encoding name,
         such as
-        <c>utf-8</c> , either "?B?" or "?Q?" (in upper or lower case), a series of bytes in
+        <c>utf-8</c> , either "?B?" or "?Q?" (in uppercase or lowercase), a series of bytes in
         the character encoding, further encoded using B or Q encoding, and
         finally "?=". B encoding uses Base64, while in Q encoding, spaces are
         changed to "_", equals are changed to "=3D", and most bytes other than
@@ -9310,7 +9308,7 @@
     </summary>
 </doc>
 <doc name="F:PeterO.Numbers.EContext.FlagOverflow">
-<summary>Signals that the result is non-zero and the exponent is higher than the
+<summary>Signals that the result is nonzero and the exponent is higher than the
       highest exponent allowed.
     </summary>
 </doc>
@@ -9631,7 +9629,7 @@
         values, and infinity.
         <b>Negative zero</b> is generally used when a negative number is rounded to 0; it has the
         same mathematical value as positive zero.
-        <b>Infinity</b> is generally used when a non-zero number is divided by zero, or when a
+        <b>Infinity</b> is generally used when a nonzero number is divided by zero, or when a
         very high or very low number can't be represented in a given exponent
         range.
         <b>Not-a-number</b> is generally used to signal errors.
@@ -9800,7 +9798,7 @@
         <item>C. Highest bit: If one, this is a negative number.
         </item>
       </list>
-      <para>The elements described above are in the same order as the order of each
+      <para>The elements described earlier are in the same order as the order of each
         bit of each element, that is, either most significant first or least
         significant first.
       </para>
@@ -9856,7 +9854,7 @@
         <item>If the highest bit is one, it's a negative number.
         </item>
       </list>
-      <para>The elements described above are in the same order as the order of each
+      <para>The elements described earlier are in the same order as the order of each
         bit of each element, that is, either most significant first or least
         significant first.
       </para>
@@ -10852,9 +10850,9 @@
       <para>The string can also be "-INF", "-Infinity", "Infinity", "INF", quiet NaN
         ("NaN" /"-NaN") followed by any number of digits, or signaling NaN
         ("sNaN" /"-sNaN") followed by any number of digits, all in any
-        combination of upper and lower case.
+        combination of uppercase and lowercase.
       </para>
-      <para>All characters mentioned above are the corresponding characters in the
+      <para>All characters mentioned earlier are the corresponding characters in the
         Basic Latin range. In particular, the digits must be the basic digits 0
         to 9 (U+0030 to U+0039). The string is not allowed to contain white
         space characters, including spaces.
@@ -11815,7 +11813,7 @@
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
       must be changed to the given exponent when rounding, and the given
-      exponent is outside of the valid range of the arithmetic context.
+      exponent is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.RoundToExponent(PeterO.Numbers.EInteger,PeterO.Numbers.ERounding)">
@@ -11872,7 +11870,7 @@
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
       must be changed to the given exponent when rounding, and the given
-      exponent is outside of the valid range of the arithmetic context.
+      exponent is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.RoundToExponent(System.Int32,PeterO.Numbers.ERounding)">
@@ -11914,7 +11912,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to the given exponent
-      when rounding, and the given exponent is outside of the valid range of the
+      when rounding, and the given exponent is outside the valid range of the
       arithmetic context.
     </returns>
 </doc>
@@ -11940,7 +11938,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to the given exponent
-      when rounding, and the given exponent is outside of the valid range of the
+      when rounding, and the given exponent is outside the valid range of the
       arithmetic context.
     </returns>
 </doc>
@@ -11976,7 +11974,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to 0 when rounding, and 0
-      is outside of the valid range of the arithmetic context.
+      is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.RoundToIntegerNoRoundedFlag(PeterO.Numbers.EContext)">
@@ -11997,7 +11995,7 @@
       precision. If the result can't fit the precision, additional digits are
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
-      must be changed to 0 when rounding, and 0 is outside of the valid range of
+      must be changed to 0 when rounding, and 0 is outside the valid range of
       the arithmetic context.
     </returns>
 </doc>
@@ -12016,7 +12014,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to 0 when rounding, and 0
-      is outside of the valid range of the arithmetic context.
+      is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EDecimal.RoundToIntegralNoRoundedFlag(PeterO.Numbers.EContext)">
@@ -12037,7 +12035,7 @@
       precision. If the result can't fit the precision, additional digits are
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
-      must be changed to 0 when rounding, and 0 is outside of the valid range of
+      must be changed to 0 when rounding, and 0 is outside the valid range of
       the arithmetic context.
     </returns>
 </doc>
@@ -13894,10 +13892,9 @@
       </list>
       <para>The string can also be "-INF", "-Infinity", "Infinity", "INF", quiet NaN
         ("NaN") followed by any number of digits, or signaling NaN ("sNaN")
-        followed by any number of digits, all in any combination of upper and
-        lower case.
+        followed by any number of digits, all in any combination of uppercase and lowercase.
       </para>
-      <para>All characters mentioned above are the corresponding characters in the
+      <para>All characters mentioned earlier are the corresponding characters in the
         Basic Latin range. In particular, the digits must be the basic digits 0
         to 9 (U+0030 to U+0039). The string is not allowed to contain white
         space characters, including spaces.
@@ -14814,7 +14811,7 @@
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
       must be changed to the given exponent when rounding, and the given
-      exponent is outside of the valid range of the arithmetic context.
+      exponent is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.RoundToExponent(System.Int32,PeterO.Numbers.EContext)">
@@ -14839,7 +14836,7 @@
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
       must be changed to the given exponent when rounding, and the given
-      exponent is outside of the valid range of the arithmetic context.
+      exponent is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.RoundToExponentExact(PeterO.Numbers.EInteger,PeterO.Numbers.EContext)">
@@ -14865,7 +14862,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to the given exponent
-      when rounding, and the given exponent is outside of the valid range of the
+      when rounding, and the given exponent is outside the valid range of the
       arithmetic context.
     </returns>
 </doc>
@@ -14907,7 +14904,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to the given exponent
-      when rounding, and the given exponent is outside of the valid range of the
+      when rounding, and the given exponent is outside the valid range of the
       arithmetic context.
     </returns>
 </doc>
@@ -14926,7 +14923,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to 0 when rounding, and 0
-      is outside of the valid range of the arithmetic context.
+      is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.RoundToIntegerNoRoundedFlag(PeterO.Numbers.EContext)">
@@ -14947,7 +14944,7 @@
       precision. If the result can't fit the precision, additional digits are
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
-      must be changed to 0 when rounding, and 0 is outside of the valid range of
+      must be changed to 0 when rounding, and 0 is outside the valid range of
       the arithmetic context.
     </returns>
 </doc>
@@ -14966,7 +14963,7 @@
       result can't fit the given precision without rounding. Signals FlagInvalid
       and returns not-a-number (NaN) if the arithmetic context defines an
       exponent range, the new exponent must be changed to 0 when rounding, and 0
-      is outside of the valid range of the arithmetic context.
+      is outside the valid range of the arithmetic context.
     </returns>
 </doc>
 <doc name="M:PeterO.Numbers.EFloat.RoundToIntegralNoRoundedFlag(PeterO.Numbers.EContext)">
@@ -14987,7 +14984,7 @@
       precision. If the result can't fit the precision, additional digits are
       discarded to make it fit. Signals FlagInvalid and returns not-a-number
       (NaN) if the precision context defines an exponent range, the new exponent
-      must be changed to 0 when rounding, and 0 is outside of the valid range of
+      must be changed to 0 when rounding, and 0 is outside the valid range of
       the arithmetic context.
     </returns>
 </doc>
@@ -16478,7 +16475,7 @@
 <doc name="M:PeterO.Numbers.EInteger.ShiftLeft(System.Int32)">
 <summary>Returns an arbitrary-precision integer with the bits shifted to the left
       by a number of bits. A value of 1 doubles this value, a value of 2
-      multiplies it by 4, a value of 3 &times; by, a value of 4 &times; by, and so on.
+      multiplies it by 4, a value of 3 × by, a value of 4 × by, and so on.
     </summary>
     <param name='numberBits'>The number of bits to shift. Can be negative, in which case this is the
       same as shiftRight with the absolute value of this parameter.
@@ -17057,7 +17054,7 @@
 <doc name="M:PeterO.Numbers.EInteger.op_LeftShift(PeterO.Numbers.EInteger,System.Int32)">
 <summary>Returns an arbitrary-precision integer with the bits shifted to the left
       by a number of bits. A value of 1 doubles this value, a value of 2
-      multiplies it by 4, a value of 3 &times; by, a value of 4 &times; by, and so on.
+      multiplies it by 4, a value of 3 × by, a value of 4 × by, and so on.
     </summary>
     <param name='bthis'>The arbitrary-precision integer to shift left.
     </param>
@@ -17536,9 +17533,9 @@
       <para>The string can also be "-INF", "-Infinity", "Infinity", "INF", quiet NaN
         ("NaN" /"-NaN") followed by any number of digits, or signaling NaN
         ("sNaN" /"-sNaN") followed by any number of digits, all in any
-        combination of upper and lower case.
+        combination of uppercase and lowercase.
       </para>
-      <para>All characters mentioned above are the corresponding characters in the
+      <para>All characters mentioned earlier are the corresponding characters in the
         Basic Latin range. In particular, the digits must be the basic digits 0
         to 9 (U+0030 to U+0039). The string is not allowed to contain white
         space characters, including spaces.
@@ -18691,7 +18688,7 @@
 </doc>
 <doc name="T:PeterO.Numbers.IShiftAccumulator">
 <summary>Common interface for classes that shift a number of digits and record
-      information on whether a non-zero digit was discarded this way.
+      information on whether a nonzero digit was discarded this way.
     </summary>
 </doc>
 <doc name="T:PeterO.Numbers.RadixMath`1">
@@ -18970,7 +18967,7 @@
 <doc name="M:PeterO.Png.GetPixel(System.Int32,System.Int32)">
 <summary>Not documented yet.
     </summary>
-    <param name='x'>X coordinate within the image.
+    <param name='x'>x-coordinate within the image.
     </param>
     <param name='y'>The parameter
       <paramref name='y'/>
@@ -19012,7 +19009,7 @@
 <doc name="M:PeterO.Png.SetPixel(System.Int32,System.Int32,System.Byte,System.Byte,System.Byte)">
 <summary>Not documented yet.
     </summary>
-    <param name='x'>X coordinate within the image.
+    <param name='x'>x-coordinate within the image.
     </param>
     <param name='y'>The parameter
       <paramref name='y'/>
@@ -19028,7 +19025,7 @@
 <doc name="M:PeterO.Png.SetPixel(System.Int32,System.Int32,System.Byte,System.Byte,System.Byte,System.Byte)">
 <summary>Not documented yet.
     </summary>
-    <param name='x'>X coordinate within the image.
+    <param name='x'>x-coordinate within the image.
     </param>
     <param name='y'>The parameter
       <paramref name='y'/>
@@ -19048,7 +19045,7 @@
 <doc name="M:PeterO.Png.SetPixel(System.Int32,System.Int32,System.Byte[])">
 <summary>Not documented yet.
     </summary>
-    <param name='x'>X coordinate within the image.
+    <param name='x'>x-coordinate within the image.
     </param>
     <param name='y'>The parameter
       <paramref name='y'/>
@@ -19140,9 +19137,9 @@
 <doc name="M:PeterO.Png4BitIndexed.SetPixel(System.Int32,System.Int32,System.Int32)">
 <summary>Not documented yet.
     </summary>
-    <param name='x'>X coordinate within the image.
+    <param name='x'>x-coordinate within the image.
     </param>
-    <param name='y'>Y coordinate within the image.
+    <param name='y'>y-coordinate within the image.
     </param>
     <param name='pixel'>The parameter
       <paramref name='pixel'/>
@@ -19252,9 +19249,9 @@
 <doc name="M:PeterO.Png8BitIndexed.SetPixel(System.Int32,System.Int32,System.Int32)">
 <summary>Not documented yet.
     </summary>
-    <param name='x'>X coordinate within the image.
+    <param name='x'>x-coordinate within the image.
     </param>
-    <param name='y'>Y coordinate within the image.
+    <param name='y'>y-coordinate within the image.
     </param>
     <param name='pixel'>The parameter
       <paramref name='pixel'/>
@@ -19792,7 +19789,7 @@
 
 </doc>
 <doc name="T:PeterO.Rdf.URIUtility">
-<summary>Contains utility methods for processing Uniform Resource Identifiers
+<summary>Contains auxiliary methods for processing Uniform Resource Identifiers
       (URIs) and Internationalized Resource Identifiers (IRIs) under RFC3986 and
       RFC3987, respectively. In the following documentation, URIs and IRIs
       include URI references and IRI references, for convenience.
@@ -20227,7 +20224,7 @@
     </param>
     <param name='mode'>The method to use when detecting encodings other than UTF-8 in the byte
       stream. This usually involves checking whether the stream begins with a
-      byte-order mark (BOM, U+FEFF) or a non-zero basic code point (NZB, U+0001
+      byte-order mark (BOM, U+FEFF) or a nonzero basic code point (NZB, U+0001
       to U+007F) before reading the rest of the stream. This value can be one of
       the following:
       <list>
@@ -20257,7 +20254,7 @@
     </param>
     <param name='mode'>The method to use when detecting encodings other than UTF-8 in the byte
       stream. This usually involves checking whether the stream begins with a
-      byte-order mark (BOM, U+FEFF) or a non-zero basic code point (NZB, U+0001
+      byte-order mark (BOM, U+FEFF) or a nonzero basic code point (NZB, U+0001
       to U+007F) before reading the rest of the stream. This value can be one of
       the following:
       <list>
@@ -20291,7 +20288,7 @@
     </param>
     <param name='mode'>The method to use when detecting encodings other than UTF-8 in the byte
       stream. This usually involves checking whether the stream begins with a
-      byte-order mark (BOM, U+FEFF) or a non-zero basic code point (NZB, U+0001
+      byte-order mark (BOM, U+FEFF) or a nonzero basic code point (NZB, U+0001
       to U+007F) before reading the rest of the stream. This value can be one of
       the following:
       <list>

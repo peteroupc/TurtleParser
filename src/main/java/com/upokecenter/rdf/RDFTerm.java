@@ -131,8 +131,8 @@ licensed under the Unlicense: https://unlicense.org/
       }
     }
 
-    private final String typeOrLanguage = null;
-    private final String value = null;
+    private final String typeOrLanguage;
+    private final String value;
     private final int kind;
 
     private RDFTerm(int kind, String typeOrLanguage, String value) {

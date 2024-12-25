@@ -125,7 +125,7 @@ licensed under the Unlicense: https://unlicense.org/
           this.EndOfLine(ch);
         } else {
           this.input.MoveBack(1);
-          rdf.Add(this.ReadTriples());
+          rdf.add(this.ReadTriples());
         }
       }
     }

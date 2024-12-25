@@ -41,32 +41,12 @@ namespace PeterO.Rdf {
         return tobj;
       }
 
-      private RDFTerm term;
-
-      private int kind;
       private IList<TurtleObject> objects;
 
       private IList<TurtleProperty> properties;
 
-      public RDFTerm Term {
-        get {
-          return this.term;
-        }
-
-        set {
-          this.term = value;
-        }
-      }
-
-      public int Kind {
-        get {
-          return this.kind;
-        }
-
-        set {
-          this.kind = value;
-        }
-      }
+      public RDFTerm Term { get; set; }
+      public int Kind { get; set; }
 
       public IList<TurtleObject> GetObjects() {
         return this.objects;
@@ -78,28 +58,8 @@ namespace PeterO.Rdf {
     }
 
     private sealed class TurtleProperty {
-      private RDFTerm predValue;
-      private TurtleObject objValue;
-
-      public RDFTerm Pred {
-        get {
-          return this.predValue;
-        }
-
-        set {
-          this.predValue = value;
-        }
-      }
-
-      public TurtleObject Obj {
-        get {
-          return this.objValue;
-        }
-
-        set {
-          this.objValue = value;
-        }
-      }
+      public RDFTerm Pred { get; set; }
+      public TurtleObject Obj { get; set; }
     }
 
     private IDictionary<string, RDFTerm> bnodeLabels;
@@ -243,7 +203,8 @@ namespace PeterO.Rdf {
           RDFTerm blank = this.AllocateBlankNode();
           EmitRDFTriple(subj, pred, blank, triples);
           for (int i = 0; i < props.Count; ++i) {
-            this.EmitRDFTriple(blank, props[i].Pred, props[i].Obj, triples);
+            TurtleProperty prop = props[i];
+            this.EmitRDFTriple(blank, prop.Pred, props[i].Obj, triples);
           }
         }
       } else if (obj.Kind == TurtleObject.COLLECTION) {
@@ -742,7 +703,7 @@ namespace PeterO.Rdf {
           }
         } else if (!haveDot && ch1 == '.') {
           haveDot = true;
-          // check for non-digit and non-E
+          // check for nondigit and non-E
           int markpos = this.input.GetMarkPosition();
           int ch2 = this.input.ReadChar();
           if (ch2 != 'e' && ch2 != 'E' && (ch2 < '0' || ch2 > '9')) {
@@ -1314,7 +1275,7 @@ namespace PeterO.Rdf {
           // just a blank node property list;
           // generate a blank node as the subject
           RDFTerm blankNode = this.AllocateBlankNode();
-          foreach (var prop in subject.GetProperties()) {
+          foreach (TurtleProperty prop in subject.GetProperties()) {
             this.EmitRDFTriple(blankNode, prop.Pred, prop.Obj, triples);
           }
           return;
