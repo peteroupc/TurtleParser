@@ -21675,7 +21675,7 @@
         can be combined with other characters to make new characters. For
         example, the letter E combines with an acute accent to make E-acute (É).
         In some cases, the combined form (E-acute) should be treated as
-        equivalent to the uncombined form (E plus acute). For this reason, the
+        equivalent to the uncombined form (E plus acute). Therefore, the
         standard defines four
         <i>
            normalization forms
@@ -21891,7 +21891,7 @@
         can be combined with other characters to make new characters. For
         example, the letter E combines with an acute accent to make E-acute (É).
         In some cases, the combined form (E-acute) should be treated as
-        equivalent to the uncombined form (E plus acute). For this reason, the
+        equivalent to the uncombined form (E plus acute). Therefore, the
         standard defines four
         <i>
            normalization forms
