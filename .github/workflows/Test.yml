@@ -21,10 +21,10 @@ jobs:
         dotnet-version: '3.1.301'
     - name: Test
       run: |
-        dotnet add Test package Microsoft.NET.Test.Sdk # Update is required for GitHubActionsTestLogger to print anything
-        dotnet add Test package GitHubActionsTestLogger
-        dotnet add Test package NUnit3TestAdapter
-        dotnet test Test -c Release -l GitHubActions
+        dotnet add TurtleParserTest package Microsoft.NET.Test.Sdk # Update is required for GitHubActionsTestLogger to print anything
+        dotnet add TurtleParserTest package GitHubActionsTestLogger
+        dotnet add TurtleParserTest package NUnit3TestAdapter
+        dotnet test TurtleParserTest -c Release -l GitHubActions
 
 permissions:
   contents: read
