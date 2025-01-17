@@ -107,7 +107,7 @@ namespace PeterO.Rdf {
         // Generate a new blank node label,
         // and ensure it's unique
         node = "b" + Convert.ToString(
-          nodeindex[0],
+          (int)nodeindex[0],
           CultureInfo.InvariantCulture);
         if (!bnodeLabels.ContainsKey(node)) {
           return node;

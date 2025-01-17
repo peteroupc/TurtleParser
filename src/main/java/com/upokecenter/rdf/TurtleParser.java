@@ -186,7 +186,7 @@ private TurtleObject propVarobj;
       // with user-defined blank node labels (this is allowed
       // because the syntax for blank node identifiers is
       // not concretely defined)
-      String label = "." + (this.curBlankNode).toString();
+      String label = "." + Integer.toString((int)this.curBlankNode);
       RDFTerm node = RDFTerm.FromBlankNode(label);
       this.bnodeLabels.put(label, node);
       return node;
@@ -538,7 +538,8 @@ private TurtleObject propVarobj;
             this.input.MoveBack(1);
           }
           TurtleObject subobj = this.ReadObject(true);
-          obj.GetObjects().Add(subobj);
+          List<TurtleObject> objects = obj.GetObjects();
+          objects.add(subobj);
         }
       }
       return obj;
@@ -555,7 +556,7 @@ private TurtleObject propVarobj;
           String iriref = ilist.toString();
           // Resolve the IRI reference relative
           // to the _base URI
-          iriref = URIUtility.RelativeResolve(iriref, this.baseURI);
+          iriref = com.upokecenter.util.URIUtility.RelativeResolve(iriref, this.baseURI);
           if (iriref == null) {
             throw new ParserException();
           }
@@ -889,7 +890,8 @@ private TurtleObject propVarobj;
         TurtleProperty prop = new TurtleProperty();
         prop.setPred(predicate);
         prop.setObj(obj);
-        propertyList.GetProperties().Add(prop);
+        List<TurtleProperty> props = propertyList.GetProperties();
+        props.add(prop);
         this.SkipWhitespace();
         haveObject = true;
       }

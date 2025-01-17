@@ -172,7 +172,8 @@ namespace PeterO.Rdf {
       // with user-defined blank node labels (this is allowed
       // because the syntax for blank node identifiers is
       // not concretely defined)
-      string label = "." + Convert.ToString(this.curBlankNode,
+      string label = "." + Convert.ToString(
+          (int)this.curBlankNode,
           System.Globalization.CultureInfo.InvariantCulture);
       RDFTerm node = RDFTerm.FromBlankNode(label);
       this.bnodeLabels.Add(label, node);
@@ -523,7 +524,8 @@ namespace PeterO.Rdf {
             this.input.MoveBack(1);
           }
           TurtleObject subobj = this.ReadObject(true);
-          obj.GetObjects().Add(subobj);
+          IList<TurtleObject> objects = obj.GetObjects();
+          objects.Add(subobj);
         }
       }
       return obj;
@@ -874,7 +876,8 @@ namespace PeterO.Rdf {
         var prop = new TurtleProperty();
         prop.Pred = predicate;
         prop.Obj = obj;
-        propertyList.GetProperties().Add(prop);
+        IList<TurtleProperty> props = propertyList.GetProperties();
+        props.Add(prop);
         this.SkipWhitespace();
         haveObject = true;
       }

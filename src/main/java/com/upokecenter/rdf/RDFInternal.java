@@ -110,8 +110,7 @@ private RDFInternal() {
       while (true) {
         // Generate a new blank node label,
         // and ensure it's unique
-        node = "b" + (
-          nodeindex[0]).toString();
+        node = "b" + Integer.toString((int)nodeindex[0]);
         if (!bnodeLabels.containsKey(node)) {
           return node;
         }

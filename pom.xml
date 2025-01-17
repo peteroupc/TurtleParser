@@ -113,6 +113,11 @@
       <version>0.4.0</version>
     </dependency>
     <dependency>
+      <groupId>com.github.peteroupc</groupId>
+      <artifactId>uriutility</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.1</version>
