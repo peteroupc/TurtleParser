@@ -26,7 +26,9 @@ Not documented yet.
 ## Method Details
 
 ### GetMarkPosition
+
     int GetMarkPosition()
+
 Gets the zero-based character position in the stream from the last-set mark.
 
 **Returns:**
@@ -34,7 +36,9 @@ Gets the zero-based character position in the stream from the last-set mark.
 * The return value is not documented yet.
 
 ### MoveBack
+
     void MoveBack(int count)
+
 Moves the stream position back the given number of characters.
 
 **Parameters:**
@@ -42,7 +46,9 @@ Moves the stream position back the given number of characters.
 * <code>count</code> - The parameter <code>count</code> is a 32-bit signed integer.
 
 ### SetHardMark
+
     int SetHardMark()
+
 Sets a mark on the stream's current position.
 
 **Returns:**
@@ -50,7 +56,9 @@ Sets a mark on the stream's current position.
 * The return value is not documented yet.
 
 ### SetMarkPosition
+
     void SetMarkPosition(int pos)
+
 Sets the stream's position from the last set mark.
 
 **Parameters:**
@@ -58,7 +66,9 @@ Sets the stream's position from the last set mark.
 * <code>pos</code> - Zero-based character offset from the last set mark.
 
 ### SetSoftMark
+
     int SetSoftMark()
+
 If no mark is set, sets a mark on the stream, and characters read before the
  currently set mark are no longer available, while characters read after will
  be available if MoveBack is called. Otherwise, behaves like GetMarkPosition.

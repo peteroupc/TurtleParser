@@ -12,7 +12,9 @@ Not documented yet.
 ## Method Details
 
 ### Parse
+
     Set<RDFTriple> Parse()
+
 Not documented yet.
 
 **Returns:**

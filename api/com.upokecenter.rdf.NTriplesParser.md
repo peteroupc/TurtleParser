@@ -18,7 +18,9 @@ Not documented yet.
 ## Method Details
 
 ### IsAsciiChar
+
     public static boolean IsAsciiChar(int c, String asciiChars)
+
 Not documented yet.
 
 **Parameters:**
@@ -36,7 +38,9 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>asciiChars</code> is null.
 
 ### Parse
+
     public Set<RDFTriple> Parse()
+
 Not documented yet.
 
 **Specified by:**

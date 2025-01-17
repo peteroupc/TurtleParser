@@ -37,7 +37,9 @@ A character input stream where additional inputs can be stacked on.
 ## Method Details
 
 ### GetMarkPosition
+
     public int GetMarkPosition()
+
 Not documented yet.
 
 **Specified by:**
@@ -49,7 +51,9 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### MoveBack
+
     public void MoveBack(int count)
+
 Not documented yet.
 
 **Specified by:**
@@ -61,7 +65,9 @@ Not documented yet.
 * <code>count</code> - The parameter <code>count</code> is a 32-bit signed integer.
 
 ### PushInput
+
     public void PushInput(com.upokecenter.text.ICharacterInput input)
+
 Not documented yet.
 
 **Parameters:**
@@ -73,7 +79,9 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>input</code> is null.
 
 ### ReadChar
+
     public int ReadChar()
+
 Not documented yet.
 
 **Specified by:**
@@ -85,7 +93,9 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### Read
+
     public int Read(int[] buf, int offset, int unitCount)
+
 Not documented yet.
 
 **Specified by:**
@@ -109,7 +119,9 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>buf</code> is null.
 
 ### SetHardMark
+
     public int SetHardMark()
+
 Not documented yet.
 
 **Specified by:**
@@ -121,7 +133,9 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### SetMarkPosition
+
     public void SetMarkPosition(int pos)
+
 Not documented yet.
 
 **Specified by:**
@@ -133,7 +147,9 @@ Not documented yet.
 * <code>pos</code> - The parameter <code>pos</code> is a 32-bit signed integer.
 
 ### SetSoftMark
+
     public int SetSoftMark()
+
 Not documented yet.
 
 **Specified by:**

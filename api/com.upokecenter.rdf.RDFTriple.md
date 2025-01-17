@@ -29,7 +29,9 @@ Not documented yet.
 ## Method Details
 
 ### equals
+
     public final boolean equals(Object obj)
+
 Not documented yet.
 
 **Overrides:**
@@ -45,7 +47,9 @@ Not documented yet.
 * The return value is not documented yet.
 
 ### GetObject
+
     public RDFTerm GetObject()
+
 Not documented yet.
 
 **Returns:**
@@ -53,7 +57,9 @@ Not documented yet.
 * A RDFTerm object.
 
 ### GetPredicate
+
     public RDFTerm GetPredicate()
+
 Not documented yet.
 
 **Returns:**
@@ -61,7 +67,9 @@ Not documented yet.
 * A RDFTerm object.
 
 ### GetSubject
+
     public RDFTerm GetSubject()
+
 Not documented yet.
 
 **Returns:**
@@ -69,7 +77,9 @@ Not documented yet.
 * A RDFTerm object.
 
 ### hashCode
+
     public final int hashCode()
+
 Not documented yet.
 
 **Overrides:**
@@ -81,7 +91,9 @@ Not documented yet.
 * The return value is not documented yet.
 
 ### toString
+
     public final String toString()
+
 Not documented yet.
 
 **Overrides:**

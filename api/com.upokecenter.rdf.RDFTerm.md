@@ -85,39 +85,71 @@ Not documented yet.
 ## Field Details
 
 ### BLANK
+
     public static final int BLANK
+
 Type value for a blank node.
+
 ### IRI
+
     public static final int IRI
+
 Type value for an IRI (Internationalized Resource Identifier.).
+
 ### LANGSTRING
+
     public static final int LANGSTRING
+
 Type value for a string with a language tag.
+
 ### TYPEDSTRING
+
     public static final int TYPEDSTRING
+
 Type value for a piece of data serialized to a string.
+
 ### A
+
     public static final RDFTerm A
+
 Predicate for RDF types.
+
 ### FIRST
+
     public static final RDFTerm FIRST
+
 Predicate for the first object in a list.
+
 ### NIL
+
     public static final RDFTerm NIL
+
 object for nil, the end of a list, or an empty list.
+
 ### REST
+
     public static final RDFTerm REST
+
 Predicate for the remaining objects in a list.
+
 ### FALSE
+
     public static final RDFTerm FALSE
+
 object for false.
+
 ### TRUE
+
     public static final RDFTerm TRUE
+
 object for true.
+
 ## Method Details
 
 ### FromBlankNode
+
     public static RDFTerm FromBlankNode(String name)
+
 Not documented yet.
 
 **Parameters:**
@@ -135,7 +167,9 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>name</code> is null.
 
 ### FromIRI
+
     public static RDFTerm FromIRI(String iri)
+
 Not documented yet.
 
 **Parameters:**
@@ -151,7 +185,9 @@ Not documented yet.
 * <code>NullPointerException</code> - The parameter <code>iri</code> is null.
 
 ### FromLangString
+
     public static RDFTerm FromLangString(String str, String languageTag)
+
 Not documented yet.
 
 **Parameters:**
@@ -172,7 +208,9 @@ Not documented yet.
 * <code>IllegalArgumentException</code> - LanguageTag is empty.
 
 ### FromTypedString
+
     public static RDFTerm FromTypedString(String str)
+
 Not documented yet.
 
 **Parameters:**
@@ -184,7 +222,9 @@ Not documented yet.
 * A RDFTerm object.
 
 ### FromTypedString
+
     public static RDFTerm FromTypedString(String str, String iri)
+
 Not documented yet.
 
 **Parameters:**
@@ -205,7 +245,9 @@ Not documented yet.
 * <code>IllegalArgumentException</code> - Iri is empty.
 
 ### equals
+
     public final boolean equals(Object obj)
+
 Not documented yet.
 
 **Overrides:**
@@ -221,7 +263,9 @@ Not documented yet.
 * The return value is not documented yet.
 
 ### GetKind
+
     public int GetKind()
+
 Not documented yet.
 
 **Returns:**
@@ -229,7 +273,9 @@ Not documented yet.
 * A 32-bit signed integer.
 
 ### GetTypeOrLanguage
+
     public String GetTypeOrLanguage()
+
 Gets the language tag or data type for this RDF literal.
 
 **Returns:**
@@ -237,7 +283,9 @@ Gets the language tag or data type for this RDF literal.
 * A text string.
 
 ### GetValue
+
     public String GetValue()
+
 Gets the IRI, blank node identifier, or lexical form of an RDF literal.
 
 **Returns:**
@@ -245,7 +293,9 @@ Gets the IRI, blank node identifier, or lexical form of an RDF literal.
 * A text string.
 
 ### hashCode
+
     public final int hashCode()
+
 Not documented yet.
 
 **Overrides:**
@@ -257,7 +307,9 @@ Not documented yet.
 * The return value is not documented yet.
 
 ### IsBlank
+
     public boolean IsBlank()
+
 Gets a value indicating whether this term is a blank node.
 
 **Returns:**
@@ -265,7 +317,9 @@ Gets a value indicating whether this term is a blank node.
 * Either <code>true</code> or <code>false</code>.
 
 ### IsIRI
+
     public boolean IsIRI(String str)
+
 Not documented yet.
 
 **Parameters:**
@@ -277,7 +331,9 @@ Not documented yet.
 * Either <code>true</code> or <code>false</code>.
 
 ### IsOrdinaryString
+
     public boolean IsOrdinaryString()
+
 Not documented yet.
 
 **Returns:**
@@ -285,7 +341,9 @@ Not documented yet.
 * Either <code>true</code> or <code>false</code>.
 
 ### toString
+
     public final String toString()
+
 Gets a string representation of this RDF term in N-Triples format. The
  string will not end in a line break.
 

@@ -14,7 +14,9 @@ Not documented yet.
 ## Method Details
 
 ### Parse
+
     public Set<RDFTriple> Parse()
+
 Not documented yet.
 
 **Specified by:**
