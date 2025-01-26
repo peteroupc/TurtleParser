@@ -620,7 +620,7 @@ namespace PeterO.Rdf {
     }
 
     // Reads a number literal starting with
-    // the given character (assumes it's plus, minus,
+    // the specified character (assumes it's plus, minus,
     // a dot, or a digit)
     private RDFTerm ReadNumberLiteral(int ch) {
       // buffer to hold the literal
