@@ -37,8 +37,8 @@ private static final long serialVersionUID = 1L;
 
     /**
      * Initializes a new instance of the {@link
-     * com.upokecenter.rdf.ParserException} class. Uses the given message and inner
-     * exception.
+     * com.upokecenter.rdf.ParserException} class. Uses the specified message and
+     * inner exception.
      * @param message The parameter {@code message} is a text string.
      * @param innerException The parameter {@code innerException} is an Exception
      * object.

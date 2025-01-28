@@ -30,7 +30,7 @@ private RDFInternal() {
       Map<String, RDFTerm> newBlankNodes = new
       HashMap<String, RDFTerm>();
       List<RDFTriple[]> changedTriples = new ArrayList<RDFTriple[]>();
-      int[] nodeindex = new int[] { 0 };
+      int nodeindex = new int[] { 0 };
       for (RDFTriple triple : triples) {
         boolean changed = false;
         RDFTerm subj = triple.GetSubject();
@@ -72,7 +72,7 @@ private RDFInternal() {
           }
         }
         if (changed) {
-          RDFTriple[] newTriple = new RDFTriple[] {
+          RDFTriple newTriple = new RDFTriple[] {
             triple,
             new RDFTriple(subj, triple.GetPredicate(), obj),
           };

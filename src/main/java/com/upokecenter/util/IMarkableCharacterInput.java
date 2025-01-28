@@ -20,7 +20,7 @@ licensed under the Unlicense: https://unlicense.org/
     int GetMarkPosition();
 
     /**
-     * Moves the stream position back the given number of characters.
+     * Moves the stream position back the specified number of characters.
      * @param count The parameter {@code count} is a 32-bit signed integer.
      */
     void MoveBack(int count);

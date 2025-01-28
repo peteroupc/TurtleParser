@@ -13,7 +13,7 @@
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.MoveBack(System.Int32)">
 
-            <summary>Moves the stream position back the given number of
+            <summary>Moves the stream position back the specified number of
             characters.</summary>
             <param name='count'>The parameter <paramref name='count'/> is a
             32-bit signed integer.</param>
@@ -50,7 +50,7 @@
     </returns>
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.moveBack(System.Int32)">
-<summary>Moves the stream position back the given number of characters.
+<summary>Moves the stream position back the specified number of characters.
     </summary>
 </doc>
 <doc name="M:PeterO.IMarkableCharacterInput.setHardMark">
@@ -169,7 +169,7 @@
 <doc name="M:PeterO.Rdf.ParserException.#ctor(System.String,System.Exception)">
 
             <summary>Initializes a new instance of the
-            <see cref='PeterO.Rdf.ParserException'/> class. Uses the given
+            <see cref='PeterO.Rdf.ParserException'/> class. Uses the specified
             message and inner exception.</summary>
             <param name='message'>The parameter <paramref name='message'/> is a
             text string.</param>

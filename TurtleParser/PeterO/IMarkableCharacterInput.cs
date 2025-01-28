@@ -15,7 +15,7 @@ namespace PeterO {
     /// <returns>The return value is not documented yet.</returns>
     int GetMarkPosition();
 
-    /// <summary>Moves the stream position back the given number of
+    /// <summary>Moves the stream position back the specified number of
     /// characters.</summary>
     /// <param name='count'>The parameter <paramref name='count'/> is a
     /// 32-bit signed integer.</param>

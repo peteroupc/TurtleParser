@@ -10,7 +10,7 @@ Not documented yet.
  Gets the zero-based character position in the stream from the last-set mark.
 
 * `void MoveBack(int count)`<br>
- Moves the stream position back the given number of characters.
+ Moves the stream position back the specified number of characters.
 
 * `int SetHardMark()`<br>
  Sets a mark on the stream's current position.
@@ -39,7 +39,7 @@ Gets the zero-based character position in the stream from the last-set mark.
 
     void MoveBack(int count)
 
-Moves the stream position back the given number of characters.
+Moves the stream position back the specified number of characters.
 
 **Parameters:**
 

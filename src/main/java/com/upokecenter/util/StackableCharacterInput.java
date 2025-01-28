@@ -194,7 +194,7 @@ licensed under the Unlicense: https://unlicense.org/
           return c;
         }
         if (this.pos >= this.buffer.length) {
-          int[] newBuffer = new int[this.buffer.length * 2];
+          int newBuffer = new int[this.buffer.length * 2];
           System.arraycopy(this.buffer, 0, newBuffer, 0, this.buffer.length);
           this.buffer = newBuffer;
         }
@@ -274,7 +274,7 @@ licensed under the Unlicense: https://unlicense.org/
         }
         // expand the buffer
         if (this.pos + unitCount > this.buffer.length) {
-          int[] newBuffer = new int[(this.buffer.length * 2) + unitCount];
+          int newBuffer = new int[(this.buffer.length * 2) + unitCount];
           System.arraycopy(this.buffer, 0, newBuffer, 0, this.buffer.length);
           this.buffer = newBuffer;
         }

@@ -34,7 +34,7 @@ public sealed class ParserException : Exception {
     }
 
     /// <summary>Initializes a new instance of the
-    /// <see cref='PeterO.Rdf.ParserException'/> class. Uses the given
+    /// <see cref='PeterO.Rdf.ParserException'/> class. Uses the specified
     /// message and inner exception.</summary>
     /// <param name='message'>The parameter <paramref name='message'/> is a
     /// text string.</param>
