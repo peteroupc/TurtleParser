@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Com.Upokecenter.Io;
 using PeterO;
 using PeterO.Text;
 
@@ -128,8 +129,11 @@ namespace PeterO.Rdf {
     private string ReadBlankNodeLabel() {
       var ilist = new StringBuilder();
       int startChar = this.input.ReadChar();
+      // NOTE: Blank nodes starting with a digit are now
+      // allowed under N-Triples
       if (!((startChar >= 'A' && startChar <= 'Z') ||
-          (startChar >= 'a' && startChar <= 'z'))) {
+          (startChar >= 'a' && startChar <= 'z') ||
+          (startChar >= '0' && startChar <= '9'))) {
         throw new ParserException();
       }
       if (startChar <= 0xffff) {
@@ -138,7 +142,7 @@ namespace PeterO.Rdf {
         }
       } else if (startChar <= 0x10ffff) {
         ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
-0xd800));
+          0xd800));
         ilist.Append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       this.input.SetSoftMark();
@@ -170,12 +174,12 @@ namespace PeterO.Rdf {
       while (true) {
         int c2 = this.input.ReadChar();
         if ((c2 <= 0x20 || c2 > 0x7e) || ((c2 & 0x7F) == c2 && "<\"{}|^`"
-            .IndexOf((char)c2) >= 0)) {
+          .IndexOf((char)c2) >= 0)) {
           throw new ParserException();
         } else if (c2 == '\\') {
           c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0x20 || (c2 >= 0x7f && c2 <= 0x9f) || ((c2 & 0x7f) == c2 &&
-              "<\"{}|\\^`".IndexOf((char)c2) >= 0)) {
+            "<\"{}|\\^`".IndexOf((char)c2) >= 0)) {
             throw new ParserException();
           }
           if (c2 == ':') {
@@ -286,12 +290,13 @@ namespace PeterO.Rdf {
           throw new ParserException();
         }
         string label = this.ReadBlankNodeLabel();
-        RDFTerm term = this.bnodeLabels[label];
-        if (term == null) {
-          term = RDFTerm.FromBlankNode(label);
+        if (!this.bnodeLabels.ContainsKey(label)) {
+          RDFTerm term = RDFTerm.FromBlankNode(label);
           this.bnodeLabels.Add(label, term);
+          return term;
+        } else {
+          return this.bnodeLabels[label];
         }
-        return term;
       } else {
         throw new ParserException();
       }
@@ -331,13 +336,6 @@ namespace PeterO.Rdf {
     private RDFTriple ReadTriples() {
       int mark = this.input.SetHardMark();
       int ch = this.input.ReadChar();
-      #if DEBUG
-      if (!(ch >= 0)) {
-        {
-          throw new InvalidOperationException("ch>= 0");
-        }
-      }
-      #endif
       this.input.SetMarkPosition(mark);
       RDFTerm subject = this.ReadObject(false);
       if (!this.SkipWhitespace()) {
@@ -439,7 +437,7 @@ namespace PeterO.Rdf {
         return a - '0';
       }
       return (a >= 'a' && a <= 'f') ? (a + 10 - 'a') : ((a >= 'A' && a <= 'F') ?
-          (a + 10 - 'A') : (-1));
+        (a + 10 - 'A') : (-1));
     }
   }
 }

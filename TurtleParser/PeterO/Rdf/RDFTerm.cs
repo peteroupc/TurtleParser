@@ -152,13 +152,13 @@ namespace PeterO.Rdf {
 
     /// <summary>Object for false.</summary>
     public static readonly RDFTerm FALSE = FromTypedString(
-      "false",
-      "http://www.w3.org/2001/XMLSchema#bool");
+        "false",
+        "http://www.w3.org/2001/XMLSchema#boolean");
 
     /// <summary>Object for true.</summary>
     public static readonly RDFTerm TRUE = FromTypedString(
-      "true",
-      "http://www.w3.org/2001/XMLSchema#bool");
+        "true",
+        "http://www.w3.org/2001/XMLSchema#boolean");
 
     /// <summary>Not documented yet.</summary>
     /// <param name='name'>The parameter <paramref name='name'/> is a text
@@ -263,13 +263,13 @@ namespace PeterO.Rdf {
           return false;
         }
       } else if (!this.typeOrLanguage.Equals(other.typeOrLanguage,
-          StringComparison.Ordinal)) {
+        StringComparison.Ordinal)) {
         return false;
       }
       if (this.value == null) {
-        return other.value != null;
+        return other.value == null;
       } else {
-        return !this.value.Equals(other.value, StringComparison.Ordinal);
+        return this.value.Equals(other.value, StringComparison.Ordinal);
       }
     }
 
@@ -300,7 +300,7 @@ namespace PeterO.Rdf {
         var prime = 31;
         int result = prime + this.kind;
         result = (prime * result) + ((this.typeOrLanguage == null) ? 0 :
-            this.typeOrLanguage.GetHashCode());
+          this.typeOrLanguage.GetHashCode());
         bool isnull = this.value == null;
         result = (prime * result) + (isnull ? 0 : this.value.GetHashCode());
         return result;
@@ -324,13 +324,13 @@ namespace PeterO.Rdf {
     }
 
     private const string XmlSchemaString =
-"http://www.w3.org/2001/XMLSchema#string";
+      "http://www.w3.org/2001/XMLSchema#string";
 
     /// <summary>Not documented yet.</summary>
     /// <returns>Either <c>true</c> or <c>false</c>.</returns>
     public bool IsOrdinaryString() {
       return this.kind == TYPEDSTRING &&
-XmlSchemaString.Equals(this.typeOrLanguage, StringComparison.Ordinal);
+        XmlSchemaString.Equals(this.typeOrLanguage, StringComparison.Ordinal);
     }
 
     /// <summary>Gets a string representation of this RDF term in N-Triples
@@ -354,7 +354,7 @@ XmlSchemaString.Equals(this.typeOrLanguage, StringComparison.Ordinal);
         EscapeString(this.value, builder, false);
         builder.Append("\"");
         if (!XmlSchemaString.Equals(this.typeOrLanguage,
-  StringComparison.Ordinal)) {
+          StringComparison.Ordinal)) {
           builder.Append("^^<");
           EscapeString(this.typeOrLanguage, builder, true);
           builder.Append(">");

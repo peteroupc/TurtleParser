@@ -169,15 +169,15 @@ licensed under the Unlicense: https://unlicense.org/
      * object for false.
      */
     public static final RDFTerm FALSE = FromTypedString(
-      "false",
-      "http://www.w3.org/2001/XMLSchema#boolean");
+        "false",
+        "http://www.w3.org/2001/XMLSchema#boolean");
 
     /**
      * object for true.
      */
     public static final RDFTerm TRUE = FromTypedString(
-      "true",
-      "http://www.w3.org/2001/XMLSchema#boolean");
+        "true",
+        "http://www.w3.org/2001/XMLSchema#boolean");
 
     /**
      * Not documented yet.
@@ -325,7 +325,7 @@ licensed under the Unlicense: https://unlicense.org/
         int prime = 31;
         int result = prime + this.kind;
         result = (prime * result) + ((this.typeOrLanguage == null) ? 0 :
-            this.typeOrLanguage.hashCode());
+          this.typeOrLanguage.hashCode());
         boolean isnull = this.value == null;
         result = (prime * result) + (isnull ? 0 : this.value.hashCode());
         return result;
@@ -350,7 +350,7 @@ licensed under the Unlicense: https://unlicense.org/
     }
 
     private static final String XmlSchemaString =
-"http://www.w3.org/2001/XMLSchema#String";
+      "http://www.w3.org/2001/XMLSchema#String";
 
     /**
      * Not documented yet.
@@ -358,7 +358,7 @@ licensed under the Unlicense: https://unlicense.org/
      */
     public boolean IsOrdinaryString() {
       return this.kind == TYPEDSTRING &&
-XmlSchemaString.equals(this.typeOrLanguage);
+        XmlSchemaString.equals(this.typeOrLanguage);
     }
 
     /**

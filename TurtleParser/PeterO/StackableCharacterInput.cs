@@ -158,7 +158,7 @@ namespace PeterO {
         // Read from buffer
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-          // DebugUtility.Log ("buffer: [" + ch + "],["+(char)ch+"]");
+          // Console.WriteLine ("buffer: [" + ch + "],["+(char)ch+"]");
           return ch;
         }
         // Console.WriteLine(this);
@@ -166,9 +166,9 @@ namespace PeterO {
         // entire buffer if possible
         if (this.endpos < this.buffer.Length) {
           int count = this.ReadInternal(
-            this.buffer,
-            this.endpos,
-            this.buffer.Length - this.endpos);
+              this.buffer,
+              this.endpos,
+              this.buffer.Length - this.endpos);
           if (count > 0) {
             this.endpos += count;
           }
@@ -176,7 +176,7 @@ namespace PeterO {
         // Try reading from buffer again
         if (this.pos < this.endpos) {
           int ch = this.buffer[this.pos++];
-          // DebugUtility.Log ("buffer2: [" + ch + "],[" + charch + "]");
+          // Console.WriteLine ("buffer2: [" + ch + "],[" + charch + "]");
           return ch;
         }
         // Console.WriteLine(this);
@@ -193,11 +193,11 @@ namespace PeterO {
         // Console.WriteLine(this);
         this.buffer[this.pos++] = c;
         ++this.endpos;
-        // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+        // Console.WriteLine ("readInt3: [" + c + "],[" + charc + "]");
         return c;
       } else {
         int c = this.ReadInternal();
-        // DebugUtility.Log ("readInt3: [" + c + "],[" + charc + "]");
+        // Console.WriteLine ("readInt3: [" + c + "],[" + charc + "]");
         return c;
       }
     }
@@ -251,9 +251,9 @@ namespace PeterO {
         var count = 0;
         if (this.endpos < this.buffer.Length) {
           count = this.ReadInternal(
-            this.buffer,
-            this.endpos,
-            this.buffer.Length - this.endpos);
+              this.buffer,
+              this.endpos,
+              this.buffer.Length - this.endpos);
           // Console.WriteLine("%s",this);
           if (count > 0) {
             this.endpos += count;

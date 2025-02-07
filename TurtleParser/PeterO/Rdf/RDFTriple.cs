@@ -32,18 +32,18 @@ namespace PeterO.Rdf {
       }
       if (!(predicate.GetKind() == RDFTerm.IRI)) {
         throw new ArgumentException("doesn't satisfy" +
-"\u0020predicate.kind==RDFTerm.IRI");
+          "\u0020predicate.kind==RDFTerm.IRI");
       }
       this.predicate = predicate;
       if (subject == null) {
         throw new ArgumentNullException(nameof(subject));
       }
       if (!(subject.GetKind() == RDFTerm.IRI ||
-          subject.GetKind() == RDFTerm.BLANK)) {
+        subject.GetKind() == RDFTerm.BLANK)) {
         throw new
         ArgumentException(
           "doesn't satisfy subject.kind==RDFTerm.IRI ||" +
-"\u0020subject.kind==RDFTerm.BLANK");
+          "\u0020subject.kind==RDFTerm.BLANK");
       }
       this.subject = subject;
     }
@@ -92,9 +92,9 @@ namespace PeterO.Rdf {
         return false;
       }
       if (this.subject == null) {
-        return other.subject != null;
+        return other.subject == null;
       } else {
-        return !this.subject.Equals(other.subject);
+        return this.subject.Equals(other.subject);
       }
     }
 
@@ -122,12 +122,12 @@ namespace PeterO.Rdf {
       unchecked {
         var prime = 31;
         int result = prime + ((this.objectRdf == null) ? 0 :
-            this.objectRdf.GetHashCode());
+          this.objectRdf.GetHashCode());
         result = (prime * result) +
           ((this.predicate == null) ? 0 : this.predicate.GetHashCode());
         bool subjnull = this.subject == null;
         result = (prime * result) + (subjnull ? 0 :
-            this.subject.GetHashCode());
+          this.subject.GetHashCode());
         return result;
       }
     }

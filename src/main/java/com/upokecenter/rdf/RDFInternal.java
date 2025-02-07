@@ -30,16 +30,16 @@ private RDFInternal() {
       Map<String, RDFTerm> newBlankNodes = new
       HashMap<String, RDFTerm>();
       List<RDFTriple[]> changedTriples = new ArrayList<RDFTriple[]>();
-      int nodeindex = new int[] { 0 };
+      int[] nodeindex = new int[] { 0 };
       for (RDFTriple triple : triples) {
         boolean changed = false;
         RDFTerm subj = triple.GetSubject();
         if (subj.GetKind() == RDFTerm.BLANK) {
           String oldname = subj.GetValue();
           String newname = SuggestBlankNodeName(
-            oldname,
-            nodeindex,
-            bnodeLabels);
+              oldname,
+              nodeindex,
+              bnodeLabels);
           if (!newname.equals(oldname)) {
             RDFTerm newNode = newBlankNodes.containsKey(oldname) ?
               newBlankNodes.get(oldname) : null;
@@ -56,9 +56,9 @@ private RDFInternal() {
         if (obj.GetKind() == RDFTerm.BLANK) {
           String oldname = obj.GetValue();
           String newname = SuggestBlankNodeName(
-            oldname,
-            nodeindex,
-            bnodeLabels);
+              oldname,
+              nodeindex,
+              bnodeLabels);
           if (!newname.equals(oldname)) {
             RDFTerm newNode = newBlankNodes.containsKey(oldname) ?
               newBlankNodes.get(oldname) : null;
@@ -72,7 +72,7 @@ private RDFInternal() {
           }
         }
         if (changed) {
-          RDFTriple newTriple = new RDFTriple[] {
+          RDFTriple[] newTriple = new RDFTriple[] {
             triple,
             new RDFTriple(subj, triple.GetPredicate(), obj),
           };
@@ -99,7 +99,7 @@ private RDFInternal() {
           break;
         }
         if (i >= 0 && !((c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') ||
-            (c >= 'a' && c <= 'z'))) {
+          (c >= 'a' && c <= 'z'))) {
           validnode = false;
           break;
         }

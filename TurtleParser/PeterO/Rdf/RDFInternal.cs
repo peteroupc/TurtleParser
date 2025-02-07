@@ -33,9 +33,9 @@ namespace PeterO.Rdf {
         if (subj.GetKind() == RDFTerm.BLANK) {
           string oldname = subj.GetValue();
           string newname = SuggestBlankNodeName(
-            oldname,
-            nodeindex,
-            bnodeLabels);
+              oldname,
+              nodeindex,
+              bnodeLabels);
           if (!newname.Equals(oldname, StringComparison.Ordinal)) {
             RDFTerm newNode = newBlankNodes.ContainsKey(oldname) ?
               newBlankNodes[oldname] : null;
@@ -52,9 +52,9 @@ namespace PeterO.Rdf {
         if (obj.GetKind() == RDFTerm.BLANK) {
           string oldname = obj.GetValue();
           string newname = SuggestBlankNodeName(
-            oldname,
-            nodeindex,
-            bnodeLabels);
+              oldname,
+              nodeindex,
+              bnodeLabels);
           if (!newname.Equals(oldname, StringComparison.Ordinal)) {
             RDFTerm newNode = newBlankNodes.ContainsKey(oldname) ?
               newBlankNodes[oldname] : null;
@@ -90,12 +90,14 @@ namespace PeterO.Rdf {
       // under N-Triples
       for (int i = 0; i < node.Length; ++i) {
         int c = node[i];
-        if (i == 0 && !((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
-          validnode = false;
-          break;
-        }
+        // NOTE: Blank nodes that start with a digit are now allowed
+        // under N-Triples
+        // if (i == 0 && !((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
+        // validnode = false;
+        // break;
+        // }
         if (i >= 0 && !((c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') ||
-            (c >= 'a' && c <= 'z'))) {
+          (c >= 'a' && c <= 'z'))) {
           validnode = false;
           break;
         }
@@ -107,8 +109,8 @@ namespace PeterO.Rdf {
         // Generate a new blank node label,
         // and ensure it's unique
         node = "b" + Convert.ToString(
-          (int)nodeindex[0],
-          CultureInfo.InvariantCulture);
+            (int)nodeindex[0],
+            CultureInfo.InvariantCulture);
         if (!bnodeLabels.ContainsKey(node)) {
           return node;
         }

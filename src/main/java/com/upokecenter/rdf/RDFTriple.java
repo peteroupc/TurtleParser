@@ -35,18 +35,18 @@ licensed under the Unlicense: https://unlicense.org/
       }
       if (!(predicate.GetKind() == RDFTerm.IRI)) {
         throw new IllegalArgumentException("doesn't satisfy" +
-"\u0020predicate.kind==RDFTerm.IRI");
+          "\u0020predicate.kind==RDFTerm.IRI");
       }
       this.predicate = predicate;
       if (subject == null) {
         throw new NullPointerException("subject");
       }
       if (!(subject.GetKind() == RDFTerm.IRI ||
-          subject.GetKind() == RDFTerm.BLANK)) {
+        subject.GetKind() == RDFTerm.BLANK)) {
         throw new
         IllegalArgumentException(
           "doesn't satisfy subject.kind==RDFTerm.IRI ||" +
-"\u0020subject.kind==RDFTerm.BLANK");
+          "\u0020subject.kind==RDFTerm.BLANK");
       }
       this.subject = subject;
     }
@@ -136,12 +136,12 @@ licensed under the Unlicense: https://unlicense.org/
       {
         int prime = 31;
         int result = prime + ((this.objectRdf == null) ? 0 :
-            this.objectRdf.hashCode());
+          this.objectRdf.hashCode());
         result = (prime * result) +
           ((this.predicate == null) ? 0 : this.predicate.hashCode());
         boolean subjnull = this.subject == null;
         result = (prime * result) + (subjnull ? 0 :
-            this.subject.hashCode());
+          this.subject.hashCode());
         return result;
       }
     }

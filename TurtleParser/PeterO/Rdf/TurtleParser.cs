@@ -9,6 +9,7 @@ licensed under the Unlicense: https://unlicense.org/
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Com.Upokecenter.Io;
 using PeterO;
 using PeterO.Text;
 
@@ -45,8 +46,14 @@ namespace PeterO.Rdf {
 
       private IList<TurtleProperty> properties;
 
-      public RDFTerm Term { get; set; }
-      public int Kind { get; set; }
+      public RDFTerm Term {
+        get;
+        set;
+      }
+      public int Kind {
+        get;
+        set;
+      }
 
       public IList<TurtleObject> GetObjects() {
         return this.objects;
@@ -58,8 +65,14 @@ namespace PeterO.Rdf {
     }
 
     private sealed class TurtleProperty {
-      public RDFTerm Pred { get; set; }
-      public TurtleObject Obj { get; set; }
+      public RDFTerm Pred {
+        get;
+        set;
+      }
+      public TurtleObject Obj {
+        get;
+        set;
+      }
     }
 
     private IDictionary<string, RDFTerm> bnodeLabels;
@@ -426,7 +439,7 @@ namespace PeterO.Rdf {
         }
       } else if (startChar <= 0x10ffff) {
         ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
-0xd800));
+          0xd800));
         ilist.Append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       var lastIsPeriod = false;
@@ -551,7 +564,7 @@ namespace PeterO.Rdf {
           ch = this.ReadUnicodeEscape(false);
         }
         if (ch <= 0x20 || ((ch & 0x7f) == ch &&
-            "><\\\"{}|^`".IndexOf((char)ch) >= 0)) {
+          "><\\\"{}|^`".IndexOf((char)ch) >= 0)) {
           throw new ParserException();
         }
         if (ch <= 0xffff) {
@@ -658,7 +671,7 @@ namespace PeterO.Rdf {
               }
             } else if (ch1 <= 0x10ffff) {
               ilist.Append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) |
-0xd800));
+                0xd800));
               ilist.Append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
             }
             if (ch1 >= '0' && ch1 <= '9') {
@@ -678,7 +691,7 @@ namespace PeterO.Rdf {
                 }
               } else if (ch1 <= 0x10ffff) {
                 ilist.Append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) |
-                    0xd800));
+                  0xd800));
                 ilist.Append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
               }
             } else {
@@ -755,7 +768,7 @@ namespace PeterO.Rdf {
         return TurtleObject.FromTerm(
             RDFTerm.FromIRI(this.ReadIriReference()));
       } else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
-          (ch >= '0' && ch <= '9'))) {
+        (ch >= '0' && ch <= '9'))) {
         return TurtleObject.FromTerm(this.ReadNumberLiteral(ch));
       } else if (acceptLiteral && (ch == '\'' || ch == '\"')) {
         // start of quote literal
@@ -778,10 +791,10 @@ namespace PeterO.Rdf {
       } else if (ch == '(') {
         return this.ReadCollection();
       } else if (ch == ':') { // prefixed name with current prefix
-        string scope = this.namespaces[String.Empty];
-        if (scope == null) {
+        if (!this.namespaces.ContainsKey(String.Empty)) {
           throw new ParserException();
         }
+        string scope = this.namespaces[String.Empty];
         return TurtleObject.FromTerm(
             RDFTerm.FromIRI(scope + this.ReadOptionalLocalName()));
       } else if (IsNameStartChar(ch)) { // prefix
@@ -1015,10 +1028,10 @@ namespace PeterO.Rdf {
         this.SkipWhitespace();
         return predicate;
       } else if (ch == ':') { // prefixed name with current prefix
-        string scope = this.namespaces[String.Empty];
-        if (scope == null) {
+        if (!this.namespaces.ContainsKey(String.Empty)) {
           throw new ParserException();
         }
+        string scope = this.namespaces[String.Empty];
         predicate = RDFTerm.FromIRI(scope + this.ReadOptionalLocalName());
         this.SkipWhitespace();
         return predicate;
@@ -1105,7 +1118,7 @@ namespace PeterO.Rdf {
           }
         } else if (startChar <= 0x10ffff) {
           ilist.Append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
-              0xd800));
+            0xd800));
           ilist.Append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
         }
         first = false;
@@ -1145,7 +1158,7 @@ namespace PeterO.Rdf {
         throw new ParserException();
       }
       string iri = this.ReadIriReference();
-      this.namespaces.Add(prefix, iri);
+      this.namespaces[prefix] = iri;
       if (!sparql) {
         this.SkipWhitespace();
         if (this.input.ReadChar() != '.') {
@@ -1267,7 +1280,7 @@ namespace PeterO.Rdf {
       }
       this.curSubject = subject;
       if (!(subject.Kind == TurtleObject.PROPERTIES &&
-          subject.GetProperties().Count > 0)) {
+        subject.GetProperties().Count > 0)) {
         this.SkipWhitespace();
         this.ReadPredicateObjectList(triples);
       } else {
@@ -1379,7 +1392,7 @@ namespace PeterO.Rdf {
         return a - '0';
       }
       return (a >= 'a' && a <= 'f') ? (a + 10 - 'a') : ((a >= 'A' && a <= 'F') ?
-          (a + 10 - 'A') : -1);
+        (a + 10 - 'A') : -1);
     }
   }
 }

@@ -134,7 +134,7 @@ licensed under the Unlicense: https://unlicense.org/
       StringBuilder ilist = new StringBuilder();
       int startChar = this.input.ReadChar();
       if (!((startChar >= 'A' && startChar <= 'Z') ||
-          (startChar >= 'a' && startChar <= 'z'))) {
+        (startChar >= 'a' && startChar <= 'z'))) {
         throw new ParserException();
       }
       if (startChar <= 0xffff) {
@@ -143,7 +143,7 @@ licensed under the Unlicense: https://unlicense.org/
         }
       } else if (startChar <= 0x10ffff) {
         ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
-0xd800));
+          0xd800));
         ilist.append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       this.input.SetSoftMark();
@@ -175,12 +175,12 @@ licensed under the Unlicense: https://unlicense.org/
       while (true) {
         int c2 = this.input.ReadChar();
         if ((c2 <= 0x20 || c2 > 0x7e) || ((c2 & 0x7F) == c2 && "<\"{}|^`"
-            .indexOf((char)c2) >= 0)) {
+          .indexOf((char)c2) >= 0)) {
           throw new ParserException();
         } else if (c2 == '\\') {
           c2 = this.ReadUnicodeEscape(true);
           if (c2 <= 0x20 || (c2 >= 0x7f && c2 <= 0x9f) || ((c2 & 0x7f) == c2 &&
-              "<\"{}|\\^`".indexOf((char)c2) >= 0)) {
+            "<\"{}|\\^`".indexOf((char)c2) >= 0)) {
             throw new ParserException();
           }
           if (c2 == ':') {
@@ -438,6 +438,6 @@ licensed under the Unlicense: https://unlicense.org/
         return a - '0';
       }
       return (a >= 'a' && a <= 'f') ? (a + 10 - 'a') : ((a >= 'A' && a <= 'F') ?
-          (a + 10 - 'A') : (-1));
+        (a + 10 - 'A') : (-1));
     }
   }

@@ -17,10 +17,10 @@ namespace PeterO.Rdf {
   /// be parsed by computer programs, and the exact text of the messages
   /// may change at any time between versions of this
   /// library.</para></summary>
-#if NET20 || NET40
-[Serializable]
-#endif
-public sealed class ParserException : Exception {
+  #if NET20 || NET40
+  [Serializable]
+  #endif
+  public sealed class ParserException : Exception {
     /// <summary>Initializes a new instance of the
     /// <see cref='PeterO.Rdf.ParserException'/> class.</summary>
     public ParserException() {

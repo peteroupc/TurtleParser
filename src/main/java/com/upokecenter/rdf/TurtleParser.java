@@ -440,7 +440,7 @@ private TurtleObject propVarobj;
         }
       } else if (startChar <= 0x10ffff) {
         ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
-0xd800));
+          0xd800));
         ilist.append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
       }
       boolean lastIsPeriod = false;
@@ -565,7 +565,7 @@ private TurtleObject propVarobj;
           ch = this.ReadUnicodeEscape(false);
         }
         if (ch <= 0x20 || ((ch & 0x7f) == ch &&
-            "><\\\"{}|^`".indexOf((char)ch) >= 0)) {
+          "><\\\"{}|^`".indexOf((char)ch) >= 0)) {
           throw new ParserException();
         }
         if (ch <= 0xffff) {
@@ -672,7 +672,7 @@ private TurtleObject propVarobj;
               }
             } else if (ch1 <= 0x10ffff) {
               ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) |
-0xd800));
+                0xd800));
               ilist.append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
             }
             if (ch1 >= '0' && ch1 <= '9') {
@@ -692,7 +692,7 @@ private TurtleObject propVarobj;
                 }
               } else if (ch1 <= 0x10ffff) {
                 ilist.append((char)((((ch1 - 0x10000) >> 10) & 0x3ff) |
-                    0xd800));
+                  0xd800));
                 ilist.append((char)(((ch1 - 0x10000) & 0x3ff) | 0xdc00));
               }
             } else {
@@ -769,7 +769,7 @@ private TurtleObject propVarobj;
         return TurtleObject.FromTerm(
             RDFTerm.FromIRI(this.ReadIriReference()));
       } else if (acceptLiteral && (ch == '-' || ch == '+' || ch == '.' ||
-          (ch >= '0' && ch <= '9'))) {
+        (ch >= '0' && ch <= '9'))) {
         return TurtleObject.FromTerm(this.ReadNumberLiteral(ch));
       } else if (acceptLiteral && (ch == '\'' || ch == '\"')) {
         // start of quote literal
@@ -1119,7 +1119,7 @@ private TurtleObject propVarobj;
           }
         } else if (startChar <= 0x10ffff) {
           ilist.append((char)((((startChar - 0x10000) >> 10) & 0x3ff) |
-              0xd800));
+            0xd800));
           ilist.append((char)(((startChar - 0x10000) & 0x3ff) | 0xdc00));
         }
         first = false;
@@ -1281,7 +1281,7 @@ private TurtleObject propVarobj;
       }
       this.curSubject = subject;
       if (!(subject.getKind() == TurtleObject.PROPERTIES &&
-          subject.GetProperties().size() > 0)) {
+        subject.GetProperties().size() > 0)) {
         this.SkipWhitespace();
         this.ReadPredicateObjectList(triples);
       } else {
@@ -1393,6 +1393,6 @@ private TurtleObject propVarobj;
         return a - '0';
       }
       return (a >= 'a' && a <= 'f') ? (a + 10 - 'a') : ((a >= 'A' && a <= 'F') ?
-          (a + 10 - 'A') : -1);
+        (a + 10 - 'A') : -1);
     }
   }

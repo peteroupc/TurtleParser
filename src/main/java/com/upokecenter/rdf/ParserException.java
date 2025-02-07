@@ -17,7 +17,7 @@ licensed under the Unlicense: https://unlicense.org/
    * the messages may change at any time between versions of this library.</p>
    */
 
-public final class ParserException extends RuntimeException {
+  public final class ParserException extends RuntimeException {
 private static final long serialVersionUID = 1L;
     /**
      * Initializes a new instance of the {@link
